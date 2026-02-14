@@ -33,9 +33,9 @@ pnpm serve
 ```
 awesome-cert-sherpa/
 ├── website/          # Docusaurus docs portal (TypeScript + pnpm)
-├── content/          # Raw markdown/YAML content sources (planned)
-├── bank/             # Question bank data (planned)
-├── tools/            # CLI utilities and scripts (planned)
+├── content/          # Curated resource YAML files and source registry
+├── bank/             # Question bank YAML data (640+ questions, 14 certs)
+├── tools/            # CLI utilities — bank validator, build pipeline
 ├── .github/          # CI/CD workflows, issue/PR templates
 ├── package.json      # Root workspace scripts
 └── pnpm-workspace.yaml
@@ -46,10 +46,10 @@ awesome-cert-sherpa/
 | Phase | Status | Description |
 |-------|--------|-------------|
 | **1 — Scaffold** | ✅ Done | Docusaurus portal, GitHub Pages config, category structure, OSS docs |
-| **2 — Content** | 🔜 Next | Populate cert pages (AWS, Azure, Security+, CCNA, CKA, …) with curated resources |
-| **3 — Community** | 📋 Planned | GitHub Discussions, contribution workflows, issue templates, CI/CD |
-| **4 — Practice Engine** | 📋 Planned | Interactive quiz runner (self-hostable), spaced repetition, progress tracking |
-| **5 — Grow** | 📋 Planned | Community voting, "verified resource" badges, multilingual support |
+| **2 — Content** | ✅ Done | 640+ practice questions across 14 certs, 440+ curated resources across 7 categories |
+| **3 — Community** | ✅ Done | GitHub Discussions, contribution workflows, issue templates |
+| **4 — Practice Engine** | ✅ Done | Interactive quiz runner with 14 certification question banks |
+| **5 — Grow** | 🔜 Next | Community voting, "verified resource" badges, multilingual support, CI/CD |
 
 ## Anti-Dump Policy
 

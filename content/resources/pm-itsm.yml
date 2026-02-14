@@ -397,17 +397,6 @@ resources:
     notes: "Official PMI agile practice guide — agile, hybrid approaches. Essential for PMP agile content."
     last_verified: "2026-02-14"
 
-  - title: "Scrum.org Open Assessments"
-    type: practice-tool
-    url: https://www.scrum.org/open-assessments
-    vendor: Scrum.org
-    certs: [PSM-I, PSPO]
-    tags: [practice-exam, free, official]
-    difficulty: beginner-intermediate
-    language: [en]
-    notes: "Free practice assessments from Scrum.org — Scrum, Nexus, Evidence-Based Management."
-    last_verified: "2026-02-14"
-
   - title: "The Scrum Guide (2020)"
     type: reference
     url: https://scrumguides.org/scrum-guide.html

@@ -230,28 +230,6 @@ resources:
     notes: "The US national cybersecurity framework — free PDF download."
     last_verified: "2026-02-14"
 
-  - title: "OWASP Top 10"
-    type: reference
-    url: https://owasp.org/www-project-top-ten/
-    vendor: OWASP
-    certs: [Security+, CISSP, CEH]
-    tags: [owasp-top10, web-security, vulnerabilities]
-    difficulty: intermediate
-    language: [en]
-    notes: "The definitive list of critical web application security risks — core Security+ and CISSP topic."
-    last_verified: "2026-02-14"
-
-  - title: "MITRE ATT&CK Framework"
-    type: reference
-    url: https://attack.mitre.org/
-    vendor: MITRE
-    certs: [Security+, CISSP, CEH]
-    tags: [mitre-attack, threat-modeling, adversary-techniques]
-    difficulty: intermediate
-    language: [en]
-    notes: "Comprehensive knowledge base of adversary tactics and techniques — key for threat analysis exams."
-    last_verified: "2026-02-14"
-
   - title: "CIS Benchmarks"
     type: reference
     url: https://www.cisecurity.org/cis-benchmarks
@@ -317,28 +295,6 @@ resources:
     difficulty: beginner-intermediate
     language: [en]
     notes: "Full free video course covering all SY0-701 exam objectives. The gold standard."
-    last_verified: "2026-02-14"
-
-  - title: "OWASP Web Security Testing Guide"
-    type: reference
-    url: https://owasp.org/www-project-web-security-testing-guide/
-    vendor: OWASP
-    certs: [Security+, CISSP]
-    tags: [testing, web-security, methodology]
-    difficulty: intermediate
-    language: [en]
-    notes: "Comprehensive web security testing methodology — free, community-maintained."
-    last_verified: "2026-02-14"
-
-  - title: "OWASP Cheat Sheet Series"
-    type: cheatsheet
-    url: https://cheatsheetseries.owasp.org/
-    vendor: OWASP
-    certs: [Security+, CISSP]
-    tags: [cheatsheet, secure-coding, reference]
-    difficulty: intermediate
-    language: [en]
-    notes: "200+ cheat sheets for secure development — authentication, crypto, session management."
     last_verified: "2026-02-14"
 
   - title: "CompTIA Security+ Study Guide (SY0-701) by Mike Chapple"
@@ -451,17 +407,6 @@ resources:
     notes: "Comprehensive security/privacy controls catalog — key reference for governance domains."
     last_verified: "2026-02-14"
 
-  - title: "NIST Cybersecurity Framework 2.0"
-    type: reference
-    url: https://www.nist.gov/cyberframework
-    vendor: NIST
-    certs: [CISSP, Security+]
-    tags: [framework, governance, risk]
-    difficulty: intermediate
-    language: [en]
-    notes: "CSF 2.0 core functions: Govern, Identify, Protect, Detect, Respond, Recover."
-    last_verified: "2026-02-14"
-
   - title: "Hack The Box"
     type: lab
     url: https://www.hackthebox.com/
@@ -482,17 +427,6 @@ resources:
     difficulty: intermediate
     language: [en]
     notes: "Free downloadable vulnerable VMs for local penetration testing practice."
-    last_verified: "2026-02-14"
-
-  - title: "MITRE ATT&CK Navigator"
-    type: software-tool
-    url: https://mitre-attack.github.io/attack-navigator/
-    vendor: MITRE
-    certs: [CISSP, CySA+]
-    tags: [threat-modeling, visualization, free]
-    difficulty: intermediate
-    language: [en]
-    notes: "Web app to visualize and annotate ATT&CK matrices — great for mapping threats."
     last_verified: "2026-02-14"
 
   - title: "Cybrary"
@@ -526,17 +460,6 @@ resources:
     difficulty: intermediate
     language: [en]
     notes: "Free Splunk training — fundamentals, search, dashboards. Essential SIEM knowledge."
-    last_verified: "2026-02-14"
-
-  - title: "SANS Reading Room"
-    type: reference
-    url: https://www.sans.org/white-papers/
-    vendor: SANS
-    certs: [CISSP, Security+]
-    tags: [whitepapers, research, free]
-    difficulty: intermediate-advanced
-    language: [en]
-    notes: "Free research papers on security topics — incident response, forensics, governance."
     last_verified: "2026-02-14"
 
   - title: "Antisyphon Training – Pay What You Can"

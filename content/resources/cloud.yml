@@ -499,28 +499,6 @@ resources:
     notes: "Community-maintained visual roadmap with cloud fundamentals section."
     last_verified: "2026-02-14"
 
-  - title: "AWS Well-Architected Labs"
-    type: lab
-    url: https://www.wellarchitectedlabs.com/
-    vendor: AWS
-    certs: [AWS-SAA, AWS-SAP]
-    tags: [well-architected, hands-on, free]
-    difficulty: intermediate
-    language: [en]
-    notes: "Free hands-on labs aligned to AWS Well-Architected Framework pillars."
-    last_verified: "2026-02-14"
-
-  - title: "AWS Architecture Center"
-    type: reference
-    url: https://aws.amazon.com/architecture/
-    vendor: AWS
-    certs: [AWS-SAA, AWS-SAP]
-    tags: [architecture, reference-diagrams, patterns]
-    difficulty: intermediate
-    language: [en]
-    notes: "Reference architectures, diagrams, and vetted solutions for common AWS workloads."
-    last_verified: "2026-02-14"
-
   - title: "AWS Certified Solutions Architect Official Study Guide (SAA-C03)"
     type: study-guide
     url: https://www.wiley.com/en-us/AWS+Certified+Solutions+Architect+Study+Guide%3A+Associate+SAA+C03+Exam%2C+4th+Edition-p-9781119982623
@@ -530,17 +508,6 @@ resources:
     difficulty: intermediate
     language: [en]
     notes: "Official Sybex study guide covering all SAA-C03 domains. Paid resource."
-    last_verified: "2026-02-14"
-
-  - title: "AWS Workshops"
-    type: workshop
-    url: https://workshops.aws/
-    vendor: AWS
-    certs: [AWS-SAA, AWS-SAP, AWS-DVA]
-    tags: [hands-on, workshops, free]
-    difficulty: intermediate
-    language: [en]
-    notes: "Collection of AWS-maintained workshops — serverless, containers, ML, networking."
     last_verified: "2026-02-14"
 
   - title: "AWS re:Post Knowledge Center"
@@ -554,39 +521,6 @@ resources:
     notes: "Official AWS troubleshooting articles and how-to guides — great for scenario practice."
     last_verified: "2026-02-14"
 
-  - title: "Microsoft Learn – AZ-104 Learning Path"
-    type: course
-    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/
-    vendor: Microsoft
-    certs: [AZ-104]
-    tags: [learning-path, official, free]
-    difficulty: intermediate
-    language: [en]
-    notes: "Official Microsoft AZ-104 preparation path — modules, sandboxes, practice assessment."
-    last_verified: "2026-02-14"
-
-  - title: "Microsoft Learn – AZ-305 Learning Path"
-    type: course
-    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/
-    vendor: Microsoft
-    certs: [AZ-305]
-    tags: [learning-path, official, free]
-    difficulty: advanced
-    language: [en]
-    notes: "Official AZ-305 Azure Solutions Architect Expert preparation path."
-    last_verified: "2026-02-14"
-
-  - title: "Azure Architecture Center"
-    type: reference
-    url: https://learn.microsoft.com/en-us/azure/architecture/
-    vendor: Microsoft
-    certs: [AZ-104, AZ-305]
-    tags: [architecture, patterns, best-practices]
-    difficulty: intermediate-advanced
-    language: [en]
-    notes: "Microsoft reference architectures, design patterns, and cloud adoption framework."
-    last_verified: "2026-02-14"
-
   - title: "Azure Charts"
     type: cheatsheet
     url: https://azurecharts.com/
@@ -596,17 +530,6 @@ resources:
     difficulty: beginner-intermediate
     language: [en]
     notes: "Visual comparison charts for Azure services — regions, pricing, SLAs at a glance."
-    last_verified: "2026-02-14"
-
-  - title: "Google Cloud Skills Boost – ACE Learning Path"
-    type: course
-    url: https://www.cloudskillsboost.google/paths/11
-    vendor: Google Cloud
-    certs: [GCP-ACE]
-    tags: [learning-path, labs, official]
-    difficulty: intermediate
-    language: [en]
-    notes: "Official Google Cloud ACE preparation path with hands-on labs and quests."
     last_verified: "2026-02-14"
 
   - title: "Google Cloud Architecture Diagramming Tool"
@@ -673,17 +596,6 @@ resources:
     difficulty: intermediate
     language: [en]
     notes: "Build a cloud-hosted resume — hands-on project covering IaC, CI/CD, serverless."
-    last_verified: "2026-02-14"
-
-  - title: "open-guides/og-aws (GitHub)"
-    type: repo
-    url: https://github.com/open-guides/og-aws
-    vendor: Neutral
-    certs: [AWS-SAA, AWS-SAP]
-    tags: [github, community, comprehensive]
-    difficulty: intermediate
-    language: [en]
-    notes: "37k+ stars — practical guide to AWS with tips, gotchas, and best practices."
     last_verified: "2026-02-14"
 
   - title: "donnemartin/system-design-primer (GitHub)"

@@ -6,7 +6,7 @@ import yamlLoaderPlugin from './plugins/yaml-loader-plugin';
 const config: Config = {
   title: 'Awesome CertSherpa',
   tagline: 'Community-driven certification exam prep hub',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.png',
 
   future: {
     v4: true,
@@ -64,7 +64,7 @@ const config: Config = {
       title: 'CertSherpa',
       logo: {
         alt: 'CertSherpa Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
