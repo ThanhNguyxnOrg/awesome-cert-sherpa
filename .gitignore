@@ -12,6 +12,9 @@ nul
 # Node
 node_modules/
 
+# pnpm
+.pnpm-store/
+
 # Docusaurus
 website/build/
 website/.docusaurus/
@@ -21,3 +24,6 @@ website/.cache-loader/
 .env
 .env.*
 !.env.example
+
+# Logs
+*.log

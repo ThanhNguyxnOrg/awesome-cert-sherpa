@@ -1,0 +1,11 @@
+{
+  "label": "Categories",
+  "position": 2,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Certification Categories",
+    "description": "Browse certifications by domain — Cloud, Security, Networking, DevOps, Data & AI, Linux, and PM & ITSM.",
+    "slug": "/categories"
+  }
+}

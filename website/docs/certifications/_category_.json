@@ -1,0 +1,11 @@
+{
+  "label": "Certifications",
+  "position": 3,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Certifications",
+    "description": "Individual certification pages with resources, difficulty ratings, and community tips.",
+    "slug": "/certifications"
+  }
+}
