@@ -20,6 +20,9 @@ website/build/
 website/.docusaurus/
 website/.cache-loader/
 
+# Generated bank JSON (built from YAML at build time)
+website/static/bank/
+
 # Environment
 .env
 .env.*

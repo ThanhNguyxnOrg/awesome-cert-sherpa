@@ -5,7 +5,8 @@
   "description": "Community-driven certification exam prep hub (awesome-style + practice engine).",
   "scripts": {
     "dev": "pnpm --filter website start",
-    "build": "pnpm --filter website build",
+    "build": "pnpm build:bank && pnpm --filter website build",
+    "build:bank": "tsx tools/build-bank.ts",
     "serve": "pnpm --filter website serve",
     "clear": "pnpm --filter website clear",
     "typecheck": "pnpm --filter website typecheck",
