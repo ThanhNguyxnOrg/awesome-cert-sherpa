@@ -73,6 +73,7 @@ const config: Config = {
           position: 'left',
           label: 'Resources',
         },
+        {to: '/practice', label: 'Practice', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa',
