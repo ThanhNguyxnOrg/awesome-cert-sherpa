@@ -21,8 +21,10 @@
     "url": "https://github.com/ThanhNguyxn/awesome-cert-sherpa.git"
   },
   "devDependencies": {
-    "@types/js-yaml": "^4.0.9",
-    "js-yaml": "^4.1.1",
-    "tsx": "^4.21.0"
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "fast-glob": "^3.3.3",
+    "tsx": "^4.21.0",
+    "yaml": "^2.8.2"
   }
 }

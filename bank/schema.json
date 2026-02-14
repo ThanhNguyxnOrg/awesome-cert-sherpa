@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/ThanhNguyxn/awesome-cert-sherpa/blob/main/bank/schema.json",
+  "title": "CertSherpa Question Bank",
+  "description": "Schema for original practice-question YAML files in /bank.",
+  "type": "object",
+  "required": ["meta", "questions"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["category", "cert", "vendor", "version"],
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Top-level category slug (cloud, security, devops, …)"
+        },
+        "cert": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Short cert identifier (AWS-SAA, AZ-900, Security+, …)"
+        },
+        "vendor": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Vendor name (AWS, Microsoft, CompTIA, …)"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Schema revision — bump when breaking changes occur"
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional human-readable description of this bank file"
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "difficulty",
+          "tags",
+          "question",
+          "choices",
+          "answerIndex",
+          "explanation",
+          "refs"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Globally unique question identifier"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": ["easy", "medium", "hard"]
+          },
+          "tags": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "question": {
+            "type": "string",
+            "minLength": 10,
+            "description": "The question prompt (scenario-based preferred)"
+          },
+          "choices": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "answerIndex": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "0-based index into choices[]"
+          },
+          "explanation": {
+            "type": "string",
+            "minLength": 20,
+            "description": "Original explanation — minimum 2 sentences"
+          },
+          "refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "At least 1 link to official documentation"
+          },
+          "author": {
+            "type": "string",
+            "description": "Optional author attribution"
+          }
+        }
+      }
+    }
+  }
+}
