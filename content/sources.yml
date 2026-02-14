@@ -250,6 +250,155 @@ sources:
     notes: "Free online — Google's Site Reliability Engineering book. SRE bible."
 
   # ──────────────────────────────────────────────
+  # Exam Blueprints & Objectives
+  # ──────────────────────────────────────────────
+  - id: aws_saa_c03_exam_guide
+    name: AWS SAA-C03 Exam Guide (PDF)
+    url: https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
+    category: blueprint
+    tags: [aws, saa-c03, objectives]
+    notes: "Official AWS Solutions Architect Associate exam guide — domains, weightings, and sample questions."
+
+  - id: ms_az900_study_guide
+    name: Microsoft AZ-900 Study Guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900
+    category: blueprint
+    tags: [azure, az-900, objectives]
+    notes: "Official Microsoft AZ-900 study guide — skills measured, exam format, and preparation resources."
+
+  - id: gcp_ace_exam_guide
+    name: Google ACE Exam Guide (PDF)
+    url: https://services.google.com/fh/files/misc/associate_cloud_engineer_exam_guide_english.pdf
+    category: blueprint
+    tags: [gcp, ace, objectives]
+    notes: "Official GCP Associate Cloud Engineer exam guide — domains, tasks, and knowledge areas."
+
+  - id: terraform_associate_004_objectives
+    name: Terraform Associate 004 Exam Content List
+    url: https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-review-004
+    category: blueprint
+    tags: [terraform, associate-004, objectives]
+    notes: "Official HashiCorp Terraform Associate 004 review guide — exam objectives and study resources."
+
+  - id: comptia_secplus_sy0701_objectives
+    name: CompTIA Security+ SY0-701 Exam Objectives
+    url: https://www.comptia.org/certifications/security
+    category: blueprint
+    tags: [comptia, security-plus, sy0-701, objectives]
+    notes: "Official CompTIA Security+ SY0-701 exam objectives — domains, acronyms, and performance-based objectives."
+
+  - id: comptia_netplus_n10009_objectives
+    name: CompTIA Network+ N10-009 Exam Objectives
+    url: https://www.comptia.org/certifications/network
+    category: blueprint
+    tags: [comptia, network-plus, n10-009, objectives]
+    notes: "Official CompTIA Network+ N10-009 exam objectives — networking fundamentals through troubleshooting."
+
+  - id: cisco_ccna_200301_exam_topics
+    name: Cisco CCNA 200-301 Exam Topics
+    url: https://learningnetwork.cisco.com/s/ccna-exam-topics
+    category: blueprint
+    tags: [cisco, ccna, 200-301, objectives]
+    notes: "Official Cisco CCNA 200-301 exam topics — network fundamentals through automation."
+
+  - id: cka_curriculum
+    name: CNCF CKA Curriculum
+    url: https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_v1.31.pdf
+    category: blueprint
+    tags: [cncf, cka, kubernetes, objectives]
+    notes: "Official CNCF CKA exam curriculum — cluster setup, workloads, networking, storage, troubleshooting."
+
+  - id: isc2_cissp_exam_outline
+    name: ISC2 CISSP Exam Outline
+    url: https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline
+    category: blueprint
+    tags: [isc2, cissp, objectives]
+    notes: "Official ISC2 CISSP exam outline — 8 domains, weightings, and knowledge statements."
+
+  - id: lpi_lpic1_objectives
+    name: LPI LPIC-1 Exam Objectives
+    url: https://www.lpi.org/our-certifications/lpic-1-overview/
+    category: blueprint
+    tags: [lpi, lpic-1, linux, objectives]
+    notes: "Official LPI LPIC-1 exam objectives — Exams 101 and 102 topics and weightings."
+
+  - id: pmi_pmp_exam_content_outline
+    name: PMI PMP Exam Content Outline
+    url: https://www.pmi.org/certifications/project-management-pmp/earn-the-pmp/pmp-exam-preparation/pmp-reference-list
+    category: blueprint
+    tags: [pmi, pmp, project-management, objectives]
+    notes: "Official PMI PMP exam reference list and content outline — people, process, business environment domains."
+
+  - id: aws_mls_c01_exam_guide
+    name: AWS MLS-C01 Exam Guide
+    url: https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Exam-Guide.pdf
+    category: blueprint
+    tags: [aws, mls-c01, machine-learning, objectives]
+    notes: "Official AWS ML Specialty exam guide — data engineering, EDA, modeling, ML implementation."
+
+  # ──────────────────────────────────────────────
+  # Well-Architected & Cloud Frameworks
+  # ──────────────────────────────────────────────
+  - id: aws_well_architected
+    name: AWS Well-Architected Framework
+    url: https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html
+    category: framework
+    tags: [aws, architecture, pillars]
+    notes: "AWS best practices across 6 pillars — operational excellence, security, reliability, performance, cost, sustainability."
+
+  - id: azure_well_architected
+    name: Azure Well-Architected Framework
+    url: https://learn.microsoft.com/en-us/azure/well-architected/
+    category: framework
+    tags: [azure, architecture, pillars]
+    notes: "Microsoft Azure architecture best practices across 5 pillars."
+
+  - id: gcp_well_architected
+    name: Google Cloud Well-Architected Framework
+    url: https://cloud.google.com/architecture/framework
+    category: framework
+    tags: [gcp, architecture, pillars]
+    notes: "Google Cloud architecture best practices — system design, operational excellence, security, reliability, cost."
+
+  # ──────────────────────────────────────────────
+  # Security Standards & Frameworks
+  # ──────────────────────────────────────────────
+  - id: nist_csf_2
+    name: NIST Cybersecurity Framework 2.0 (PDF)
+    url: https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf
+    category: standard
+    tags: [nist, csf, governance]
+    notes: "NIST CSF 2.0 — govern, identify, protect, detect, respond, recover. Core reference for security certs."
+
+  - id: owasp_top10_2021
+    name: "OWASP Top 10:2021"
+    url: https://owasp.org/Top10/2021/
+    category: standard
+    tags: [owasp, web-security]
+    notes: "OWASP Top 10 2021 — critical web application security risks. Essential for Security+ and CISSP."
+
+  - id: mitre_attack
+    name: MITRE ATT&CK
+    url: https://attack.mitre.org/
+    category: framework
+    tags: [mitre, threat-modeling]
+    notes: "Adversary tactics, techniques, and procedures (TTPs). Key reference for threat analysis domains."
+
+  - id: nist_sp_800_53
+    name: NIST SP 800-53 Security Controls
+    url: https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+    category: standard
+    tags: [nist, security-controls, compliance]
+    notes: "NIST 800-53 Rev 5 — comprehensive catalog of security and privacy controls for federal systems."
+
+  - id: iso_27001_overview
+    name: ISO/IEC 27001 Overview
+    url: https://www.iso.org/standard/27001
+    category: standard
+    tags: [iso, isms, compliance]
+    notes: "ISO 27001 information security management system standard overview. Referenced in CISSP and security governance."
+
+  # ──────────────────────────────────────────────
   # GitHub Repositories
   # ──────────────────────────────────────────────
   - name: GitHub

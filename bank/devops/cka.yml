@@ -230,6 +230,305 @@ questions:
       - "https://kubernetes.io/docs/concepts/services-networking/network-policies/"
     author: "ThanhNguyxn"
 
+  - id: "cka-extra-001"
+    difficulty: "easy"
+    tags: ["kubeadm", "upgrade", "control-plane"]
+    question: "You need to upgrade a kubeadm cluster from v1.29 to v1.30. Which component on the control-plane node must be upgraded first before any other cluster component?"
+    choices:
+      - "A. kubeadm itself must be upgraded first, then used to plan and apply the control-plane upgrade."
+      - "B. Upgrade kubelet on all worker nodes before touching the control plane."
+      - "C. Upgrade CoreDNS manually before running any kubeadm commands."
+      - "D. Replace the etcd binary directly and restart the systemd unit."
+    answerIndex: 0
+    explanation: "The documented upgrade sequence requires upgrading the kubeadm binary first, then running kubeadm upgrade plan and apply. This ensures the tool itself understands the target version before modifying control-plane static pod manifests. Worker kubelet upgrades come after the control plane is upgraded."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-002"
+    difficulty: "medium"
+    tags: ["resources", "limits", "oom", "qos"]
+    question: "A Java application Pod is repeatedly OOMKilled despite the JVM heap being set to 512Mi. The container memory limit is 512Mi. What is the root cause and fix?"
+    choices:
+      - "A. The JVM uses memory beyond heap (metaspace, thread stacks, native buffers). Increase the container memory limit above the JVM heap size."
+      - "B. Reduce the JVM heap to 128Mi so the container limit is sufficient."
+      - "C. Remove the memory limit entirely so the JVM can use unlimited node memory."
+      - "D. Switch the container runtime from containerd to CRI-O to fix memory accounting."
+    answerIndex: 0
+    explanation: "JVM total memory consumption includes heap, metaspace, thread stacks, direct buffers, and GC overhead. A container limit equal to the heap alone leaves no room for non-heap allocations, causing the kernel OOM killer to terminate the process. The limit should account for total JVM memory footprint."
+    refs:
+      - "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-003"
+    difficulty: "hard"
+    tags: ["etcd", "encryption", "secrets", "security"]
+    question: "A security audit requires all Secret data to be encrypted at rest in etcd. After creating an EncryptionConfiguration with aescbc provider, existing Secrets in etcd remain unencrypted. How do you remediate this?"
+    choices:
+      - "A. Read and rewrite all existing Secrets using kubectl get secrets --all-namespaces -o json | kubectl replace -f - to force re-encryption."
+      - "B. Restart etcd; it automatically re-encrypts all existing data on startup."
+      - "C. Delete and recreate all Secrets manually from source."
+      - "D. Change the encryption provider from aescbc to identity and restart kube-apiserver."
+    answerIndex: 0
+    explanation: "Encryption configuration only applies to new writes through the API server. Existing etcd data must be rewritten through the API to trigger encryption. A bulk read-and-replace forces each Secret through the API server write path with the new encryption provider. Simply restarting etcd does not re-encrypt stored data."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-004"
+    difficulty: "medium"
+    tags: ["dns", "pod-dns-policy", "networking"]
+    question: "A Pod with dnsPolicy set to Default resolves external domains but cannot resolve cluster services like my-svc.my-ns.svc.cluster.local. What change fixes in-cluster DNS resolution?"
+    choices:
+      - "A. Change dnsPolicy to ClusterFirst so the Pod uses CoreDNS for cluster-internal names."
+      - "B. Add a hostAlias for every cluster service the Pod needs."
+      - "C. Restart CoreDNS Pods to register the service."
+      - "D. Set the Pod's dnsPolicy to None and leave dnsConfig empty."
+    answerIndex: 0
+    explanation: "dnsPolicy Default inherits the node's resolv.conf, which typically does not include the cluster DNS search domain. ClusterFirst directs queries to CoreDNS first, enabling resolution of cluster service names. Policy None without dnsConfig removes all DNS resolution capability."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-005"
+    difficulty: "hard"
+    tags: ["certificates", "kubeadm", "troubleshooting", "tls"]
+    question: "After exactly one year without maintenance, kubectl commands fail with x509 certificate has expired. The cluster was bootstrapped with kubeadm. What is the correct recovery procedure?"
+    choices:
+      - "A. Run kubeadm certs renew all on the control-plane node, then restart control-plane static pods and regenerate kubeconfig files."
+      - "B. Reinstall the cluster from scratch since expired certificates cannot be renewed."
+      - "C. Set the system clock back one year to make certificates valid again."
+      - "D. Delete the /etc/kubernetes/pki directory and let kubelet regenerate all certificates automatically."
+    answerIndex: 0
+    explanation: "kubeadm issues certificates with a one-year validity by default. The kubeadm certs renew command regenerates them using the existing CA. After renewal, static pods must be restarted to load new certificates, and admin kubeconfigs need regeneration. Clock manipulation is not a valid solution and deleting PKI would break the trust chain."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-006"
+    difficulty: "easy"
+    tags: ["static-pods", "kubelet", "manifests"]
+    question: "You need to run a critical monitoring agent as a static Pod on a specific node. Where should the Pod manifest be placed?"
+    choices:
+      - "A. In the directory configured by kubelet's staticPodPath (default /etc/kubernetes/manifests/) on that node."
+      - "B. Applied via kubectl apply -f to the API server like any other Pod."
+      - "C. Added as a container in the kube-scheduler static pod manifest."
+      - "D. Stored in a ConfigMap in kube-system namespace."
+    answerIndex: 0
+    explanation: "Static Pods are managed directly by the kubelet on a specific node. Placing a manifest in the staticPodPath directory causes kubelet to create and manage the Pod independently of the API server. kubectl-applied Pods are not static pods and can be rescheduled to other nodes."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-007"
+    difficulty: "medium"
+    tags: ["storage", "volume-snapshot", "csi", "backup"]
+    question: "A database team needs point-in-time snapshots of a PVC before schema migrations. The CSI driver supports snapshots. What resources must be created to take a snapshot?"
+    choices:
+      - "A. A VolumeSnapshotClass referencing the CSI driver, and a VolumeSnapshot referencing the source PVC."
+      - "B. A StorageClass with snapshot: true and a new PVC with the same name."
+      - "C. A CronJob that runs dd to copy the block device."
+      - "D. A ConfigMap containing the snapshot schedule and a matching DaemonSet."
+    answerIndex: 0
+    explanation: "Kubernetes volume snapshots require a VolumeSnapshotClass (analogous to StorageClass) that identifies the CSI snapshot driver, and a VolumeSnapshot object referencing the source PVC. The CSI external-snapshotter controller handles the actual snapshot creation. Manual dd or CronJob approaches bypass CSI and lack proper lifecycle management."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/volume-snapshots/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-008"
+    difficulty: "hard"
+    tags: ["rbac", "clusterrole", "aggregation", "authorization"]
+    question: "You want all custom CRD resources with label rbac.example.com/aggregate-to-view: true to automatically appear in the built-in view ClusterRole. How should this be configured?"
+    choices:
+      - "A. Create a ClusterRole granting access to the CRD resources with label rbac.authorization.k8s.io/aggregate-to-view: true; the aggregation controller merges it into view."
+      - "B. Edit the view ClusterRole directly and add rules for each CRD resource."
+      - "C. Create a ClusterRoleBinding that binds the CRD resources to the view ClusterRole."
+      - "D. Patch kube-apiserver with a flag to auto-aggregate all CRDs."
+    answerIndex: 0
+    explanation: "Built-in ClusterRoles like view, edit, and admin use aggregation rules that match labels on other ClusterRoles. Creating a new ClusterRole with the appropriate aggregation label causes the controller to merge its rules into the aggregate role automatically. Direct edits to built-in roles are overwritten during upgrades."
+    refs:
+      - "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-009"
+    difficulty: "medium"
+    tags: ["coredns", "dns", "configmap", "forwarding"]
+    question: "Applications in the cluster must resolve names in a private corporate domain corp.internal using internal DNS servers at 10.0.0.53. How should CoreDNS be configured?"
+    choices:
+      - "A. Add a forward block for corp.internal to 10.0.0.53 in the CoreDNS ConfigMap Corefile."
+      - "B. Replace the default forward . /etc/resolv.conf with forward . 10.0.0.53 for all queries."
+      - "C. Create a NetworkPolicy allowing DNS traffic only to 10.0.0.53."
+      - "D. Add corp.internal to the cluster's clusterDomain kubelet configuration."
+    answerIndex: 0
+    explanation: "CoreDNS Corefile supports conditional forwarding by adding a server block for the specific domain pointing to the corporate DNS server. This preserves default resolution for all other domains while routing corp.internal queries correctly. Replacing the default forwarder would break resolution of public domains."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-010"
+    difficulty: "hard"
+    tags: ["kubelet", "certificates", "rotation", "security"]
+    question: "A long-running cluster has nodes whose kubelet client certificates are approaching expiration. The cluster uses kubeadm. How do you ensure kubelet certificates are renewed without manual intervention?"
+    choices:
+      - "A. Verify that kubelet is configured with rotateCertificates: true and the RotateKubeletClientCertificate feature is active so kubelet automatically requests new certificates."
+      - "B. Manually copy new certificates from the control-plane PKI directory to each worker node."
+      - "C. Delete the node objects and re-join them with kubeadm join."
+      - "D. Set certificate validity to 100 years in the kubeadm ClusterConfiguration."
+    answerIndex: 0
+    explanation: "Kubelet certificate rotation automatically requests a new client certificate from the API server before the current one expires. This requires the rotateCertificates kubelet config flag and appropriate RBAC for the certificates API. Manual certificate copying is error-prone and does not scale."
+    refs:
+      - "https://kubernetes.io/docs/tasks/tls/certificate-rotation/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-011"
+    difficulty: "medium"
+    tags: ["pdb", "availability", "disruption", "scheduling"]
+    question: "A critical three-replica stateless API must tolerate node drain during maintenance without downtime. What Kubernetes resource should be configured and with what setting?"
+    choices:
+      - "A. A PodDisruptionBudget with minAvailable: 2 (or maxUnavailable: 1) selecting the API Pods."
+      - "B. A HorizontalPodAutoscaler with minReplicas: 3."
+      - "C. A LimitRange in the namespace restricting Pod eviction."
+      - "D. A ResourceQuota preventing Pod deletion in the namespace."
+    answerIndex: 0
+    explanation: "PodDisruptionBudgets control voluntary disruptions like node drains by ensuring a minimum number of Pods remain available. With three replicas and minAvailable: 2, the drain controller evicts at most one Pod at a time, maintaining service availability. HPA manages scaling, not disruption control."
+    refs:
+      - "https://kubernetes.io/docs/tasks/run-application/configure-pdb/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-012"
+    difficulty: "hard"
+    tags: ["kubeadm", "upgrade", "etcd", "control-plane"]
+    question: "During a kubeadm upgrade apply, the process fails partway through leaving the API server on the new version but etcd on the old version. What is the safest recovery approach?"
+    choices:
+      - "A. Re-run kubeadm upgrade apply for the target version to resume the upgrade, as kubeadm is designed to be idempotent."
+      - "B. Manually downgrade kube-apiserver by editing its static pod manifest to match the old etcd version."
+      - "C. Delete the etcd data directory and restore from the last backup taken before the upgrade."
+      - "D. Remove the node from the cluster and add a fresh control-plane node."
+    answerIndex: 0
+    explanation: "kubeadm upgrade apply is designed to be idempotent and can be safely re-run if it fails partway. It will detect the current state of each component and continue the upgrade from where it left off. Manual manifest edits during a partial upgrade risk version skew issues."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-013"
+    difficulty: "easy"
+    tags: ["volumes", "emptydir", "storage", "pod-lifecycle"]
+    question: "A sidecar container needs to share temporary log files with the main application container within the same Pod. Which volume type is most appropriate?"
+    choices:
+      - "A. emptyDir, which provides a shared temporary directory that exists for the lifetime of the Pod."
+      - "B. persistentVolumeClaim, which requires a StorageClass and provisioner."
+      - "C. hostPath pointing to /tmp on the node."
+      - "D. configMap with binary data."
+    answerIndex: 0
+    explanation: "emptyDir is the simplest volume for sharing ephemeral data between containers in the same Pod. It is created when the Pod starts and deleted when the Pod is removed. PVCs add unnecessary complexity for temporary data, and hostPath introduces security and portability concerns."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-014"
+    difficulty: "medium"
+    tags: ["endpointslice", "service", "networking", "scalability"]
+    question: "After scaling a Deployment to 500 replicas, you notice the corresponding Endpoints object has become very large and updates are slow. What Kubernetes feature addresses this scalability concern?"
+    choices:
+      - "A. EndpointSlices, which split endpoint information across multiple smaller objects for better performance."
+      - "B. Increasing the kube-proxy sync period to reduce update frequency."
+      - "C. Switching the Service to ExternalName type to avoid endpoint tracking."
+      - "D. Disabling endpoint reconciliation in kube-controller-manager."
+    answerIndex: 0
+    explanation: "EndpointSlices partition endpoint data into smaller, more manageable objects (default 100 endpoints per slice). This reduces the size of individual API objects and the volume of data transferred during updates, significantly improving performance for large Services. Increasing sync periods masks the problem without solving it."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-015"
+    difficulty: "hard"
+    tags: ["troubleshooting", "control-plane", "scheduler", "leader-election"]
+    question: "In an HA cluster with three control-plane nodes, newly created Pods remain Pending indefinitely. The kube-scheduler Pods are Running on all three nodes, but scheduler logs show repeated leader election failures. What should you investigate?"
+    choices:
+      - "A. Check network connectivity between control-plane nodes and verify the kube-scheduler lease object in kube-system for stale holder identity."
+      - "B. Delete all Pending Pods and recreate the Deployments."
+      - "C. Increase the replica count of the affected Deployments to overcome the scheduling issue."
+      - "D. Disable leader election by setting --leader-elect=false on all scheduler instances."
+    answerIndex: 0
+    explanation: "Leader election failures prevent any scheduler instance from becoming the active leader, halting all scheduling decisions. Network partitions between control-plane nodes or stale lease objects are common causes. Disabling leader election would cause multiple schedulers to make conflicting decisions, creating race conditions."
+    refs:
+      - "https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-016"
+    difficulty: "medium"
+    tags: ["init-containers", "pod-lifecycle", "dependencies"]
+    question: "An application Pod must wait for a database migration Job to complete before starting. The migration creates a specific database table. What is the Kubernetes-native approach to enforce this ordering?"
+    choices:
+      - "A. Add an init container that polls the database or checks for the migration completion signal before the main container starts."
+      - "B. Set a higher priorityClassName on the application Pod."
+      - "C. Use a preStop lifecycle hook on the migration Job."
+      - "D. Add a finalizer to the application Pod that references the Job."
+    answerIndex: 0
+    explanation: "Init containers run sequentially before main containers start and can implement readiness gates such as polling a database for schema completion. This provides a clean ordering guarantee. Pod priority affects scheduling order, not startup sequencing between independent workloads."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-017"
+    difficulty: "hard"
+    tags: ["serviceaccount", "token", "security", "projected-volume"]
+    question: "A security policy requires that ServiceAccount tokens be audience-bound, time-limited, and automatically rotated. The cluster currently uses legacy auto-mounted tokens stored as Secrets. What should be configured?"
+    choices:
+      - "A. Use projected ServiceAccount token volumes with specified audience and expirationSeconds, and set automountServiceAccountToken: false on the default ServiceAccount."
+      - "B. Create a CronJob that deletes and recreates ServiceAccount token Secrets every hour."
+      - "C. Configure kube-apiserver with --service-account-extend-token-expiration=false and take no other action."
+      - "D. Mount the ServiceAccount token from a ConfigMap instead of a Secret."
+    answerIndex: 0
+    explanation: "Projected ServiceAccount token volumes use the TokenRequest API to issue time-limited, audience-bound tokens that kubelet automatically rotates before expiration. This is the modern replacement for legacy non-expiring Secret-based tokens. Disabling automount on the default SA prevents legacy token creation."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-018"
+    difficulty: "easy"
+    tags: ["troubleshooting", "image", "imagepullbackoff"]
+    question: "A newly deployed Pod shows status ImagePullBackOff. The image name in the spec is myregistry.internal:5000/app:v2. What should you check first?"
+    choices:
+      - "A. Verify the image name and tag exist in the registry, and that imagePullSecrets with valid credentials are configured for the Pod's ServiceAccount."
+      - "B. Increase the Pod's CPU request to allow faster image downloads."
+      - "C. Change the Service type to LoadBalancer to improve registry connectivity."
+      - "D. Delete the node's kubelet cache directory and reboot."
+    answerIndex: 0
+    explanation: "ImagePullBackOff indicates the container runtime failed to pull the specified image. Common causes are wrong image name/tag, missing or expired registry credentials in imagePullSecrets, or network connectivity to the registry. CPU requests and Service types do not affect image pulling."
+    refs:
+      - "https://kubernetes.io/docs/concepts/containers/images/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-019"
+    difficulty: "medium"
+    tags: ["job", "completions", "parallelism", "workloads"]
+    question: "A batch workload must process exactly 10 items with at most 3 workers running concurrently. If any single item fails, the Job should retry that item up to 4 times before marking the Job as failed. How should the Job be configured?"
+    choices:
+      - "A. Set completions: 10, parallelism: 3, and backoffLimit: 4 in the Job spec."
+      - "B. Create 10 separate Jobs each with parallelism: 1 and manage them with a CronJob."
+      - "C. Use a Deployment with replicas: 3 and add a completions label."
+      - "D. Set completions: 10 and parallelism: 10, and use a PodDisruptionBudget to limit concurrency."
+    answerIndex: 0
+    explanation: "The Job controller uses completions to track how many successful Pod completions are needed, parallelism to cap concurrent Pods, and backoffLimit to control retries before failure. This combination provides exact control over work distribution, concurrency, and failure tolerance in a single Job resource."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/controllers/job/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-020"
+    difficulty: "hard"
+    tags: ["kube-proxy", "ipvs", "networking", "performance"]
+    question: "A cluster with over 5,000 Services experiences high latency in Service routing. kube-proxy is running in iptables mode. Network engineers recommend switching to IPVS mode. What must be verified before and during the transition?"
+    choices:
+      - "A. Ensure IPVS kernel modules (ip_vs, ip_vs_rr, ip_vs_wrr, ip_vs_sh, nf_conntrack) are loaded on all nodes, update the kube-proxy ConfigMap to mode ipvs, and restart kube-proxy Pods."
+      - "B. Simply change the kube-proxy mode flag; IPVS modules are always available in Linux kernels."
+      - "C. Install a new CNI plugin, as IPVS mode requires Calico specifically."
+      - "D. Drain all nodes, switch the mode, and re-add them to the cluster one by one."
+    answerIndex: 0
+    explanation: "IPVS mode uses kernel-level load balancing with O(1) connection processing, but requires specific kernel modules to be loaded. The transition involves verifying module availability, updating the kube-proxy configuration, and rolling restart of kube-proxy. IPVS is CNI-agnostic and does not require full node drain."
+    refs:
+      - "https://kubernetes.io/docs/reference/networking/virtual-ips/"
+
   - id: "cka-v1-d3-003"
     difficulty: "easy"
     tags: ["service", "nodeport", "exposure"]
@@ -453,4 +752,304 @@ questions:
     explanation: "Restrictive egress policies commonly break DNS if traffic to CoreDNS is not explicitly allowed. Allowing UDP/TCP 53 plus required destinations restores name resolution and outbound connectivity. Pod process namespace settings and probes do not fix network policy blocks."
     refs:
       - "https://kubernetes.io/docs/concepts/services-networking/network-policies/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-021"
+    difficulty: "easy"
+    tags: ["rbac", "rolebinding", "scope"]
+    question: "A user should have read-only access to Pods only in the namespace dev. Which binding best matches this least-privilege requirement?"
+    choices:
+      - "A. RoleBinding in namespace dev that binds a Role to the user"
+      - "B. ClusterRoleBinding that binds cluster-admin to the user"
+      - "C. RoleBinding in kube-system that binds a ClusterRole to the user"
+      - "D. Disable RBAC and rely on namespace naming"
+    answerIndex: 0
+    explanation: "A Role and RoleBinding scoped to the dev namespace limits permissions to that namespace only. ClusterRoleBinding grants cluster-wide privileges, which violates least privilege and can expose unrelated namespaces."
+    refs:
+      - "https://kubernetes.io/docs/reference/access-authn-authz/rbac/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-022"
+    difficulty: "easy"
+    tags: ["taints", "tolerations", "noexecute"]
+    question: "A node is tainted key=maintenance:NoExecute. What happens to a running Pod on that node that does not have a matching toleration?"
+    choices:
+      - "A. The Pod is evicted from the node"
+      - "B. The Pod continues running but new Pods cannot be scheduled"
+      - "C. The Pod becomes Ready with degraded networking"
+      - "D. The Pod is automatically converted into a DaemonSet"
+    answerIndex: 0
+    explanation: "NoExecute taints both prevent scheduling and evict existing Pods that do not tolerate the taint. NoSchedule would only block new scheduling and would not evict already running Pods."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-023"
+    difficulty: "easy"
+    tags: ["ingress", "controllers", "troubleshooting"]
+    question: "You create an Ingress resource, but traffic never reaches the backend Service. The cluster has no Ingress controller installed. What is the most accurate explanation?"
+    choices:
+      - "A. Ingress is only a resource definition; it requires an Ingress controller to implement routing"
+      - "B. Ingress works automatically as soon as kube-proxy is running"
+      - "C. Ingress is a replacement for Services, so the Service should be deleted"
+      - "D. Ingress only works if Pods use hostNetwork"
+    answerIndex: 0
+    explanation: "Kubernetes Ingress objects describe desired HTTP(S) routing but do not perform routing themselves. Without an Ingress controller, no component programs the data plane, so requests will not be forwarded to backends."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/ingress/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-024"
+    difficulty: "easy"
+    tags: ["scheduling", "affinity", "node-affinity"]
+    question: "A Pod must run only on nodes labeled disktype=ssd. Which scheduling feature enforces this requirement?"
+    choices:
+      - "A. requiredDuringSchedulingIgnoredDuringExecution nodeAffinity"
+      - "B. preferredDuringSchedulingIgnoredDuringExecution podAffinity"
+      - "C. A PodDisruptionBudget"
+      - "D. A Service selector"
+    answerIndex: 0
+    explanation: "Required node affinity enforces hard placement constraints so the Pod will not schedule unless a node matches. A Service selector matches Pods for traffic routing and does not influence the scheduler."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-025"
+    difficulty: "easy"
+    tags: ["storage", "pvc", "pv"]
+    question: "A Pod mounts a PersistentVolumeClaim, but the PVC is still Pending and no PV is bound. In a cluster without dynamic provisioning, what must exist for the PVC to bind?"
+    choices:
+      - "A. A matching PersistentVolume that satisfies capacity, access modes, and storageClassName"
+      - "B. A Deployment with the same name as the PVC"
+      - "C. A ConfigMap containing the PV YAML"
+      - "D. A Service of type LoadBalancer"
+    answerIndex: 0
+    explanation: "Without dynamic provisioning, Kubernetes can only bind a PVC to an existing PV that matches requested attributes. Services and ConfigMaps do not create or satisfy PV objects for storage binding."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-026"
+    difficulty: "easy"
+    tags: ["resource-quotas", "policy", "namespaces"]
+    question: "A namespace should be limited to a maximum of 10 Pods and 4 CPU total requests across all workloads. Which Kubernetes object enforces this?"
+    choices:
+      - "A. ResourceQuota"
+      - "B. Ingress"
+      - "C. PriorityClass"
+      - "D. DaemonSet"
+    answerIndex: 0
+    explanation: "ResourceQuota enforces aggregate limits within a namespace, such as counts of objects and total requested/limited CPU and memory. PriorityClass affects scheduling priority, but it does not enforce per-namespace resource ceilings."
+    refs:
+      - "https://kubernetes.io/docs/concepts/policy/resource-quotas/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-027"
+    difficulty: "easy"
+    tags: ["helm", "package-management", "basics"]
+    question: "A team wants to install a chart and be able to upgrade or roll back it later using a named release. Which tool is designed for this workflow?"
+    choices:
+      - "A. Helm"
+      - "B. kubeadm"
+      - "C. etcdctl"
+      - "D. crictl"
+    answerIndex: 0
+    explanation: "Helm manages application packaging as charts and tracks installations as releases with history for upgrades and rollbacks. kubeadm bootstraps clusters, and etcdctl/crictl are troubleshooting/admin tools rather than application release managers."
+    refs:
+      - "https://helm.sh/docs/intro/using_helm/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-028"
+    difficulty: "medium"
+    tags: ["taints", "tolerations", "noexecute", "eviction"]
+    question: "A node is tainted dedicated=batch:NoExecute. A Job should tolerate this taint but only for 300 seconds, then be evicted if it is still running. What is required in the Pod spec?"
+    choices:
+      - "A. A toleration with effect NoExecute, operator Exists or matching value, and tolerationSeconds: 300"
+      - "B. A toleration with effect NoSchedule and tolerationSeconds: 300"
+      - "C. A nodeSelector for dedicated=batch only"
+      - "D. A PodDisruptionBudget with maxUnavailable: 1"
+    answerIndex: 0
+    explanation: "NoExecute tolerations support tolerationSeconds, which controls how long a Pod may remain on a tainted node before eviction. NoSchedule does not evict running Pods, and nodeSelector alone does not implement time-bound eviction behavior."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-029"
+    difficulty: "medium"
+    tags: ["scheduling", "pod-anti-affinity", "availability"]
+    question: "A Deployment has 3 replicas and must avoid placing more than one replica on the same node to reduce single-node failure impact. Which setting is most direct?"
+    choices:
+      - "A. required podAntiAffinity on the app label with topologyKey kubernetes.io/hostname"
+      - "B. A Service of type ClusterIP"
+      - "C. A Secret mounted as a volume"
+      - "D. A ConfigMap with replica count"
+    answerIndex: 0
+    explanation: "Pod anti-affinity can enforce replica separation by hostname so replicas do not co-locate on the same node. Services and configuration objects do not control where the scheduler places replicas."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-030"
+    difficulty: "medium"
+    tags: ["networkpolicy", "egress", "dns"]
+    question: "A namespace has default-deny egress NetworkPolicies. Pods now fail name resolution because they cannot reach CoreDNS. What is the best fix?"
+    choices:
+      - "A. Add an egress rule allowing UDP/TCP 53 to the kube-dns Service/Pods"
+      - "B. Change every application image to include a /etc/hosts file"
+      - "C. Run Pods with hostNetwork to bypass policy"
+      - "D. Disable the CNI plugin on affected nodes"
+    answerIndex: 0
+    explanation: "With default-deny egress, DNS traffic must be explicitly allowed to CoreDNS to restore resolution. hostNetwork and disabling CNI are broad changes that increase risk and are not appropriate for a targeted DNS break caused by policy."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/network-policies/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-031"
+    difficulty: "medium"
+    tags: ["ingress", "exposure", "bare-metal"]
+    question: "In a bare-metal cluster without a cloud load balancer, an NGINX Ingress controller is deployed. What is a common way to expose the controller externally?"
+    choices:
+      - "A. Expose the Ingress controller Service as NodePort (or via MetalLB)"
+      - "B. Change all backend Services to ExternalName"
+      - "C. Disable kube-proxy to force direct routing"
+      - "D. Convert all Deployments to hostNetwork"
+    answerIndex: 0
+    explanation: "Without a cloud LoadBalancer, NodePort is a common exposure method, and projects like MetalLB can provide LoadBalancer semantics on-prem. Changing backend service types or disabling kube-proxy does not correctly expose the Ingress controller entry point."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-032"
+    difficulty: "medium"
+    tags: ["helm", "values", "release-management"]
+    question: "A chart installs correctly in dev, but prod needs different resource limits and an extra Ingress host. What is the most maintainable Helm approach?"
+    choices:
+      - "A. Use a separate values file for prod and pass it with -f during helm install/upgrade"
+      - "B. Edit live Kubernetes objects manually after every upgrade"
+      - "C. Fork the chart and permanently hardcode prod settings"
+      - "D. Use kubectl edit on the Helm Secret storage"
+    answerIndex: 0
+    explanation: "Values files allow environment-specific customization while keeping the chart upgradeable and minimizing drift. Manual edits after install are overwritten by future upgrades and create hard-to-audit configuration drift."
+    refs:
+      - "https://helm.sh/docs/chart_template_guide/values_files/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-033"
+    difficulty: "medium"
+    tags: ["etcd", "backup", "snapshot"]
+    question: "You need to back up the Kubernetes datastore in a kubeadm cluster. Which action best represents an etcd backup?"
+    choices:
+      - "A. Take an etcd snapshot using etcdctl snapshot save with the correct endpoint and certificates"
+      - "B. Export all Deployments with kubectl get deploy -o yaml"
+      - "C. Copy /var/log/containers to external storage"
+      - "D. Backup only the kubelet config files from worker nodes"
+    answerIndex: 0
+    explanation: "The authoritative cluster state is stored in etcd, and a snapshot is the canonical backup artifact for restore operations. Exporting workload YAML or copying logs does not capture the full datastore state required to recover the control plane."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-034"
+    difficulty: "medium"
+    tags: ["storageclass", "volumeBindingMode", "scheduling"]
+    question: "A StorageClass sets volumeBindingMode: WaitForFirstConsumer. What is the primary effect of this setting?"
+    choices:
+      - "A. Volume provisioning and binding wait until a Pod is scheduled, improving topology-aware placement"
+      - "B. PVCs are immediately deleted after the first Pod uses them"
+      - "C. Pods can mount volumes across all nodes regardless of topology"
+      - "D. PersistentVolumes are encrypted automatically"
+    answerIndex: 0
+    explanation: "WaitForFirstConsumer delays binding so the scheduler can choose a node first and then provision/bind storage in a compatible zone or topology. It does not enable cross-topology mounts or automatic encryption by itself."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-035"
+    difficulty: "hard"
+    tags: ["rbac", "nonresourceurls", "security"]
+    question: "A monitoring team needs to GET the Kubernetes API non-resource endpoint /metrics but must not access any namespaced resources. Which RBAC rule is required?"
+    choices:
+      - "A. A ClusterRole with nonResourceURLs: ['/metrics'] and verbs: ['get'] bound via ClusterRoleBinding"
+      - "B. A Role in kube-system with resources: ['pods'] and verbs: ['list']"
+      - "C. A RoleBinding that grants edit to the monitoring ServiceAccount"
+      - "D. A NetworkPolicy that allows traffic to the API server"
+    answerIndex: 0
+    explanation: "Non-resource URLs are authorized with ClusterRoles using nonResourceURLs rather than resource rules, so this must be expressed at cluster scope. NetworkPolicy controls network reachability, but it does not grant authorization to access API endpoints."
+    refs:
+      - "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#referring-to-resources"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-036"
+    difficulty: "hard"
+    tags: ["networkpolicy", "namespace-selector", "segmentation"]
+    question: "Namespace backend has a default-deny ingress policy. You must allow ingress only from Pods labeled app=web in namespace frontend to TCP 8080 on backend Pods. What is required?"
+    choices:
+      - "A. A NetworkPolicy selecting backend Pods with an ingress from a namespaceSelector for frontend and a podSelector for app=web, plus port 8080"
+      - "B. Change the backend Service type to NodePort"
+      - "C. Enable hostNetwork on backend Pods"
+      - "D. Add an Ingress resource to the frontend namespace"
+    answerIndex: 0
+    explanation: "NetworkPolicies can combine namespaceSelector and podSelector to precisely scope allowed sources, which is the least-privilege approach for cross-namespace access. Service type and hostNetwork changes bypass or ignore the segmentation intent rather than implementing it."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/network-policies/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-037"
+    difficulty: "hard"
+    tags: ["crd", "versioning", "apiextensions"]
+    question: "You add a new CRD version v2 while keeping v1 for backward compatibility. You want clients to read/write both versions, but etcd should store only one canonical version. Which CRD configuration supports this?"
+    choices:
+      - "A. Mark both versions as served: true, and set exactly one version as storage: true"
+      - "B. Set storage: true on all versions so etcd stores multiple copies"
+      - "C. Disable the OpenAPI schema so any version is accepted"
+      - "D. Use a ConfigMap instead of a CRD for versioning"
+    answerIndex: 0
+    explanation: "CRD versioning supports multiple served versions while requiring exactly one storage version for etcd persistence. Marking multiple storage versions is invalid and can lead to inconsistent storage behavior."
+    refs:
+      - "https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-038"
+    difficulty: "hard"
+    tags: ["etcd", "restore", "control-plane"]
+    question: "After restoring an etcd snapshot on a kubeadm control-plane node, the API server still fails because it points to the old data directory. What is the most direct fix?"
+    choices:
+      - "A. Update the etcd static Pod manifest to use the restored data-dir path, then let kubelet restart the static Pod"
+      - "B. Reinstall kubectl on all admin workstations"
+      - "C. Delete all worker nodes and rejoin them"
+      - "D. Change CoreDNS to NodePort"
+    answerIndex: 0
+    explanation: "In kubeadm, etcd commonly runs as a static pod, and the manifest controls the data directory location. If the manifest points to the wrong data-dir, etcd cannot start with the restored snapshot data."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-039"
+    difficulty: "hard"
+    tags: ["storage", "volume-expansion", "pvc"]
+    question: "A PVC needs to be expanded from 10Gi to 20Gi with minimal disruption. The underlying CSI driver supports expansion. What must be true for Kubernetes to allow this change?"
+    choices:
+      - "A. The StorageClass must set allowVolumeExpansion: true and the PVC spec.resources.requests.storage must be increased"
+      - "B. The PV reclaim policy must be Retain"
+      - "C. The Service type must be LoadBalancer"
+      - "D. The Pod must use hostPath volumes instead of PVCs"
+    answerIndex: 0
+    explanation: "PVC expansion requires StorageClass allowVolumeExpansion and a supported driver, after which increasing the requested storage triggers resize. Reclaim policies and Service types are unrelated to volume expansion behavior."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims"
+    author: "ThanhNguyxn"
+
+  - id: "cka-extra-040"
+    difficulty: "hard"
+    tags: ["resource-quotas", "limitrange", "resources", "troubleshooting"]
+    question: "A namespace has a ResourceQuota that requires CPU requests on Pods. A Deployment without any resource requests fails admission. Which object can set default requests/limits automatically for Pods in that namespace?"
+    choices:
+      - "A. LimitRange"
+      - "B. PodDisruptionBudget"
+      - "C. IngressClass"
+      - "D. StorageClass"
+    answerIndex: 0
+    explanation: "LimitRange can apply default resource requests and limits when Pods omit them, which helps satisfy ResourceQuota policies consistently. PodDisruptionBudgets manage voluntary disruption, not resource defaults, and do not affect admission requirements for requests."
+    refs:
+      - "https://kubernetes.io/docs/concepts/policy/limit-range/"
     author: "ThanhNguyxn"

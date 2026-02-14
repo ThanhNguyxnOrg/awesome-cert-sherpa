@@ -1,0 +1,457 @@
+meta:
+  category: "cloud"
+  cert: "GCP-ACE"
+  vendor: "Google Cloud"
+  version: 1
+  description: "Original practice questions for Google Cloud Associate Cloud Engineer"
+
+questions:
+  - id: "gcp-ace-projects-001"
+    difficulty: "easy"
+    tags: ["projects", "resource-manager", "setup"]
+    question: "Your team needs a new isolated environment for a proof-of-concept with separate IAM and billing tracking. What should you create first in Google Cloud?"
+    choices:
+      - "A. A new folder under the existing organization"
+      - "B. A new project"
+      - "C. A new VPC network"
+      - "D. A new service account"
+    answerIndex: 1
+    explanation: "A project is the primary isolation boundary for resources, IAM policies, and billing association in Google Cloud. Creating a VPC network (C) does not provide separate billing or IAM boundaries by itself; it is created inside a project."
+    refs:
+      - "https://cloud.google.com/resource-manager/docs/creating-managing-projects"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-billing-001"
+    difficulty: "easy"
+    tags: ["billing", "setup", "cost-management"]
+    question: "A developer created resources in a new project, but the project has no billing account attached and deployments fail. What is the most direct fix?"
+    choices:
+      - "A. Enable the Compute Engine API"
+      - "B. Link the project to an active Cloud Billing account"
+      - "C. Add the developer to the Owner role"
+      - "D. Create a new organization"
+    answerIndex: 1
+    explanation: "Many paid services require an active billing account linked to the project before resource creation can succeed. Enabling an API (A) is often necessary, but it will not resolve charges-based restrictions if billing is not enabled."
+    refs:
+      - "https://cloud.google.com/billing/docs/how-to/manage-billing-account"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-iam-001"
+    difficulty: "easy"
+    tags: ["iam", "principle-of-least-privilege", "setup"]
+    question: "You need to grant a contractor read-only access to view Compute Engine VM details but not modify anything. Which role is the best fit?"
+    choices:
+      - "A. Compute Admin"
+      - "B. Compute Viewer"
+      - "C. Project Owner"
+      - "D. Security Admin"
+    answerIndex: 1
+    explanation: "Compute Viewer provides read-only permissions to view Compute Engine resources without write access. Compute Admin (A) allows creating and changing instances, which violates least privilege for a read-only requirement."
+    refs:
+      - "https://cloud.google.com/iam/docs/understanding-roles"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-iam-002"
+    difficulty: "easy"
+    tags: ["iam", "service-accounts", "auth"]
+    question: "A workload running on a Compute Engine VM must call Cloud Storage APIs without using a user login. What is the recommended identity mechanism?"
+    choices:
+      - "A. Use a user account and store its password on the VM"
+      - "B. Attach a service account to the VM with appropriate IAM roles"
+      - "C. Create an API key and embed it in the application"
+      - "D. Use an SSH key to authenticate to Cloud Storage"
+    answerIndex: 1
+    explanation: "A service account attached to the VM provides an application identity and can obtain short-lived tokens for Google APIs. API keys (C) do not represent an IAM principal and are not appropriate for authorizing access to resources like Cloud Storage objects."
+    refs:
+      - "https://cloud.google.com/iam/docs/service-accounts"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-compute-001"
+    difficulty: "easy"
+    tags: ["compute-engine", "vm", "planning"]
+    question: "A small internal tool needs a Linux VM that can be started and stopped manually and has predictable performance. Which service should you choose?"
+    choices:
+      - "A. Compute Engine"
+      - "B. Cloud Functions"
+      - "C. Cloud Run"
+      - "D. App Engine standard environment"
+    answerIndex: 0
+    explanation: "Compute Engine provides full VM control, including manual start/stop and machine type selection for predictable performance. Cloud Functions (B) is event-driven and does not give you a long-lived VM you can manage directly."
+    refs:
+      - "https://cloud.google.com/compute/docs/instances"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-vpc-001"
+    difficulty: "easy"
+    tags: ["vpc", "networking", "deploy"]
+    question: "You need a private IP range for a new application network in a project. What resource do you create to define the IP ranges?"
+    choices:
+      - "A. A VPC network with one or more subnets"
+      - "B. A Cloud Router"
+      - "C. A Cloud NAT"
+      - "D. A firewall rule only"
+    answerIndex: 0
+    explanation: "In Google Cloud, subnets within a VPC define the IP ranges used by resources in a region. A firewall rule (D) controls traffic but does not allocate or define address ranges for instances."
+    refs:
+      - "https://cloud.google.com/vpc/docs/vpc"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-gke-001"
+    difficulty: "easy"
+    tags: ["gke", "containers", "planning"]
+    question: "A team wants to run containerized workloads with Kubernetes and prefers a managed control plane. Which service best matches?"
+    choices:
+      - "A. Google Kubernetes Engine (GKE)"
+      - "B. Compute Engine managed instance groups"
+      - "C. Cloud Functions"
+      - "D. Cloud Storage"
+    answerIndex: 0
+    explanation: "GKE is Google Cloud's managed Kubernetes offering, providing a managed control plane and integrated cluster operations. Managed instance groups (B) can run VMs but do not provide Kubernetes primitives like pods, services, and deployments."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-storage-001"
+    difficulty: "easy"
+    tags: ["cloud-storage", "buckets", "data"]
+    question: "You need to store static website assets that will be served globally and updated occasionally. Which storage option is the simplest?"
+    choices:
+      - "A. Cloud Storage bucket"
+      - "B. Cloud SQL instance"
+      - "C. Cloud Spanner database"
+      - "D. BigQuery dataset"
+    answerIndex: 0
+    explanation: "Cloud Storage buckets are designed for durable object storage and are commonly used for static assets. Cloud SQL (B) is a relational database service and adds unnecessary operational overhead for simple file serving."
+    refs:
+      - "https://cloud.google.com/storage/docs"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-operations-001"
+    difficulty: "easy"
+    tags: ["cloud-operations", "monitoring", "logging"]
+    question: "An app team wants to view request logs for Cloud Run services in a central place. Which Google Cloud product provides this out of the box?"
+    choices:
+      - "A. Cloud Logging"
+      - "B. Cloud KMS"
+      - "C. Cloud Armor"
+      - "D. Cloud DNS"
+    answerIndex: 0
+    explanation: "Cloud Logging collects and stores logs from many Google Cloud services, including Cloud Run. Cloud KMS (B) is for key management and does not provide log collection or viewing."
+    refs:
+      - "https://cloud.google.com/logging/docs"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-kms-001"
+    difficulty: "easy"
+    tags: ["security", "kms", "encryption"]
+    question: "Compliance requires customer-managed encryption keys (CMEK) for sensitive data stored in supported services. Which product manages these keys?"
+    choices:
+      - "A. Cloud KMS"
+      - "B. Cloud Logging"
+      - "C. Cloud Build"
+      - "D. Cloud CDN"
+    answerIndex: 0
+    explanation: "Cloud KMS is used to create and manage cryptographic keys for encrypting data in supported services. Cloud Logging (B) stores and queries logs; it is not a key management service."
+    refs:
+      - "https://cloud.google.com/kms/docs"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-iam-003"
+    difficulty: "medium"
+    tags: ["iam", "custom-roles", "least-privilege"]
+    question: "A team needs a role that allows starting and stopping Compute Engine instances but not deleting them or changing disks. What is the best approach?"
+    choices:
+      - "A. Grant Project Owner"
+      - "B. Grant Compute Admin"
+      - "C. Create a custom IAM role with only instance start/stop permissions"
+      - "D. Use a service account key shared by the team"
+    answerIndex: 2
+    explanation: "A custom IAM role lets you grant only the required permissions, aligning with least privilege for start/stop operations. Compute Admin (B) includes broader permissions like creating and deleting instances, which exceeds the stated requirement."
+    refs:
+      - "https://cloud.google.com/iam/docs/creating-custom-roles"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-projects-002"
+    difficulty: "medium"
+    tags: ["projects", "folders", "resource-hierarchy"]
+    question: "Your organization wants to group projects by department and apply IAM policies at the department level. Which resource hierarchy feature supports this?"
+    choices:
+      - "A. Labels on resources"
+      - "B. Folders"
+      - "C. VPC Shared subnets"
+      - "D. Instance templates"
+    answerIndex: 1
+    explanation: "Folders allow grouping projects and applying IAM policies and organization policies at that folder node. Labels (A) are useful for filtering and billing reports but do not provide policy inheritance in the resource hierarchy."
+    refs:
+      - "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-compute-002"
+    difficulty: "medium"
+    tags: ["compute-engine", "mig", "autoscaling"]
+    question: "A web app on Compute Engine must scale out automatically based on CPU usage and replace unhealthy VMs. What is the recommended pattern?"
+    choices:
+      - "A. A single VM with a larger machine type"
+      - "B. A managed instance group with autoscaling and health checks"
+      - "C. A Cloud Storage bucket with a lifecycle rule"
+      - "D. A Cloud SQL read replica"
+    answerIndex: 1
+    explanation: "Managed instance groups (MIGs) support autoscaling, autohealing, and rolling updates for VM fleets. Upsizing a single VM (A) improves vertical capacity but does not provide high availability or automatic replacement of unhealthy instances."
+    refs:
+      - "https://cloud.google.com/compute/docs/instance-groups"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-lb-001"
+    difficulty: "medium"
+    tags: ["load-balancing", "ha", "deploy"]
+    question: "You have users across multiple regions and want a single anycast IP that routes to the closest healthy backend for a web application. Which load balancer fits best?"
+    choices:
+      - "A. Internal TCP/UDP load balancer"
+      - "B. External HTTP(S) load balancer"
+      - "C. Cloud NAT"
+      - "D. Cloud VPN"
+    answerIndex: 1
+    explanation: "External HTTP(S) Load Balancing provides global anycast IPs and routes traffic based on proximity and health, suitable for global web apps. An internal load balancer (A) is for private, in-VPC traffic and is not used to serve internet users."
+    refs:
+      - "https://cloud.google.com/load-balancing/docs/https"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-cloudrun-001"
+    difficulty: "medium"
+    tags: ["cloud-run", "serverless", "containers"]
+    question: "A team has a container image and wants it to scale to zero when idle and scale up quickly on HTTP requests, without managing servers. What should they use?"
+    choices:
+      - "A. Cloud Run"
+      - "B. Compute Engine"
+      - "C. Cloud Storage"
+      - "D. Cloud DNS"
+    answerIndex: 0
+    explanation: "Cloud Run runs stateless containers and supports request-driven autoscaling including scale-to-zero. Compute Engine (B) requires managing VM capacity and does not natively scale to zero based on HTTP request load without additional automation."
+    refs:
+      - "https://cloud.google.com/run/docs/overview/what-is-cloud-run"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-functions-001"
+    difficulty: "medium"
+    tags: ["cloud-functions", "event-driven", "deploy"]
+    question: "You need to run code whenever a new object is uploaded to a Cloud Storage bucket, without provisioning infrastructure. Which service is the best fit?"
+    choices:
+      - "A. Cloud Functions"
+      - "B. Compute Engine"
+      - "C. Cloud Spanner"
+      - "D. BigQuery"
+    answerIndex: 0
+    explanation: "Cloud Functions is designed for event-driven execution, including triggers from Cloud Storage events. Compute Engine (B) can run any code, but you would need to build and maintain the event listener and VM lifecycle yourself."
+    refs:
+      - "https://cloud.google.com/functions/docs/calling/storage"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-sql-001"
+    difficulty: "medium"
+    tags: ["cloud-sql", "database", "deploy"]
+    question: "An application needs a managed MySQL database with automated backups and patching handled by Google. Which product should you choose?"
+    choices:
+      - "A. Cloud SQL"
+      - "B. Cloud Storage"
+      - "C. Cloud Pub/Sub"
+      - "D. Cloud CDN"
+    answerIndex: 0
+    explanation: "Cloud SQL provides managed relational databases like MySQL with maintenance features such as backups and patching. Cloud Storage (B) stores objects and does not provide SQL engines, transactions, or relational querying."
+    refs:
+      - "https://cloud.google.com/sql/docs/introduction"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-pubsub-001"
+    difficulty: "medium"
+    tags: ["pubsub", "messaging", "deploy"]
+    question: "Two microservices need decoupled, asynchronous communication with at-least-once delivery. Which service is most appropriate?"
+    choices:
+      - "A. Cloud Pub/Sub"
+      - "B. Cloud Storage"
+      - "C. Cloud Load Balancing"
+      - "D. Cloud KMS"
+    answerIndex: 0
+    explanation: "Cloud Pub/Sub provides durable messaging with subscription-based delivery and supports at-least-once semantics. Cloud Storage (B) can store files, but using it as a queue is a poor fit and does not provide built-in subscription delivery or acknowledgment handling."
+    refs:
+      - "https://cloud.google.com/pubsub/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-operations-002"
+    difficulty: "medium"
+    tags: ["monitoring", "alerting", "operations"]
+    question: "Your SRE team needs an alert when a Cloud Run service starts returning elevated 5xx error rates. What should they configure?"
+    choices:
+      - "A. A Cloud Monitoring alerting policy on request/error metrics"
+      - "B. A Cloud KMS key rotation schedule"
+      - "C. A Cloud Storage lifecycle policy"
+      - "D. A new VPC subnet"
+    answerIndex: 0
+    explanation: "Cloud Monitoring can create alerting policies on service metrics, including error rates and latency, and notify responders. A storage lifecycle policy (C) manages object retention and does not detect or alert on HTTP errors."
+    refs:
+      - "https://cloud.google.com/monitoring/docs/alerting"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-appengine-001"
+    difficulty: "medium"
+    tags: ["app-engine", "platform", "planning"]
+    question: "A team wants a fully managed platform for a web app with automatic scaling and minimal operational work, and they can follow supported runtimes. Which service is a good fit?"
+    choices:
+      - "A. App Engine"
+      - "B. Compute Engine"
+      - "C. Cloud Interconnect"
+      - "D. Cloud Router"
+    answerIndex: 0
+    explanation: "App Engine provides a platform-as-a-service experience with managed runtime support and automatic scaling. Compute Engine (B) provides raw VMs, which requires more operational work for patching and scaling than the team wants."
+    refs:
+      - "https://cloud.google.com/appengine/docs"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-storage-002"
+    difficulty: "hard"
+    tags: ["cloud-storage", "security", "uniform-bucket-level-access"]
+    question: "A security audit requires that object ACLs are not used and that access is controlled only by IAM at the bucket level. Which setting should you enable on the bucket?"
+    choices:
+      - "A. Object versioning"
+      - "B. Uniform bucket-level access"
+      - "C. Autoclass"
+      - "D. Requester pays"
+    answerIndex: 1
+    explanation: "Uniform bucket-level access disables object ACLs and enforces IAM-only permission checks at the bucket level, matching the audit requirement. Object versioning (A) helps with recovery from overwrites/deletes but does not change whether ACLs are used for access control."
+    refs:
+      - "https://cloud.google.com/storage/docs/uniform-bucket-level-access"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-vpc-002"
+    difficulty: "hard"
+    tags: ["vpc", "shared-vpc", "org"]
+    question: "Your company wants a central networking team to manage VPCs while application teams deploy projects that use those shared networks. What is the recommended design?"
+    choices:
+      - "A. Put all workloads in one project"
+      - "B. Use Shared VPC with a host project and service projects"
+      - "C. Use Cloud Storage buckets as network boundaries"
+      - "D. Use only external IP addresses for all services"
+    answerIndex: 1
+    explanation: "Shared VPC allows a host project to own and administer networks while service projects attach resources to shared subnets, enabling centralized network control. Consolidating everything into one project (A) reduces separation of duties and makes IAM and billing segmentation harder across teams."
+    refs:
+      - "https://cloud.google.com/vpc/docs/shared-vpc"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-gke-002"
+    difficulty: "hard"
+    tags: ["gke", "security", "workload-identity"]
+    question: "A GKE workload must access Google APIs without storing long-lived service account keys in the cluster. What is the best approach?"
+    choices:
+      - "A. Download a JSON service account key and mount it as a secret"
+      - "B. Use Workload Identity to bind a Kubernetes service account to a Google service account"
+      - "C. Use a user account OAuth token cached in the container image"
+      - "D. Use SSH to authenticate from the pod to Google APIs"
+    answerIndex: 1
+    explanation: "Workload Identity lets pods obtain short-lived credentials by mapping Kubernetes service accounts to Google service accounts, avoiding key distribution. Mounting a JSON key (A) introduces long-lived credentials that are harder to rotate and increases the blast radius if compromised."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-iam-004"
+    difficulty: "hard"
+    tags: ["iam", "service-accounts", "security"]
+    question: "A CI pipeline needs to deploy to multiple projects. Security requires avoiding user accounts and minimizing credential sprawl. What is the best practice?"
+    choices:
+      - "A. Share one user account password with the CI system"
+      - "B. Use a dedicated service account per pipeline and grant it roles in target projects"
+      - "C. Use an API key for all deployments"
+      - "D. Use an SSH key stored in the repo"
+    answerIndex: 1
+    explanation: "A dedicated service account provides a non-human identity and can be granted only the roles needed in each project, supporting least privilege and auditability. API keys (C) do not provide fine-grained IAM authorization for deployments and are not an identity for resource access."
+    refs:
+      - "https://cloud.google.com/iam/docs/service-accounts"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-kms-002"
+    difficulty: "hard"
+    tags: ["kms", "security", "iam"]
+    question: "You encrypted application secrets with a Cloud KMS key. Only the app runtime should decrypt; developers should not be able to decrypt in production. What is the best IAM design?"
+    choices:
+      - "A. Grant developers the Cloud KMS CryptoKey Decrypter role on the key"
+      - "B. Grant the app service account the Cloud KMS CryptoKey Decrypter role, and restrict developers"
+      - "C. Put the key in a different region"
+      - "D. Store the key material in the application repository"
+    answerIndex: 1
+    explanation: "Granting the decrypt permission to the application service account ensures only the runtime identity can decrypt, while developers can be limited to encrypt or view-only permissions. Granting developers decryption (A) violates the requirement and increases the risk of unauthorized access to production secrets."
+    refs:
+      - "https://cloud.google.com/kms/docs/reference/permissions-and-roles"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-operations-003"
+    difficulty: "hard"
+    tags: ["logging", "operations", "routing"]
+    question: "You must retain audit logs for 1 year in a separate project and prevent developers from deleting them. What is the best solution?"
+    choices:
+      - "A. Export logs to BigQuery in the same project"
+      - "B. Configure a log sink to route logs to a different project and restrict IAM on the destination"
+      - "C. Ask developers to download logs weekly"
+      - "D. Turn off audit logs to reduce storage"
+    answerIndex: 1
+    explanation: "A log sink can route selected logs to a destination project where IAM controls can prevent deletion by developers. Keeping exports in the same project (A) makes it harder to enforce separation of duties because project-level admins may still modify or delete resources."
+    refs:
+      - "https://cloud.google.com/logging/docs/export/configure_export_v2"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-spanner-001"
+    difficulty: "hard"
+    tags: ["spanner", "database", "planning"]
+    question: "A global application needs a strongly consistent relational database with high availability across regions and horizontal scaling. Which database is the best fit?"
+    choices:
+      - "A. Cloud SQL for MySQL"
+      - "B. Cloud Spanner"
+      - "C. Cloud Storage"
+      - "D. Memorystore"
+    answerIndex: 1
+    explanation: "Cloud Spanner provides horizontal scaling and strong consistency with multi-region configurations for high availability. Cloud SQL (A) is managed but typically scales vertically and requires more careful design for multi-region strong consistency at global scale."
+    refs:
+      - "https://cloud.google.com/spanner/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-cloudrun-002"
+    difficulty: "hard"
+    tags: ["cloud-run", "security", "iam"]
+    question: "You want a Cloud Run service to be callable only by specific internal services, not the public internet. What is the most appropriate configuration?"
+    choices:
+      - "A. Allow unauthenticated invocations and rely on obscurity"
+      - "B. Require authentication and grant the Cloud Run Invoker role only to approved identities"
+      - "C. Put the container image in a private bucket"
+      - "D. Disable logging for the service"
+    answerIndex: 1
+    explanation: "Cloud Run can require authenticated requests, and IAM can restrict invocations by granting the Invoker role only to specific principals. Making the image private (C) controls who can pull the image, but it does not control who can send HTTP requests to the running service."
+    refs:
+      - "https://cloud.google.com/run/docs/authenticating/service-to-service"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-sql-002"
+    difficulty: "hard"
+    tags: ["cloud-sql", "networking", "private-ip"]
+    question: "A production Cloud SQL instance must not have a public IP and should be reachable only from resources in your VPC. What should you configure?"
+    choices:
+      - "A. Enable a public IP and restrict with Cloud Armor"
+      - "B. Configure Cloud SQL with private IP connectivity"
+      - "C. Store the database in Cloud Storage"
+      - "D. Use Cloud DNS to hide the public IP"
+    answerIndex: 1
+    explanation: "Private IP for Cloud SQL uses a VPC-only address so the instance is reachable only within your network, meeting the non-public requirement. Cloud DNS (D) only affects name resolution and does not remove or secure a public IP endpoint."
+    refs:
+      - "https://cloud.google.com/sql/docs/mysql/configure-private-ip"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-bigquery-002"
+    difficulty: "hard"
+    tags: ["bigquery", "security", "iam"]
+    question: "A user should be able to run queries against a BigQuery dataset but must not be able to export tables. What is a least-privilege approach?"
+    choices:
+      - "A. Grant BigQuery Admin on the project"
+      - "B. Grant BigQuery Data Viewer and BigQuery Job User, and avoid permissions that allow extract/export"
+      - "C. Grant Owner on the dataset"
+      - "D. Grant Storage Admin on the project"
+    answerIndex: 1
+    explanation: "BigQuery Job User plus Data Viewer commonly enables running query jobs and reading data while avoiding broader dataset/project admin capabilities. BigQuery Admin (A) is overly permissive and includes management actions that are unnecessary and could enable exporting or altering access policies."
+    refs:
+      - "https://cloud.google.com/bigquery/docs/access-control"
+    author: "ThanhNguyxn"

@@ -275,3 +275,184 @@ questions:
     explanation: "Given low tolerance for regulatory exposure, a likely GDPR control gap with potentially severe fines should be addressed first. Printer and wiki issues may affect operations, but they do not present comparable regulatory consequences."
     refs: ["https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final", "https://www.nist.gov/cyberframework"]
     author: "ThanhNguyxn"
+
+  - id: "sec701-extra-001"
+    difficulty: "easy"
+    tags: ["tls", "certificates", "pki", "web-security"]
+    question: "A user reports that a company web portal suddenly shows a browser warning: 'certificate not trusted'. The URL and hostname are correct. What is the best first verification step?"
+    choices: ["A. Check the server certificate chain and expiration, including intermediate CA certificates", "B. Disable TLS and fall back to HTTP temporarily", "C. Force users to clear browser cookies to refresh trust settings", "D. Replace the website password policy with longer passwords"]
+    answerIndex: 0
+    explanation: "A trust warning commonly occurs when the certificate is expired, issued to the wrong subject, or missing intermediate certificates needed to build a chain to a trusted root. Disabling TLS would expose credentials and data in transit, and cookie clearing does not fix certificate validation."
+    refs: ["https://www.rfc-editor.org/rfc/rfc5280"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-002"
+    difficulty: "easy"
+    tags: ["hashing", "passwords", "cryptography"]
+    question: "A developer suggests storing user passwords encrypted with AES so they can be decrypted for support calls. What is the best security correction?"
+    choices: ["A. Store passwords using a slow salted hash function instead of reversible encryption", "B. Encrypt passwords with RSA using the application's public key", "C. Base64-encode passwords to protect them at rest", "D. Compress passwords before storing to reduce database size"]
+    answerIndex: 0
+    explanation: "Passwords should be stored as salted hashes using a password hashing scheme so the original value cannot be recovered, reducing impact of database compromise. Reversible encryption enables decryption if keys are exposed, and Base64 is not encryption at all."
+    refs: ["https://pages.nist.gov/800-63-3/sp800-63b.html"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-003"
+    difficulty: "easy"
+    tags: ["pki", "certificate-revocation", "ocsp", "tls"]
+    question: "A client must ensure it does not accept a server certificate that was revoked after key compromise. Which PKI mechanism provides near-real-time revocation checking?"
+    choices: ["A. OCSP", "B. ECDH", "C. AES-GCM", "D. Diffie-Hellman group selection"]
+    answerIndex: 0
+    explanation: "OCSP allows a client to query a responder about the revocation status of a specific certificate, enabling timely checking. ECDH and AES-GCM are cryptographic algorithms used in key exchange and encryption, not revocation status validation."
+    refs: ["https://www.rfc-editor.org/rfc/rfc6960"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-004"
+    difficulty: "easy"
+    tags: ["incident-response", "containment", "operations"]
+    question: "During an incident, analysts confirm an attacker is actively using a compromised VPN account. The priority is to stop further access immediately while preserving evidence. Which action best fits the containment goal?"
+    choices: ["A. Disable the compromised account and revoke active sessions", "B. Rebuild all affected servers before collecting logs", "C. Publish a press release to notify customers", "D. Perform a full lessons-learned meeting immediately"]
+    answerIndex: 0
+    explanation: "Containment focuses on limiting damage and stopping the attacker from continuing, so disabling the account and revoking sessions is an appropriate immediate step. Rebuilding systems too early can destroy evidence, and lessons learned occurs after eradication and recovery."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-005"
+    difficulty: "easy"
+    tags: ["iot-security", "segmentation", "network-security"]
+    question: "A manufacturing plant adds smart sensors that cannot run endpoint protection and have weak patch support. Which control most directly reduces risk from compromise?"
+    choices: ["A. Place the IoT devices in a dedicated network segment with strict allowlist rules", "B. Increase user password complexity on the HR portal", "C. Disable backups to prevent data exfiltration", "D. Allow sensors to access the internet freely for vendor updates"]
+    answerIndex: 0
+    explanation: "Network segmentation with allowlisted communications limits IoT device reachability and reduces lateral movement if a sensor is compromised. HR password policy changes do not address the sensors' network exposure, and disabling backups increases recovery risk."
+    refs: ["https://csrc.nist.gov/publications/detail/nistir/8259a/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-006"
+    difficulty: "easy"
+    tags: ["social-engineering", "pretexting", "awareness"]
+    question: "A caller claims to be a new vendor technician and pressures the receptionist to provide a floor plan and badge procedures for an urgent repair. What social engineering technique is being used?"
+    choices: ["A. Pretexting", "B. Tailgating", "C. Shoulder surfing", "D. Dumpster diving"]
+    answerIndex: 0
+    explanation: "Pretexting uses a fabricated story to build credibility and extract information, which matches an 'urgent technician' narrative. Tailgating involves physically following someone into a restricted area, not eliciting details by phone."
+    refs: ["https://www.cisa.gov/resources-tools/resources/avoiding-social-engineering-and-phishing-attacks"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-007"
+    difficulty: "easy"
+    tags: ["cloud-security", "shared-responsibility", "iaas"]
+    question: "A team runs workloads on an IaaS VM platform. Who is typically responsible for patching the guest operating system inside the VM?"
+    choices: ["A. The customer", "B. The cloud provider", "C. The ISP", "D. The hypervisor vendor only"]
+    answerIndex: 0
+    explanation: "In IaaS, customers usually manage the guest OS and applications, including patching and hardening. The provider manages underlying physical infrastructure and the hypervisor, but it does not patch the customer's OS by default."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-144/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-008"
+    difficulty: "medium"
+    tags: ["tls", "pki", "mutual-tls", "authentication"]
+    question: "A financial API must authenticate both the client and the server using certificates during the TLS handshake. Which configuration best meets this requirement?"
+    choices: ["A. Mutual TLS (mTLS) with client certificate authentication", "B. TLS with server-only certificates and HTTP Basic Auth for clients", "C. IP allowlisting only with no TLS", "D. SSH port forwarding without TLS"]
+    answerIndex: 0
+    explanation: "mTLS requires clients to present certificates and prove possession of the private key, providing strong mutual authentication. Basic Auth can be phished or reused and does not provide certificate-based client identity at the transport layer."
+    refs: ["https://datatracker.ietf.org/doc/html/rfc8446"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-009"
+    difficulty: "medium"
+    tags: ["hashing", "passwords", "salting", "credential-security"]
+    question: "After a breach, analysts discover the password database used SHA-256 without salts, enabling fast cracking. Which improvement most directly slows offline cracking and prevents identical-hash lookups?"
+    choices: ["A. Add a unique per-user salt and use a password hashing function with cost", "B. Switch from SHA-256 to MD5 for compatibility", "C. Encrypt the hashes with a single shared AES key", "D. Store the hashes in a different table name"]
+    answerIndex: 0
+    explanation: "A unique salt defeats precomputed tables and identical-hash comparisons, and a purpose-built password hashing scheme increases computation cost for attackers. MD5 is weaker, and encrypting hashes with one key creates a single point of compromise without addressing hashing speed."
+    refs: ["https://pages.nist.gov/800-63-3/sp800-63b.html"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-010"
+    difficulty: "medium"
+    tags: ["incident-response", "communications", "legal", "breach-response"]
+    question: "A breach involves potential exposure of regulated customer data. The incident commander wants to avoid accidental admissions and preserve privilege while coordinating communications. Which action is most appropriate early in the response?"
+    choices: ["A. Engage legal counsel and establish an approved communications plan before broad external statements", "B. Instruct engineers to post technical details on social media for transparency", "C. Immediately wipe affected systems to prevent further data access", "D. Disable all logging to avoid collecting sensitive information"]
+    answerIndex: 0
+    explanation: "Early legal involvement helps guide notification obligations and supports controlled communications that reduce risk of inconsistent statements. Wiping systems and disabling logging can destroy evidence and reduce visibility needed for containment and scope determination."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-011"
+    difficulty: "medium"
+    tags: ["digital-forensics", "incident-response", "evidence", "volatile-memory"]
+    question: "A suspected memory-resident malware infection is active on a server. You need the best chance to capture in-memory indicators without altering the system more than necessary. What should you do first?"
+    choices: ["A. Acquire volatile memory (RAM) before powering down or reimaging", "B. Reboot the server to clear malware and then collect logs", "C. Run disk defragmentation to consolidate files for imaging", "D. Delete suspicious executables to prevent reinfection"]
+    answerIndex: 0
+    explanation: "Volatile memory contains processes, network connections, and injected code that will be lost on reboot or shutdown, so RAM capture should be prioritized when memory-resident malware is suspected. Rebooting can destroy exactly the evidence needed to understand attacker behavior and persistence."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-86/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-012"
+    difficulty: "medium"
+    tags: ["cloud-security", "cspm", "casb", "security-tools"]
+    question: "Security wants continuous detection of risky cloud configuration changes like public storage buckets and overly permissive IAM policies across multiple accounts. Which tool category best matches this need?"
+    choices: ["A. Cloud Security Posture Management (CSPM)", "B. Data Loss Prevention (DLP) for endpoints only", "C. Intrusion Prevention System (IPS) for the office LAN", "D. Full disk encryption on laptops"]
+    answerIndex: 0
+    explanation: "CSPM focuses on identifying and alerting on cloud misconfigurations and posture drift across accounts, which directly fits bucket exposure and IAM policy issues. Endpoint DLP and disk encryption do not analyze cloud control-plane configurations."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-013"
+    difficulty: "medium"
+    tags: ["zero-trust", "microsegmentation", "least-privilege"]
+    question: "A company is moving from a flat internal network to Zero Trust. They want to reduce implicit trust between application tiers and enforce per-workload access. Which design change best supports this?"
+    choices: ["A. Microsegment workloads and enforce identity- and context-based policies for east-west traffic", "B. Increase the number of shared admin accounts to simplify access", "C. Allow any internal IP to reach database ports because it is 'inside'", "D. Disable device posture checks to reduce friction"]
+    answerIndex: 0
+    explanation: "Zero Trust emphasizes least privilege and explicit verification, and microsegmentation reduces lateral movement by limiting who can talk to what. Shared admin accounts and broad internal allow rules increase blast radius and undermine identity-based access."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-207/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-014"
+    difficulty: "medium"
+    tags: ["iot-security", "firmware", "supply-chain", "integrity"]
+    question: "A fleet of IoT gateways receives firmware updates over the internet. Security wants to ensure devices install only vendor-approved firmware and can detect tampering. What control best achieves this?"
+    choices: ["A. Digitally sign firmware updates and verify signatures on-device before installation", "B. Encrypt firmware files with a hardcoded symmetric key shared by all devices", "C. Disable firmware updates entirely to eliminate change", "D. Rely on DNS caching to prevent malicious update domains"]
+    answerIndex: 0
+    explanation: "Digital signatures provide integrity and authenticity for firmware, allowing the device to reject modified or untrusted images. A hardcoded shared key is a single point of failure, and disabling updates increases long-term vulnerability exposure."
+    refs: ["https://csrc.nist.gov/publications/detail/nistir/8259a/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-015"
+    difficulty: "hard"
+    tags: ["pki", "certificates", "mutual-tls", "troubleshooting"]
+    question: "A service-to-service API uses mTLS. After issuing new client certificates, handshakes fail with 'bad certificate' on the server. The CA is trusted and the cert is not expired. What is the most likely certificate-related cause?"
+    choices: ["A. The client certificate is missing the Client Authentication extended key usage (EKU)", "B. The client used AES-256 instead of AES-128", "C. The server supports only HTTP/1.1 and the client used HTTP/2", "D. The certificate subject contains too many organizational units"]
+    answerIndex: 0
+    explanation: "Many TLS stacks validate that a presented client certificate is permitted for client authentication via EKU, and missing or incorrect EKU can cause handshake rejection. Cipher strength and HTTP versions occur at different layers and do not usually produce a certificate usage validation error."
+    refs: ["https://www.rfc-editor.org/rfc/rfc5280"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-016"
+    difficulty: "hard"
+    tags: ["tls", "downgrade", "web-security", "hardening"]
+    question: "A penetration test shows clients can be downgraded to legacy TLS versions when connecting to an internal web app, increasing exposure to known weaknesses. Which remediation is most effective?"
+    choices: ["A. Disable legacy protocols/cipher suites on the server and enforce modern TLS versions", "B. Increase the RSA key length on the existing legacy TLS configuration only", "C. Add a new DNS CNAME record for the application", "D. Turn off certificate validation on clients to prevent connection failures"]
+    answerIndex: 0
+    explanation: "Preventing downgrade requires disabling obsolete protocol versions and weak cipher suites so negotiation cannot fall back to insecure options. Increasing key length alone does not fix protocol-level weaknesses, and disabling validation makes active man-in-the-middle attacks easier."
+    refs: ["https://datatracker.ietf.org/doc/html/rfc8446"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-017"
+    difficulty: "hard"
+    tags: ["digital-forensics", "evidence", "integrity", "disk-imaging"]
+    question: "An investigator must create a forensic disk image from a suspect workstation in a way that is defensible in court. Which approach is best?"
+    choices: ["A. Use a hardware write blocker, create a bit-for-bit image, and verify integrity with cryptographic hashes", "B. Copy only the user's Documents folder to a USB drive to save time", "C. Boot into the installed OS and run cleanup utilities before imaging", "D. Capture screenshots of file listings as the primary evidence"]
+    answerIndex: 0
+    explanation: "Write blockers prevent modification of source media, and hash-verified bit-for-bit imaging preserves integrity and completeness for forensic analysis. Copying selected files or altering the OS before imaging can omit artifacts and weaken evidence credibility."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-86/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-018"
+    difficulty: "hard"
+    tags: ["cloud-security", "zero-trust", "identity", "conditional-access"]
+    question: "A SaaS app uses SSO and must allow access only from managed devices that meet a security posture baseline. Users should be blocked even with valid passwords if the device is noncompliant. Which control best enforces this?"
+    choices: ["A. Identity provider conditional access policies using device compliance signals", "B. Static IP allowlisting for all employee home networks", "C. Disabling MFA to reduce login failures on mobile devices", "D. Encrypting the SaaS database with a longer key"]
+    answerIndex: 0
+    explanation: "Conditional access at the IdP can evaluate device compliance and context at authentication time and deny access for noncompliant devices, aligning with Zero Trust principles. IP allowlisting is brittle for roaming users and does not validate device posture."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-207/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-019"
+    difficulty: "hard"
+    tags: ["incident-response", "ransomware", "forensics", "logging"]
+    question: "After containing ransomware, leadership demands rapid restoration. The IR lead also wants to prevent reinfection and understand initial access. Which action best balances speed with long-term risk reduction?"
+    choices: ["A. Preserve key evidence (images/logs) and determine initial access vector before broad restoration, then restore from known-good backups", "B. Immediately restore all systems from the newest backups without validating them", "C. Pay the ransom to ensure decryptors work before investigating", "D. Disable EDR to avoid performance impact during restoration"]
+    answerIndex: 0
+    explanation: "Collecting evidence and identifying initial access reduces the chance of restoring into an environment where attackers still have access, while restoring from validated known-good backups supports recovery. Restoring unvalidated backups or disabling EDR can reintroduce malware and remove detection during a high-risk period."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-extra-020"
+    difficulty: "hard"
+    tags: ["social-engineering", "email-security", "bec", "dmarc"]
+    question: "A finance team is targeted by business email compromise (BEC) using spoofed executive email addresses. Which control most directly helps receiving mail systems reject unauthenticated spoofed messages?"
+    choices: ["A. Implement DMARC with alignment, backed by SPF and DKIM", "B. Disable all external email to the finance distribution list", "C. Use HTTP instead of HTTPS for the email portal", "D. Replace MFA with security questions for convenience"]
+    answerIndex: 0
+    explanation: "DMARC builds on SPF and DKIM to let domain owners publish policies that help receivers detect and reject spoofed messages. Disabling external email is operationally disruptive and does not address authentication, while weakening MFA reduces account security and can worsen BEC risk."
+    refs: ["https://datatracker.ietf.org/doc/html/rfc7489"]
+    author: "ThanhNguyxn"

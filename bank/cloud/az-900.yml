@@ -304,3 +304,203 @@ questions:
     explanation: "Azure Arc extends Azure management capabilities to non-Azure resources, enabling consistent governance across hybrid and multi-cloud environments. Option A is wrong because management groups organize Azure subscriptions but do not onboard external servers as manageable resources."
     refs: ["https://learn.microsoft.com/en-us/azure/azure-arc/overview"]
     author: "ThanhNguyxn"
+
+  - id: "az900-extra-001"
+    difficulty: "easy"
+    tags: ["azure-ad", "tenants", "identity"]
+    question: "A company signs up for Azure and needs a dedicated identity boundary to manage users, groups, and sign-in policies. Multiple subscriptions can be associated to this boundary. What is it called?"
+    choices: ["A. Resource group", "B. Management group", "C. Microsoft Entra tenant", "D. Availability zone"]
+    answerIndex: 2
+    explanation: "A Microsoft Entra tenant is the identity boundary that contains users, groups, and identity policies, and it can be linked to one or more Azure subscriptions. Option A is wrong because a resource group is only a resource management container inside a subscription and does not define an identity directory boundary."
+    refs: ["https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-002"
+    difficulty: "easy"
+    tags: ["sla", "reliability", "availability"]
+    question: "Two Azure services have SLAs of 99.9% and 99.99%. Which statement is correct?"
+    choices: ["A. 99.9% allows less downtime than 99.99%", "B. 99.99% allows less downtime than 99.9%", "C. Both SLAs guarantee zero downtime", "D. SLAs apply only to customer-managed software"]
+    answerIndex: 1
+    explanation: "A higher SLA percentage means less allowable downtime over the measurement period. Option C is wrong because no standard cloud SLA guarantees absolute zero downtime; architectures must be designed for resiliency."
+    refs: ["https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/reliability"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-003"
+    difficulty: "easy"
+    tags: ["regions", "region-pairs", "resiliency"]
+    question: "A company asks why Azure uses region pairs. What is a primary benefit of region pairs?"
+    choices: ["A. They guarantee free bandwidth between all regions", "B. They help with sequential updates and disaster recovery design by pairing regions in the same geography", "C. They force all resources to run in both regions automatically", "D. They replace the need for backups"]
+    answerIndex: 1
+    explanation: "Region pairs are designed to support resiliency and planned maintenance patterns within a geography, and they are commonly used for DR planning. Option D is wrong because backups are still required for data protection and recovery from accidental deletion or corruption."
+    refs: ["https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-004"
+    difficulty: "easy"
+    tags: ["azure-devops", "ci-cd", "pipelines"]
+    question: "A development team wants a managed service to build, test, and deploy code automatically whenever changes are pushed to a repository. Which Azure DevOps service provides this capability?"
+    choices: ["A. Azure Boards", "B. Azure Artifacts", "C. Azure Pipelines", "D. Azure Repos"]
+    answerIndex: 2
+    explanation: "Azure Pipelines provides CI/CD automation for building, testing, and deploying applications from source control triggers. Option A is wrong because Azure Boards is for work tracking, not automated build and release execution."
+    refs: ["https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-005"
+    difficulty: "easy"
+    tags: ["pricing", "reservations", "cost-optimization"]
+    question: "A company will run the same VM size continuously for the next 12 months. They want to reduce compute cost compared to pay-as-you-go rates. What pricing option should they consider first?"
+    choices: ["A. Azure Reservations for compute", "B. Azure DDoS Protection Standard", "C. Azure Service Health alerts", "D. Azure Policy initiatives"]
+    answerIndex: 0
+    explanation: "Azure Reservations can provide discounted pricing in exchange for committing to a one- or three-year term for eligible resources. Option C is wrong because Service Health provides incident and maintenance notifications and does not reduce compute pricing."
+    refs: ["https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/save-compute-costs-reservations"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-006"
+    difficulty: "easy"
+    tags: ["azure-monitor", "monitoring", "observability"]
+    question: "An operations team wants a single service to collect platform metrics and resource logs and to create alert rules for Azure resources. Which service is the best fit?"
+    choices: ["A. Azure Monitor", "B. Azure DNS", "C. Azure Bastion", "D. Azure Storage Explorer"]
+    answerIndex: 0
+    explanation: "Azure Monitor provides a unified platform for collecting metrics and logs and creating alerts across Azure resources. Option B is wrong because Azure DNS is a name resolution service and does not provide monitoring and alerting capabilities."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-monitor/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-007"
+    difficulty: "easy"
+    tags: ["azure-ad", "authentication", "authorization"]
+    question: "A user signs in to a cloud application and receives access based on group membership. Which statement best describes the difference between authentication and authorization?"
+    choices: ["A. Authentication verifies who the user is; authorization determines what the user can do", "B. Authentication assigns RBAC roles; authorization issues passwords", "C. Authentication is optional in cloud; authorization is mandatory", "D. They are the same concept"]
+    answerIndex: 0
+    explanation: "Authentication confirms identity (for example, validating credentials), while authorization controls permissions (for example, allowing actions based on group membership). Option D is wrong because these are distinct steps in access control and are handled by different mechanisms and policies."
+    refs: ["https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-008"
+    difficulty: "medium"
+    tags: ["sla", "availability-zones", "architecture"]
+    question: "A web app is deployed on a single VM in one Azure region. The business needs higher availability and wants to reduce the impact of a datacenter outage. Which design change best improves availability?"
+    choices: ["A. Add a delete lock to the VM", "B. Deploy two or more instances across Availability Zones and load balance them", "C. Increase the VM size", "D. Use Azure Pricing Calculator"]
+    answerIndex: 1
+    explanation: "Availability Zones provide datacenter-level isolation within a region, and deploying multiple instances across zones behind a load balancer improves resiliency. Option C is wrong because scaling up one VM does not protect against a datacenter or zonal failure."
+    refs: ["https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-009"
+    difficulty: "medium"
+    tags: ["pricing", "cost-management", "cost-analysis"]
+    question: "A finance team wants to analyze last month's Azure spend by service and resource group to find the top cost drivers. Which Azure capability should they use?"
+    choices: ["A. Cost analysis in Azure Cost Management", "B. Azure Service Health", "C. Azure Advisor security recommendations only", "D. Azure Firewall"]
+    answerIndex: 0
+    explanation: "Cost analysis in Azure Cost Management provides views and filters for historical spend by dimensions such as service, resource group, and subscription. Option B is wrong because Service Health reports platform incidents and maintenance, not cost breakdowns."
+    refs: ["https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/cost-analysis-common-uses"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-010"
+    difficulty: "medium"
+    tags: ["azure-devops", "repos", "source-control"]
+    question: "A team wants a managed Git repository service that integrates with work items and pipelines in the same platform. Which Azure DevOps service should they use?"
+    choices: ["A. Azure Repos", "B. Azure Artifacts", "C. Azure Boards", "D. Azure Monitor"]
+    answerIndex: 0
+    explanation: "Azure Repos provides Git repositories and integrates directly with Azure Boards and Azure Pipelines for end-to-end DevOps workflows. Option B is wrong because Artifacts is a package management service, not a source control system."
+    refs: ["https://learn.microsoft.com/en-us/azure/devops/repos/get-started/what-is-repos?view=azure-devops"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-011"
+    difficulty: "medium"
+    tags: ["azure-devops", "boards", "agile"]
+    question: "A product owner wants to manage backlogs, track work items, and visualize sprint progress with Kanban boards. Which Azure DevOps service supports these needs?"
+    choices: ["A. Azure Boards", "B. Azure Pipelines", "C. Azure Repos", "D. Azure DNS"]
+    answerIndex: 0
+    explanation: "Azure Boards is used for Agile planning, work item tracking, and dashboards/boards for managing delivery. Option B is wrong because Pipelines is for CI/CD automation and does not provide backlog and sprint planning features."
+    refs: ["https://learn.microsoft.com/en-us/azure/devops/boards/get-started/what-is-azure-boards?view=azure-devops"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-012"
+    difficulty: "medium"
+    tags: ["availability", "availability-sets", "fault-domains"]
+    question: "A region does not support Availability Zones for the VM SKU you need. You still want protection from planned maintenance and single-rack hardware failures for a two-VM application. What should you use?"
+    choices: ["A. Availability set", "B. Resource group", "C. Azure Advisor", "D. Azure Arc"]
+    answerIndex: 0
+    explanation: "Availability sets distribute VMs across fault and update domains to reduce the impact of planned maintenance and localized hardware failures. Option B is wrong because resource groups are administrative containers and do not influence physical placement or fault isolation."
+    refs: ["https://learn.microsoft.com/en-us/azure/virtual-machines/availability"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-013"
+    difficulty: "medium"
+    tags: ["azure-ad", "conditional-access", "mfa"]
+    question: "A company wants to require MFA only when users sign in from outside trusted network locations. Which Microsoft Entra feature should be used?"
+    choices: ["A. Conditional Access", "B. Tags", "C. Azure Policy", "D. Azure Monitor metrics"]
+    answerIndex: 0
+    explanation: "Conditional Access evaluates sign-in context such as location and can require controls like MFA based on policy conditions. Option C is wrong because Azure Policy governs Azure resource configurations, not user sign-in requirements."
+    refs: ["https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-014"
+    difficulty: "medium"
+    tags: ["slas", "architecture", "shared-responsibility"]
+    question: "A customer asks whether an Azure SLA guarantees their application will meet a business uptime target. What is the most accurate response?"
+    choices: ["A. Yes, the SLA guarantees the app will always be available regardless of architecture", "B. No, SLAs apply to specific services; the application uptime depends on how you design and deploy those services", "C. Yes, if you use any PaaS service", "D. No, Azure does not publish SLAs"]
+    answerIndex: 1
+    explanation: "Azure publishes SLAs for individual services, but end-to-end application availability depends on design choices like redundancy, failover, and operational practices. Option A is wrong because architecture and configuration strongly influence real application uptime beyond the underlying service SLA."
+    refs: ["https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/reliability"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-015"
+    difficulty: "hard"
+    tags: ["sla", "calculations", "availability"]
+    question: "An Azure service has a 99.9% monthly SLA. Approximately how much total downtime does that allow in a 30-day month?"
+    choices: ["A. About 43 minutes", "B. About 4.3 hours", "C. About 1 day", "D. About 4 minutes"]
+    answerIndex: 0
+    explanation: "A 99.9% SLA allows 0.1% downtime. In a 30-day month there are about 43,200 minutes, and 0.1% of that is about 43.2 minutes, so option A is the closest. Option B is wrong because 4.3 hours is closer to a 99% SLA, not 99.9%."
+    refs: ["https://learn.microsoft.com/en-us/azure/architecture/framework/resiliency/reliability"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-016"
+    difficulty: "hard"
+    tags: ["pricing", "vm", "billing"]
+    question: "A VM is stopped (deallocated) but the OS disk remains in the subscription. Which cost is most likely to continue accruing?"
+    choices: ["A. Compute charges for the VM vCPU", "B. Managed disk storage charges", "C. Charges for Availability Zones", "D. Charges for Azure Boards"]
+    answerIndex: 1
+    explanation: "When a VM is deallocated, compute charges typically stop, but storage for managed disks and other retained resources continues to be billed. Option A is wrong because compute charges are generally tied to running allocation, not deallocated state."
+    refs: ["https://learn.microsoft.com/en-us/azure/virtual-machines/billing"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-017"
+    difficulty: "hard"
+    tags: ["azure-devops", "artifacts", "packages"]
+    question: "A team wants to host and version internal NuGet and npm packages so multiple projects can share approved libraries with access control. Which Azure DevOps service should they use?"
+    choices: ["A. Azure Artifacts", "B. Azure Repos", "C. Azure Pipelines", "D. Azure Service Health"]
+    answerIndex: 0
+    explanation: "Azure Artifacts provides package feeds for common package types with versioning and permissions for internal distribution. Option B is wrong because Repos hosts source code, not package feeds and dependency publishing workflows."
+    refs: ["https://learn.microsoft.com/en-us/azure/devops/artifacts/start-using-azure-artifacts?view=azure-devops"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-018"
+    difficulty: "hard"
+    tags: ["regions", "data-residency", "compliance"]
+    question: "A company must store customer data within a specific country for regulatory reasons and also wants low latency for users in that country. What should they prioritize when selecting where to deploy resources?"
+    choices: ["A. Choose any region and rely on encryption to satisfy residency", "B. Choose an Azure region that is located in the required geography and meets the compliance requirement", "C. Choose only the paired region", "D. Use Availability Sets instead of choosing a region"]
+    answerIndex: 1
+    explanation: "Region selection is the primary control for data residency and latency because resources are deployed into a specific Azure region in a geography. Option A is wrong because encryption does not change the physical location where data is stored and does not by itself satisfy residency requirements."
+    refs: ["https://learn.microsoft.com/en-us/azure/availability-zones/az-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-019"
+    difficulty: "medium"
+    tags: ["pricing", "pricing-calculator", "planning"]
+    question: "A solutions architect wants to estimate monthly costs for a planned deployment before any resources are created. Which capability is most appropriate?"
+    choices: ["A. Azure Pricing Calculator", "B. Cost analysis for last month", "C. Azure Service Health", "D. Azure Advisor"]
+    answerIndex: 0
+    explanation: "The Azure Pricing Calculator is intended for pre-deployment cost estimates based on selected services and configurations. Option B is wrong because cost analysis is used for analyzing costs after resources are running."
+    refs: ["https://learn.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-extra-020"
+    difficulty: "medium"
+    tags: ["azure-ad", "identity", "subscriptions"]
+    question: "A company wants strict separation between two subsidiaries so that administrators in one subsidiary cannot manage identities in the other. Both still want to use Azure services. What is the best approach?"
+    choices: ["A. Use one Entra tenant and two resource groups", "B. Use one subscription and different tags", "C. Use separate Entra tenants for identity isolation, and associate subscriptions as needed", "D. Use one management group only"]
+    answerIndex: 2
+    explanation: "Separate Entra tenants create distinct identity directories and administrative boundaries, which is the strongest isolation model for identity management. Option A is wrong because resource groups do not isolate identity administration; they only scope Azure resource management inside the same tenant and subscription."
+    refs: ["https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis"]
+    author: "ThanhNguyxn"

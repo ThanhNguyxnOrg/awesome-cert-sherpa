@@ -50,6 +50,306 @@ questions:
       - "https://www.cisco.com/c/en/us/td/docs/"
     author: "ThanhNguyxn"
 
+  - id: "ccna-extra-001"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "osi-model"]
+    question: "A technician captures traffic between a workstation and a web server. The capture shows TCP three-way handshake packets. At which OSI layer does TCP operate?"
+    choices:
+      - "A. Layer 1 – Physical"
+      - "B. Layer 3 – Network"
+      - "C. Layer 4 – Transport"
+      - "D. Layer 7 – Application"
+    answerIndex: 2
+    explanation: "TCP is a Transport layer (Layer 4) protocol responsible for reliable, connection-oriented communication including the three-way handshake. Layer 3 handles logical addressing and routing, not session establishment."
+    refs:
+      - "https://learningnetwork.cisco.com/s/article/the-osi-model"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-002"
+    difficulty: "medium"
+    tags: ["network-fundamentals", "ipv6", "addressing"]
+    question: "A server interface is configured with the IPv6 address 2001:0db8:0000:0000:0000:0000:0000:0001/64. Which compressed form is correct?"
+    choices:
+      - "A. 2001:db8::1/64"
+      - "B. 2001:db8:0:0:0:0:0:1/64"
+      - "C. 2001:db8:::1/64"
+      - "D. 2001:0db8::0001/64"
+    answerIndex: 0
+    explanation: "Leading zeros within each hextet are dropped and the longest consecutive run of all-zero hextets is replaced by a single double-colon (::). 2001:db8::1/64 is the fully compressed canonical form for this address."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-3s/ip6b-xe-3s-book/ip6-add-basic-conn-xe.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-003"
+    difficulty: "hard"
+    tags: ["network-fundamentals", "subnetting", "vlsm"]
+    question: "You are given 172.16.0.0/16 and must create four subnets: one with 4000 hosts, one with 1000 hosts, one with 200 hosts, and one point-to-point link. Using VLSM, what is the correct mask for the 4000-host subnet?"
+    choices:
+      - "A. /19"
+      - "B. /20"
+      - "C. /21"
+      - "D. /22"
+    answerIndex: 1
+    explanation: "A /20 mask provides 4094 usable host addresses (2^12 - 2), which is the smallest prefix that accommodates 4000 hosts. A /21 only provides 2046 usable addresses, which is insufficient for 4000 hosts."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-004"
+    difficulty: "medium"
+    tags: ["network-access", "wireless", "wlan"]
+    question: "A retail store deploys lightweight access points managed by a WLC. Store managers report that APs in a new wing are not joining the controller. The APs obtain IP addresses via DHCP but cannot discover the WLC. What should be checked first?"
+    choices:
+      - "A. Whether WPA3 is enabled on the SSID"
+      - "B. Whether DHCP Option 43 or DNS resolution for CISCO-CAPWAP-CONTROLLER is configured"
+      - "C. Whether PortFast is disabled on AP switch ports"
+      - "D. Whether NTP is synchronized on the APs"
+    answerIndex: 1
+    explanation: "Lightweight APs use CAPWAP to discover and join a WLC. When the AP and WLC are on different subnets, DHCP Option 43 or a DNS entry for CISCO-CAPWAP-CONTROLLER is required for the AP to locate the controller."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/wireless/wireless-lan-controller-software/97066-wlc-ap-join.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-005"
+    difficulty: "easy"
+    tags: ["network-access", "vlan", "switching"]
+    question: "A network administrator creates VLAN 50 on Switch A but forgets to create it on Switch B. A trunk exists between the two switches. What happens to VLAN 50 traffic crossing the trunk?"
+    choices:
+      - "A. Traffic is forwarded normally because trunks carry all VLANs"
+      - "B. Traffic tagged with VLAN 50 is dropped by Switch B because the VLAN does not exist locally"
+      - "C. Switch B automatically creates VLAN 50 via VTP transparent mode"
+      - "D. The trunk link goes into error-disabled state"
+    answerIndex: 1
+    explanation: "A switch drops frames for VLANs that are not in its local VLAN database. Even though the trunk can carry VLAN 50 tags, Switch B has no matching VLAN entry and discards those frames silently."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/vtp/10558-21.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-006"
+    difficulty: "medium"
+    tags: ["network-access", "stp", "rapid-spanning-tree"]
+    question: "After migrating from PVST+ to Rapid PVST+, a network engineer notices that a newly connected switch port takes only a few seconds to start forwarding instead of the previous 30-second delay. Which RSTP mechanism is responsible for this faster convergence?"
+    choices:
+      - "A. MaxAge timer reduction to 2 seconds"
+      - "B. Proposal-agreement handshake on point-to-point links"
+      - "C. Automatic root bridge election change"
+      - "D. Disabling of all BPDU processing"
+    answerIndex: 1
+    explanation: "RSTP uses a proposal-agreement mechanism on point-to-point links that allows ports to transition rapidly to forwarding without waiting through traditional listening and learning timers. This handshake is the core of RSTP fast convergence."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24062-146.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-007"
+    difficulty: "hard"
+    tags: ["ip-connectivity", "ospfv2", "troubleshooting"]
+    question: "Two directly connected routers are configured for OSPFv2 on their shared /30 link. The adjacency is stuck in EXSTART state. Interface MTUs are 1500 on R1 and 9000 on R2. What is the root cause?"
+    choices:
+      - "A. Mismatched OSPF hello timers"
+      - "B. Mismatched OSPF area IDs"
+      - "C. Mismatched interface MTU values preventing DBD exchange"
+      - "D. Duplicate OSPF router IDs"
+    answerIndex: 2
+    explanation: "OSPF adjacencies stuck in EXSTART or EXCHANGE state are commonly caused by MTU mismatches. During database description packet exchange, if the MTU in the DBD header does not match the receiving interface MTU, the adjacency fails to progress."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13699-29.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-008"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "routing", "ipv6"]
+    question: "A dual-stack router runs OSPFv3 for IPv6 routing. An engineer notices that all OSPFv3 neighbor relationships use link-local addresses as next hops. Why does OSPFv3 behave this way?"
+    choices:
+      - "A. OSPFv3 cannot use global unicast addresses"
+      - "B. Link-local addresses are always preferred as next hops for IPv6 routing on multi-access segments"
+      - "C. OSPFv3 does not support adjacency formation"
+      - "D. Global unicast addresses are only used for EIGRP"
+    answerIndex: 1
+    explanation: "IPv6 routing protocols including OSPFv3 use link-local addresses as next-hop addresses because they are guaranteed to be unique and reachable on the directly connected link, ensuring consistent forwarding behavior across all interface types."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/iproute_ospf/configuration/xe-16/iro-xe-16-book/ip6-route-ospfv3.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-009"
+    difficulty: "easy"
+    tags: ["ip-services", "dhcp"]
+    question: "A small office router is configured as a DHCP server. Users in VLAN 10 receive addresses, but users in VLAN 20 on a different subnet do not. The VLAN 20 gateway SVI is on the same router. What is most likely missing?"
+    choices:
+      - "A. A DHCP pool with a network statement matching the VLAN 20 subnet"
+      - "B. A static route to the DHCP server"
+      - "C. An access list permitting DHCP on VLAN 20"
+      - "D. A trunk link between the router and itself"
+    answerIndex: 0
+    explanation: "When the router is the DHCP server and also the gateway for VLAN 20, it needs a DHCP pool with a network statement matching that subnet. Without a matching pool, the router has no addresses to offer clients on that VLAN."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipaddr_dhcp/configuration/15-sy/dhcp-15-sy-book/dhcp-prt-bsd-aa.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-010"
+    difficulty: "medium"
+    tags: ["ip-services", "nat", "troubleshooting"]
+    question: "After configuring PAT, internal users can browse the internet, but an external partner cannot reach an internally hosted web server at 10.0.1.50. A static NAT entry mapping the public IP to 10.0.1.50 exists but traffic is still blocked. What should the engineer verify?"
+    choices:
+      - "A. Whether the inside and outside NAT interfaces are correctly designated"
+      - "B. Whether OSPF is redistributing NAT entries"
+      - "C. Whether the web server has a DHCP reservation"
+      - "D. Whether CDP is enabled on the outside interface"
+    answerIndex: 0
+    explanation: "NAT requires proper designation of inside and outside interfaces with the ip nat inside and ip nat outside commands. If these are misconfigured or missing, the router cannot perform the address translation even when the static mapping exists."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/13772-12.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-011"
+    difficulty: "hard"
+    tags: ["ip-services", "qos", "marking"]
+    question: "A hospital network must prioritize patient telemetry traffic (DSCP EF) over bulk imaging transfers (DSCP AF11) during congestion while ensuring best-effort traffic is not completely starved. Which queuing strategy meets all three requirements?"
+    choices:
+      - "A. FIFO queuing with no classification"
+      - "B. Strict priority queue for EF, CBWFQ bandwidth guarantee for AF11, and a default class with remaining bandwidth"
+      - "C. Priority queue for all three classes equally"
+      - "D. Tail-drop only with no marking"
+    answerIndex: 1
+    explanation: "A strict priority queue ensures EF traffic (telemetry) is served first with minimal delay. CBWFQ provides a guaranteed bandwidth share for AF11, and the default class receives remaining bandwidth, preventing starvation of best-effort flows."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos_conmgt/configuration/xe-16/qos-conmgt-xe-16-book/qos-conmgt-cfg-llq.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-012"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "acl", "extended-acl"]
+    question: "An extended ACL must permit HTTP and HTTPS from subnet 10.10.10.0/24 to server 192.168.1.100, deny all other traffic from that subnet to the server, but allow everything else. Which ACL logic is correct?"
+    choices:
+      - "A. permit tcp 10.10.10.0 0.0.0.255 host 192.168.1.100 eq 80; permit tcp 10.10.10.0 0.0.0.255 host 192.168.1.100 eq 443; deny ip 10.10.10.0 0.0.0.255 host 192.168.1.100; permit ip any any"
+      - "B. deny ip any any; permit tcp 10.10.10.0 0.0.0.255 host 192.168.1.100 eq 80"
+      - "C. permit ip any any; deny tcp 10.10.10.0 0.0.0.255 host 192.168.1.100 eq 80"
+      - "D. permit tcp any any eq 80; deny ip any any"
+    answerIndex: 0
+    explanation: "ACLs are processed top-down. The first two entries explicitly permit HTTP and HTTPS from the subnet to the server. The third entry denies all remaining traffic from that subnet to the server. The final permit allows all other traffic flows through the router."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-013"
+    difficulty: "easy"
+    tags: ["security-fundamentals", "wireless-security"]
+    question: "A coffee shop wants to provide the strongest available Wi-Fi security for its customers. Which wireless security standard should be deployed on the access points?"
+    choices:
+      - "A. WEP with a 64-bit key"
+      - "B. Open authentication with no encryption"
+      - "C. WPA3-Personal with SAE"
+      - "D. MAC address filtering only"
+    answerIndex: 2
+    explanation: "WPA3-Personal uses Simultaneous Authentication of Equals (SAE) which provides robust protection against offline dictionary attacks and forward secrecy. WEP is deprecated, open auth provides no encryption, and MAC filtering is trivially bypassed."
+    refs:
+      - "https://www.cisco.com/c/en/us/products/wireless/what-is-wi-fi-security.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-014"
+    difficulty: "medium"
+    tags: ["security-fundamentals", "vpn", "ipsec"]
+    question: "A remote office connects to headquarters over an IPsec site-to-site VPN. Users report that traffic to HQ is encrypted but returning traffic from HQ arrives unencrypted. What is the most likely misconfiguration?"
+    choices:
+      - "A. The crypto ACL on the HQ router does not mirror the remote office crypto ACL"
+      - "B. The remote office router has no default route"
+      - "C. OSPF is not running on the tunnel interface"
+      - "D. NAT-T is enabled on both sides"
+    answerIndex: 0
+    explanation: "IPsec crypto ACLs must be mirrored on both peers. If the HQ crypto ACL does not specify matching interesting traffic for the return direction, that traffic bypasses the IPsec tunnel and is sent unencrypted via the default route."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security-vpn/ipsec-negotiation-ike-protocols/5409-ipsec-debug-00.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-015"
+    difficulty: "hard"
+    tags: ["ip-connectivity", "ospfv2", "summarization"]
+    question: "A router advertises four OSPF routes: 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, and 10.1.3.0/24 from Area 1 into Area 0. An ABR is configured to summarize these into a single prefix. What is the correct summary address?"
+    choices:
+      - "A. 10.1.0.0/21"
+      - "B. 10.1.0.0/22"
+      - "C. 10.1.0.0/23"
+      - "D. 10.1.0.0/16"
+    answerIndex: 1
+    explanation: "The four /24 networks 10.1.0.0 through 10.1.3.0 differ only in the third octet bits 0-3. A /22 mask (255.255.252.0) covers exactly these four networks without including extra address space, making it the most precise summary."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-016"
+    difficulty: "medium"
+    tags: ["ip-services", "ntp", "syslog"]
+    question: "After a network outage, an engineer reviews syslog entries on a central server and finds that timestamps from different switches are minutes apart, making event correlation impossible. Which service must be consistently deployed across all devices to fix this?"
+    choices:
+      - "A. SNMP polling at shorter intervals"
+      - "B. NTP synchronization to a common time source"
+      - "C. CDP advertisement timer adjustment"
+      - "D. Increasing syslog buffer size on each switch"
+    answerIndex: 1
+    explanation: "NTP ensures all network devices maintain synchronized clocks, which is critical for correlating syslog timestamps across devices during incident investigation. SNMP and CDP do not address time synchronization."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/bsm/configuration/xe-16/bsm-xe-16-book/bsm-time-calendar-set.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-017"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "ethernet", "duplex"]
+    question: "A user connected to a Gigabit Ethernet switch port experiences very slow file transfers and the interface counters show a high number of late collisions. What is the most probable cause?"
+    choices:
+      - "A. The switch port is configured for full duplex but the endpoint is forcing half duplex"
+      - "B. The cable exceeds the maximum length of 1000 meters"
+      - "C. The switch is running out of MAC address table space"
+      - "D. Spanning tree is blocking the port"
+    answerIndex: 0
+    explanation: "Late collisions on Ethernet typically indicate a duplex mismatch where one side operates in full duplex and the other in half duplex. This mismatch causes frame corruption and retransmissions that severely degrade throughput."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/ethernet/10561-3.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-018"
+    difficulty: "hard"
+    tags: ["automation", "rest-api", "cisco-dna-center"]
+    question: "An engineer writes a Python script to retrieve device inventory from Cisco DNA Center using its REST API. The script receives a 403 Forbidden response. The API endpoint URL is correct and the engineer can log in to the DNA Center GUI. What is the most likely issue?"
+    choices:
+      - "A. The script is using HTTP instead of HTTPS"
+      - "B. The API authentication token has expired or was not included in the X-Auth-Token header"
+      - "C. DNA Center does not support REST APIs"
+      - "D. The engineer must use SNMP instead of REST for inventory queries"
+    answerIndex: 1
+    explanation: "Cisco DNA Center REST API requires a valid authentication token passed in the X-Auth-Token header for every request. A 403 response with correct URL typically indicates the token is missing, expired, or the user role lacks API permissions for that endpoint."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/cloud-systems-management/dna-center/series.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-019"
+    difficulty: "medium"
+    tags: ["automation", "configuration-management", "ansible"]
+    question: "A network team uses Ansible to push VLAN configurations to 200 switches. During a playbook run, 15 switches fail because they still use Telnet while the playbook specifies SSH. What is the best long-term remediation?"
+    choices:
+      - "A. Rewrite all playbooks to use Telnet instead of SSH"
+      - "B. Migrate the 15 switches to SSH and enforce SSH-only in the standard device template"
+      - "C. Manually configure VLANs on the 15 switches and exclude them from automation"
+      - "D. Disable authentication on those 15 switches"
+    answerIndex: 1
+    explanation: "Migrating remaining devices to SSH aligns them with the security baseline and automation tooling. Excluding devices from automation or downgrading to Telnet introduces security risks and management inconsistency across the fleet."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security-vpn/secure-shell-ssh/4145-ssh.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-020"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "acl", "ipv6-security"]
+    question: "An IPv6 network uses an ingress ACL on the WAN edge to block spoofed traffic. The ACL denies packets with source addresses in the documentation range 2001:db8::/32 and link-local fe80::/10 arriving from the ISP. Legitimate internal traffic using global unicast addresses is permitted. After applying the ACL, users report that Neighbor Discovery Protocol stops working on the WAN interface. What must be added to the ACL?"
+    choices:
+      - "A. Permit ICMPv6 neighbor-solicitation and neighbor-advertisement messages with appropriate scope"
+      - "B. Permit all UDP traffic from the ISP"
+      - "C. Deny all ICMPv6 to force static neighbor entries"
+      - "D. Permit ARP requests and replies on the WAN interface"
+    answerIndex: 0
+    explanation: "IPv6 Neighbor Discovery Protocol relies on ICMPv6 neighbor solicitation and advertisement messages. If an ACL blocks these essential ICMPv6 types, NDP fails and the router cannot resolve next-hop link-layer addresses. ARP is an IPv4-only protocol and does not apply to IPv6."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipv6_basic/configuration/xe-16/ip6b-xe-16-book/ip6-nd.html"
+    author: "ThanhNguyxn"
+
   - id: "ccna-v1-d1-004"
     difficulty: "easy"
     tags: ["transport-layer", "tcp-udp"]
@@ -453,4 +753,304 @@ questions:
     explanation: "RESTCONF commonly exchanges structured data in JSON or XML that maps to YANG models. That model-driven format is what automation tools like Python and Ansible can parse reliably."
     refs:
       - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-021"
+    difficulty: "easy"
+    tags: ["ipv6", "addressing", "link-local"]
+    question: "Two IPv6 routers are connected on the same Ethernet segment. Which IPv6 address type is only valid on the local link and is not routed between subnets?"
+    choices:
+      - "A. Global unicast"
+      - "B. Unique local"
+      - "C. Link-local"
+      - "D. Multicast"
+    answerIndex: 2
+    explanation: "Link-local addresses (fe80::/10) are used for neighbor discovery and some routing protocol adjacencies and are not forwarded by routers. Global unicast and unique local addresses can be routed, so they do not match the 'local link only' constraint."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc4291"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-022"
+    difficulty: "easy"
+    tags: ["automation", "ansible", "yaml"]
+    question: "A network team adopts Ansible for configuration automation. In which data format are Ansible playbooks most commonly written?"
+    choices:
+      - "A. YAML"
+      - "B. INI only"
+      - "C. XML"
+      - "D. Binary protobuf"
+    answerIndex: 0
+    explanation: "Ansible playbooks are written in YAML, which is human-readable and commonly used for declarative automation. INI is often used for inventories, but it is not the primary playbook format."
+    refs:
+      - "https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-023"
+    difficulty: "easy"
+    tags: ["qos", "dscp", "voice"]
+    question: "A campus marks real-time voice packets with DSCP EF to prioritize them during congestion. What is the decimal DSCP value for EF?"
+    choices:
+      - "A. 0"
+      - "B. 8"
+      - "C. 46"
+      - "D. 56"
+    answerIndex: 2
+    explanation: "Expedited Forwarding (EF) is DSCP 46 and is commonly used for low-latency voice traffic. DSCP 0 is best-effort, so it would not provide the intended priority treatment."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2474"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-024"
+    difficulty: "easy"
+    tags: ["ospf", "neighbor", "timers"]
+    question: "Two OSPF routers on the same VLAN remain stuck in INIT state and never form FULL adjacency. Both can ping each other. Which mismatch is a common cause?"
+    choices:
+      - "A. Hello and dead interval mismatch"
+      - "B. Different NTP stratum levels"
+      - "C. Different DNS server settings"
+      - "D. Different SSH key sizes"
+    answerIndex: 0
+    explanation: "OSPF neighbors must match key parameters such as hello/dead timers to form adjacency on most network types. NTP, DNS, and SSH settings do not participate in OSPF neighbor formation."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2328"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-025"
+    difficulty: "easy"
+    tags: ["wireless", "wlc", "capwap"]
+    question: "A controller-based WLAN uses lightweight APs that build a tunnel back to a WLC for management and control. Which protocol standardizes this AP-to-controller relationship?"
+    choices:
+      - "A. CAPWAP"
+      - "B. LLDP"
+      - "C. HSRP"
+      - "D. VTP"
+    answerIndex: 0
+    explanation: "CAPWAP is the protocol used by lightweight APs to communicate with a wireless controller for control and often data tunneling. LLDP and VTP are Layer 2 discovery/VLAN tools and do not create controller tunnels."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5415"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-026"
+    difficulty: "easy"
+    tags: ["dna-center", "controller-based-networking", "intent"]
+    question: "A campus team wants centralized policy, assurance, and automated provisioning for switches and wireless across many sites. Which Cisco platform is designed for this role?"
+    choices:
+      - "A. Cisco DNA Center"
+      - "B. Cisco IOS TFTP server"
+      - "C. Cisco AnyConnect"
+      - "D. Cisco Secure Firewall only"
+    answerIndex: 0
+    explanation: "Cisco DNA Center provides centralized automation, assurance, and intent-based policy for campus networks. A TFTP server and remote access clients do not provide end-to-end campus orchestration and assurance workflows."
+    refs:
+      - "https://developer.cisco.com/docs/dna-center/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-027"
+    difficulty: "easy"
+    tags: ["sd-wan", "control-plane", "vsmart"]
+    question: "In Cisco SD-WAN, which component primarily distributes control-plane policies and routes to edge devices to build the overlay?"
+    choices:
+      - "A. vSmart controller"
+      - "B. vBond orchestrator"
+      - "C. vManage"
+      - "D. Wireless LAN controller"
+    answerIndex: 0
+    explanation: "vSmart acts as the control-plane controller that distributes routing information and policy to SD-WAN edge routers. vManage is used for management and monitoring, and vBond focuses on orchestration of initial connectivity."
+    refs:
+      - "https://developer.cisco.com/docs/sdwan/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-028"
+    difficulty: "medium"
+    tags: ["ospf", "dr-bdr", "broadcast"]
+    question: "A router should never become OSPF DR or BDR on a broadcast segment, but it must still form adjacencies. Which interface setting accomplishes this?"
+    choices:
+      - "A. Set OSPF priority to 0"
+      - "B. Set OSPF cost to 0"
+      - "C. Disable OSPF on the interface"
+      - "D. Configure the interface as passive"
+    answerIndex: 0
+    explanation: "OSPF priority 0 prevents the router from participating in DR/BDR election while still allowing neighbor relationships. Making the interface passive stops hello packets, so it would prevent adjacencies entirely."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2328"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-029"
+    difficulty: "medium"
+    tags: ["ospf", "passive-interface", "security"]
+    question: "A network uses OSPF in the core, but user access VLANs must never form OSPF adjacencies with end hosts. You still want those subnets advertised. What is the best approach?"
+    choices:
+      - "A. Configure the access SVI as passive in OSPF"
+      - "B. Remove the access VLAN from the OSPF network statements"
+      - "C. Disable IP routing on the L3 switch"
+      - "D. Increase the OSPF hello interval to 2 hours"
+    answerIndex: 0
+    explanation: "A passive interface advertises the connected network into OSPF while preventing hello packets and adjacencies on that interface. Removing the network statement stops advertisement, which breaks reachability from other areas of the network."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2328"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-030"
+    difficulty: "medium"
+    tags: ["eigrp", "dualmode", "convergence"]
+    question: "An EIGRP router loses its successor route to a destination but immediately switches to an alternate path without querying neighbors. What EIGRP concept enables this behavior?"
+    choices:
+      - "A. Feasible successor that satisfies the feasibility condition"
+      - "B. Default route redistribution into OSPF"
+      - "C. BGP route reflector clients"
+      - "D. Static ARP entries on all interfaces"
+    answerIndex: 0
+    explanation: "A feasible successor is a loop-free backup route kept by DUAL, allowing fast local convergence when the successor fails. OSPF redistribution and BGP concepts do not explain EIGRP's immediate local failover behavior."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc7868"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-031"
+    difficulty: "medium"
+    tags: ["eigrp", "stub", "scalability"]
+    question: "A hub-and-spoke WAN uses EIGRP. Spoke routers should not be queried for routes they can never provide, to reduce query scope during failures. What feature best addresses this?"
+    choices:
+      - "A. Configure spokes as EIGRP stub routers"
+      - "B. Enable OSPF virtual links on spokes"
+      - "C. Configure BGP confederations on spokes"
+      - "D. Disable split horizon on all interfaces"
+    answerIndex: 0
+    explanation: "EIGRP stub limits what routes a spoke advertises and tells neighbors not to query it for routes it cannot have, improving convergence and scalability. Disabling split horizon can introduce routing loops and does not provide query-scope protection by itself."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc7868"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-032"
+    difficulty: "medium"
+    tags: ["wireless", "ap-modes", "flexconnect"]
+    question: "A branch uses a WLC at HQ over an unreliable WAN. The branch needs local switching for SSIDs so users still have LAN access if the WAN to the controller goes down. Which AP mode best fits?"
+    choices:
+      - "A. FlexConnect"
+      - "B. Monitor"
+      - "C. Sniffer"
+      - "D. Rogue detector"
+    answerIndex: 0
+    explanation: "FlexConnect allows local switching at the AP while still enabling central management, which supports survivability when the WAN to the controller is impaired. Monitor and sniffer modes are troubleshooting/monitoring functions and do not provide client data forwarding."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/wireless/products-command-reference-list.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-033"
+    difficulty: "medium"
+    tags: ["bgp", "basics", "path-selection"]
+    question: "A router receives two iBGP routes to the same prefix from different peers. One route has local preference 200 and the other has local preference 100, with all other attributes equal. Which route is selected?"
+    choices:
+      - "A. The route with local preference 200"
+      - "B. The route with local preference 100"
+      - "C. The route with the longer AS path"
+      - "D. BGP will load-balance because attributes are equal"
+    answerIndex: 0
+    explanation: "Local preference is used within an AS to prefer certain exit points, and higher local preference is preferred in BGP best-path selection. AS path length is not considered before local preference when local preference differs."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc4271"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-034"
+    difficulty: "medium"
+    tags: ["automation", "restconf", "api"]
+    question: "A network automation script needs a standards-based HTTP interface to read and update YANG-modeled configuration on a device. Which protocol best fits?"
+    choices:
+      - "A. RESTCONF"
+      - "B. TFTP"
+      - "C. CDP"
+      - "D. STP"
+    answerIndex: 0
+    explanation: "RESTCONF provides an HTTP-based interface for accessing configuration and state data modeled in YANG. TFTP is used for simple file transfer and cannot perform structured configuration operations through a modeled API."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc8040"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-035"
+    difficulty: "hard"
+    tags: ["ipv6", "subnetting", "address-planning"]
+    question: "An ISP allocates 2001:db8:1200::/56 to a site. The design requires one /64 per VLAN. How many /64 VLAN networks can be created from this /56?"
+    choices:
+      - "A. 16"
+      - "B. 64"
+      - "C. 256"
+      - "D. 4096"
+    answerIndex: 2
+    explanation: "A /56 to /64 leaves 8 bits for subnetting (64-56 = 8), which yields 2^8 = 256 distinct /64 networks. 16 would correspond to only 4 subnet bits, which would be a /60 to /64 split, not /56."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc4291"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-036"
+    difficulty: "hard"
+    tags: ["qos", "policing", "shaping"]
+    question: "A WAN provider enforces a strict rate limit and drops excess packets when bursts exceed the contracted bandwidth. The enterprise wants to smooth traffic bursts to avoid drops. Which QoS tool best meets this requirement?"
+    choices:
+      - "A. Traffic shaping"
+      - "B. Traffic policing"
+      - "C. Route summarization"
+      - "D. Spanning tree root guard"
+    answerIndex: 0
+    explanation: "Shaping buffers and schedules traffic to a configured rate, smoothing bursts and reducing provider drops. Policing typically drops or re-marks traffic above a threshold, which can worsen loss under strict provider enforcement."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos/configuration/xe-3s/qos-xe-3s-book.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-037"
+    difficulty: "hard"
+    tags: ["wireless", "qos", "trust-boundary"]
+    question: "A VoIP phone and a PC share one access switch port. The phone marks voice with DSCP EF, but the PC could spoof markings. Where is the best trust boundary for QoS markings in this design?"
+    choices:
+      - "A. Trust markings only from the phone and remark traffic from the PC"
+      - "B. Trust all DSCP markings from the access port"
+      - "C. Disable QoS globally to avoid spoofing"
+      - "D. Trust markings only at the WAN edge after congestion occurs"
+    answerIndex: 0
+    explanation: "The access edge is the correct place to set a trust boundary, typically trusting the IP phone and not trusting the attached PC to prevent marking abuse. Trusting the entire port allows any endpoint to claim high priority, which can starve legitimate real-time traffic."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/qos/configuration/xe-3s/qos-xe-3s-book.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-038"
+    difficulty: "hard"
+    tags: ["sd-wan", "orchestration", "vbond"]
+    question: "New SD-WAN edge routers cannot form control connections because they do not know which controllers to connect to. Which SD-WAN component is responsible for orchestration and initial controller discovery?"
+    choices:
+      - "A. vBond orchestrator"
+      - "B. vSmart controller"
+      - "C. vManage"
+      - "D. OSPF DR"
+    answerIndex: 0
+    explanation: "vBond is used for orchestration and helps bring up initial secure connections by directing edges to the appropriate controllers. vSmart participates in the control plane after connectivity is established, and vManage is for management/monitoring rather than initial discovery."
+    refs:
+      - "https://developer.cisco.com/docs/sdwan/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-039"
+    difficulty: "hard"
+    tags: ["automation", "rest-api", "json", "troubleshooting"]
+    question: "A script calls an API and receives a payload that starts with '{' and contains key/value pairs. The developer tries to parse it as YAML and gets errors. What is the most accurate statement?"
+    choices:
+      - "A. The payload is JSON and should be parsed with a JSON parser"
+      - "B. The payload must be XML because REST APIs never return JSON"
+      - "C. The payload is binary and must be decoded from base64 first"
+      - "D. The payload is CSV and should be split on commas"
+    answerIndex: 0
+    explanation: "A payload starting with '{' and containing key/value pairs is a common JSON object representation and should be parsed as JSON. YAML is a different serialization format, and parsing JSON as YAML can fail depending on the content and parser expectations."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc8259"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-extra-040"
+    difficulty: "hard"
+    tags: ["ospfv3", "ipv6", "routing"]
+    question: "A network migrates to IPv6 and enables OSPFv3 on two directly connected routers. They can ping each other's link-local addresses, but OSPFv3 neighbors never form. Which configuration issue is most likely?"
+    choices:
+      - "A. OSPFv3 is not enabled on the correct interface(s)"
+      - "B. The routers use different hostnames"
+      - "C. The routers use different DNS search domains"
+      - "D. The routers have different SSH banner text"
+    answerIndex: 0
+    explanation: "OSPFv3 is commonly enabled per-interface, and forgetting to activate it on the intended link prevents neighbor formation even when IPv6 connectivity exists. Hostnames, DNS search domains, and SSH banners do not affect OSPFv3 hello processing or adjacency state."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5340"
     author: "ThanhNguyxn"

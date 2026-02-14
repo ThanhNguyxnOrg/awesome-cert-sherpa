@@ -1,0 +1,462 @@
+meta:
+  category: "networking"
+  cert: "Network+"
+  vendor: "CompTIA"
+  version: 1
+  description: "Original practice questions for CompTIA Network+ (N10-009)"
+questions:
+  - id: "nplus-osi-001"
+    difficulty: "easy"
+    tags: ["OSI", "DNS", "troubleshooting"]
+    question: "A user reports they can ping 8.8.8.8 but cannot open https://example.com by name. Other users are unaffected. Which component is MOST likely failing on the user's workstation?"
+    choices:
+      - "A. Default gateway configuration"
+      - "B. DNS client configuration"
+      - "C. Ethernet duplex setting"
+      - "D. Layer 2 switch port security"
+    answerIndex: 1
+    explanation: "This points to a name resolution issue, so the DNS client settings (DNS server, suffix, or local resolver) are the most likely cause. If the default gateway were wrong, the ping to a public IP would typically fail. Duplex mismatches can cause performance problems but do not selectively break hostname resolution."
+    refs:
+      - "https://www.cloudflare.com/learning/dns/what-is-dns/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-tcpip-002"
+    difficulty: "easy"
+    tags: ["TCP", "UDP", "applications"]
+    question: "A company is deploying a new VoIP system and wants to minimize latency and jitter on the call media stream. Which transport protocol is MOST appropriate for the voice media traffic?"
+    choices:
+      - "A. TCP"
+      - "B. UDP"
+      - "C. ICMP"
+      - "D. ARP"
+    answerIndex: 1
+    explanation: "VoIP media is typically carried over UDP because it avoids the retransmission delays and head-of-line blocking common with TCP. TCP's reliability features can increase latency when packets are lost. ICMP and ARP are not used to carry application media streams."
+    refs:
+      - "https://en.wikipedia.org/wiki/User_Datagram_Protocol"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-ports-003"
+    difficulty: "easy"
+    tags: ["ports", "TLS", "web"]
+    question: "A firewall rule must allow users to browse secure websites. Which destination port should be permitted for standard HTTPS traffic?"
+    choices:
+      - "A. 22"
+      - "B. 80"
+      - "C. 443"
+      - "D. 3389"
+    answerIndex: 2
+    explanation: "HTTPS commonly uses TCP port 443 for TLS-encrypted web traffic. Port 80 is HTTP and is not encrypted by default. Port 22 is SSH and 3389 is RDP, neither of which is used for standard web browsing."
+    refs:
+      - "https://www.cloudflare.com/learning/ssl/what-is-https/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-subnet-004"
+    difficulty: "easy"
+    tags: ["subnetting", "IPv4", "addressing"]
+    question: "A small office uses the network 192.168.50.0/24 for user devices. How many usable host IP addresses are available in this subnet?"
+    choices:
+      - "A. 252"
+      - "B. 254"
+      - "C. 256"
+      - "D. 510"
+    answerIndex: 1
+    explanation: "A /24 has 256 total addresses; subtract the network and broadcast addresses to get 254 usable hosts. 256 incorrectly counts non-usable addresses as hosts. 510 would apply to a larger subnet (like /23), not a /24."
+    refs:
+      - "https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-ipv6-005"
+    difficulty: "easy"
+    tags: ["IPv6", "addressing", "link-local"]
+    question: "An engineer sees an interface with the address fe80::1a2b:3c4d:5e6f:7a8b/64. What type of IPv6 address is this?"
+    choices:
+      - "A. Link-local"
+      - "B. Unique local"
+      - "C. Global unicast"
+      - "D. Multicast"
+    answerIndex: 0
+    explanation: "Addresses in the fe80::/10 range are link-local and are used for local segment communication like neighbor discovery. Global unicast addresses typically begin with 2000::/3 and are routable on the Internet. Multicast uses ff00::/8, so option D is incorrect."
+    refs:
+      - "https://www.rfc-editor.org/rfc/rfc8200"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-switch-006"
+    difficulty: "easy"
+    tags: ["switching", "MAC", "Ethernet"]
+    question: "A Layer 2 switch receives a unicast frame destined for a MAC address that is not in its MAC address table. What will the switch do by default?"
+    choices:
+      - "A. Drop the frame silently"
+      - "B. Flood the frame out all ports except the incoming port"
+      - "C. Forward the frame only to the default gateway"
+      - "D. Send an ICMP redirect to the sender"
+    answerIndex: 1
+    explanation: "For an unknown unicast, a switch floods the frame out all other ports in the VLAN to try to reach the destination. It learns the source MAC on the incoming port while doing so. ICMP redirects are a Layer 3 function and are not sent by a basic Layer 2 switch, making D wrong."
+    refs:
+      - "https://en.wikipedia.org/wiki/Ethernet_frame"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-wifi-007"
+    difficulty: "easy"
+    tags: ["wireless", "802.11ax", "Wi-Fi 6"]
+    question: "A conference center is upgrading Wi-Fi to handle many clients in a dense area. Which IEEE standard is associated with Wi-Fi 6 and improvements like OFDMA?"
+    choices:
+      - "A. 802.11n"
+      - "B. 802.11ac"
+      - "C. 802.11ax"
+      - "D. 802.11ad"
+    answerIndex: 2
+    explanation: "Wi-Fi 6 maps to 802.11ax, which includes features like OFDMA to improve efficiency in high-density deployments. 802.11ac is Wi-Fi 5 and does not provide the same OFDMA approach. 802.11ad targets 60 GHz short-range scenarios, so it is not the typical choice for broad dense coverage."
+    refs:
+      - "https://en.wikipedia.org/wiki/IEEE_802.11ax"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-snmp-008"
+    difficulty: "easy"
+    tags: ["monitoring", "SNMP", "operations"]
+    question: "A monitoring system is configured to query interface counters every 5 minutes and also receive unsolicited alerts when a link goes down. Which SNMP mechanisms are being used?"
+    choices:
+      - "A. Polling and traps"
+      - "B. Trunking and tagging"
+      - "C. NAT and PAT"
+      - "D. Spanning tree and portfast"
+    answerIndex: 0
+    explanation: "Periodic counter collection is SNMP polling (GET requests), while unsolicited notifications are SNMP traps/informs. The other options describe switching or addressing features unrelated to SNMP. For example, NAT/PAT modifies IP addressing and does not provide device event alerts, so C is wrong."
+    refs:
+      - "https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-syslog-009"
+    difficulty: "easy"
+    tags: ["logging", "syslog", "operations"]
+    question: "A network team wants routers and switches to send timestamped event messages to a central collector for retention and correlation. Which protocol is MOST commonly used for this purpose?"
+    choices:
+      - "A. Syslog"
+      - "B. SMB"
+      - "C. LDAP"
+      - "D. NTP"
+    answerIndex: 0
+    explanation: "Syslog is commonly used to export device event and diagnostic logs to a centralized server. NTP provides time synchronization, which helps log accuracy, but it does not transport log messages. LDAP and SMB serve directory and file-sharing functions, so they are not the right answer."
+    refs:
+      - "https://www.rfc-editor.org/rfc/rfc5424"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-method-010"
+    difficulty: "easy"
+    tags: ["troubleshooting", "methodology", "process"]
+    question: "A help desk technician receives a ticket: 'Internet is down.' According to a standard troubleshooting methodology, what should the technician do FIRST?"
+    choices:
+      - "A. Replace the user's network cable"
+      - "B. Identify the problem and gather information"
+      - "C. Escalate to the ISP immediately"
+      - "D. Implement a permanent solution"
+    answerIndex: 1
+    explanation: "The first step is to identify the problem by gathering symptoms, scope, and recent changes before taking action. Jumping straight to replacing hardware may waste time and miss a broader outage. Implementing a permanent fix comes later, after testing a hypothesis and confirming the root cause."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-vlan-011"
+    difficulty: "medium"
+    tags: ["VLAN", "trunking", "implementation"]
+    question: "A new switch is added between an access switch and the distribution layer. Users on VLAN 20 lose connectivity to resources beyond their switch, but VLAN 10 users remain fine. The uplink is configured as a trunk on the distribution switch. What is the MOST likely issue on the new switch?"
+    choices:
+      - "A. The uplink is configured as an access port in VLAN 10"
+      - "B. The switch has an incorrect system time"
+      - "C. The switch is using a different spanning-tree mode"
+      - "D. The DHCP server is down"
+    answerIndex: 0
+    explanation: "If the uplink on the new switch is mistakenly configured as an access port, only a single VLAN (often the default or configured VLAN) will traverse that link, breaking VLAN 20 upstream access. Incorrect time does not selectively block a VLAN, making B wrong. A DHCP outage would prevent address assignment, but it would not explain one VLAN consistently failing across a trunked path when another works."
+    refs:
+      - "https://en.wikipedia.org/wiki/IEEE_802.1Q"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-stp-012"
+    difficulty: "medium"
+    tags: ["STP", "switching", "loops"]
+    question: "After a wiring change, intermittent outages occur and switch CPU spikes. Two access switches were accidentally connected with two parallel cables, creating a loop. Which feature is designed to prevent Layer 2 loops by blocking redundant paths?"
+    choices:
+      - "A. STP"
+      - "B. NAT"
+      - "C. DHCP snooping"
+      - "D. GRE"
+    answerIndex: 0
+    explanation: "Spanning Tree Protocol (STP) prevents Layer 2 loops by logically blocking redundant links while keeping them available for failover. NAT operates at Layer 3/4 translating addresses and does not stop Ethernet loops, so B is wrong. DHCP snooping can improve DHCP security but will not address broadcast storms from switching loops."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/5234-5.html"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-dhcp-013"
+    difficulty: "medium"
+    tags: ["DHCP", "operations", "availability"]
+    question: "A remote site has 120 wireless tablets but only a /25 DHCP scope. During busy hours, users report they 'can't join Wi-Fi' and devices show APIPA addresses. Which change is the BEST immediate mitigation without readdressing the entire site?"
+    choices:
+      - "A. Shorten the DHCP lease duration"
+      - "B. Disable the SSID"
+      - "C. Replace the wireless access points"
+      - "D. Turn off NAT on the router"
+    answerIndex: 0
+    explanation: "Shortening the lease duration can free addresses faster, reducing the chance of scope exhaustion during peak times. It does not increase the total address pool, but it is a practical immediate mitigation. Replacing APs or changing NAT will not create more DHCP leases, so C and D are wrong."
+    refs:
+      - "https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-nat-014"
+    difficulty: "medium"
+    tags: ["NAT", "PAT", "edge"]
+    question: "A branch office has 200 internal hosts using RFC1918 addresses and a single public IPv4 address from the ISP. Users can browse the web successfully. Which technology is MOST likely allowing many internal connections to share one public IP?"
+    choices:
+      - "A. Port Address Translation (PAT)"
+      - "B. Static routing"
+      - "C. Link aggregation"
+      - "D. Spanning tree root guard"
+    answerIndex: 0
+    explanation: "PAT (often called NAT overload) multiplexes multiple internal sessions onto a single public IP by tracking unique source port translations. Static routing affects path selection but does not rewrite addresses, so B is wrong. Link aggregation and root guard are Layer 2 features unrelated to sharing a public IP."
+    refs:
+      - "https://en.wikipedia.org/wiki/Network_address_translation"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-aaa-015"
+    difficulty: "medium"
+    tags: ["AAA", "802.1X", "RADIUS"]
+    question: "A company enables 802.1X on wired switch ports so employees must authenticate before gaining network access. Which back-end AAA protocol is MOST commonly used with 802.1X for network access control?"
+    choices:
+      - "A. RADIUS"
+      - "B. FTP"
+      - "C. TFTP"
+      - "D. SIP"
+    answerIndex: 0
+    explanation: "802.1X commonly uses RADIUS between the authenticator (switch) and the authentication server for centralized AAA decisions. FTP and TFTP transfer files and do not provide authentication policies for port access, so B and C are wrong. SIP is used for VoIP signaling, not network access control."
+    refs:
+      - "https://www.rfc-editor.org/rfc/rfc2865"
+      - "https://en.wikipedia.org/wiki/IEEE_802.1X"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-vpn-016"
+    difficulty: "medium"
+    tags: ["VPN", "IPsec", "implementation"]
+    question: "Two offices need an always-on encrypted tunnel between their edge firewalls to allow internal subnets to communicate securely over the Internet. What type of VPN best fits this requirement?"
+    choices:
+      - "A. Client-to-site VPN"
+      - "B. Site-to-site VPN"
+      - "C. Split-tunnel VPN"
+      - "D. SSL inspection"
+    answerIndex: 1
+    explanation: "A site-to-site VPN is designed for always-on connectivity between two networks via their gateways, commonly using IPsec. Client-to-site VPN is for individual user devices connecting into a network, making A wrong. Split tunneling is a client VPN configuration choice, not the VPN type required here."
+    refs:
+      - "https://www.cloudflare.com/learning/network-layer/what-is-ipsec/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-idsips-017"
+    difficulty: "medium"
+    tags: ["security", "IDS", "IPS"]
+    question: "A security team wants a device that can automatically block suspicious traffic patterns in-line, rather than only generating alerts. Which solution best meets this requirement?"
+    choices:
+      - "A. IDS"
+      - "B. IPS"
+      - "C. NetFlow collector"
+      - "D. Packet sniffer in promiscuous mode"
+    answerIndex: 1
+    explanation: "An IPS is placed in-line and can actively drop or block malicious traffic based on rules or signatures. An IDS typically monitors and alerts but does not enforce blocks by default, so A is wrong. NetFlow and sniffers provide visibility, not automated in-line prevention."
+    refs:
+      - "https://en.wikipedia.org/wiki/Intrusion_detection_system"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-wpa3-018"
+    difficulty: "medium"
+    tags: ["wireless", "security", "WPA3"]
+    question: "A retailer wants to reduce the risk of offline password guessing attacks against a guest Wi-Fi network while still using a shared passphrase. Which wireless security option is the BEST choice?"
+    choices:
+      - "A. WEP"
+      - "B. WPA2-Personal (PSK)"
+      - "C. WPA3-Personal (SAE)"
+      - "D. Open authentication"
+    answerIndex: 2
+    explanation: "WPA3-Personal uses SAE, which improves resistance to offline dictionary attacks compared to WPA2-PSK. WEP is cryptographically broken and should not be used, making A clearly wrong. Open authentication provides no encryption at all, so it does not meet the requirement."
+    refs:
+      - "https://en.wikipedia.org/wiki/Wi-Fi_Protected_Access"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-routing-019"
+    difficulty: "medium"
+    tags: ["routing", "implementation", "static"]
+    question: "A small branch office has one WAN link to headquarters and no redundant paths. The network engineer wants simple, predictable routing with minimal overhead. Which routing approach is MOST appropriate?"
+    choices:
+      - "A. Static routes"
+      - "B. BGP"
+      - "C. OSPF with multiple areas"
+      - "D. EIGRP with route summarization"
+    answerIndex: 0
+    explanation: "With a single exit path, static routes are simple, stable, and add virtually no protocol overhead. BGP and multi-area OSPF add complexity that is unnecessary for a single-path branch, so B and C are wrong. Dynamic protocols can be valuable, but the scenario specifically prioritizes minimal overhead and predictability."
+    refs:
+      - "https://en.wikipedia.org/wiki/Static_routing"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-doc-020"
+    difficulty: "medium"
+    tags: ["operations", "documentation", "change-management"]
+    question: "During an outage, the on-call engineer cannot quickly identify which switch port connects to a failed access point in a warehouse. Which documentation artifact would MOST directly reduce time to resolution in the future?"
+    choices:
+      - "A. A port-to-device mapping (rack/port documentation)"
+      - "B. A list of default vendor passwords"
+      - "C. A marketing network overview slide"
+      - "D. A DNS cache on the engineer's laptop"
+    answerIndex: 0
+    explanation: "A port-to-device map (including patch panel and switch port details) lets responders locate the physical connection rapidly during incidents. Default passwords are a security risk and do not aid cabling identification, so B is wrong. High-level slides lack the needed port-level detail for hands-on troubleshooting."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/field-notices/639/fn63942.html"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-subnet-021"
+    difficulty: "hard"
+    tags: ["subnetting", "IPv4", "planning"]
+    question: "You are given 192.168.10.0/24 and must create subnets that support at least 50 hosts each. Which subnet and prefix provides the FIRST usable host range while meeting the requirement?"
+    choices:
+      - "A. 192.168.10.0/26 with usable range 192.168.10.1-192.168.10.62"
+      - "B. 192.168.10.0/27 with usable range 192.168.10.1-192.168.10.30"
+      - "C. 192.168.10.0/28 with usable range 192.168.10.1-192.168.10.14"
+      - "D. 192.168.10.0/25 with usable range 192.168.10.1-192.168.10.126"
+    answerIndex: 0
+    explanation: "A /26 provides 64 total addresses and 62 usable hosts, which satisfies the 50-host requirement and yields the first usable range 192.168.10.1-192.168.10.62. A /27 only provides 30 usable hosts, so it fails the requirement and makes B wrong. While /25 would work, it wastes more addresses than necessary compared to /26 for this requirement."
+    refs:
+      - "https://en.wikipedia.org/wiki/Subnetwork"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-icmpv6-022"
+    difficulty: "hard"
+    tags: ["IPv6", "ICMPv6", "SLAAC"]
+    question: "After a firewall change, IPv6 clients on a LAN can still ping each other by link-local address but no longer receive a default gateway or global IPv6 address. The router interface is up. What traffic is MOST likely being blocked?"
+    choices:
+      - "A. Router Advertisement (ICMPv6 type 134)"
+      - "B. DNS over HTTPS (TCP 443)"
+      - "C. ARP broadcasts"
+      - "D. DHCPv4 offers"
+    answerIndex: 0
+    explanation: "SLAAC relies on ICMPv6 Router Advertisements to provide prefix information and the default gateway; blocking RAs prevents hosts from configuring global addresses and routes. ARP is an IPv4 mechanism and is not used in IPv6, so C is wrong. DHCPv4 offers are unrelated to IPv6 addressing and would not explain the loss of IPv6 default gateway information."
+    refs:
+      - "https://www.rfc-editor.org/rfc/rfc4861"
+      - "https://www.rfc-editor.org/rfc/rfc8200"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-pmtud-023"
+    difficulty: "hard"
+    tags: ["TCP", "MTU", "troubleshooting"]
+    question: "Users can access most websites, but file uploads to a specific SaaS application consistently fail at around 1,400 bytes when on a VPN. A packet capture shows repeated retransmissions and no progress after TCP SYN/SYN-ACK completes. Which change is MOST likely to resolve this issue?"
+    choices:
+      - "A. Allow ICMP 'Packet Too Big' messages for Path MTU Discovery"
+      - "B. Disable DNS recursion on the internal DNS server"
+      - "C. Set the switch ports to half-duplex"
+      - "D. Enable STP PortFast on all trunk ports"
+    answerIndex: 0
+    explanation: "This behavior is consistent with an MTU/PMTUD black-hole where packets larger than the path MTU are dropped and the sender never learns to lower packet size. Allowing ICMP 'Packet Too Big' enables Path MTU Discovery so endpoints can adjust MSS/packet sizing. Half-duplex would likely worsen performance broadly and is not a correct fix, making C wrong."
+    refs:
+      - "https://www.rfc-editor.org/rfc/rfc8201"
+      - "https://www.rfc-editor.org/rfc/rfc1191"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-vlansec-024"
+    difficulty: "hard"
+    tags: ["security", "VLAN", "switch-hardening"]
+    question: "A penetration test report warns of potential VLAN hopping via switchport auto-trunking and double-tagging. Which switch configuration is the BEST mitigation on user-facing ports?"
+    choices:
+      - "A. Force access mode and disable trunk negotiation on edge ports"
+      - "B. Enable dynamic routing on all access switches"
+      - "C. Increase the DHCP lease time"
+      - "D. Disable STP on all VLANs"
+    answerIndex: 0
+    explanation: "Setting user ports to access mode and disabling trunk negotiation (e.g., disabling DTP) prevents an attacker from forming an unintended trunk and reduces VLAN hopping risk. Dynamic routing does not affect Layer 2 trunk negotiation, so B is wrong. Disabling STP increases the risk of Layer 2 loops and outages, making D both unsafe and unrelated to the core mitigation."
+    refs:
+      - "https://en.wikipedia.org/wiki/VLAN_hopping"
+      - "https://en.wikipedia.org/wiki/IEEE_802.1Q"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-dot1x-025"
+    difficulty: "hard"
+    tags: ["802.1X", "certificates", "NTP"]
+    question: "After enabling EAP-TLS for wired 802.1X, several laptops fail to authenticate. The RADIUS logs show 'certificate not yet valid' for the client certificate. What is the MOST likely root cause?"
+    choices:
+      - "A. The laptop system clocks are incorrect"
+      - "B. The switch uplinks are set to the wrong native VLAN"
+      - "C. The DHCP server is not authoritative"
+      - "D. The firewall is blocking DNS"
+    answerIndex: 0
+    explanation: "EAP-TLS relies on certificate validity periods, so an incorrect client clock can make a valid certificate appear 'not yet valid' or expired. A native VLAN mismatch affects VLAN tagging on trunks, not certificate timestamps, so B is wrong. DNS issues could affect name resolution, but the explicit error in the RADIUS log points to time/certificate validity rather than DNS."
+    refs:
+      - "https://en.wikipedia.org/wiki/IEEE_802.1X"
+      - "https://www.rfc-editor.org/rfc/rfc5280"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-qos-026"
+    difficulty: "hard"
+    tags: ["QoS", "DSCP", "voice"]
+    question: "A hospital experiences choppy VoIP calls only during large file transfers. The WAN link is congested. Which change BEST prioritizes voice traffic end-to-end on an IP network?"
+    choices:
+      - "A. Mark and queue voice with DSCP EF and enforce QoS policies at the WAN edge"
+      - "B. Lower the STP priority on the access switches"
+      - "C. Disable WPA3 on the wireless network"
+      - "D. Convert all static routes to dynamic routes"
+    answerIndex: 0
+    explanation: "Voice quality during congestion improves when voice packets are marked (commonly DSCP EF) and placed into priority queues on congested interfaces like the WAN edge. STP priority affects Layer 2 path selection and does not solve WAN queuing problems, so B is wrong. Changing routing protocols does not directly provide traffic prioritization under congestion, making D incorrect."
+    refs:
+      - "https://en.wikipedia.org/wiki/Differentiated_services"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-dns-027"
+    difficulty: "hard"
+    tags: ["DNS", "operations", "split-horizon"]
+    question: "An internal web app should resolve to 10.20.30.40 for employees, but internal users are instead being sent to the public IP of the app and hitting a WAF login page. External users are fine. What is the MOST likely fix?"
+    choices:
+      - "A. Create or correct an internal DNS zone/record so internal clients resolve the private IP"
+      - "B. Disable NAT on the perimeter firewall"
+      - "C. Change the app to use UDP instead of TCP"
+      - "D. Enable STP BPDU guard on trunk links"
+    answerIndex: 0
+    explanation: "This is a classic split-horizon DNS issue: internal clients should resolve a private address while external clients resolve the public address. Fixing the internal DNS zone/record ensures internal name resolution returns 10.20.30.40. Disabling NAT would break Internet connectivity and is unrelated to internal name resolution, so B is wrong."
+    refs:
+      - "https://www.cloudflare.com/learning/dns/dns-records/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-capture-028"
+    difficulty: "hard"
+    tags: ["tcpdump", "firewall", "troubleshooting"]
+    question: "A developer reports that an API call to a partner endpoint resets immediately. A packet capture on the client shows SYN, SYN-ACK, ACK, then an immediate RST from an internal firewall IP. What is the MOST likely explanation?"
+    choices:
+      - "A. The firewall is actively terminating the session due to policy or inspection"
+      - "B. The DNS server returned an NXDOMAIN response"
+      - "C. The switch is flooding unknown unicasts"
+      - "D. The client has an incorrect subnet mask"
+    answerIndex: 0
+    explanation: "A TCP RST generated by a firewall address strongly suggests the firewall is enforcing a rule or inspection action that resets the connection after it is established. DNS NXDOMAIN would prevent reaching the partner IP in the first place and would not produce a TCP RST from the firewall, so B is wrong. An incorrect subnet mask would typically cause broader connectivity failures rather than a consistent, policy-like reset after the handshake."
+    refs:
+      - "https://www.rfc-editor.org/rfc/rfc793"
+      - "https://www.cisco.com/c/en/us/support/docs/security/asa-5500-x-series-next-generation-firewalls/200556-TCP-Reset-Issues.html"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-cable-029"
+    difficulty: "hard"
+    tags: ["cabling", "testing", "NEXT"]
+    question: "A new Cat6 run passes a basic continuity test but users report frequent CRC errors and low throughput. A cable certifier reports high NEXT (near-end crosstalk). What is the MOST likely cause?"
+    choices:
+      - "A. Excessive untwisting of pairs at the termination point"
+      - "B. The router is missing a default route"
+      - "C. The DHCP scope is too small"
+      - "D. The access point is using the wrong SSID"
+    answerIndex: 0
+    explanation: "High NEXT is commonly caused by poor termination practices, such as untwisting too much of the twisted pairs, which increases crosstalk. Routing or DHCP issues would not create physical-layer crosstalk measurements, so B and C are wrong. The SSID selection affects wireless connectivity, not CRC errors on a wired Cat6 link."
+    refs:
+      - "https://en.wikipedia.org/wiki/Near-end_crosstalk"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-dr-030"
+    difficulty: "hard"
+    tags: ["disaster-recovery", "RPO", "RTO"]
+    question: "A business impact analysis states the company can tolerate at most 15 minutes of data loss for its order database. Which metric does this requirement describe?"
+    choices:
+      - "A. RTO"
+      - "B. RPO"
+      - "C. MTBF"
+      - "D. MTTR"
+    answerIndex: 1
+    explanation: "The maximum acceptable data loss window is the Recovery Point Objective (RPO), which defines how far back in time data must be recovered. RTO describes how quickly service must be restored, not how much data can be lost, so A is wrong. MTBF and MTTR are reliability/repair metrics and do not specify data loss tolerance."
+    refs:
+      - "https://www.cloudflare.com/learning/security/glossary/rto-rpo/"
+    author: "ThanhNguyxn"

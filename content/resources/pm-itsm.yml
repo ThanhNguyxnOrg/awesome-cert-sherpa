@@ -352,3 +352,212 @@ resources:
     language: [en]
     notes: "Agile/Scrum concepts and resources for practitioners and aspiring Scrum Masters."
     last_verified: "2026-02-14"
+
+  - title: "PMI PMP Exam Content Outline"
+    type: exam-guide
+    url: https://www.pmi.org/certifications/project-management-pmp/earn-the-pmp/pmp-exam-preparation/pmp-reference-list
+    vendor: PMI
+    certs: [PMP]
+    tags: [exam-guide, official, objectives]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Official PMI PMP exam content outline — domains, tasks, and reference list."
+    last_verified: "2026-02-14"
+
+  - title: "PMBOK Guide 7th Edition Overview"
+    type: reference
+    url: https://www.pmi.org/pmbok-guide-standards/foundational/pmbok
+    vendor: PMI
+    certs: [PMP, CAPM]
+    tags: [official, framework, principles]
+    difficulty: intermediate
+    language: [en]
+    notes: "Overview of PMBOK 7th edition — 12 principles, 8 performance domains."
+    last_verified: "2026-02-14"
+
+  - title: "PMI Study Hall"
+    type: practice-tool
+    url: https://www.pmi.org/shop/p-/elearning/pmi-study-hall/16218
+    vendor: PMI
+    certs: [PMP, CAPM]
+    tags: [practice-exam, official, paid]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Official PMI practice exam platform with 1700+ questions. Paid subscription."
+    last_verified: "2026-02-14"
+
+  - title: "Agile Practice Guide (PMI)"
+    type: reference
+    url: https://www.pmi.org/pmbok-guide-standards/practice-guides/agile
+    vendor: PMI
+    certs: [PMP, PMI-ACP]
+    tags: [agile, official, hybrid]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official PMI agile practice guide — agile, hybrid approaches. Essential for PMP agile content."
+    last_verified: "2026-02-14"
+
+  - title: "Scrum.org Open Assessments"
+    type: practice-tool
+    url: https://www.scrum.org/open-assessments
+    vendor: Scrum.org
+    certs: [PSM-I, PSPO]
+    tags: [practice-exam, free, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free practice assessments from Scrum.org — Scrum, Nexus, Evidence-Based Management."
+    last_verified: "2026-02-14"
+
+  - title: "The Scrum Guide (2020)"
+    type: reference
+    url: https://scrumguides.org/scrum-guide.html
+    vendor: Scrum.org
+    certs: [PSM-I, CSM]
+    tags: [official, framework, essential]
+    difficulty: beginner
+    language: [en]
+    notes: "The definitive Scrum Guide by Ken Schwaber and Jeff Sutherland. Must-read."
+    last_verified: "2026-02-14"
+
+  - title: "ITIL 4 Foundation Overview"
+    type: reference
+    url: https://www.axelos.com/certifications/itil-service-management/itil-4-foundation
+    vendor: AXELOS
+    certs: [ITIL-4]
+    tags: [official, overview, itsm]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official ITIL 4 Foundation certification page — exam format, syllabus, and key concepts."
+    last_verified: "2026-02-14"
+
+  - title: "ITIL 4 Foundation Study Guide (Liz Gallacher)"
+    type: study-guide
+    url: https://www.wiley.com/en-us/ITIL+4+Foundation+Exam+Study+Guide%2C+2nd+Edition-p-9781119942207
+    vendor: Neutral
+    certs: [ITIL-4]
+    tags: [book, comprehensive, exam-prep]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Comprehensive ITIL 4 Foundation study guide with practice questions. Paid."
+    last_verified: "2026-02-14"
+
+  - title: "Head First PMP (5th Edition)"
+    type: study-guide
+    url: https://www.oreilly.com/library/view/head-first-pmp/9781098149963/
+    vendor: Neutral
+    certs: [PMP]
+    tags: [book, visual, engaging]
+    difficulty: intermediate
+    language: [en]
+    notes: "Visual and engaging PMP study guide — O'Reilly's Head First series. Paid."
+    last_verified: "2026-02-14"
+
+  - title: "Joseph Phillips – PMP Prep Course (Udemy)"
+    type: course
+    url: https://www.udemy.com/course/pmp-pmbok6-35-702/
+    vendor: Neutral
+    certs: [PMP]
+    tags: [video-course, paid, 35-pdu]
+    difficulty: intermediate
+    language: [en]
+    notes: "Best-selling PMP prep course — satisfies 35 PDU requirement. Paid."
+    last_verified: "2026-02-14"
+
+  - title: "Andrew Ramdayal – PMP Prep (YouTube)"
+    type: video
+    url: https://www.youtube.com/@AndrewRamdayal
+    vendor: Neutral
+    certs: [PMP]
+    tags: [youtube, free, tips, mindset]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free PMP tips, mindset training, and exam strategies. Popular in the PMP community."
+    last_verified: "2026-02-14"
+
+  - title: "Kanban University"
+    type: reference
+    url: https://kanban.university/
+    vendor: Neutral
+    certs: [KMP]
+    tags: [kanban, lean, framework]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Kanban method training and certification — complementary to Scrum knowledge."
+    last_verified: "2026-02-14"
+
+  - title: "SAFe (Scaled Agile Framework)"
+    type: reference
+    url: https://www.scaledagileframework.com/
+    vendor: Scaled Agile
+    certs: [SAFe-SA, SAFe-Agilist]
+    tags: [framework, enterprise-agile, scaling]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Complete SAFe knowledge base — free online. Relevant for PMP agile at scale."
+    last_verified: "2026-02-14"
+
+  - title: "Atlassian Agile Coach"
+    type: tutorial
+    url: https://www.atlassian.com/agile
+    vendor: Atlassian
+    certs: [PSM-I, PMP]
+    tags: [agile, tutorials, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Free agile guides from Atlassian — Scrum, Kanban, DevOps, agile metrics."
+    last_verified: "2026-02-14"
+
+  - title: "PRINCE2 Foundation Overview"
+    type: reference
+    url: https://www.axelos.com/certifications/prince2/prince2-foundation
+    vendor: AXELOS
+    certs: [PRINCE2]
+    tags: [official, overview, project-management]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official PRINCE2 Foundation certification details — exam format and study resources."
+    last_verified: "2026-02-14"
+
+  - title: "Mountain Goat Software — Agile Resources"
+    type: reference
+    url: https://www.mountaingoatsoftware.com/agile
+    vendor: Neutral
+    certs: [PSM-I, CSM, PMP]
+    tags: [agile, user-stories, estimation]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free agile resources by Mike Cohn — user stories, planning poker, sprint planning."
+    last_verified: "2026-02-14"
+
+  - title: "ICAgile Learning Roadmap"
+    type: reference
+    url: https://www.icagile.com/learning-roadmap
+    vendor: ICAgile
+    certs: [ICP, ICP-ACC]
+    tags: [agile, certification-path, roadmap]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "ICAgile certification learning paths — agile coaching, product ownership, delivery."
+    last_verified: "2026-02-14"
+
+  - title: "Prosci Change Management"
+    type: reference
+    url: https://www.prosci.com/methodology
+    vendor: Prosci
+    certs: [Prosci-CMP]
+    tags: [change-management, methodology, adkar]
+    difficulty: intermediate
+    language: [en]
+    notes: "ADKAR model and Prosci change management methodology overview. Free resources."
+    last_verified: "2026-02-14"
+
+  - title: "ProjectManager.com Blog"
+    type: reference
+    url: https://www.projectmanager.com/blog
+    vendor: Neutral
+    certs: [PMP, CAPM]
+    tags: [blog, tutorials, pm-tools]
+    difficulty: beginner
+    language: [en]
+    notes: "Project management articles, templates, and guides — accessible PM knowledge."
+    last_verified: "2026-02-14"

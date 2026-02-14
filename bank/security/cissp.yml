@@ -1,0 +1,516 @@
+meta:
+  category: "security"
+  cert: "CISSP"
+  vendor: "ISC2"
+  version: 1
+  description: "Original practice questions for ISC2 Certified Information Systems Security Professional (CISSP)"
+questions:
+  - id: "cissp-risk-001"
+    difficulty: "easy"
+    tags: ["domain1", "risk", "governance", "policy"]
+    question: "A regulated company is rolling out a new cloud-based HR system. Several teams want to start using it immediately, but security policies have not been updated to cover cloud data handling. As the security manager, what is the BEST first step?"
+    choices:
+      - "A. Update the information security policy and supporting standards to address cloud data handling requirements"
+      - "B. Deploy a CASB immediately to block all risky cloud activity"
+      - "C. Start with penetration testing to find technical weaknesses before updating policies"
+      - "D. Allow use and rely on after-the-fact monitoring to detect issues"
+    answerIndex: 0
+    explanation: >-
+      Updating policy and standards establishes governance and defines acceptable behavior before broad adoption, which is management-aligned and scalable. It also enables consistent decisions for data classification, retention, and vendor controls across teams. A CASB can be helpful, but deploying tooling (B) without defined requirements and rules often results in inconsistent enforcement and gaps.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-risk-002"
+    difficulty: "medium"
+    tags: ["domain1", "risk", "third-party", "contracts"]
+    question: "A critical SaaS provider reports a breach that may have exposed your customer data. Legal asks what contract element most directly enables you to verify the provider's controls and response. What should you point to?"
+    choices:
+      - "A. A right-to-audit clause and defined incident notification timelines"
+      - "B. A requirement that the provider uses encryption"
+      - "C. A statement that the provider is 'industry compliant'"
+      - "D. A service credit clause for downtime"
+    answerIndex: 0
+    explanation: >-
+      A right-to-audit (or independent assessment reporting) and explicit notification timelines provide enforceable mechanisms to verify controls and ensure timely response coordination. Encryption requirements (B) are important but do not, by themselves, grant visibility into whether controls were implemented correctly or how the incident was handled. Service credits (D) address availability and finances, not assurance of security controls.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-risk-003"
+    difficulty: "hard"
+    tags: ["domain1", "risk", "risk-treatment", "metrics"]
+    question: "An enterprise risk committee asks you to justify funding for a new security control by showing it reduces risk in a measurable way. Which approach BEST aligns with effective risk communication at the executive level?"
+    choices:
+      - "A. Quantify expected risk reduction by comparing current and residual risk using a consistent method and assumptions"
+      - "B. Present a detailed list of vulnerabilities discovered in the last scan"
+      - "C. Share tool performance benchmarks and throughput metrics"
+      - "D. Emphasize that similar companies use the control so it must be necessary"
+    answerIndex: 0
+    explanation: >-
+      Executives need a consistent view of current versus residual risk, including assumptions and uncertainty, to make investment decisions. Vulnerability lists (B) are operationally useful but do not translate directly into business impact or risk reduction without context. Peer comparison (D) can inform decisions but is not evidence of risk reduction for your environment.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-risk-004"
+    difficulty: "easy"
+    tags: ["domain1", "risk", "ethics", "compliance"]
+    question: "During a compliance audit, a manager asks you to 'adjust' evidence to avoid a finding because remediation is already planned. What is the MOST appropriate response?"
+    choices:
+      - "A. Refuse and escalate through appropriate channels because falsifying audit evidence violates ethics and governance"
+      - "B. Adjust the evidence but document the plan to remediate later"
+      - "C. Delay providing evidence until remediation is complete"
+      - "D. Provide only partial evidence to reduce the auditor's scope"
+    answerIndex: 0
+    explanation: >-
+      Integrity of audit evidence is fundamental to governance and professional ethics, so refusing and escalating is the correct management action. Documenting a remediation plan is appropriate, but it does not justify altering evidence (B). Delaying or limiting evidence (C, D) undermines the audit and increases organizational risk.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-asset-001"
+    difficulty: "easy"
+    tags: ["domain2", "asset", "data-classification", "handling"]
+    question: "A business unit wants to email monthly sales forecasts to an external partner. The data is sensitive but not regulated. What is the BEST control to decide allowable handling and transmission requirements?"
+    choices:
+      - "A. Apply data classification and map required handling controls to the classification level"
+      - "B. Require the partner to sign an NDA and skip technical controls"
+      - "C. Block all outbound email attachments by policy"
+      - "D. Convert the spreadsheet to PDF to prevent copying"
+    answerIndex: 0
+    explanation: >-
+      Data classification drives consistent handling rules, including approved transmission methods and required protections for a given sensitivity level. An NDA (B) supports accountability but does not provide technical assurance or prevent disclosure. Blocking all attachments (C) is overly restrictive and may not align with business needs.
+    refs:
+      - "https://www.iso.org/standard/27001"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-asset-002"
+    difficulty: "medium"
+    tags: ["domain2", "asset", "ownership", "inventory"]
+    question: "A company is repeatedly surprised by security incidents involving 'unknown' systems. The CIO asks for a foundational fix that improves accountability across the lifecycle. What should you prioritize?"
+    choices:
+      - "A. Establish an authoritative asset inventory with assigned asset owners and lifecycle processes"
+      - "B. Increase the frequency of vulnerability scanning on known subnets"
+      - "C. Deploy an endpoint detection tool to all managed laptops"
+      - "D. Require developers to document systems in project wikis"
+    answerIndex: 0
+    explanation: >-
+      An authoritative inventory with clear ownership enables accountability, risk decisions, and consistent onboarding/offboarding of assets. More scanning (B) helps detect issues on known assets but does not solve the root cause of unknown systems and unclear responsibility. Wikis (D) are useful but are not an enforceable, enterprise-wide source of truth.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-asset-003"
+    difficulty: "hard"
+    tags: ["domain2", "asset", "privacy", "retention"]
+    question: "A marketing team wants to retain customer behavioral logs indefinitely 'for future analytics.' There is no clear business owner for the data set. What is the BEST security management action?"
+    choices:
+      - "A. Require a defined business purpose, assign a data owner, and implement retention/disposal aligned to that purpose"
+      - "B. Encrypt the logs at rest and approve indefinite retention"
+      - "C. Move the logs to cheaper storage to reduce cost"
+      - "D. Mask the logs and allow unlimited collection"
+    answerIndex: 0
+    explanation: >-
+      Retention should be tied to a defined purpose and accountability; assigning a data owner enables decisions about necessity, risk, and disposal. Encryption (B) reduces some exposure but does not address data minimization and governance, so risk may still grow over time. Masking (D) can help, but unlimited collection without purpose still creates unnecessary risk.
+    refs:
+      - "https://www.iso.org/standard/27001"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-arch-001"
+    difficulty: "easy"
+    tags: ["domain3", "architecture", "defense-in-depth", "design"]
+    question: "A product team proposes relying solely on a web application firewall (WAF) for a new internet-facing portal to meet security goals. As the security architect, what is the BEST response?"
+    choices:
+      - "A. Require layered controls (secure coding, strong auth, monitoring) because a WAF alone is not sufficient"
+      - "B. Approve it because WAFs stop most attacks"
+      - "C. Replace the WAF with a next-generation firewall and skip other controls"
+      - "D. Delay launch until all legacy applications are retired"
+    answerIndex: 0
+    explanation: >-
+      Defense-in-depth reduces single points of failure, and management-oriented security design expects multiple preventive and detective controls. A WAF can reduce some web attack risk, but it cannot compensate for weak authentication or insecure business logic, making (B) incorrect. Replacing one perimeter tool with another (C) still fails to address application and identity risks.
+    refs:
+      - "https://owasp.org/"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-arch-002"
+    difficulty: "medium"
+    tags: ["domain3", "architecture", "crypto", "key-management"]
+    question: "A global organization plans to encrypt sensitive database fields and asks how to manage encryption keys to reduce insider risk. Which design is BEST?"
+    choices:
+      - "A. Centralized key management with separation of duties and strict access controls (e.g., HSM/KMS)"
+      - "B. Store keys in the application configuration file alongside the code"
+      - "C. Hard-code keys into the database stored procedures"
+      - "D. Allow each developer to generate and store their own keys"
+    answerIndex: 0
+    explanation: >-
+      Centralized key management with separation of duties supports consistent policy enforcement, auditing, rotation, and reduced insider risk. Storing keys with code or configs (B) increases the chance of exposure through repositories, backups, or broader access than intended. Developer-managed keys (D) creates inconsistent practices and weak governance.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-arch-003"
+    difficulty: "hard"
+    tags: ["domain3", "architecture", "resilience", "single-point-of-failure"]
+    question: "A security team wants to implement a single centralized authentication service for all applications. Business leadership is concerned about availability impact. What is the BEST architectural guidance?"
+    choices:
+      - "A. Use centralized authentication but design for high availability and contingency access to avoid a single point of failure"
+      - "B. Reject centralization and keep separate credentials for each application"
+      - "C. Centralize authentication and accept planned outages during maintenance windows"
+      - "D. Replace authentication with IP-based allowlists to reduce complexity"
+    answerIndex: 0
+    explanation: >-
+      Centralization improves governance and access control consistency, but must be engineered for resilience (redundancy, failover, monitored dependencies) to meet availability needs. Keeping separate credentials (B) increases administrative burden and weakens centralized control, creating more risk. IP allowlists (D) do not provide identity assurance and fail in remote and cloud scenarios.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-arch-004"
+    difficulty: "easy"
+    tags: ["domain3", "architecture", "threat-modeling", "requirements"]
+    question: "A program manager asks why security is requesting threat modeling during the design phase rather than after development. What is the BEST justification?"
+    choices:
+      - "A. Early threat modeling identifies design-level risks and reduces rework cost by influencing requirements before coding"
+      - "B. Threat modeling replaces the need for security testing later"
+      - "C. Threat modeling is required only for highly classified systems"
+      - "D. Threat modeling primarily helps select a coding language"
+    answerIndex: 0
+    explanation: >-
+      Threat modeling early helps shape requirements and architecture to address risks when changes are cheaper and more effective. It does not eliminate the need for security testing (B), because implementation flaws and configuration issues still occur. Limiting it to classified systems (C) misunderstands its value as a general risk management practice.
+    refs:
+      - "https://owasp.org/"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-net-001"
+    difficulty: "easy"
+    tags: ["domain4", "network", "segmentation", "least-privilege"]
+    question: "A hospital network includes medical devices that cannot be patched quickly. Leadership wants a risk-reducing control that minimizes blast radius without disrupting operations. What is the BEST recommendation?"
+    choices:
+      - "A. Network segmentation with tightly controlled communications and monitoring for the device network"
+      - "B. Disable all network access for the devices and switch to manual processes"
+      - "C. Increase Wi-Fi transmit power to reduce connection drops"
+      - "D. Allow devices to access the internet directly to receive updates"
+    answerIndex: 0
+    explanation: >-
+      Segmentation limits lateral movement and reduces exposure while allowing required operational communications. Disabling all access (B) is not realistic for clinical operations and may increase patient risk. Direct internet access (D) expands the attack surface and increases risk for hard-to-patch devices.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-net-002"
+    difficulty: "medium"
+    tags: ["domain4", "network", "vpn", "remote-access"]
+    question: "A company expands remote work and needs to ensure confidentiality and integrity of traffic over untrusted networks. What is the BEST management-level control choice?"
+    choices:
+      - "A. Require secure remote access using strong authentication and encrypted tunnels with defined configuration standards"
+      - "B. Allow remote access only during business hours"
+      - "C. Rely on employees' home router firewalls for protection"
+      - "D. Block all remote access and mandate on-site work"
+    answerIndex: 0
+    explanation: >-
+      Encrypted tunnels and strong authentication provide confidentiality and integrity, while standards ensure consistent secure configurations and oversight. Limiting hours (B) may reduce exposure time but does not protect traffic from interception or tampering. Home routers (C) are inconsistent and not under enterprise control, so they do not meet assurance needs.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-net-003"
+    difficulty: "hard"
+    tags: ["domain4", "network", "zero-trust", "architecture"]
+    question: "An organization is moving to a zero trust strategy. A business leader asks what changes most directly reduce implicit trust inside the corporate network. What is the BEST answer?"
+    choices:
+      - "A. Enforce continuous verification based on identity, device posture, and least-privilege access to specific resources"
+      - "B. Replace internal IP ranges with a new addressing scheme"
+      - "C. Increase perimeter firewall rules to block more ports"
+      - "D. Require users to change passwords every 30 days"
+    answerIndex: 0
+    explanation: >-
+      Zero trust focuses on eliminating implicit trust by verifying access decisions continuously and scoping access to resources rather than networks. Changing IP schemes (B) is operational and does not change trust assumptions or access decisions. Frequent password rotation (D) may not improve security and can increase risky user behavior if not risk-based.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-net-004"
+    difficulty: "medium"
+    tags: ["domain4", "network", "dns", "availability"]
+    question: "A distributed denial-of-service (DDoS) attack targets your public DNS and intermittently disrupts customer access. Which action is BEST to improve resilience while preserving business availability?"
+    choices:
+      - "A. Use redundant authoritative DNS providers with DDoS protection and tested failover"
+      - "B. Disable DNSSEC to reduce overhead during attacks"
+      - "C. Move DNS to a single on-prem server for tighter control"
+      - "D. Block all traffic from countries with the highest attack volume"
+    answerIndex: 0
+    explanation: >-
+      Redundancy across providers and DDoS-capable infrastructure improves availability and reduces single points of failure. Disabling DNSSEC (B) may reduce validation overhead but weakens integrity protections and is not a resilience strategy. A single on-prem DNS server (C) increases fragility and is easier to overwhelm.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-iam-001"
+    difficulty: "easy"
+    tags: ["domain5", "iam", "least-privilege", "provisioning"]
+    question: "A new employee joins the finance team. The hiring manager asks for 'full access' to all finance applications to avoid delays. What is the BEST access management approach?"
+    choices:
+      - "A. Grant role-based access aligned to job duties and require approvals for any exceptions"
+      - "B. Grant administrator access temporarily and remove it after the first month"
+      - "C. Clone access from a senior employee to ensure the new hire can work"
+      - "D. Grant access to everything and rely on monitoring to catch misuse"
+    answerIndex: 0
+    explanation: >-
+      Role-based access supports least privilege and consistent provisioning aligned to business duties, reducing excess access risk. Cloning from a senior employee (C) commonly propagates accumulated privileges and creates segregation-of-duties issues. Relying on monitoring (D) is detective and does not prevent unauthorized actions.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-iam-002"
+    difficulty: "medium"
+    tags: ["domain5", "iam", "mfa", "risk-based-auth"]
+    question: "An executive team complains that multi-factor authentication (MFA) slows them down, and requests an exemption for corporate email. What is the BEST risk-based response?"
+    choices:
+      - "A. Keep MFA for email and implement adaptive controls (trusted devices, phishing-resistant factors) to reduce friction"
+      - "B. Exempt executives because they are trusted employees"
+      - "C. Replace MFA with longer passwords to compensate"
+      - "D. Disable MFA but increase security awareness training"
+    answerIndex: 0
+    explanation: >-
+      Email is a high-value target, and phishing-resistant or adaptive MFA can maintain strong assurance while improving usability. Trusting a group (B) is not a security control and increases organizational risk because executives are often targeted. Longer passwords and training (C, D) do not provide the same protection against credential replay and phishing.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.nist.gov/identity-access-management"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-iam-003"
+    difficulty: "hard"
+    tags: ["domain5", "iam", "federation", "sso"]
+    question: "Your organization adopts single sign-on (SSO) federation for dozens of SaaS apps. A security leader worries about 'one credential to rule them all.' What is the BEST compensating management control?"
+    choices:
+      - "A. Strengthen the identity provider with phishing-resistant MFA, continuous monitoring, and strong incident response playbooks"
+      - "B. Disable SSO and require separate passwords for each SaaS app"
+      - "C. Allow password reuse to make separate logins manageable"
+      - "D. Require users to change SSO passwords weekly"
+    answerIndex: 0
+    explanation: >-
+      Centralizing identity can improve control, but it concentrates risk, so hardening the identity provider and monitoring for anomalous sign-ins is essential. Disabling SSO (B) often increases password fatigue and weakens governance across apps. Weekly password changes (D) do not address phishing and can increase insecure user behavior.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-iam-004"
+    difficulty: "hard"
+    tags: ["domain5", "iam", "privileged-access", "pim"]
+    question: "A cloud engineering team uses permanent administrative roles for convenience. An internal audit finds excessive standing privilege and poor traceability. What is the BEST remediation plan?"
+    choices:
+      - "A. Implement privileged access management with just-in-time elevation, approvals, and centralized logging"
+      - "B. Require admins to sign an acceptable use policy annually"
+      - "C. Move admin accounts to a shared mailbox to simplify management"
+      - "D. Keep permanent roles but rotate passwords more frequently"
+    answerIndex: 0
+    explanation: >-
+      Just-in-time privileged access reduces exposure from standing privileges and improves traceability through approvals and centralized audit logs. Policies (B) are important but do not provide technical enforcement or detailed accountability. Shared accounts (C) directly reduce accountability and typically violate audit requirements.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-test-001"
+    difficulty: "easy"
+    tags: ["domain6", "testing", "audit", "assurance"]
+    question: "A security manager needs to demonstrate that access reviews are happening and are effective. What evidence is MOST appropriate for an auditor?"
+    choices:
+      - "A. Documented access review records showing reviewers, dates, decisions, and follow-up actions"
+      - "B. A statement from IT that reviews are performed"
+      - "C. A network diagram of the identity infrastructure"
+      - "D. The last penetration test report"
+    answerIndex: 0
+    explanation: >-
+      Review records provide objective evidence of control operation and effectiveness, including accountability and remediation actions. A statement (B) is not sufficient assurance because it is not independently verifiable. Pen test results (D) can support overall security but do not prove periodic access review execution.
+    refs:
+      - "https://www.iso.org/standard/27001"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-test-002"
+    difficulty: "medium"
+    tags: ["domain6", "testing", "vulnerability-management", "risk"]
+    question: "A vulnerability scan reports hundreds of findings. The CISO asks which process best ensures remediation focuses on business risk rather than raw counts. What do you recommend?"
+    choices:
+      - "A. Prioritize remediation using asset criticality, exploitability, exposure, and compensating controls"
+      - "B. Fix vulnerabilities strictly in order of CVSS score"
+      - "C. Remediate the newest findings first to keep reports clean"
+      - "D. Ignore findings that do not have public exploits"
+    answerIndex: 0
+    explanation: >-
+      Risk-based prioritization combines technical severity with business context, improving outcomes and resource allocation. CVSS alone (B) is incomplete because it may not reflect real exposure or asset importance. Ignoring non-public exploits (D) is risky because exploitability can change and attackers may have private capabilities.
+    refs:
+      - "https://nvd.nist.gov/"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-test-003"
+    difficulty: "hard"
+    tags: ["domain6", "testing", "pentest", "scope"]
+    question: "A business unit requests a penetration test of a production payment system next week, but change freezes and peak season traffic are expected. What is the BEST security management decision?"
+    choices:
+      - "A. Negotiate scope and timing to reduce operational risk, and use a staged approach (test in pre-prod, limited prod validation)"
+      - "B. Run the full test in production to get the most realistic results"
+      - "C. Cancel testing entirely because it is too risky"
+      - "D. Replace the test with a vulnerability scan only"
+    answerIndex: 0
+    explanation: >-
+      A staged approach balances assurance with availability by reducing disruption while still providing meaningful findings. Full production testing (B) can create unacceptable operational risk and may violate change control processes. A scan-only approach (D) does not provide the same depth as a controlled penetration test and may miss logic issues.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-secops-001"
+    difficulty: "easy"
+    tags: ["domain7", "secops", "incident-response", "triage"]
+    question: "A SOC analyst detects suspicious PowerShell activity on a user workstation and wants to immediately wipe the device. What is the BEST initial incident response action from a management perspective?"
+    choices:
+      - "A. Preserve evidence and follow the incident response playbook, including containment steps appropriate to the suspected impact"
+      - "B. Wipe the device immediately to eliminate the threat"
+      - "C. Ignore it unless antivirus also triggers"
+      - "D. Publicly notify customers before confirming scope"
+    answerIndex: 0
+    explanation: >-
+      Following the incident response process preserves evidence, enables accurate scoping, and supports coordinated containment and eradication. Immediate wiping (B) can destroy forensic data needed to understand root cause and whether lateral movement occurred. Premature notification (D) can create unnecessary harm and is not appropriate without validated impact and stakeholder coordination.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-secops-002"
+    difficulty: "medium"
+    tags: ["domain7", "secops", "logging", "monitoring"]
+    question: "After a ransomware incident, leadership asks why detection was late. The SOC claims logs were missing from key servers. What is the BEST long-term fix?"
+    choices:
+      - "A. Define logging requirements, ensure centralized collection and retention, and monitor log source health"
+      - "B. Purchase a new SIEM and assume it will solve logging gaps"
+      - "C. Increase the number of SOC analysts without changing processes"
+      - "D. Disable encryption to make logs easier to access"
+    answerIndex: 0
+    explanation: >-
+      Logging requirements and centralized collection with health monitoring address both governance and operational assurance that telemetry is complete and reliable. Buying a SIEM (B) without defining sources, retention, and onboarding processes often recreates the same gaps. Disabling encryption (D) weakens confidentiality and is not required to achieve log visibility.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-secops-003"
+    difficulty: "hard"
+    tags: ["domain7", "secops", "bcdr", "rto-rpo"]
+    question: "A business impact analysis (BIA) identifies a customer portal with a 4-hour RTO and a 15-minute RPO. The IT director proposes nightly backups to meet both. What is the BEST assessment?"
+    choices:
+      - "A. Nightly backups cannot meet a 15-minute RPO; you need more frequent replication or backup strategies aligned to the RPO"
+      - "B. Nightly backups meet the RPO if restores are fast"
+      - "C. RTO and RPO are interchangeable, so nightly backups are sufficient"
+      - "D. Remove the RPO requirement to reduce cost"
+    answerIndex: 0
+    explanation: >-
+      RPO is the maximum acceptable data loss window, and nightly backups imply up to ~24 hours of loss, which fails a 15-minute RPO. Restore speed affects RTO, not the amount of data lost, making (B) incorrect. Changing requirements (D) is a business decision that must be justified by risk acceptance, not convenience.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-secops-004"
+    difficulty: "medium"
+    tags: ["domain7", "secops", "change-management", "operations"]
+    question: "Operations wants to apply emergency patches directly to production to address a high-profile vulnerability. The change advisory board (CAB) worries about outages. What is the BEST management approach?"
+    choices:
+      - "A. Use an expedited emergency change process with risk assessment, testing where feasible, approvals, and backout plans"
+      - "B. Block all patching until the next regular maintenance window"
+      - "C. Patch immediately with no approvals to reduce exposure time"
+      - "D. Accept the risk and focus only on detection"
+    answerIndex: 0
+    explanation: >-
+      Emergency change procedures balance speed and control by requiring risk evaluation, appropriate approvals, and rollback planning. Blocking changes (B) may leave critical exposure unaddressed for too long, increasing risk. Skipping approvals and planning (C) can create significant availability and integrity impacts that are avoidable.
+    refs:
+      - "https://csrc.nist.gov/publications/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-sdlc-001"
+    difficulty: "easy"
+    tags: ["domain8", "sdlc", "requirements", "security-by-design"]
+    question: "A product owner says security requirements can be added after the MVP ships. What is the BEST management-level response?"
+    choices:
+      - "A. Integrate security requirements into the backlog now because late changes increase cost and risk"
+      - "B. Agree, because security is primarily a testing activity"
+      - "C. Skip requirements and rely on a WAF"
+      - "D. Require developers to sign a policy acknowledging secure coding"
+    answerIndex: 0
+    explanation: >-
+      Security requirements influence architecture and design, and addressing them early reduces rework and prevents predictable risk. Treating security as only testing (B) is incorrect because many controls are design decisions, not test artifacts. Policy sign-offs (D) do not replace technical and process controls.
+    refs:
+      - "https://owasp.org/"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-sdlc-002"
+    difficulty: "medium"
+    tags: ["domain8", "sdlc", "supply-chain", "dependencies"]
+    question: "A development team frequently adds open-source libraries without review. A recent incident involved a vulnerable dependency. What is the BEST program-level control?"
+    choices:
+      - "A. Establish a software supply chain policy with approved sources, dependency review, and continuous monitoring for vulnerabilities"
+      - "B. Ban all open-source software"
+      - "C. Allow any library if developers promise to update quickly"
+      - "D. Run a penetration test once per year"
+    answerIndex: 0
+    explanation: >-
+      A supply chain program sets governance for acquisition and maintenance and enables ongoing visibility into dependency risk. Banning all open source (B) is typically impractical and can increase cost without eliminating risk. Annual testing (D) is too infrequent to manage continuously changing dependency vulnerabilities.
+    refs:
+      - "https://nvd.nist.gov/"
+      - "https://owasp.org/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-sdlc-003"
+    difficulty: "hard"
+    tags: ["domain8", "sdlc", "secure-design", "abuse-cases"]
+    question: "A team is building an API used by partners. You discover that the functional requirements omit misuse scenarios such as credential stuffing and excessive data scraping. What is the BEST corrective action?"
+    choices:
+      - "A. Add abuse cases and security acceptance criteria to requirements and test plans"
+      - "B. Assume partners are trusted and focus on performance"
+      - "C. Block all partner access until after launch"
+      - "D. Rely solely on rate limiting after incidents occur"
+    answerIndex: 0
+    explanation: >-
+      Abuse cases translate attacker behavior into concrete requirements and testable acceptance criteria, enabling preventive controls like auth strength, throttling, and monitoring. Assuming trust (B) ignores the likelihood of compromised partner credentials and automated attacks. Rate limiting alone (D) is helpful but incomplete if authentication and authorization are weak.
+    refs:
+      - "https://owasp.org/"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-sdlc-004"
+    difficulty: "hard"
+    tags: ["domain8", "sdlc", "devsecops", "ci-cd"]
+    question: "A DevOps team wants to speed releases by removing manual security gates. What is the BEST management-aligned alternative that maintains assurance?"
+    choices:
+      - "A. Automate security checks in CI/CD with defined thresholds, and require risk-based exceptions with approvals"
+      - "B. Remove all gates and rely on production monitoring"
+      - "C. Require developers to email the security team before each deploy"
+      - "D. Freeze releases until security staffing increases"
+    answerIndex: 0
+    explanation: >-
+      Automated checks with clear thresholds preserve consistent assurance while supporting delivery speed, and exception handling keeps governance intact. Relying only on monitoring (B) is reactive and allows preventable issues into production. Email-based approvals (C) do not scale and often lack auditable, consistent decision criteria.
+    refs:
+      - "https://owasp.org/"
+      - "https://www.iso.org/standard/27001"
+    author: "ThanhNguyxn"

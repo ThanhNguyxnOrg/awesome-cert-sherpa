@@ -372,3 +372,519 @@ resources:
     language: [en]
     notes: "Free intro courses from the Linux Foundation including cloud and K8s topics."
     last_verified: "2026-02-14"
+
+  - title: "CKAD Certification Page (Linux Foundation)"
+    type: official-doc
+    url: https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/
+    vendor: "Linux Foundation"
+    certs: [CKAD]
+    tags: [kubernetes, certification, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CKAD exam page with domains/competencies, candidate handbook links, and registration."
+    last_verified: "2026-02-14"
+
+  - title: "Certified Kubernetes Application Developer (CKAD) — Candidate Handbook"
+    type: official-doc
+    url: https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2
+    vendor: "Linux Foundation"
+    certs: [CKAD]
+    tags: [exam-rules, remote-proctoring, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Linux Foundation certification handbook — exam rules, allowed resources, system requirements, retakes."
+    last_verified: "2026-02-14"
+
+  - title: "CKAD Course (KodeKloud)"
+    type: course
+    url: https://kodekloud.com/courses/certified-kubernetes-application-developer-ckad/
+    vendor: "KodeKloud"
+    certs: [CKAD]
+    tags: [kubernetes, hands-on, labs, ckad-prep]
+    difficulty: intermediate
+    language: [en]
+    notes: "Hands-on CKAD prep course with labs focused on application workloads, troubleshooting, and manifests."
+    last_verified: "2026-02-14"
+
+  - title: "CKAD Simulator (killer.sh)"
+    type: practice-tool
+    url: https://killer.sh/ckad
+    vendor: "killer.sh"
+    certs: [CKAD]
+    tags: [kubernetes, practice-exam, timeboxing]
+    difficulty: intermediate
+    language: [en]
+    notes: "Realistic CKAD practice exams with cluster access, solution walkthroughs, and performance feedback."
+    last_verified: "2026-02-14"
+
+  - title: "CKS Certification Page (Linux Foundation)"
+    type: official-doc
+    url: https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/
+    vendor: "Linux Foundation"
+    certs: [CKS]
+    tags: [kubernetes, security, certification, official]
+    difficulty: advanced
+    language: [en]
+    notes: "Official CKS exam page with domains/competencies and candidate handbook details."
+    last_verified: "2026-02-14"
+
+  - title: "Kubernetes Security Documentation"
+    type: official-doc
+    url: https://kubernetes.io/docs/concepts/security/
+    vendor: "CNCF"
+    certs: [CKS]
+    tags: [kubernetes, security, reference, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Kubernetes security concepts — RBAC, Pod Security, admission control, secrets, and hardening guidance."
+    last_verified: "2026-02-14"
+
+  - title: "CKS Simulator (killer.sh)"
+    type: practice-tool
+    url: https://killer.sh/cks
+    vendor: "killer.sh"
+    certs: [CKS]
+    tags: [kubernetes, security, practice-exam, timeboxing]
+    difficulty: advanced
+    language: [en]
+    notes: "Popular hands-on CKS practice exams covering cluster hardening, runtime security, and incident response."
+    last_verified: "2026-02-14"
+
+  - title: "OpenGitOps — GitOps Principles"
+    type: reference
+    url: https://opengitops.dev/
+    vendor: "OpenGitOps"
+    certs: [CGOA]
+    tags: [gitops, principles, reference]
+    difficulty: beginner
+    language: [en]
+    notes: "Vendor-neutral GitOps principles and definitions to ground Argo CD / Flux workflows."
+    last_verified: "2026-02-14"
+
+  - title: "Flux CD Documentation"
+    type: official-doc
+    url: https://fluxcd.io/docs/
+    vendor: "CNCF"
+    certs: [CGOA]
+    tags: [gitops, kubernetes, continuous-delivery, flux]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Flux documentation for GitOps-based continuous delivery on Kubernetes."
+    last_verified: "2026-02-14"
+
+  - title: "Argo CD Example Apps (GitHub)"
+    type: repo
+    url: https://github.com/argoproj/argocd-example-apps
+    vendor: "CNCF"
+    certs: [CGOA]
+    tags: [gitops, argocd, kubernetes, examples]
+    difficulty: beginner
+    language: [en]
+    notes: "Reference repository with Argo CD application patterns (apps-of-apps, Helm, Kustomize) for practice."
+    last_verified: "2026-02-14"
+
+  - title: "Jenkins Documentation"
+    type: official-doc
+    url: https://www.jenkins.io/doc/
+    vendor: "Jenkins"
+    certs: [Jenkins]
+    tags: [cicd, jenkins, pipelines, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Jenkins documentation covering installation, jobs, credentials, agents, and pipeline basics."
+    last_verified: "2026-02-14"
+
+  - title: "Jenkins Pipeline Documentation"
+    type: official-doc
+    url: https://www.jenkins.io/doc/book/pipeline/
+    vendor: "Jenkins"
+    certs: [Jenkins]
+    tags: [cicd, jenkins, pipeline, groovy]
+    difficulty: intermediate
+    language: [en]
+    notes: "Jenkins Pipeline (Declarative and Scripted) reference — essential for modern Jenkins CI/CD setups."
+    last_verified: "2026-02-14"
+
+  - title: "CloudBees Jenkins Certification"
+    type: exam-guide
+    url: https://www.cloudbees.com/jenkins/certification
+    vendor: "CloudBees"
+    certs: [Jenkins]
+    tags: [jenkins, certification, exam-guide]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CloudBees Jenkins certification overview with exam details and preparation guidance."
+    last_verified: "2026-02-14"
+
+  - title: "Pulumi Documentation"
+    type: official-doc
+    url: https://www.pulumi.com/docs/
+    vendor: "Pulumi"
+    certs: [Pulumi]
+    tags: [iac, pulumi, cloud, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Pulumi docs for infrastructure as code using real programming languages (TS/Go/Python/C#)."
+    last_verified: "2026-02-14"
+
+  - title: "Pulumi Learn"
+    type: tutorial
+    url: https://www.pulumi.com/learn/
+    vendor: "Pulumi"
+    certs: [Pulumi]
+    tags: [iac, pulumi, learning-path, hands-on]
+    difficulty: beginner
+    language: [en]
+    notes: "Guided learning paths and tutorials for Pulumi fundamentals through production patterns."
+    last_verified: "2026-02-14"
+
+  - title: "Pulumi Examples (GitHub)"
+    type: repo
+    url: https://github.com/pulumi/examples
+    vendor: "Pulumi"
+    certs: [Pulumi]
+    tags: [iac, pulumi, examples, github]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Curated examples for common Pulumi stacks across AWS/Azure/GCP/Kubernetes."
+    last_verified: "2026-02-14"
+
+  - title: "GitHub Marketplace — Actions"
+    type: learning-platform
+    url: https://github.com/marketplace?type=actions
+    vendor: "GitHub"
+    certs: [GitHub-Actions]
+    tags: [cicd, github-actions, marketplace, automation]
+    difficulty: beginner
+    language: [en]
+    notes: "Discover reusable Actions for CI/CD, security scanning, releases, and automation workflows."
+    last_verified: "2026-02-14"
+
+  - title: "Security Hardening for GitHub Actions"
+    type: official-doc
+    url: https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
+    vendor: "GitHub"
+    certs: [GitHub-Actions]
+    tags: [cicd, github-actions, security, best-practices]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official guidance to secure workflows: least privilege, OIDC, trusted actions, and runner isolation."
+    last_verified: "2026-02-14"
+
+  - title: "Grafana Documentation"
+    type: official-doc
+    url: https://grafana.com/docs/
+    vendor: "Grafana Labs"
+    certs: [PCA]
+    tags: [observability, dashboards, grafana, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official docs for Grafana dashboards, data sources, alerting, and visualization best practices."
+    last_verified: "2026-02-14"
+
+  - title: "Grafana Loki Documentation"
+    type: official-doc
+    url: https://grafana.com/docs/loki/latest/
+    vendor: "Grafana Labs"
+    certs: [PCA]
+    tags: [observability, logs, loki, grafana]
+    difficulty: intermediate
+    language: [en]
+    notes: "Loki log aggregation docs — pairs well with Prometheus and Grafana for a full observability stack."
+    last_verified: "2026-02-14"
+
+  - title: "Alertmanager Documentation"
+    type: official-doc
+    url: https://prometheus.io/docs/alerting/latest/alertmanager/
+    vendor: "CNCF"
+    certs: [PCA]
+    tags: [observability, alerting, prometheus, alertmanager]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Alertmanager docs — routing, grouping, inhibition, silences, and integrations."
+    last_verified: "2026-02-14"
+
+  - title: "Platform Engineering"
+    type: community
+    url: https://platformengineering.org/
+    vendor: "Platform Engineering"
+    certs: [Platform-Engineering]
+    tags: [platform-engineering, idp, community]
+    difficulty: beginner
+    language: [en]
+    notes: "Community hub for platform engineering concepts, patterns, and internal developer platform (IDP) thinking."
+    last_verified: "2026-02-14"
+
+  - title: "Backstage Documentation"
+    type: official-doc
+    url: https://backstage.io/docs/
+    vendor: "CNCF"
+    certs: [Platform-Engineering]
+    tags: [platform-engineering, idp, developer-portal, backstage]
+    difficulty: intermediate
+    language: [en]
+    notes: "CNCF Backstage docs — build a developer portal and software catalog to standardize golden paths."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Kubernetes — Additional CKA / CKAD Resources
+  # ──────────────────────────────────────────────
+  - title: "Kubernetes Kubectl Cheat Sheet"
+    type: cheatsheet
+    url: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+    vendor: CNCF
+    certs: [CKA, CKAD, CKS]
+    tags: [kubernetes, kubectl, cheatsheet, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official kubectl cheat sheet — allowed in CKA/CKAD exams. Covers resource management, debugging, and formatting."
+    last_verified: "2026-02-14"
+
+  - title: "CKA Simulator (killer.sh)"
+    type: practice-tool
+    url: https://killer.sh/cka
+    vendor: "killer.sh"
+    certs: [CKA]
+    tags: [kubernetes, practice-exam, timeboxing, hands-on]
+    difficulty: intermediate
+    language: [en]
+    notes: "Realistic CKA practice exams with full cluster access. Included with Linux Foundation exam purchase."
+    last_verified: "2026-02-14"
+
+  - title: "KodeKloud - CKA Certification Course"
+    type: course
+    url: https://kodekloud.com/courses/certified-kubernetes-administrator-cka/
+    vendor: "KodeKloud"
+    certs: [CKA]
+    tags: [kubernetes, hands-on, labs, cka-prep]
+    difficulty: intermediate
+    language: [en]
+    notes: "Popular CKA prep course with integrated hands-on labs. Covers cluster setup, networking, storage, and troubleshooting."
+    last_verified: "2026-02-14"
+
+  - title: "Kubernetes API Reference"
+    type: reference
+    url: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/
+    vendor: CNCF
+    certs: [CKA, CKAD, CKS]
+    tags: [kubernetes, api, reference, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Complete Kubernetes API reference — allowed during exams. Covers all resource types, fields, and operations."
+    last_verified: "2026-02-14"
+
+  - title: "Kubernetes by Example"
+    type: tutorial
+    url: https://kubebyexample.com/
+    vendor: "Red Hat"
+    certs: [CKA, CKAD]
+    tags: [kubernetes, examples, hands-on, beginner-friendly]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Bite-sized Kubernetes examples covering pods, services, deployments, volumes, and more. Maintained by Red Hat."
+    last_verified: "2026-02-14"
+
+  - title: "r/kubernetes - Reddit Kubernetes Community"
+    type: community
+    url: https://www.reddit.com/r/kubernetes/
+    vendor: "Reddit"
+    certs: [CKA, CKAD, CKS]
+    tags: [community, forum, kubernetes, discussion]
+    difficulty: beginner
+    language: [en]
+    notes: "Active subreddit for Kubernetes discussions, certification tips, troubleshooting, and architecture questions."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Terraform — Additional Resources
+  # ──────────────────────────────────────────────
+  - title: "Terraform Best Practices"
+    type: reference
+    url: https://www.terraform-best-practices.com/
+    vendor: "Community"
+    certs: [Terraform-Associate]
+    tags: [terraform, best-practices, iac, patterns]
+    difficulty: intermediate
+    language: [en]
+    notes: "Community-maintained guide to Terraform best practices covering code structure, naming, and state management."
+    last_verified: "2026-02-14"
+
+  - title: "HashiCorp Terraform GitHub Repository"
+    type: repo
+    url: https://github.com/hashicorp/terraform
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, source-code, github, open-source]
+    difficulty: advanced
+    language: [en]
+    notes: "Official Terraform source code repository. Useful for understanding internals and contributing."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Docker — Additional Resources
+  # ──────────────────────────────────────────────
+  - title: "Dockerfile Best Practices"
+    type: official-doc
+    url: https://docs.docker.com/build/building/best-practices/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, dockerfile, best-practices, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Docker guide to writing efficient Dockerfiles — multi-stage builds, layer caching, and security."
+    last_verified: "2026-02-14"
+
+  - title: "Docker Hub"
+    type: reference
+    url: https://hub.docker.com/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, registry, images, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Docker container image registry. Browse official images, verified publishers, and community content."
+    last_verified: "2026-02-14"
+
+  - title: "Docker Compose Documentation"
+    type: official-doc
+    url: https://docs.docker.com/compose/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, compose, multi-container, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official Docker Compose docs for defining and running multi-container applications with YAML."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # AWS DevOps & Cloud CI/CD
+  # ──────────────────────────────────────────────
+  - title: "AWS DevOps Professional Certification Page"
+    type: exam-guide
+    url: https://aws.amazon.com/certification/certified-devops-engineer-professional/
+    vendor: "AWS"
+    certs: [AWS-DevOps-Professional]
+    tags: [aws, certification, devops, official]
+    difficulty: advanced
+    language: [en]
+    notes: "Official AWS DevOps Engineer Professional cert page with exam guide, domains, and sample questions."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Well-Architected Framework"
+    type: reference
+    url: https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html
+    vendor: "AWS"
+    certs: [AWS-DevOps-Professional]
+    tags: [aws, architecture, best-practices, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "AWS best practices across operational excellence, security, reliability, performance, and cost pillars."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Ansible — Additional Resources
+  # ──────────────────────────────────────────────
+  - title: "Ansible Getting Started Guide"
+    type: tutorial
+    url: https://docs.ansible.com/ansible/latest/getting_started/index.html
+    vendor: "Red Hat"
+    certs: [RHCE]
+    tags: [ansible, tutorial, beginner, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Ansible getting started tutorial — installation, inventory, playbooks, and first automation."
+    last_verified: "2026-02-14"
+
+  - title: "Ansible Examples (GitHub)"
+    type: repo
+    url: https://github.com/ansible/ansible-examples
+    vendor: "Red Hat"
+    certs: [RHCE]
+    tags: [ansible, examples, playbooks, github]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official collection of Ansible playbook examples covering LAMP stacks, rolling updates, and more."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Observability — Prometheus & Grafana Extras
+  # ──────────────────────────────────────────────
+  - title: "PromQL Tutorial - Prometheus Query Language"
+    type: tutorial
+    url: https://prometheus.io/docs/prometheus/latest/querying/basics/
+    vendor: CNCF
+    certs: [PCA]
+    tags: [prometheus, promql, querying, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official PromQL basics guide — selectors, operators, functions, and aggregation for metrics querying."
+    last_verified: "2026-02-14"
+
+  - title: "Grafana Play - Live Demo Dashboards"
+    type: lab
+    url: https://play.grafana.org/
+    vendor: "Grafana Labs"
+    certs: [PCA]
+    tags: [grafana, dashboards, demo, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Live Grafana instance with sample dashboards. Explore visualizations and panel types without installing."
+    last_verified: "2026-02-14"
+
+  - title: "Awesome Prometheus Alerts (GitHub)"
+    type: repo
+    url: https://github.com/samber/awesome-prometheus-alerts
+    vendor: "Community"
+    certs: [PCA]
+    tags: [prometheus, alerting, rules, github]
+    difficulty: intermediate
+    language: [en]
+    notes: "Curated collection of Prometheus alerting rules for databases, hardware, web servers, and Kubernetes."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # CI/CD & GitOps — Additional Resources
+  # ──────────────────────────────────────────────
+  - title: "GitLab CI/CD Pipeline Configuration Reference"
+    type: reference
+    url: https://docs.gitlab.com/ee/ci/yaml/
+    vendor: GitLab
+    certs: [GitLab-CI]
+    tags: [cicd, gitlab, yaml-reference, pipeline]
+    difficulty: intermediate
+    language: [en]
+    notes: "Complete .gitlab-ci.yml keyword reference — stages, jobs, rules, artifacts, caching, and services."
+    last_verified: "2026-02-14"
+
+  - title: "Jenkins Shared Libraries"
+    type: official-doc
+    url: https://www.jenkins.io/doc/book/pipeline/shared-libraries/
+    vendor: "Jenkins"
+    certs: [Jenkins]
+    tags: [jenkins, shared-libraries, pipeline, groovy]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Official guide to Jenkins shared libraries for reusable pipeline code across multiple projects."
+    last_verified: "2026-02-14"
+
+  - title: "Helm Documentation"
+    type: official-doc
+    url: https://helm.sh/docs/
+    vendor: CNCF
+    certs: [CKA, CKAD]
+    tags: [helm, kubernetes, package-manager, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Helm docs — the Kubernetes package manager. Charts, repositories, templating, and hooks."
+    last_verified: "2026-02-14"
+
+  - title: "Artifact Hub"
+    type: reference
+    url: https://artifacthub.io/
+    vendor: CNCF
+    certs: [CKA, CKAD]
+    tags: [helm, charts, kubernetes, registry]
+    difficulty: beginner
+    language: [en]
+    notes: "CNCF hub for discovering Helm charts, OPA policies, Tekton tasks, and other cloud-native artifacts."
+    last_verified: "2026-02-14"

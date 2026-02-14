@@ -349,3 +349,252 @@ resources:
     language: [en]
     notes: "Interactive end-of-chapter exercises covering OSI model, DNS, HTTP, TCP/IP, routing. Generate unlimited problems."
     last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # CISCO CCNA (200-301) — Additional Study
+  # ──────────────────────────────────────────────
+  - title: "NetworkChuck - Free CCNA Networking Videos"
+    type: video
+    url: "https://www.youtube.com/playlist?list=PLIhvC56v63IJVXv0GJcl9vO5Z6znCVb1P"
+    vendor: "NetworkChuck"
+    certs: [CCNA-200-301]
+    tags: [video, free, youtube, beginner-friendly]
+    difficulty: beginner
+    language: [en]
+    notes: "Entertaining beginner-friendly CCNA and networking fundamentals videos. Great for visual learners."
+    last_verified: "2026-02-14"
+
+  - title: "Practical Networking - Networking Fundamentals"
+    type: video
+    url: "https://www.practicalnetworking.net/index/networking-fundamentals-how-data-moves-through-the-internet/"
+    vendor: "Practical Networking"
+    certs: [CCNA-200-301, Network+]
+    tags: [video, free, fundamentals, data-flow]
+    difficulty: beginner
+    language: [en]
+    notes: "Clear visual explanations of how data moves through the internet. Covers OSI model, ARP, routing, and switching."
+    last_verified: "2026-02-14"
+
+  - title: "Practical Networking - Subnetting Mastery"
+    type: video
+    url: "https://www.practicalnetworking.net/index/subnetting/"
+    vendor: "Practical Networking"
+    certs: [CCNA-200-301, Network+]
+    tags: [subnetting, video, free, fundamentals]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Seven-part series that builds subnetting skills from scratch. Highly recommended by the CCNA community."
+    last_verified: "2026-02-14"
+
+  - title: "NetworkLessons.com"
+    type: learning-platform
+    url: "https://networklessons.com/"
+    vendor: "NetworkLessons"
+    certs: [CCNA-200-301, CCNP]
+    tags: [lessons, diagrams, configurations, reference]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "In-depth networking lessons with configuration examples. Some free content; full access requires subscription."
+    last_verified: "2026-02-14"
+
+  - title: "Flackbox - Free Cisco CCNA Lab Guide"
+    type: lab
+    url: "https://www.flackbox.com/cisco-ccna-lab-guide"
+    vendor: "Flackbox"
+    certs: [CCNA-200-301]
+    tags: [labs, free, packet-tracer, hands-on]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free CCNA Packet Tracer lab exercises with step-by-step guides. Covers switching, routing, and services."
+    last_verified: "2026-02-14"
+
+  - title: "r/ccna - Reddit CCNA Community"
+    type: community
+    url: "https://www.reddit.com/r/ccna/"
+    vendor: "Reddit"
+    certs: [CCNA-200-301]
+    tags: [community, forum, study-tips, pass-reports]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Active subreddit with study tips, resource recommendations, pass/fail reports, and peer support."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # COMPTIA NETWORK+ — Additional Study
+  # ──────────────────────────────────────────────
+  - title: "CompTIA Network+ N10-009 Acronym List"
+    type: reference
+    url: "https://comptiacdn.azureedge.net/webcontent/docs/default-source/exam-objectives/comptia-network-n10-009-acronym-list-(1).pdf"
+    vendor: CompTIA
+    certs: [Network+-N10-009]
+    tags: [acronyms, reference, official, pdf]
+    difficulty: beginner
+    language: [en]
+    notes: "Official CompTIA acronym list for Network+ N10-009. Must-know abbreviations for exam day."
+    last_verified: "2026-02-14"
+
+  - title: "r/CompTIA - Reddit CompTIA Community"
+    type: community
+    url: "https://www.reddit.com/r/CompTIA/"
+    vendor: "Reddit"
+    certs: [Network+-N10-009, Security+, A+]
+    tags: [community, forum, study-tips, pass-reports]
+    difficulty: beginner
+    language: [en]
+    notes: "Large subreddit covering all CompTIA certifications. Study plans, resource reviews, and pass reports."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GENERAL NETWORKING — Packet Analysis & Tools
+  # ──────────────────────────────────────────────
+  - title: "Wireshark - Download"
+    type: software-tool
+    url: "https://www.wireshark.org/download.html"
+    vendor: "Wireshark Foundation"
+    certs: [CCNA, Network+, all-networking]
+    tags: [packet-analysis, download, free, open-source]
+    difficulty: beginner
+    language: [en]
+    notes: "Download Wireshark network protocol analyzer. Available for Windows, macOS, and Linux."
+    last_verified: "2026-02-14"
+
+  - title: "Wireshark Sample Captures"
+    type: reference
+    url: "https://wiki.wireshark.org/SampleCaptures"
+    vendor: "Wireshark Foundation"
+    certs: [CCNA, Network+, all-networking]
+    tags: [packet-analysis, pcap, samples, practice]
+    difficulty: intermediate
+    language: [en]
+    notes: "Collection of sample packet capture files for practice analysis. Covers HTTP, DNS, TCP, TLS, and more."
+    last_verified: "2026-02-14"
+
+  - title: "Wireshark Display Filter Reference"
+    type: cheatsheet
+    url: "https://www.wireshark.org/docs/dfref/"
+    vendor: "Wireshark Foundation"
+    certs: [CCNA, Network+, all-networking]
+    tags: [packet-analysis, filters, reference, cheatsheet]
+    difficulty: intermediate
+    language: [en]
+    notes: "Complete reference of all Wireshark display filter fields organized by protocol."
+    last_verified: "2026-02-14"
+
+  - title: "Nmap Official Documentation"
+    type: official-doc
+    url: "https://nmap.org/docs.html"
+    vendor: "Nmap Project"
+    certs: [Network+, Security+, all-networking]
+    tags: [network-scanning, security, documentation, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Nmap reference guide covering host discovery, port scanning, OS detection, and scripting engine."
+    last_verified: "2026-02-14"
+
+  - title: "Nmap Reference Guide"
+    type: reference
+    url: "https://nmap.org/book/man.html"
+    vendor: "Nmap Project"
+    certs: [Network+, Security+, all-networking]
+    tags: [network-scanning, man-page, reference, cli]
+    difficulty: intermediate
+    language: [en]
+    notes: "Comprehensive Nmap man page with all command-line options, scan techniques, and output formats."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GENERAL NETWORKING — Network Emulation & Labs
+  # ──────────────────────────────────────────────
+  - title: "EVE-NG - Emulated Virtual Environment"
+    type: software-tool
+    url: "https://www.eve-ng.net/"
+    vendor: "EVE-NG"
+    certs: [CCNA, CCNP, CCIE, JNCIA]
+    tags: [network-emulator, labs, multi-vendor, virtual]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Network emulation platform supporting Cisco, Juniper, and many other vendor images. Community edition is free."
+    last_verified: "2026-02-14"
+
+  - title: "GNS3 Documentation & Guides"
+    type: official-doc
+    url: "https://docs.gns3.com/"
+    vendor: "GNS3"
+    certs: [CCNA, CCNP, JNCIA]
+    tags: [network-simulator, documentation, setup, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official GNS3 documentation with installation guides, appliance setup, and topology building tutorials."
+    last_verified: "2026-02-14"
+
+  - title: "Containerlab"
+    type: software-tool
+    url: "https://containerlab.dev/"
+    vendor: "Containerlab"
+    certs: [CCNA, CCNP, all-networking]
+    tags: [network-emulator, containers, labs, open-source]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Container-based networking lab tool. Spin up network topologies with Nokia SRLinux, Arista cEOS, and others."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GENERAL NETWORKING — Protocols & Standards
+  # ──────────────────────────────────────────────
+  - title: "IANA Service Name and Transport Protocol Port Numbers"
+    type: reference
+    url: "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+    vendor: IANA
+    certs: [CCNA, Network+, all-networking]
+    tags: [ports, protocols, reference, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Authoritative list of TCP/UDP port assignments. Essential reference for understanding well-known ports."
+    last_verified: "2026-02-14"
+
+  - title: "IANA Protocol Numbers"
+    type: reference
+    url: "https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml"
+    vendor: IANA
+    certs: [CCNA, Network+, all-networking]
+    tags: [protocols, ip, reference, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official registry of IP protocol numbers (TCP=6, UDP=17, ICMP=1, etc.)."
+    last_verified: "2026-02-14"
+
+  - title: "IEEE 802 Standards"
+    type: reference
+    url: "https://standards.ieee.org/featured/802/"
+    vendor: IEEE
+    certs: [CCNA, Network+, all-networking]
+    tags: [802.11, 802.3, ethernet, wireless, standards]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Official IEEE 802 LAN/MAN standards including Ethernet (802.3) and Wi-Fi (802.11)."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # NETWORK AUTOMATION
+  # ──────────────────────────────────────────────
+  - title: "Cisco DevNet - Network Automation"
+    type: learning-platform
+    url: "https://developer.cisco.com/learning/tracks/netdevops/"
+    vendor: Cisco
+    certs: [CCNA, DevNet-Associate]
+    tags: [automation, python, APIs, devnet]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free Cisco DevNet learning tracks for network automation with Python, REST APIs, and NETCONF/RESTCONF."
+    last_verified: "2026-02-14"
+
+  - title: "Netmiko - Multi-vendor SSH Library"
+    type: repo
+    url: "https://github.com/ktbyers/netmiko"
+    vendor: "Open Source"
+    certs: [CCNA, DevNet-Associate]
+    tags: [automation, python, ssh, multi-vendor, github]
+    difficulty: intermediate
+    language: [en]
+    notes: "Popular Python library for SSH connections to network devices. Supports Cisco, Juniper, Arista, and many more."
+    last_verified: "2026-02-14"

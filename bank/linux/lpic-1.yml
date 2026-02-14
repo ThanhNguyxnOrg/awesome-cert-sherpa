@@ -1,0 +1,466 @@
+meta:
+  category: "linux"
+  cert: "LPIC-1"
+  vendor: "LPI"
+  version: 1
+  description: "Original practice questions for Linux Professional Institute LPIC-1 (Exams 101-500 & 102-500)"
+questions:
+  - id: "lpic1-boot-001"
+    difficulty: "hard"
+    tags: ["system-architecture", "boot", "grub"]
+    question: "A server fails to boot after a kernel update. You can still reach the GRUB menu. Which action is the safest first step to restore service quickly?"
+    choices:
+      - "A. Select the previous kernel entry from GRUB and boot it"
+      - "B. Run fsck on the root filesystem from GRUB"
+      - "C. Reinstall the OS immediately to avoid downtime"
+      - "D. Delete the new kernel files from /boot before rebooting"
+    answerIndex: 0
+    explanation: "Booting the previous known-good kernel from GRUB is the quickest low-risk rollback and validates whether the new kernel is the cause. Running fsck is not the first step because it addresses filesystem corruption rather than a likely boot regression, and deleting kernel files can make recovery harder."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/"
+      - "https://man7.org/linux/man-pages/man8/grub2-mkconfig.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-systemd-001"
+    difficulty: "medium"
+    tags: ["systemd", "runlevels", "targets"]
+    question: "You need to boot a system into a non-graphical multi-user environment for maintenance. Which systemd target should you set as default?"
+    choices:
+      - "A. multi-user.target"
+      - "B. graphical.target"
+      - "C. rescue.target"
+      - "D. reboot.target"
+    answerIndex: 0
+    explanation: "multi-user.target corresponds to the traditional runlevel-3 style state with networking and services but without a GUI. rescue.target is a more restricted single-user style mode, and graphical.target would start the display stack which you explicitly want to avoid."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/"
+      - "https://man7.org/linux/man-pages/man1/systemctl.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-pkg-apt-001"
+    difficulty: "easy"
+    tags: ["package-management", "apt", "debian"]
+    question: "A Debian-based host cannot install packages because the package index is outdated. Which command refreshes package metadata without upgrading installed packages?"
+    choices:
+      - "A. apt-get update"
+      - "B. apt-get upgrade"
+      - "C. apt-get dist-upgrade"
+      - "D. dpkg -i"
+    answerIndex: 0
+    explanation: "apt-get update downloads the latest package lists so dependency resolution uses current repository metadata. apt-get upgrade and dist-upgrade change installed packages, and dpkg -i installs a local .deb without updating repository package lists."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/apt-get.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-pkg-dpkg-001"
+    difficulty: "medium"
+    tags: ["package-management", "dpkg", "debian"]
+    question: "A .deb package installation was interrupted, leaving dpkg in a broken state. Which command is typically used to configure unpacked packages and finish the pending work?"
+    choices:
+      - "A. dpkg --configure -a"
+      - "B. dpkg --purge -a"
+      - "C. apt-get source -a"
+      - "D. rpm --rebuilddb"
+    answerIndex: 0
+    explanation: "dpkg --configure -a completes configuration of packages that were unpacked but not fully configured, which commonly fixes interrupted installs. Purging removes packages (not repair), and rpm database tools do not apply to Debian's dpkg state."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/dpkg.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-pkg-rpm-001"
+    difficulty: "easy"
+    tags: ["package-management", "rpm", "redhat"]
+    question: "On an RPM-based system, you want to verify which package installed the file /usr/bin/rsync. Which command is appropriate?"
+    choices:
+      - "A. rpm -qf /usr/bin/rsync"
+      - "B. rpm -qi /usr/bin/rsync"
+      - "C. rpm -ql /usr/bin/rsync"
+      - "D. rpm -qa /usr/bin/rsync"
+    answerIndex: 0
+    explanation: "rpm -qf queries the owning package for a given file path. -qi expects a package name for info output, and -ql lists files contained in a package rather than finding the owner of a specific path."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/rpm.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-pkg-dnf-001"
+    difficulty: "hard"
+    tags: ["package-management", "dnf", "yum"]
+    question: "A RHEL-like system needs only security updates during a maintenance window to minimize change risk. Which approach is most appropriate using dnf?"
+    choices:
+      - "A. Use 'dnf update --security' to apply updates tied to security advisories"
+      - "B. Use 'dnf clean all' and reboot to apply security patches"
+      - "C. Use 'rpm -Uvh --security' to upgrade from repositories"
+      - "D. Remove and reinstall openssl to ensure security compliance"
+    answerIndex: 0
+    explanation: "dnf update --security filters updates to packages with security advisories, aligning with the requirement to apply only security-related changes. Cleaning caches does not install updates, and rpm does not manage advisory filtering the way dnf does."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/dnf.8.html"
+      - "https://learning.lpi.org/en/learning-materials/101-500/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-cmd-pipes-001"
+    difficulty: "easy"
+    tags: ["gnu-unix", "pipes", "redirects"]
+    question: "You need to count only the lines containing the word 'ERROR' in a log stream produced by a command. Which pipeline does this correctly?"
+    choices:
+      - "A. command | grep 'ERROR' | wc -l"
+      - "B. command > grep 'ERROR' > wc -l"
+      - "C. command | wc -l | grep 'ERROR'"
+      - "D. command 2> grep 'ERROR' | wc -l"
+    answerIndex: 0
+    explanation: "This pipeline filters the stream with grep first and then counts matching lines with wc -l. Redirection operators do not feed output into commands, and counting before filtering counts all lines rather than just the error lines."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/grep.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-cmd-redir-001"
+    difficulty: "medium"
+    tags: ["gnu-unix", "redirects", "stderr"]
+    question: "A script should capture both stdout and stderr from a command into the same file for troubleshooting. Which redirection is correct in POSIX-like shells?"
+    choices:
+      - "A. command > out.log 2>&1"
+      - "B. command 2> out.log >1&2"
+      - "C. command < out.log 2>&1"
+      - "D. command |& out.log"
+    answerIndex: 0
+    explanation: "command > out.log 2>&1 redirects stdout to the file and then points stderr to the same destination as stdout. Using input redirection is the wrong direction, and |& is not portable across all POSIX shells."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-cmd-regex-001"
+    difficulty: "hard"
+    tags: ["gnu-unix", "regex", "grep"]
+    question: "You need to match lines that start with 'UID=' followed by exactly 4 digits (e.g., UID=0123). Which grep command is correct using extended regular expressions?"
+    choices:
+      - "A. grep -E '^UID=[0-9]{4}$' file"
+      - "B. grep '^UID=[0-9]{4}$' file"
+      - "C. grep -E '^UID=[0-9][4]$' file"
+      - "D. grep -E 'UID=[0-9]{4}' file | grep -v '^'"
+    answerIndex: 0
+    explanation: "With -E enabled, {4} is treated as a repetition operator, so '^UID=[0-9]{4}$' enforces exactly four digits and anchors the whole line. Without -E, braces may be treated literally, and the other options either mis-specify the repetition or drop anchoring."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/grep.1.html"
+      - "https://www.gnu.org/software/grep/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-proc-001"
+    difficulty: "easy"
+    tags: ["process-management", "signals", "kill"]
+    question: "A process is stuck and ignores SIGTERM. You need to force it to stop immediately. Which signal is most appropriate?"
+    choices:
+      - "A. SIGKILL (kill -9)"
+      - "B. SIGSTOP (kill -19)"
+      - "C. SIGHUP (kill -1)"
+      - "D. SIGUSR1 (kill -10)"
+    answerIndex: 0
+    explanation: "SIGKILL cannot be handled or ignored, so it terminates the process unconditionally. SIGSTOP only pauses a process (it can be continued), and SIGHUP/USR1 depend on application-specific behavior rather than guaranteed termination."
+    refs:
+      - "https://man7.org/linux/man-pages/man2/kill.2.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-fhs-001"
+    difficulty: "easy"
+    tags: ["filesystems", "fhs", "layout"]
+    question: "You are deploying a third-party application installed by the admin and not managed by the distribution package manager. According to the FHS, where should its locally installed binaries typically go?"
+    choices:
+      - "A. /usr/local/bin"
+      - "B. /bin"
+      - "C. /sbin"
+      - "D. /usr/bin"
+    answerIndex: 0
+    explanation: "/usr/local/bin is intended for locally installed software and helps keep admin-managed binaries separate from distribution-managed packages. /usr/bin is generally for vendor packages, and /sbin is for system administration utilities rather than general application binaries."
+    refs:
+      - "https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-fs-mount-001"
+    difficulty: "medium"
+    tags: ["filesystems", "mount", "fstab"]
+    question: "A new data disk must mount persistently at /data after reboot. You prefer a stable identifier that does not change if device names (like /dev/sdb) reorder. What should you use in /etc/fstab?"
+    choices:
+      - "A. The filesystem UUID (e.g., UUID=...)"
+      - "B. The current device node (e.g., /dev/sdb1)"
+      - "C. The major:minor device numbers"
+      - "D. The mount point path (e.g., /data) as the device"
+    answerIndex: 0
+    explanation: "UUIDs uniquely identify filesystems and stay stable across reboots even when kernel device enumeration changes. Using /dev/sdX names is brittle because they can change, and the mount point is not a valid device identifier."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/fstab.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-fs-perm-001"
+    difficulty: "easy"
+    tags: ["security", "permissions", "chmod"]
+    question: "A shared script should be readable and executable by everyone, but writable only by the owner. Which numeric mode matches this requirement?"
+    choices:
+      - "A. 755"
+      - "B. 777"
+      - "C. 644"
+      - "D. 700"
+    answerIndex: 0
+    explanation: "755 sets rwx for owner and r-x for group/others, allowing execution without allowing others to modify the file. 777 would allow anyone to write, and 644 is not executable for group/others."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/chmod.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-fs-umask-001"
+    difficulty: "hard"
+    tags: ["security", "permissions", "umask"]
+    question: "A user has umask 027. If a program creates a new regular file with requested mode 666, what permissions will the file actually have?"
+    choices:
+      - "A. 640"
+      - "B. 666"
+      - "C. 600"
+      - "D. 650"
+    answerIndex: 0
+    explanation: "umask removes permission bits from the requested mode, so 666 & ~027 results in 640 for a regular file. 666 ignores umask entirely, and 650 is not produced because the requested mode 666 does not include any execute bits."
+    refs:
+      - "https://man7.org/linux/man-pages/man2/umask.2.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-dev-udev-001"
+    difficulty: "hard"
+    tags: ["devices", "udev", "hardware"]
+    question: "A USB serial adapter appears as /dev/ttyUSB0 sometimes and /dev/ttyUSB1 other times, breaking an application. What is the best practice to provide a stable device path?"
+    choices:
+      - "A. Create a udev rule that assigns a persistent symlink based on device attributes"
+      - "B. Hardcode /dev/ttyUSB0 in the application"
+      - "C. Disable hotplug so the device name never changes"
+      - "D. Rename the kernel module to force a fixed name"
+    answerIndex: 0
+    explanation: "udev rules can match stable attributes (like serial or vendor/product IDs) and create a consistent symlink such as /dev/myserial. Hardcoding /dev/ttyUSB0 is fragile because enumeration order can change, and disabling hotplug does not reliably prevent renumbering."
+    refs:
+      - "https://man7.org/linux/man-pages/man7/udev.7.html"
+      - "https://wiki.archlinux.org/title/Udev"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-shell-001"
+    difficulty: "easy"
+    tags: ["shell", "expansion", "quoting"]
+    question: "A script must preserve spaces in a variable when passing it as a single argument. Which is correct?"
+    choices:
+      - "A. command \"$VAR\""
+      - "B. command $VAR"
+      - "C. command '$VAR'"
+      - "D. command `VAR`"
+    answerIndex: 0
+    explanation: "Double-quoting expands the variable while preserving it as one word, so spaces are not split by the shell. Unquoted $VAR is subject to word splitting, and single quotes prevent expansion so '$VAR' passes the literal characters."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-shell-002"
+    difficulty: "medium"
+    tags: ["shell", "scripting", "exit-status"]
+    question: "A deployment script should stop immediately if any command fails to avoid partial changes. Which bash option best enforces this behavior?"
+    choices:
+      - "A. set -e"
+      - "B. set -u"
+      - "C. set -x"
+      - "D. set -o noclobber"
+    answerIndex: 0
+    explanation: "set -e makes the shell exit when a simple command returns a non-zero status, helping the script fail fast. set -u is about unset variables, and set -x only enables tracing output without changing failure handling."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-ui-001"
+    difficulty: "medium"
+    tags: ["user-interfaces", "display-manager", "systemd"]
+    question: "A workstation should boot into a graphical login screen by default. On a systemd host, what is the most appropriate default target?"
+    choices:
+      - "A. graphical.target"
+      - "B. multi-user.target"
+      - "C. emergency.target"
+      - "D. halt.target"
+    answerIndex: 0
+    explanation: "graphical.target includes the services needed for a GUI and display manager, which matches the requirement for a graphical login. multi-user.target is non-graphical, and emergency/halt targets are for recovery or shutdown rather than normal desktop operation."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/systemctl.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-admin-user-001"
+    difficulty: "easy"
+    tags: ["administration", "users", "groups"]
+    question: "A new employee needs an account with a home directory and default shell /bin/bash. Which command is the most typical approach?"
+    choices:
+      - "A. useradd -m -s /bin/bash username"
+      - "B. addgroup -m -s /bin/bash username"
+      - "C. passwd -m -s /bin/bash username"
+      - "D. groupadd -m -s /bin/bash username"
+    answerIndex: 0
+    explanation: "useradd creates a user, -m creates the home directory, and -s sets the login shell. groupadd/addgroup manage groups, and passwd changes passwords rather than creating accounts with a home directory and shell."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/useradd.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-admin-cron-001"
+    difficulty: "medium"
+    tags: ["administration", "cron", "scheduling"]
+    question: "A maintenance job must run every day at 03:30 as root. Which file location is the most direct place to configure this without editing a user's crontab?"
+    choices:
+      - "A. /etc/crontab"
+      - "B. /var/log/cron"
+      - "C. /etc/profile"
+      - "D. /etc/rc.local"
+    answerIndex: 0
+    explanation: "/etc/crontab is the system-wide crontab and includes a user field, making it a direct place to schedule a root-run task. Log files do not configure scheduling, and rc.local runs at boot rather than at a specific time of day."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/crontab.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-admin-logs-001"
+    difficulty: "hard"
+    tags: ["administration", "logging", "journalctl"]
+    question: "A systemd-based server rebooted unexpectedly. You need to view logs from the previous boot only to correlate events leading up to the reboot. Which journalctl invocation is designed for this?"
+    choices:
+      - "A. journalctl -b -1"
+      - "B. journalctl -k -1"
+      - "C. journalctl --vacuum-time=1d"
+      - "D. journalctl --rotate"
+    answerIndex: 0
+    explanation: "journalctl -b -1 selects the previous boot's journal, isolating messages from that boot session. --vacuum-time and --rotate manage log retention rather than selecting a boot, and -k filters kernel messages but does not target the previous boot by itself."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/journalctl.1.html"
+      - "https://learning.lpi.org/en/learning-materials/102-500/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-svc-time-001"
+    difficulty: "medium"
+    tags: ["system-services", "time", "timedatectl"]
+    question: "After migrating a VM, the system time drifts. You want to confirm whether network time synchronization is enabled and whether the clock is currently synchronized on a systemd host. Which command is most appropriate?"
+    choices:
+      - "A. timedatectl status"
+      - "B. date --ntp"
+      - "C. hwclock --systohc --status"
+      - "D. chronyd --status"
+    answerIndex: 0
+    explanation: "timedatectl status reports NTP synchronization state and whether the system clock is synchronized. hwclock relates to the hardware clock and not the active NTP state, and chronyd output is daemon-specific and may not apply if a different NTP implementation is used."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/timedatectl.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-svc-mta-001"
+    difficulty: "hard"
+    tags: ["system-services", "mta", "mail"]
+    question: "A monitoring script calls 'mail' to send alerts, but messages never leave the host. You suspect no Mail Transfer Agent is running. Which local check most directly confirms an MTA is listening for SMTP on the standard port?"
+    choices:
+      - "A. ss -lntp | grep ':25'"
+      - "B. cat /etc/aliases"
+      - "C. ls /var/mail"
+      - "D. echo test | mail -s test root"
+    answerIndex: 0
+    explanation: "A listening TCP socket on port 25 indicates an SMTP service is available to accept mail for delivery, which is a core MTA function. /etc/aliases and /var/mail relate to local delivery configuration, and sending a test mail does not conclusively show whether an SMTP daemon is listening."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/ss.8.html"
+      - "https://learning.lpi.org/en/learning-materials/102-500/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-svc-print-001"
+    difficulty: "medium"
+    tags: ["system-services", "printing", "cups"]
+    question: "A user reports that print jobs are stuck in the queue on a CUPS-managed system. Which command lists queued print jobs for the current user?"
+    choices:
+      - "A. lpq"
+      - "B. lprm -a"
+      - "C. lpc status"
+      - "D. pr"
+    answerIndex: 0
+    explanation: "lpq displays printer queue status and pending jobs, which is the first step to diagnose stuck jobs. lprm removes jobs rather than listing them, and pr formats text for printing and does not manage the CUPS queue."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/lpq.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-net-ip-001"
+    difficulty: "easy"
+    tags: ["networking", "iproute2", "troubleshooting"]
+    question: "A host has no network connectivity. You want to quickly view the IPv4 addresses assigned to all interfaces. Which command is appropriate?"
+    choices:
+      - "A. ip -4 addr show"
+      - "B. ifconfig -a4"
+      - "C. route -4 show"
+      - "D. netstat --ip"
+    answerIndex: 0
+    explanation: "ip -4 addr show displays IPv4 addressing for all interfaces using iproute2, the modern networking toolset. route prints routing tables rather than interface addresses, and legacy tools like ifconfig/netstat may be absent or differ across systems."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/ip.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-net-dns-001"
+    difficulty: "medium"
+    tags: ["networking", "dns", "name-resolution"]
+    question: "Users can ping 8.8.8.8 but cannot resolve domain names. Which file is the most direct place to check for configured DNS resolvers on a traditional Linux system?"
+    choices:
+      - "A. /etc/resolv.conf"
+      - "B. /etc/hosts.allow"
+      - "C. /etc/nsswitch.conf"
+      - "D. /etc/hostname"
+    answerIndex: 0
+    explanation: "/etc/resolv.conf contains nameserver entries used by the resolver to query DNS servers, so it directly affects name resolution. /etc/nsswitch.conf controls lookup order but does not define DNS server IPs, and hosts.allow/hostname are unrelated to resolver configuration."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/resolv.conf.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-net-trace-001"
+    difficulty: "hard"
+    tags: ["networking", "troubleshooting", "traceroute"]
+    question: "A remote service is intermittently unreachable. You want to see the network path and identify where packets stop. Which tool is specifically designed to display hop-by-hop routing path?"
+    choices:
+      - "A. traceroute"
+      - "B. dig"
+      - "C. arp"
+      - "D. ethtool"
+    answerIndex: 0
+    explanation: "traceroute shows the sequence of hops between the source and destination, helping pinpoint where connectivity fails. dig is for DNS queries, and arp/ethtool focus on local link-layer information and NIC settings rather than end-to-end routing behavior."
+    refs:
+      - "https://wiki.archlinux.org/title/Network_tools"
+      - "https://learning.lpi.org/en/learning-materials/102-500/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-sec-ssh-001"
+    difficulty: "easy"
+    tags: ["security", "ssh", "remote-access"]
+    question: "An admin wants to disable direct root logins over SSH while keeping key-based access for normal users. Which sshd_config directive controls this?"
+    choices:
+      - "A. PermitRootLogin"
+      - "B. PasswordAuthentication"
+      - "C. AuthorizedKeysFile"
+      - "D. AllowTcpForwarding"
+    answerIndex: 0
+    explanation: "PermitRootLogin controls whether root may authenticate via SSH, and setting it to 'no' disables direct root access. PasswordAuthentication only affects password-based logins, so it would not necessarily prevent root login using keys."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/sshd_config.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-sec-gpg-001"
+    difficulty: "hard"
+    tags: ["security", "gpg", "integrity"]
+    question: "A vendor provides an installer file and a detached signature (installer.sig). You already imported the vendor's public key. Which command verifies that the signature matches the file?"
+    choices:
+      - "A. gpg --verify installer.sig installer"
+      - "B. gpg --decrypt installer.sig installer"
+      - "C. gpg --sign installer.sig installer"
+      - "D. gpg --export installer.sig installer"
+    answerIndex: 0
+    explanation: "gpg --verify checks that the detached signature corresponds to the given file and was created by the imported key, which is the integrity/authenticity check you want. Decrypting is unrelated to signature verification, and signing would create a new signature rather than validating the vendor's."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/gpg.1.html"
+      - "https://www.gnu.org/software/gnupg/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-sec-iptables-001"
+    difficulty: "hard"
+    tags: ["security", "iptables", "firewall"]
+    question: "A host firewall should allow incoming SSH (TCP/22) but drop all other inbound traffic by default. Assuming a clean ruleset, which rule best allows SSH while leaving the default policy to handle the rest?"
+    choices:
+      - "A. iptables -A INPUT -p tcp --dport 22 -j ACCEPT"
+      - "B. iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT"
+      - "C. iptables -A INPUT -p udp --dport 22 -j ACCEPT"
+      - "D. iptables -A FORWARD -p tcp --dport 22 -j ACCEPT"
+    answerIndex: 0
+    explanation: "Inbound SSH hits the INPUT chain and uses TCP port 22, so accepting TCP/22 there enables remote access while the default policy can drop the rest. OUTPUT affects outbound traffic, UDP is the wrong protocol for SSH, and FORWARD applies to routed packets rather than local host traffic."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/iptables.8.html"
+      - "https://learning.lpi.org/en/learning-materials/102-500/"
+    author: "ThanhNguyxn"

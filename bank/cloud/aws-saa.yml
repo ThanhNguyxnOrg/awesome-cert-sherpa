@@ -471,3 +471,313 @@ questions:
     refs:
       - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/"
     author: "ThanhNguyxn"
+
+  - id: "saa-extra-001"
+    difficulty: "easy"
+    tags: ["lambda", "api-gateway", "cognito", "auth"]
+    question: "A company is building a serverless REST API for a mobile app using Amazon API Gateway and AWS Lambda. Users must sign in and receive short-lived tokens, and the API must reject unauthenticated requests without adding custom auth code in every function. What should the architect recommend?"
+    choices:
+      - "A. Use Amazon Cognito user pools with an API Gateway authorizer to validate JWTs."
+      - "B. Store user passwords in AWS Secrets Manager and validate them in each Lambda invocation."
+      - "C. Enable API Gateway caching so unauthenticated requests are dropped faster."
+      - "D. Put the API behind an Application Load Balancer and use security groups for authentication."
+    answerIndex: 0
+    explanation: "Cognito user pools provide managed user sign-in and JWT tokens, and API Gateway authorizers can validate tokens centrally before invoking Lambda. Option B is incorrect because Secrets Manager is not an identity provider and pushing password validation into every function increases risk and maintenance burden."
+    refs:
+      - "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html"
+      - "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-002"
+    difficulty: "easy"
+    tags: ["ecs", "fargate", "containers", "alb"]
+    question: "A team wants to run a containerized web API without managing EC2 instances. The service must scale out based on request load and run tasks across multiple Availability Zones behind a load balancer. Which solution best meets these requirements?"
+    choices:
+      - "A. Run the containers on a single EC2 instance with Docker Compose."
+      - "B. Use Amazon ECS with the Fargate launch type, attach an Application Load Balancer, and configure ECS Service Auto Scaling."
+      - "C. Use AWS Batch with a compute environment and submit one long-running job."
+      - "D. Use Amazon Lightsail containers and manually add instances during peaks."
+    answerIndex: 1
+    explanation: "ECS on Fargate removes host management, supports multi-AZ task placement via subnets, and integrates with ALB plus Service Auto Scaling for demand-based scaling. Option A is incorrect because a single manually managed instance is a clear availability and scaling bottleneck."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html"
+      - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-003"
+    difficulty: "easy"
+    tags: ["step-functions", "serverless", "express-workflows"]
+    question: "A serverless image-processing workflow runs in under 2 minutes per request and may execute thousands of times per minute during peak events. The team wants the lowest orchestration cost while keeping built-in retries and execution tracking. Which AWS Step Functions workflow type should be used?"
+    choices:
+      - "A. Standard workflows"
+      - "B. Express workflows"
+      - "C. Amazon SWF workflows"
+      - "D. AWS Batch job queues"
+    answerIndex: 1
+    explanation: "Express workflows are optimized for high-volume, short-duration executions and are typically more cost-effective at very high throughput. Option A is incorrect because Standard workflows are better suited for long-running, durable orchestrations and can be more expensive at extremely high request rates."
+    refs:
+      - "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-004"
+    difficulty: "easy"
+    tags: ["dynamodb", "ttl", "serverless", "sessions"]
+    question: "A serverless application stores user session records in DynamoDB. Sessions should expire automatically 24 hours after creation without a scheduled cleanup job. Which DynamoDB feature should the architect use?"
+    choices:
+      - "A. DynamoDB Streams with a Lambda function to delete items on every update"
+      - "B. Time to Live (TTL) on a timestamp attribute"
+      - "C. A global secondary index (GSI) on the session ID"
+      - "D. DynamoDB Accelerator (DAX)"
+    answerIndex: 1
+    explanation: "DynamoDB TTL lets you mark items for automatic expiration based on an epoch timestamp attribute, eliminating the need for scheduled deletions. Option A is incorrect because Streams are for change capture and would add unnecessary compute and operational complexity for simple expiration."
+    refs:
+      - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-005"
+    difficulty: "easy"
+    tags: ["athena", "s3", "analytics", "logs"]
+    question: "A security team stores VPC Flow Logs in Amazon S3 and wants to run ad-hoc SQL queries to investigate suspicious IP activity without provisioning servers or managing a database. Which service should they use?"
+    choices:
+      - "A. Amazon Athena"
+      - "B. Amazon Aurora MySQL"
+      - "C. Amazon Neptune"
+      - "D. AWS Database Migration Service (AWS DMS)"
+    answerIndex: 0
+    explanation: "Athena lets you query data directly in S3 using SQL and is well suited for ad-hoc log analytics with minimal operations. Option B is incorrect because provisioning and operating a database cluster adds management overhead that the scenario explicitly wants to avoid."
+    refs:
+      - "https://docs.aws.amazon.com/athena/latest/ug/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-006"
+    difficulty: "easy"
+    tags: ["migration", "snowball", "data-transfer", "s3"]
+    question: "A company must migrate 120 TB of archived files from an on-premises data center to Amazon S3 within three weeks. The WAN link is 200 Mbps and cannot be upgraded in time. What is the fastest practical approach?"
+    choices:
+      - "A. Use AWS Snowball devices for offline transfer and import the data to S3."
+      - "B. Use multipart upload over the WAN link and accept the longer timeline."
+      - "C. Use VPC peering between the data center and S3 to increase bandwidth."
+      - "D. Store the files in EFS first, then copy to S3 later."
+    answerIndex: 0
+    explanation: "AWS Snowball is designed for large-scale offline data transfers when network bandwidth is insufficient for the required timeline. Option C is incorrect because VPC peering is for VPC-to-VPC connectivity and does not create a higher-bandwidth path from on-premises to S3."
+    refs:
+      - "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatissnowball.html"
+      - "https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-007"
+    difficulty: "easy"
+    tags: ["lambda", "eventbridge", "scheduling"]
+    question: "A finance team needs a serverless job that runs every night at 2 AM UTC to generate a report and store it in S3. The job should not require running servers continuously. Which solution is best?"
+    choices:
+      - "A. Use Amazon EventBridge Scheduler (or an EventBridge rule) to trigger a Lambda function on a cron schedule."
+      - "B. Run a t3.small EC2 instance and use cron to run a shell script nightly."
+      - "C. Use an S3 event notification to trigger the job at 2 AM."
+      - "D. Use AWS CloudTrail to invoke the job on schedule."
+    answerIndex: 0
+    explanation: "EventBridge schedules can trigger Lambda on a cron expression without keeping compute running, which matches the serverless requirement. Option B is incorrect because maintaining an always-on EC2 instance adds patching and uptime overhead for a simple scheduled task."
+    refs:
+      - "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-schedule.html"
+      - "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-008"
+    difficulty: "medium"
+    tags: ["api-gateway", "sqs", "lambda", "decoupling"]
+    question: "A public API occasionally receives 10x traffic bursts that overwhelm a downstream database. The team wants to accept requests quickly, avoid losing data, and process asynchronously at a controlled rate. Which architecture should the architect recommend?"
+    choices:
+      - "A. Increase the database instance size to handle peak traffic and keep synchronous writes."
+      - "B. Integrate API Gateway with an SQS queue and process messages with Lambda using reserved concurrency and a dead-letter queue."
+      - "C. Cache POST requests in CloudFront to reduce writes to the database."
+      - "D. Move the API to an EC2 instance and disable retries from clients."
+    answerIndex: 1
+    explanation: "SQS buffers bursts and decouples ingestion from processing, while Lambda reserved concurrency limits throughput to protect downstream systems and DLQs preserve failed messages for investigation. Option A is incorrect because scaling the database for peak does not address burst smoothing and can be very expensive for infrequent spikes."
+    refs:
+      - "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html"
+      - "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-009"
+    difficulty: "medium"
+    tags: ["lambda", "rds", "rds-proxy", "connection-pooling"]
+    question: "A Lambda-based API connects to Amazon RDS for PostgreSQL. During traffic spikes, the database hits connection limits and starts rejecting new connections. The team wants to reduce connection churn without rewriting the application. What should be implemented?"
+    choices:
+      - "A. Place the Lambda function in a public subnet so it can reuse shared connections."
+      - "B. Use Amazon RDS Proxy in front of the database and configure the Lambda function to connect through the proxy endpoint."
+      - "C. Disable TLS to reduce handshake overhead and connection count."
+      - "D. Replace RDS with Amazon S3 and store rows as objects."
+    answerIndex: 1
+    explanation: "RDS Proxy pools and multiplexes database connections, which is a common way to stabilize connection usage for serverless workloads like Lambda. Option C is incorrect because disabling TLS reduces security and does not solve the underlying connection management pattern."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html"
+      - "https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-010"
+    difficulty: "medium"
+    tags: ["dynamodb", "data-modeling", "partition-key"]
+    question: "An IoT platform writes device telemetry to DynamoDB at very high scale. After launch, CloudWatch shows throttling on a small number of partitions even though overall write capacity is high. What is the most likely design issue to fix first?"
+    choices:
+      - "A. The table is encrypted with AWS KMS instead of SSE-S3."
+      - "B. The partition key has low cardinality, causing hot partitions."
+      - "C. The table does not have enough global secondary indexes."
+      - "D. The table is using on-demand capacity mode."
+    answerIndex: 1
+    explanation: "Hot partitions commonly occur when many requests target the same partition key values, so improving key cardinality or adding write sharding is often the first fix. Option D is incorrect because on-demand capacity can still experience partition-level hot spots when the access pattern is skewed."
+    refs:
+      - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-011"
+    difficulty: "medium"
+    tags: ["dms", "migration", "rds", "cdc"]
+    question: "A company must migrate an on-premises MySQL database to Amazon RDS for MySQL with minimal downtime. They want an initial bulk load followed by continuous replication until cutover. Which service should be used?"
+    choices:
+      - "A. AWS Database Migration Service (AWS DMS) with change data capture (CDC)"
+      - "B. Amazon S3 Transfer Acceleration"
+      - "C. AWS Snowcone only"
+      - "D. AWS Glue ETL jobs running once per day"
+    answerIndex: 0
+    explanation: "AWS DMS supports full load plus ongoing CDC replication, which enables near-zero downtime cutovers for many database engines. Option D is incorrect because daily batch ETL cannot meet minimal-downtime requirements and can lose recent changes between runs."
+    refs:
+      - "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-012"
+    difficulty: "medium"
+    tags: ["aurora", "rds", "read-replica", "scaling"]
+    question: "A read-heavy application uses Amazon Aurora and experiences high read latency during business hours. The write workload is stable. The team wants to scale reads without changing the application write path. What should they do?"
+    choices:
+      - "A. Add Aurora Replicas and use the reader endpoint for read traffic."
+      - "B. Increase backup retention to improve read performance."
+      - "C. Enable S3 Lifecycle rules for the database logs."
+      - "D. Switch the cluster to a single-instance deployment to reduce replication overhead."
+    answerIndex: 0
+    explanation: "Aurora Replicas scale out reads and the reader endpoint helps distribute read connections automatically across replicas. Option D is incorrect because removing replicas reduces read capacity and resilience rather than improving it."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Replication.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-013"
+    difficulty: "medium"
+    tags: ["kinesis", "firehose", "analytics", "s3"]
+    question: "An application emits clickstream events that must be delivered continuously to Amazon S3 in near real time for later analysis. The team wants a managed ingestion service with minimal code and automatic batching/format conversion options. Which service should be used?"
+    choices:
+      - "A. Amazon Kinesis Data Firehose delivery stream to S3"
+      - "B. AWS Storage Gateway file gateway"
+      - "C. AWS Snowball Edge"
+      - "D. Amazon EBS snapshots"
+    answerIndex: 0
+    explanation: "Kinesis Data Firehose is designed for fully managed streaming delivery into destinations like S3 with buffering, compression, and optional transformations. Option B is incorrect because Storage Gateway targets hybrid file and block integration patterns rather than event-stream ingestion."
+    refs:
+      - "https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-014"
+    difficulty: "medium"
+    tags: ["step-functions", "map-state", "lambda", "parallelism"]
+    question: "A workflow must resize up to 5,000 images stored in S3. Each image can be processed independently, but the team needs to limit concurrency to avoid throttling downstream services. Which Step Functions feature best fits this requirement?"
+    choices:
+      - "A. Use a Map state with a configured maximum concurrency to process items in parallel."
+      - "B. Use a Choice state to branch for every image key."
+      - "C. Use a Pass state to call Lambda for each image."
+      - "D. Use an Activity task that runs on an EC2 instance."
+    answerIndex: 0
+    explanation: "Map states are built for running the same set of steps over a list of items and can control concurrency to manage downstream limits. Option B is incorrect because Choice states implement conditional branching, not scalable iteration over thousands of items."
+    refs:
+      - "https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-015"
+    difficulty: "hard"
+    tags: ["dynamodb", "global-tables", "multi-region", "active-active"]
+    question: "A globally distributed application must support active-active writes in two AWS Regions with local read/write latency and automatic replication. The team wants a managed NoSQL solution that keeps data synchronized and continues operating during a regional impairment. Which design is best?"
+    choices:
+      - "A. Use DynamoDB Global Tables across both Regions."
+      - "B. Use an RDS Multi-AZ database and enable cross-Region snapshots."
+      - "C. Use one DynamoDB table in a single Region and rely on CloudFront caching for writes."
+      - "D. Use S3 cross-Region replication and store each record as an object."
+    answerIndex: 0
+    explanation: "DynamoDB Global Tables provide multi-Region replication with local reads and writes, supporting active-active patterns with managed conflict resolution behavior. Option B is incorrect because Multi-AZ is within a single Region and snapshot copy is not an active-active write replication mechanism."
+    refs:
+      - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-016"
+    difficulty: "hard"
+    tags: ["api-gateway", "private-api", "vpc-endpoints", "hybrid"]
+    question: "A company exposes internal microservices through Amazon API Gateway but must ensure the API is reachable only from a corporate network over a Site-to-Site VPN. No public internet access is allowed. Which option best meets this requirement?"
+    choices:
+      - "A. Use an edge-optimized API Gateway endpoint and restrict it with an AWS WAF IP set."
+      - "B. Create a private API Gateway endpoint and access it through an interface VPC endpoint (AWS PrivateLink)."
+      - "C. Use a regional API Gateway endpoint and allow access only from 0.0.0.0/0 on port 443."
+      - "D. Put the API behind CloudFront and require signed URLs."
+    answerIndex: 1
+    explanation: "Private API Gateway endpoints are accessible only from within a VPC through an interface endpoint, which can be reached from on-premises via VPN/Direct Connect routing. Option A is incorrect because edge-optimized endpoints are still internet-facing and WAF IP filtering does not satisfy a strict no-internet-access requirement."
+    refs:
+      - "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html"
+      - "https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-017"
+    difficulty: "hard"
+    tags: ["eks", "iam", "irsa", "security"]
+    question: "A team runs workloads on Amazon EKS and needs pods to call AWS APIs (for example, to put objects to S3) without using node instance profile permissions. The solution must follow least privilege per Kubernetes service account. What should be implemented?"
+    choices:
+      - "A. Store IAM access keys in Kubernetes Secrets and mount them into pods."
+      - "B. Grant S3 permissions to the EKS worker node IAM role and reuse it for all pods."
+      - "C. Use IAM roles for service accounts (IRSA) with an OIDC provider and attach a least-privilege IAM role to the pod service account."
+      - "D. Place the EKS cluster in a public subnet so pods can call S3 anonymously."
+    answerIndex: 2
+    explanation: "IRSA maps a Kubernetes service account to a dedicated IAM role, enabling fine-grained AWS permissions per workload without distributing long-term credentials. Option B is incorrect because node-wide permissions are overly broad and violate least privilege when multiple applications share the same nodes."
+    refs:
+      - "https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-018"
+    difficulty: "hard"
+    tags: ["aurora", "serverless", "scaling", "connections"]
+    question: "A SaaS product uses Aurora Serverless v2 for its relational database. During sudden spikes, the app tier scales quickly but database connections become a bottleneck. The architect wants to smooth connection scaling and reduce failed connections while keeping Aurora Serverless. What should they add?"
+    choices:
+      - "A. Add Amazon RDS Proxy to pool and manage database connections."
+      - "B. Disable automatic scaling so capacity stays constant."
+      - "C. Replace Aurora with S3 and query with Athena."
+      - "D. Move the database to a single-AZ RDS instance to reduce failover time."
+    answerIndex: 0
+    explanation: "RDS Proxy helps manage and pool connections, which is useful when application concurrency changes rapidly and connection storms occur. Option B is incorrect because turning off scaling conflicts with the requirement to handle spikes efficiently and can increase cost during idle periods."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html"
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-019"
+    difficulty: "hard"
+    tags: ["redshift", "spectrum", "s3", "analytics"]
+    question: "A data team needs to run complex analytics with frequent joins across structured warehouse tables and large historical datasets stored in S3 in open formats. They want high-performance SQL for dashboards while minimizing data movement. Which architecture is best?"
+    choices:
+      - "A. Use Amazon Redshift with Redshift Spectrum to query data in S3 alongside warehouse tables."
+      - "B. Use Amazon RDS for MySQL and store historical files as BLOB columns."
+      - "C. Use DynamoDB as the analytics warehouse and scan tables for joins."
+      - "D. Use Amazon SQS to stream historical files to EC2 and join locally."
+    answerIndex: 0
+    explanation: "Redshift is optimized for analytical SQL and joins, and Redshift Spectrum extends queries to S3 data without fully loading all files into the cluster. Option B is incorrect because an OLTP database like MySQL is not designed for large-scale analytical joins over PB-scale history and will perform poorly and cost more to operate."
+    refs:
+      - "https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html"
+      - "https://docs.aws.amazon.com/redshift/latest/dg/welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "saa-extra-020"
+    difficulty: "hard"
+    tags: ["lambda", "provisioned-concurrency", "api-gateway", "performance"]
+    question: "A customer-facing API uses API Gateway and Lambda. The business requires consistent p95 latency under 200 ms, including after periods of zero traffic, and wants to keep the serverless model. Which configuration best meets the requirement?"
+    choices:
+      - "A. Enable Lambda provisioned concurrency for the function (optionally with Auto Scaling) and keep API Gateway integration."
+      - "B. Increase Lambda timeout to 30 seconds to avoid cold starts."
+      - "C. Move the function into a VPC to make execution faster."
+      - "D. Use S3 Transfer Acceleration to speed up API calls."
+    answerIndex: 0
+    explanation: "Provisioned concurrency keeps a set of Lambda environments initialized and ready to respond, which reduces or eliminates cold-start latency for latency-sensitive APIs. Option B is incorrect because longer timeouts do not reduce initialization time and can increase the impact of slow invocations."
+    refs:
+      - "https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html"
+      - "https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-gateway.html"
+    author: "ThanhNguyxn"

@@ -306,3 +306,543 @@ resources:
     language: [en]
     notes: "Industry-leading cybersecurity blog by investigative journalist Brian Krebs."
     last_verified: "2026-02-14"
+
+
+  - title: "Professor Messer – CompTIA Security+ SY0-701 Course"
+    type: video
+    url: https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-702-course/
+    vendor: Neutral
+    certs: [Security+]
+    tags: [video, free, comprehensive, youtube]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Full free video course covering all SY0-701 exam objectives. The gold standard."
+    last_verified: "2026-02-14"
+
+  - title: "OWASP Web Security Testing Guide"
+    type: reference
+    url: https://owasp.org/www-project-web-security-testing-guide/
+    vendor: OWASP
+    certs: [Security+, CISSP]
+    tags: [testing, web-security, methodology]
+    difficulty: intermediate
+    language: [en]
+    notes: "Comprehensive web security testing methodology — free, community-maintained."
+    last_verified: "2026-02-14"
+
+  - title: "OWASP Cheat Sheet Series"
+    type: cheatsheet
+    url: https://cheatsheetseries.owasp.org/
+    vendor: OWASP
+    certs: [Security+, CISSP]
+    tags: [cheatsheet, secure-coding, reference]
+    difficulty: intermediate
+    language: [en]
+    notes: "200+ cheat sheets for secure development — authentication, crypto, session management."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA Security+ Study Guide (SY0-701) by Mike Chapple"
+    type: study-guide
+    url: https://www.wiley.com/en-us/CompTIA+Security%2B+Study+Guide%3A+Exam+SY0+701%2C+9th+Edition-p-9781394211418
+    vendor: CompTIA
+    certs: [Security+]
+    tags: [book, official, comprehensive]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official Sybex study guide for SY0-701 — comprehensive coverage of all domains. Paid."
+    last_verified: "2026-02-14"
+
+  - title: "ISC2 CC (Certified in Cybersecurity) Free Training"
+    type: course
+    url: https://www.isc2.org/landing/1mcc
+    vendor: ISC2
+    certs: [CC]
+    tags: [free, official, entry-level]
+    difficulty: beginner
+    language: [en]
+    notes: "Free self-paced training + free exam voucher for ISC2 CC. Great stepping stone to CISSP."
+    last_verified: "2026-02-14"
+
+  - title: "CISSP All-in-One Exam Guide (Shon Harris / Fernando Maymí)"
+    type: study-guide
+    url: https://www.mhprofessional.com/cissp-all-in-one-exam-guide-ninth-edition-9781264773855-usa
+    vendor: Neutral
+    certs: [CISSP]
+    tags: [book, comprehensive, reference]
+    difficulty: advanced
+    language: [en]
+    notes: "The definitive CISSP reference — 1400+ pages covering all 8 domains. Paid."
+    last_verified: "2026-02-14"
+
+  - title: "Destination Certification – CISSP MindMap Videos"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLZKdGEfEyJhKWyryIvx_jm1jn6ZMTi7gW
+    vendor: Neutral
+    certs: [CISSP]
+    tags: [video, free, visual, mind-maps]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Free CISSP mind map video series covering all 8 domains with visual explanations."
+    last_verified: "2026-02-14"
+
+  - title: "SANS Cyber Aces Online"
+    type: course
+    url: https://www.sans.org/cyberaces/
+    vendor: SANS
+    certs: [Security+]
+    tags: [free, fundamentals, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Free SANS cybersecurity courses — operating systems, networking, administration basics."
+    last_verified: "2026-02-14"
+
+  - title: "Blue Team Labs Online"
+    type: lab
+    url: https://blueteamlabs.online/
+    vendor: Neutral
+    certs: [Security+, CySA+]
+    tags: [labs, blue-team, dfir, free-tier]
+    difficulty: intermediate
+    language: [en]
+    notes: "Hands-on blue team labs — incident response, SIEM analysis, forensics. Free tier available."
+    last_verified: "2026-02-14"
+
+  - title: "LetsDefend"
+    type: lab
+    url: https://letsdefend.io/
+    vendor: Neutral
+    certs: [Security+, CySA+]
+    tags: [soc-analyst, labs, blue-team]
+    difficulty: intermediate
+    language: [en]
+    notes: "SOC analyst training platform with real-world alerts and incident response scenarios."
+    last_verified: "2026-02-14"
+
+  - title: "CyberDefenders"
+    type: lab
+    url: https://cyberdefenders.org/
+    vendor: Neutral
+    certs: [Security+, CySA+, CISSP]
+    tags: [blue-team, ctf, forensics]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Blue team CTF challenges — network forensics, malware analysis, DFIR scenarios."
+    last_verified: "2026-02-14"
+
+  - title: "PicoCTF"
+    type: lab
+    url: https://picoctf.org/
+    vendor: Neutral
+    certs: [Security+]
+    tags: [ctf, beginner-friendly, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Free beginner-friendly CTF by Carnegie Mellon — cryptography, forensics, web exploit."
+    last_verified: "2026-02-14"
+
+  - title: "NIST SP 800-53 Security Controls"
+    type: reference
+    url: https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final
+    vendor: NIST
+    certs: [CISSP, Security+]
+    tags: [standards, controls, compliance]
+    difficulty: advanced
+    language: [en]
+    notes: "Comprehensive security/privacy controls catalog — key reference for governance domains."
+    last_verified: "2026-02-14"
+
+  - title: "NIST Cybersecurity Framework 2.0"
+    type: reference
+    url: https://www.nist.gov/cyberframework
+    vendor: NIST
+    certs: [CISSP, Security+]
+    tags: [framework, governance, risk]
+    difficulty: intermediate
+    language: [en]
+    notes: "CSF 2.0 core functions: Govern, Identify, Protect, Detect, Respond, Recover."
+    last_verified: "2026-02-14"
+
+  - title: "Hack The Box"
+    type: lab
+    url: https://www.hackthebox.com/
+    vendor: Neutral
+    certs: [Security+, OSCP]
+    tags: [pentest, labs, ctf]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Industry-leading penetration testing lab platform. Free tier with retired machines."
+    last_verified: "2026-02-14"
+
+  - title: "VulnHub"
+    type: lab
+    url: https://www.vulnhub.com/
+    vendor: Neutral
+    certs: [Security+, OSCP]
+    tags: [vulnerable-vms, offline-labs, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free downloadable vulnerable VMs for local penetration testing practice."
+    last_verified: "2026-02-14"
+
+  - title: "MITRE ATT&CK Navigator"
+    type: software-tool
+    url: https://mitre-attack.github.io/attack-navigator/
+    vendor: MITRE
+    certs: [CISSP, CySA+]
+    tags: [threat-modeling, visualization, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Web app to visualize and annotate ATT&CK matrices — great for mapping threats."
+    last_verified: "2026-02-14"
+
+  - title: "Cybrary"
+    type: learning-platform
+    url: https://www.cybrary.it/
+    vendor: Neutral
+    certs: [Security+, CISSP, CySA+]
+    tags: [platform, video-courses, free-tier]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Cybersecurity training platform — free courses for Security+, CISSP, SOC analyst."
+    last_verified: "2026-02-14"
+
+  - title: "The Cyber Mentor – Ethical Hacking Course"
+    type: video
+    url: https://www.youtube.com/watch?v=3FNYvj2U0HM
+    vendor: Neutral
+    certs: [Security+]
+    tags: [video, free, ethical-hacking, practical]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "15+ hour free ethical hacking course on YouTube — networking, Linux, scanning, exploitation."
+    last_verified: "2026-02-14"
+
+  - title: "Splunk Free Training"
+    type: course
+    url: https://www.splunk.com/en_us/training/free-courses.html
+    vendor: Splunk
+    certs: [Security+, CySA+]
+    tags: [siem, free, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free Splunk training — fundamentals, search, dashboards. Essential SIEM knowledge."
+    last_verified: "2026-02-14"
+
+  - title: "SANS Reading Room"
+    type: reference
+    url: https://www.sans.org/white-papers/
+    vendor: SANS
+    certs: [CISSP, Security+]
+    tags: [whitepapers, research, free]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Free research papers on security topics — incident response, forensics, governance."
+    last_verified: "2026-02-14"
+
+  - title: "Antisyphon Training – Pay What You Can"
+    type: course
+    url: https://www.antisyphontraining.com/pay-what-you-can/
+    vendor: Neutral
+    certs: [Security+, CySA+]
+    tags: [training, affordable, practical]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Affordable/free security training by John Strand — SOC, threat hunting, active defense."
+    last_verified: "2026-02-14"
+
+  - title: "awesome-security (GitHub)"
+    type: repo
+    url: https://github.com/sbilly/awesome-security
+    vendor: Neutral
+    certs: [Security+, CISSP]
+    tags: [github, curated-list, tools]
+    difficulty: intermediate
+    language: [en]
+    notes: "Curated list of security resources, tools, and frameworks. 12k+ stars."
+    last_verified: "2026-02-14"
+
+  - title: "SecLists (GitHub)"
+    type: repo
+    url: https://github.com/danielmiessler/SecLists
+    vendor: Neutral
+    certs: [Security+, OSCP]
+    tags: [github, wordlists, pentest-tools]
+    difficulty: intermediate
+    language: [en]
+    notes: "Collection of security-related lists — usernames, passwords, URLs, fuzzing payloads."
+    last_verified: "2026-02-14"
+
+  - title: "OffSec Courses & Certifications"
+    type: official-doc
+    url: https://www.offsec.com/courses-and-certifications/
+    vendor: "OffSec"
+    certs: [OSCP]
+    tags: [offsec, certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official OffSec catalog for penetration testing courses and certifications (OSCP and beyond)."
+    last_verified: "2026-02-14"
+
+  - title: "PEN-200: Penetration Testing with Kali Linux"
+    type: course
+    url: https://www.offsec.com/courses/pen-200/
+    vendor: "OffSec"
+    certs: [OSCP]
+    tags: [offsec, oscp, penetration-testing, kali]
+    difficulty: advanced
+    language: [en]
+    notes: "Official OffSec course that prepares candidates for the OSCP-style hands-on penetration testing exam."
+    last_verified: "2026-02-14"
+
+  - title: "OSCP Exam Guide (OffSec Support Portal)"
+    type: exam-guide
+    url: https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide
+    vendor: "OffSec"
+    certs: [OSCP]
+    tags: [offsec, oscp, exam-guide, rules]
+    difficulty: advanced
+    language: [en]
+    notes: "Official exam guide covering OSCP exam structure, rules, reporting requirements, and allowed tools."
+    last_verified: "2026-02-14"
+
+  - title: "OffSec Proving Grounds"
+    type: lab
+    url: https://www.offsec.com/labs/
+    vendor: "OffSec"
+    certs: [OSCP]
+    tags: [offsec, oscp, hands-on, labs]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "OffSec's lab platform for practicing exploitation and post-exploitation on a wide range of machines."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA CySA+ Certification Page"
+    type: official-doc
+    url: https://www.comptia.org/certifications/cybersecurity-analyst
+    vendor: "CompTIA"
+    certs: [CySA+]
+    tags: [certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CySA+ certification page with exam details, prerequisites guidance, and renewal information."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA CySA+ (CS0-003) Exam Objectives"
+    type: exam-guide
+    url: https://comptiacdn.azureedge.net/webcontent/docs/default-source/exam-objectives/comptia-cysa-cs0-003-exam-objectives-(1-0)-(2)-(002).pdf?sfvrsn=354cd264_2
+    vendor: "CompTIA"
+    certs: [CySA+]
+    tags: [exam-objectives, official, pdf]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CS0-003 objectives PDF (the definitive blueprint for what CySA+ tests)."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA CertMaster Learn for CySA+"
+    type: learning-platform
+    url: https://www.comptia.org/training/certmaster-learn/cysa
+    vendor: "CompTIA"
+    certs: [CySA+]
+    tags: [official, training, self-paced]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CompTIA eLearning courseware aligned to CySA+ objectives (paid)."
+    last_verified: "2026-02-14"
+
+  - title: "GIAC Certifications"
+    type: official-doc
+    url: https://www.giac.org/certifications/
+    vendor: "GIAC"
+    certs: [GIAC]
+    tags: [certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Browse GIAC certification options across cyber defense, incident response, cloud security, and forensics."
+    last_verified: "2026-02-14"
+
+  - title: "GIAC Security Essentials (GSEC)"
+    type: exam-guide
+    url: https://www.giac.org/certification/security-essentials-gsec
+    vendor: "GIAC"
+    certs: [GIAC-GSEC]
+    tags: [exam-guide, blue-team, fundamentals]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official GSEC certification page covering security fundamentals across networks, systems, and incident response."
+    last_verified: "2026-02-14"
+
+  - title: "SANS SEC401: Security Essentials - Network, Endpoint, and Cloud"
+    type: course
+    url: https://www.sans.org/cyber-security-courses/security-essentials-network-endpoint-cloud/
+    vendor: "SANS"
+    certs: [GIAC-GSEC]
+    tags: [course, sans, blue-team]
+    difficulty: intermediate
+    language: [en]
+    notes: "SANS SEC401 is the flagship course commonly paired with the GIAC GSEC certification."
+    last_verified: "2026-02-14"
+
+  - title: "RingZer0 CTF"
+    type: lab
+    url: https://ringzer0ctf.com/
+    vendor: "RingZer0"
+    certs: [Security+, CEH]
+    tags: [ctf, challenges, practice]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "CTF platform with a broad set of categories (web, crypto, reverse, forensics) and a persistent scoreboard."
+    last_verified: "2026-02-14"
+
+  - title: "CTFtime"
+    type: community
+    url: https://ctftime.org/
+    vendor: "CTFtime"
+    certs: [Security+, OSCP]
+    tags: [ctf, events, rankings]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Calendar and rankings hub for global CTF competitions; great for finding beginner-friendly events."
+    last_verified: "2026-02-14"
+
+  - title: "pwn.college"
+    type: learning-platform
+    url: https://pwn.college/
+    vendor: "pwn.college"
+    certs: [OSCP]
+    tags: [ctf, exploitation, practice]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Hands-on platform for learning exploitation and systems security via progressive challenges and labs."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Certified Security - Specialty"
+    type: exam-guide
+    url: https://aws.amazon.com/certification/certified-security-specialty/
+    vendor: "AWS"
+    certs: [AWS-SCS]
+    tags: [cloud-security, exam-guide, official]
+    difficulty: advanced
+    language: [en]
+    notes: "Official AWS certification page with SCS-C02 exam overview, domains, and recommended training."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Certified Security - Specialty (SCS-C02) Exam Guide (PDF)"
+    type: exam-guide
+    url: https://d1.awsstatic.com/training-and-certification/docs-security-spec/AWS-Certified-Security-Specialty_Exam-Guide.pdf
+    vendor: "AWS"
+    certs: [AWS-SCS]
+    tags: [cloud-security, exam-guide, pdf, official]
+    difficulty: advanced
+    language: [en]
+    notes: "Official PDF exam guide for SCS-C02 with domain breakdowns and weighting."
+    last_verified: "2026-02-14"
+
+  - title: "SC-300: Microsoft Identity and Access Administrator (Exam Page)"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/exams/sc-300/
+    vendor: "Microsoft"
+    certs: [SC-300]
+    tags: [cloud-security, identity, exam-guide, official]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Official exam page for SC-300 with measured skills, study resources, and scheduling info."
+    last_verified: "2026-02-14"
+
+  - title: "SC-300 Study Guide (Skills Measured)"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-300
+    vendor: "Microsoft"
+    certs: [SC-300]
+    tags: [study-guide, skills-measured, identity]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Skills-measured breakdown for SC-300 with direct links to relevant Microsoft Learn modules."
+    last_verified: "2026-02-14"
+
+  - title: "REMnux: Linux Toolkit for Malware Analysis"
+    type: software-tool
+    url: https://remnux.org/
+    vendor: "REMnux"
+    certs: [GREM, Security+]
+    tags: [malware-analysis, forensics, toolkit]
+    difficulty: intermediate
+    language: [en]
+    notes: "Prebuilt Linux distribution and documentation for malware analysis, reverse engineering, and incident response."
+    last_verified: "2026-02-14"
+
+  - title: "Ghidra"
+    type: software-tool
+    url: https://ghidra-sre.org/
+    vendor: "NSA"
+    certs: [GREM]
+    tags: [reverse-engineering, disassembler, decompiler]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Free, powerful reverse engineering suite used for static analysis of binaries."
+    last_verified: "2026-02-14"
+
+  - title: "Malware Traffic Analysis"
+    type: lab
+    url: https://www.malware-traffic-analysis.net/
+    vendor: "Neutral"
+    certs: [Security+]
+    tags: [pcap, incident-response, practice]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free packet-capture (PCAP) exercises for practicing network-based incident response and malware triage."
+    last_verified: "2026-02-14"
+
+  - title: "HackerOne"
+    type: community
+    url: https://www.hackerone.com/
+    vendor: "HackerOne"
+    certs: [CEH, OSCP]
+    tags: [bug-bounty, vulnerability-disclosure, platform]
+    difficulty: intermediate
+    language: [en]
+    notes: "Leading bug bounty and vulnerability disclosure platform with public programs and resources."
+    last_verified: "2026-02-14"
+
+  - title: "Hacker101"
+    type: tutorial
+    url: https://www.hacker101.com/
+    vendor: "HackerOne"
+    certs: [CEH, OSCP]
+    tags: [bug-bounty, training, web-security]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free web security and bug bounty training from HackerOne, including videos and CTF-style challenges."
+    last_verified: "2026-02-14"
+
+  - title: "Bugcrowd University"
+    type: tutorial
+    url: https://www.bugcrowd.com/hackers/bugcrowd-university/
+    vendor: "Bugcrowd"
+    certs: [CEH, OSCP]
+    tags: [bug-bounty, training, web-security]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free training content to help new researchers get started with bug bounty and vulnerability research."
+    last_verified: "2026-02-14"
+
+  - title: "CIS Critical Security Controls v8"
+    type: reference
+    url: https://www.cisecurity.org/controls/v8
+    vendor: "CIS"
+    certs: [Security+, CISSP]
+    tags: [framework, controls, best-practices]
+    difficulty: intermediate
+    language: [en]
+    notes: "Prioritized set of security controls used as a practical baseline for building security programs."
+    last_verified: "2026-02-14"
+
+  - title: "NIST SP 800-61 Rev. 2: Computer Security Incident Handling Guide"
+    type: reference
+    url: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
+    vendor: "NIST"
+    certs: [Security+, CISSP]
+    tags: [incident-response, playbooks, nist]
+    difficulty: intermediate
+    language: [en]
+    notes: "Practical incident response guidance covering preparation, detection, containment, eradication, and recovery."
+    last_verified: "2026-02-14"

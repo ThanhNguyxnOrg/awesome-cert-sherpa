@@ -284,3 +284,590 @@ resources:
     language: [en]
     notes: "Free courses on MLOps fundamentals and advanced topics."
     last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # AWS — Additional Data & ML Resources
+  # ──────────────────────────────────────────────
+  - title: "AWS MLS-C01 Exam Guide"
+    type: exam-guide
+    url: https://d1.awsstatic.com/training-and-certification/docs-ml/AWS-Certified-Machine-Learning-Specialty_Exam-Guide.pdf
+    vendor: AWS
+    certs: [AWS-MLS]
+    tags: [exam-objectives, official, machine-learning]
+    difficulty: advanced
+    language: [en]
+    notes: "Official AWS MLS-C01 exam guide — domains, weighting, and recommended knowledge."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Well-Architected Machine Learning Lens"
+    type: reference
+    url: https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html
+    vendor: AWS
+    certs: [AWS-MLS]
+    tags: [architecture, best-practices, ml-pipeline, official]
+    difficulty: advanced
+    language: [en]
+    notes: "ML-specific best practices within the AWS Well-Architected Framework."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Data Engineer Associate (DEA-C01) Exam Guide"
+    type: exam-guide
+    url: https://d1.awsstatic.com/training-and-certification/docs-data-engineer-associate/AWS-Certified-Data-Engineer-Associate_Exam-Guide.pdf
+    vendor: AWS
+    certs: [AWS-DEA]
+    tags: [exam-objectives, official, data-engineering]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official AWS DEA-C01 exam blueprint covering ingestion, transformation, orchestration, and security."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Glue Documentation"
+    type: official-doc
+    url: https://docs.aws.amazon.com/glue/
+    vendor: AWS
+    certs: [AWS-DEA, AWS-MLS]
+    tags: [etl, data-catalog, serverless, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Glue docs — serverless ETL, Data Catalog, and crawlers heavily tested on AWS data certs."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Azure — Additional Data & AI Resources
+  # ──────────────────────────────────────────────
+  - title: "Microsoft Learn: AI-102 Study Guide"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-102
+    vendor: Microsoft
+    certs: [AI-102]
+    tags: [study-guide, official, cognitive-services, azure-openai]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official AI-102 study guide with skills measured breakdown and free learning paths."
+    last_verified: "2026-02-14"
+
+  - title: "Azure Machine Learning Documentation"
+    type: official-doc
+    url: https://learn.microsoft.com/en-us/azure/machine-learning/
+    vendor: Microsoft
+    certs: [AI-102, DP-100]
+    tags: [azure-ml, official, automl, mlops]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Azure ML docs covering studio, AutoML, pipelines, and responsible AI."
+    last_verified: "2026-02-14"
+
+  - title: "Azure AI Services Documentation"
+    type: official-doc
+    url: https://learn.microsoft.com/en-us/azure/ai-services/
+    vendor: Microsoft
+    certs: [AI-900, AI-102]
+    tags: [cognitive-services, azure-openai, vision, speech, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official docs for Azure AI Services — Vision, Language, Speech, Decision, and OpenAI Service."
+    last_verified: "2026-02-14"
+
+  - title: "Microsoft Learn: DP-900 Study Guide"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-900
+    vendor: Microsoft
+    certs: [DP-900]
+    tags: [study-guide, official, data-fundamentals]
+    difficulty: beginner
+    language: [en]
+    notes: "Official DP-900 study guide with skills measured and linked learning modules."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Google Cloud — Additional Data & ML Resources
+  # ──────────────────────────────────────────────
+  - title: "Google Cloud Professional Data Engineer Exam Guide"
+    type: exam-guide
+    url: https://cloud.google.com/learn/certification/guides/data-engineer
+    vendor: Google
+    certs: [GCP-PDE]
+    tags: [exam-objectives, official, data-engineering]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official GCP Professional Data Engineer exam guide with topics and sample questions."
+    last_verified: "2026-02-14"
+
+  - title: "Google Cloud BigQuery Documentation"
+    type: official-doc
+    url: https://cloud.google.com/bigquery/docs
+    vendor: Google
+    certs: [GCP-PDE]
+    tags: [bigquery, data-warehouse, sql, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official BigQuery docs — the most heavily tested service on the GCP Data Engineer exam."
+    last_verified: "2026-02-14"
+
+  - title: "Google Cloud Skills Boost – ML Engineer Path"
+    type: study-guide
+    url: https://www.cloudskillsboost.google/paths/17
+    vendor: Google
+    certs: [GCP-MLE]
+    tags: [machine-learning, vertex-ai, tensorflow, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free learning path with hands-on labs for the GCP Professional ML Engineer cert."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Vendor-Neutral — Additional ML & Data Science
+  # ──────────────────────────────────────────────
+  - title: "PyTorch Official Tutorials"
+    type: tutorial
+    url: https://pytorch.org/tutorials/
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [pytorch, deep-learning, neural-networks, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official PyTorch tutorials covering tensors, autograd, CNNs, NLP, and deployment."
+    last_verified: "2026-02-14"
+
+  - title: "Scikit-learn Documentation & User Guide"
+    type: official-doc
+    url: https://scikit-learn.org/stable/user_guide.html
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [scikit-learn, classification, regression, clustering, free]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Comprehensive guide to classical ML algorithms — essential for understanding model selection."
+    last_verified: "2026-02-14"
+
+  - title: "Kaggle Competitions"
+    type: lab
+    url: https://www.kaggle.com/competitions
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [kaggle, competitions, hands-on, data-science, free]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Real-world ML competitions — practice feature engineering, model tuning, and evaluation."
+    last_verified: "2026-02-14"
+
+  - title: "Kaggle Datasets"
+    type: reference
+    url: https://www.kaggle.com/datasets
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE, DP-900]
+    tags: [kaggle, datasets, data-exploration, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Thousands of free datasets for practice — great for building data pipelines and ML models."
+    last_verified: "2026-02-14"
+
+  - title: "Stanford CS231n — Convolutional Neural Networks"
+    type: study-guide
+    url: https://cs231n.stanford.edu/
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [computer-vision, deep-learning, cnn, academic, free]
+    difficulty: advanced
+    language: [en]
+    notes: "Stanford's deep learning for CV course — free lecture notes, slides, and assignments."
+    last_verified: "2026-02-14"
+
+  - title: "Hugging Face Documentation & Courses"
+    type: tutorial
+    url: https://huggingface.co/learn
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [nlp, transformers, llm, deep-learning, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free courses on NLP, transformers, and diffusion models using the Hugging Face ecosystem."
+    last_verified: "2026-02-14"
+
+  - title: "Made With ML — MLOps Course"
+    type: tutorial
+    url: https://madewithml.com/
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [mlops, production-ml, free, project-based]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free end-to-end MLOps course covering design, development, deployment, and iteration."
+    last_verified: "2026-02-14"
+
+  - title: "Hands-On Machine Learning (Aurélien Géron) — GitHub Notebooks"
+    type: repo
+    url: https://github.com/ageron/handson-ml3
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [jupyter, scikit-learn, tensorflow, keras, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free Jupyter notebooks from the bestselling ML book — covers classical ML through deep learning."
+    last_verified: "2026-02-14"
+
+  - title: "Deep Learning Specialization — Andrew Ng (Coursera — Free Audit)"
+    type: course
+    url: https://www.coursera.org/specializations/deep-learning
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [deep-learning, neural-networks, coursera, free-audit]
+    difficulty: intermediate
+    language: [en]
+    notes: "5-course series by Andrew Ng — CNNs, RNNs, sequence models, and optimization. Free to audit."
+    last_verified: "2026-02-14"
+
+  - title: "Machine Learning Specialization — Andrew Ng (Coursera — Free Audit)"
+    type: course
+    url: https://www.coursera.org/specializations/machine-learning-introduction
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [machine-learning, regression, classification, coursera, free-audit]
+    difficulty: beginner
+    language: [en]
+    notes: "Updated 3-course ML fundamentals series by Andrew Ng — regression, trees, neural nets. Free to audit."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Data Engineering — Additional Resources
+  # ──────────────────────────────────────────────
+  - title: "Apache Kafka Documentation"
+    type: official-doc
+    url: https://kafka.apache.org/documentation/
+    vendor: Apache
+    certs: [AWS-DEA, GCP-PDE]
+    tags: [kafka, streaming, event-driven, distributed-systems]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Kafka docs — core streaming platform tested across cloud data engineering certs."
+    last_verified: "2026-02-14"
+
+  - title: "Apache Airflow Documentation"
+    type: official-doc
+    url: https://airflow.apache.org/docs/
+    vendor: Apache
+    certs: [AWS-DEA, GCP-PDE]
+    tags: [airflow, orchestration, dag, workflow, data-pipeline]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Airflow docs — the de facto standard for data pipeline orchestration."
+    last_verified: "2026-02-14"
+
+  - title: "Awesome Data Engineering — GitHub"
+    type: repo
+    url: https://github.com/igorbarinov/awesome-data-engineering
+    vendor: Neutral
+    certs: [AWS-DEA, GCP-PDE, DP-203]
+    tags: [github, curated-list, data-engineering, tools]
+    difficulty: intermediate
+    language: [en]
+    notes: "Curated list of data engineering resources — databases, frameworks, and stream processing."
+    last_verified: "2026-02-14"
+
+  - title: "The Data Engineering Cookbook (Andreas Kretz)"
+    type: reference
+    url: https://github.com/andkret/Cookbook
+    vendor: Neutral
+    certs: [AWS-DEA, GCP-PDE, DP-203]
+    tags: [data-engineering, hadoop, spark, kafka, free-book]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free 200+ page cookbook covering the complete data engineering ecosystem and tools."
+    last_verified: "2026-02-14"
+
+  - title: "Databricks Certification and Badging"
+    type: official-doc
+    url: https://www.databricks.com/learn/training/certification
+    vendor: "Databricks"
+    certs: [Databricks-DE, Databricks-ML]
+    tags: [databricks, certification, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official hub listing Databricks certifications, exam details, and recommended prep resources."
+    last_verified: "2026-02-14"
+
+  - title: "Databricks Certified Data Engineer Associate"
+    type: exam-guide
+    url: https://www.databricks.com/learn/certification/data-engineer-associate
+    vendor: "Databricks"
+    certs: [Databricks-DE]
+    tags: [databricks, data-engineering, certification]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official certification page for the Data Engineer Associate exam — overview, skills, and readiness guidance."
+    last_verified: "2026-02-14"
+
+  - title: "Databricks Certified Data Engineer Associate Exam Guide (PDF)"
+    type: exam-guide
+    url: https://www.databricks.com/sites/default/files/2025-11/databricks-certified-data-engineer-associate-exam-guide-july-25-2025-04.pdf
+    vendor: "Databricks"
+    certs: [Databricks-DE]
+    tags: [databricks, exam-objectives, pdf]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam guide PDF with detailed topics, question domains, and recommended preparation."
+    last_verified: "2026-02-14"
+
+  - title: "Databricks Certified Machine Learning Associate"
+    type: exam-guide
+    url: https://www.databricks.com/learn/certification/machine-learning-associate
+    vendor: "Databricks"
+    certs: [Databricks-ML]
+    tags: [databricks, machine-learning, certification]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official certification page for the Machine Learning Associate exam — focus areas like MLflow, AutoML, and deployment basics."
+    last_verified: "2026-02-14"
+
+  - title: "SnowPro Core Certification (Snowflake University)"
+    type: exam-guide
+    url: https://learn.snowflake.com/en/certifications/snowpro-core/
+    vendor: "Snowflake"
+    certs: [SnowPro-Core]
+    tags: [snowflake, certification, exam-guide]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Snowflake University page for SnowPro Core — exam details, updates, and registration links."
+    last_verified: "2026-02-14"
+
+  - title: "Snowflake Certifications (Snowflake University)"
+    type: official-doc
+    url: https://learn.snowflake.com/en/certifications
+    vendor: "Snowflake"
+    certs: [SnowPro-Core]
+    tags: [snowflake, certification, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official directory of SnowPro certifications (Associate, Core, Specialty) with registration instructions."
+    last_verified: "2026-02-14"
+
+  - title: "Snowflake Documentation"
+    type: official-doc
+    url: https://docs.snowflake.com/
+    vendor: "Snowflake"
+    certs: [SnowPro-Core]
+    tags: [snowflake, sql, reference, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official reference for Snowflake features, performance, security, and data loading/transform patterns."
+    last_verified: "2026-02-14"
+
+  - title: "Microsoft Certified: Power BI Data Analyst Associate"
+    type: official-doc
+    url: https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/
+    vendor: "Microsoft"
+    certs: [PL-300]
+    tags: [power-bi, certification, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official certification page for the Power BI Data Analyst Associate credential (PL-300)."
+    last_verified: "2026-02-14"
+
+  - title: "Study guide for Exam PL-300: Microsoft Power BI Data Analyst"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300
+    vendor: "Microsoft"
+    certs: [PL-300]
+    tags: [power-bi, exam-objectives, study-guide, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official PL-300 skills measured breakdown with linked Microsoft Learn modules and preparation resources."
+    last_verified: "2026-02-14"
+
+  - title: "PL-300 Microsoft Power BI Data Analyst Labs"
+    type: lab
+    url: https://microsoftlearning.github.io/PL-300-Microsoft-Power-BI-Data-Analyst/
+    vendor: "Microsoft"
+    certs: [PL-300]
+    tags: [power-bi, labs, hands-on, github]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official hands-on lab exercises for PL-300 — data prep, modeling, visualization, and deployment workflows."
+    last_verified: "2026-02-14"
+
+  - title: "Tableau Certification"
+    type: official-doc
+    url: https://www.tableau.com/learn/certification
+    vendor: "Tableau"
+    certs: [Tableau]
+    tags: [tableau, certification, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Tableau certification hub listing available Tableau exams and preparation pathways."
+    last_verified: "2026-02-14"
+
+  - title: "Tableau Certified Data Analyst"
+    type: exam-guide
+    url: https://www.tableau.com/learn/certification/tableau-certified-data-analyst
+    vendor: "Tableau"
+    certs: [Tableau]
+    tags: [tableau, analytics, certification, exam-guide]
+    difficulty: intermediate
+    language: [en]
+    notes: "Tableau Certified Data Analyst exam details and competencies — good target credential for BI analysts."
+    last_verified: "2026-02-14"
+
+  - title: "Tableau Blueprint"
+    type: reference
+    url: https://www.tableau.com/learn/whitepapers/tableau-blueprint
+    vendor: "Tableau"
+    certs: [Tableau]
+    tags: [tableau, governance, enablement, best-practices]
+    difficulty: intermediate
+    language: [en]
+    notes: "Operational playbook for analytics enablement, governance, and adoption — useful for enterprise Tableau programs."
+    last_verified: "2026-02-14"
+
+  - title: "MongoDB Certification (MongoDB University)"
+    type: exam-guide
+    url: https://learn.mongodb.com/pages/mongodb-certification
+    vendor: "MongoDB"
+    certs: [MongoDB]
+    tags: [mongodb, certification, exam-guide]
+    difficulty: intermediate
+    language: [en]
+    notes: "MongoDB University certification portal — exam options, prep guidance, and training recommendations."
+    last_verified: "2026-02-14"
+
+  - title: "MongoDB Documentation"
+    type: official-doc
+    url: https://www.mongodb.com/docs/
+    vendor: "MongoDB"
+    certs: [MongoDB]
+    tags: [mongodb, reference, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official MongoDB docs for CRUD, indexing, aggregation, data modeling, performance, and security."
+    last_verified: "2026-02-14"
+
+  - title: "Confluent Certification for Apache Kafka"
+    type: official-doc
+    url: https://www.confluent.io/certification/
+    vendor: "Confluent"
+    certs: [Kafka]
+    tags: [kafka, certification, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Confluent certification hub listing Kafka developer/admin/cloud operator exams and prep guides."
+    last_verified: "2026-02-14"
+
+  - title: "Confluent Certified Developer for Apache Kafka (Exam Detail)"
+    type: exam-guide
+    url: https://training.confluent.io/examdetail/confluent-dev
+    vendor: "Confluent"
+    certs: [Kafka]
+    tags: [kafka, certification, developer, exam-guide]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CCDAK exam detail page with topic coverage and scheduling information."
+    last_verified: "2026-02-14"
+
+  - title: "MLflow Documentation"
+    type: official-doc
+    url: https://mlflow.org/docs/latest/index.html
+    vendor: "MLflow"
+    certs: [MLOps]
+    tags: [mlops, mlflow, experiment-tracking, model-registry]
+    difficulty: intermediate
+    language: [en]
+    notes: "MLflow docs for tracking, model registry, packaging, and deployment patterns across environments."
+    last_verified: "2026-02-14"
+
+  - title: "Kubeflow Documentation"
+    type: official-doc
+    url: https://www.kubeflow.org/docs/
+    vendor: "Kubeflow"
+    certs: [MLOps]
+    tags: [mlops, kubernetes, pipelines, kubeflow]
+    difficulty: advanced
+    language: [en]
+    notes: "Kubeflow docs for end-to-end ML workflows on Kubernetes (pipelines, training, serving integrations)."
+    last_verified: "2026-02-14"
+
+  - title: "KServe Documentation"
+    type: official-doc
+    url: https://kserve.github.io/website/
+    vendor: "KServe"
+    certs: [MLOps]
+    tags: [mlops, model-serving, kubernetes, inference]
+    difficulty: advanced
+    language: [en]
+    notes: "Kubernetes-native model inference serving with autoscaling, canary rollouts, and multi-framework support."
+    last_verified: "2026-02-14"
+
+  - title: "BentoML Documentation"
+    type: official-doc
+    url: https://docs.bentoml.com/
+    vendor: "BentoML"
+    certs: [MLOps]
+    tags: [mlops, model-serving, deployment, python]
+    difficulty: intermediate
+    language: [en]
+    notes: "Practical model deployment framework for packaging APIs, runners, and production serving workflows."
+    last_verified: "2026-02-14"
+
+  - title: "DataOps Manifesto"
+    type: reference
+    url: https://dataopsmanifesto.org/
+    vendor: "DataOps Manifesto"
+    certs: [DataOps]
+    tags: [dataops, culture, principles, best-practices]
+    difficulty: beginner
+    language: [en]
+    notes: "Foundational principles for applying DevOps-style practices to analytics and data delivery pipelines."
+    last_verified: "2026-02-14"
+
+  - title: "OpenMetadata Documentation"
+    type: official-doc
+    url: https://docs.open-metadata.org/
+    vendor: "OpenMetadata"
+    certs: [DataOps]
+    tags: [data-governance, metadata, lineage, data-catalog]
+    difficulty: intermediate
+    language: [en]
+    notes: "Open-source metadata platform docs — catalogs, lineage, ownership, and governance workflows."
+    last_verified: "2026-02-14"
+
+  - title: "Apache Atlas"
+    type: official-doc
+    url: https://atlas.apache.org/
+    vendor: "Apache"
+    certs: [DataOps]
+    tags: [data-governance, metadata, lineage, apache]
+    difficulty: intermediate
+    language: [en]
+    notes: "Governance and metadata management for data lakes — classifications, lineage, and audit capabilities."
+    last_verified: "2026-02-14"
+
+  - title: "dbt Certification"
+    type: exam-guide
+    url: https://www.getdbt.com/dbt-certification
+    vendor: "dbt Labs"
+    certs: [dbt-Analytics-Engineer]
+    tags: [dbt, certification, exam-guide]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official dbt certification program overview with exam options and eligibility guidance."
+    last_verified: "2026-02-14"
+
+  - title: "dbt Analytics Engineering Certification Exam"
+    type: exam-guide
+    url: https://www.getdbt.com/certifications/analytics-engineer-certification-exam
+    vendor: "dbt Labs"
+    certs: [dbt-Analytics-Engineer]
+    tags: [dbt, certification, analytics-engineering]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam page with format, passing score, supported dbt version, and exam overview."
+    last_verified: "2026-02-14"
+
+  - title: "dbt Analytics Engineering Certification Exam Study Guide (PDF)"
+    type: study-guide
+    url: https://www.getdbt.com/dbt-assets/certifications/dbt-certificate-study-guide
+    vendor: "dbt Labs"
+    certs: [dbt-Analytics-Engineer]
+    tags: [dbt, study-guide, pdf, exam-prep]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official study guide PDF mapping learning resources and topics to the dbt Analytics Engineering exam."
+    last_verified: "2026-02-14"

@@ -1,0 +1,480 @@
+meta:
+  category: "data-ai"
+  cert: "AWS-MLS"
+  vendor: "AWS"
+  version: 1
+  description: "Original practice questions for AWS Certified Machine Learning – Specialty (MLS-C01)"
+questions:
+  - id: "mls-data-001"
+    difficulty: "easy"
+    tags: ["s3", "glue", "partitioning", "data-catalog"]
+    question: "A data science team stores daily clickstream logs in Amazon S3 and queries them using Amazon Athena. Query costs are increasing and queries are slow. The team can change the S3 layout but wants to keep Athena. What should they do first?"
+    choices:
+      - "A. Partition the S3 dataset by common query keys (for example, dt=YYYY-MM-DD) and register partitions in the AWS Glue Data Catalog."
+      - "B. Convert all logs to JSON Lines and store each day in a single large object to reduce the number of S3 requests."
+      - "C. Move the data to an Amazon EFS file system so Athena can scan files with lower latency."
+      - "D. Disable Athena result reuse and force every query to recompute results from scratch."
+    answerIndex: 0
+    explanation: "Partitioning reduces the amount of data Athena scans by pruning partitions, which directly improves performance and lowers cost for partition-filtered queries. Option C is incorrect because Athena queries data in S3 (and other supported sources) and does not use EFS as a primary query target for this use case."
+    refs:
+      - "https://docs.aws.amazon.com/glue/latest/dg/"
+      - "https://docs.aws.amazon.com/athena/latest/ug/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-data-002"
+    difficulty: "medium"
+    tags: ["kinesis", "firehose", "streaming", "near-real-time"]
+    question: "An e-commerce company wants to capture user events in near real time and land them in Amazon S3 in compressed files with minimal custom code. Occasional bursts occur, but sub-second processing is not required. Which service combination best fits?"
+    choices:
+      - "A. Amazon Kinesis Data Firehose delivering directly to Amazon S3 with buffering and compression enabled."
+      - "B. Amazon Kinesis Data Streams with a fleet of custom consumers that write individual events to S3 objects."
+      - "C. AWS Glue ETL jobs scheduled every minute to poll an API and write results to S3."
+      - "D. Amazon EMR cluster running a long-lived Spark job that writes every record to S3 immediately."
+    answerIndex: 0
+    explanation: "Kinesis Data Firehose is designed for managed delivery into S3 and supports buffering, compression, and automatic scaling with minimal code. Option B is incorrect because writing individual events to S3 with custom consumers creates many small objects and adds significant operational overhead."
+    refs:
+      - "https://docs.aws.amazon.com/firehose/latest/dev/"
+      - "https://docs.aws.amazon.com/kinesis/latest/dev/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-data-003"
+    difficulty: "medium"
+    tags: ["glue", "etl", "job-bookmarks", "incremental"]
+    question: "A machine learning team runs a daily AWS Glue job to transform new CSV files arriving in S3 into Parquet. The job sometimes reprocesses the same files, creating duplicates. The team wants an incremental approach without building a custom tracking database. What should they use?"
+    choices:
+      - "A. Enable AWS Glue job bookmarks to process only new data since the last successful run."
+      - "B. Disable retries and fail the job whenever it encounters a previously processed object."
+      - "C. Use S3 Transfer Acceleration to ensure new objects arrive faster and prevent duplicates."
+      - "D. Use Amazon CloudFront in front of the S3 bucket to cache transformed files."
+    answerIndex: 0
+    explanation: "Glue job bookmarks track previously processed data and help prevent reprocessing when inputs are append-only or when supported connectors are used. Option C is incorrect because transfer acceleration improves upload performance but does not provide any semantic guarantee about duplicate processing."
+    refs:
+      - "https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html"
+      - "https://docs.aws.amazon.com/glue/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-data-004"
+    difficulty: "hard"
+    tags: ["lake-formation", "cross-account", "governance", "glue-data-catalog"]
+    question: "A company has a central data lake account that owns S3 data and the AWS Glue Data Catalog. Multiple analytics accounts must query curated tables, but only specific teams should see certain columns (for example, PII). The company wants centralized governance with least privilege. What should they implement?"
+    choices:
+      - "A. Use AWS Lake Formation to grant table and column-level permissions to principals in other accounts through cross-account sharing."
+      - "B. Make the curated S3 prefixes public-read and rely on Athena workgroup settings to hide sensitive columns."
+      - "C. Copy the curated datasets into each analytics account and manage permissions independently per account."
+      - "D. Use only S3 bucket policies because they provide column-level access control for Athena queries."
+    answerIndex: 0
+    explanation: "Lake Formation provides centralized data lake governance, including table and column-level permissions integrated with the Glue Data Catalog and cross-account sharing. Option D is incorrect because S3 controls access to objects, not to specific columns within a table definition."
+    refs:
+      - "https://docs.aws.amazon.com/lake-formation/latest/dg/"
+      - "https://docs.aws.amazon.com/glue/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-data-005"
+    difficulty: "easy"
+    tags: ["s3", "event-driven", "sqs", "lambda"]
+    question: "A data ingestion pipeline triggers preprocessing when new files arrive in an S3 bucket. The team must avoid losing events during downstream outages and wants at-least-once processing with simple retry behavior. What architecture best meets these requirements?"
+    choices:
+      - "A. Configure S3 event notifications to an Amazon SQS queue, and have AWS Lambda poll the queue to process messages."
+      - "B. Configure S3 event notifications directly to AWS Lambda with no intermediary and rely on manual re-uploads if processing fails."
+      - "C. Use Amazon CloudWatch Logs subscription filters to capture S3 object creation events and trigger processing."
+      - "D. Use an Amazon EC2 instance to run a cron job that lists the S3 bucket every minute to find new files."
+    answerIndex: 0
+    explanation: "Routing S3 events through SQS decouples producers from consumers and provides durable buffering and retries, which prevents event loss during processing outages. Option D is incorrect because polling the bucket is inefficient, increases costs, and can miss edge cases or cause duplicate processing without careful bookkeeping."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html"
+      - "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-data-006"
+    difficulty: "hard"
+    tags: ["kinesis", "exactly-once", "feature-engineering", "streaming"]
+    question: "A fraud team builds features from streaming payment events. Features must be computed continuously (for example, 5-minute rolling counts per card) and served to an online inference endpoint. Duplicate events can occur, and the team needs consistent stateful aggregation. Which approach is most appropriate?"
+    choices:
+      - "A. Use Amazon Kinesis Data Analytics for Apache Flink to compute stateful aggregates with checkpointing, and write features to an online store (for example, Amazon DynamoDB or SageMaker Feature Store online)."
+      - "B. Use Amazon Kinesis Data Firehose to deliver raw events to S3 and run nightly batch SQL to compute rolling features."
+      - "C. Use AWS Glue crawlers to infer schema from the stream and let Athena compute rolling windows on demand for each inference request."
+      - "D. Store all events in S3 and have the endpoint read and aggregate the last 5 minutes of data for every prediction."
+    answerIndex: 0
+    explanation: "Flink-based streaming analytics supports stateful windowed aggregations with checkpoints and can handle reprocessing and recovery in a controlled way, producing consistent features for online serving. Option D is incorrect because computing rolling aggregates inside the endpoint increases latency, couples serving to storage scanning, and does not handle duplicates or state management reliably."
+    refs:
+      - "https://docs.aws.amazon.com/kinesisanalytics/latest/java/"
+      - "https://docs.aws.amazon.com/kinesis/latest/dev/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-eda-001"
+    difficulty: "easy"
+    tags: ["feature-engineering", "missing-values", "data-wrangler", "sagemaker"]
+    question: "A team prepares a tabular dataset in Amazon SageMaker Studio and sees many missing values across numeric and categorical columns. They want a repeatable, visual workflow to impute values and export a training-ready dataset. Which tool should they use?"
+    choices:
+      - "A. SageMaker Data Wrangler to perform imputations and export the transformed data to S3 or a SageMaker Processing job."
+      - "B. Amazon CloudWatch dashboards to visualize null counts and automatically fill missing values."
+      - "C. AWS Lambda with environment variables to store default values for each column."
+      - "D. Amazon S3 Select to rewrite the source objects in place with imputed values."
+    answerIndex: 0
+    explanation: "Data Wrangler provides interactive data preparation steps such as imputing missing values and can export reproducible flows for processing and training. Option B is incorrect because CloudWatch is for metrics and logs, not for transforming datasets or applying imputation logic."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-eda-002"
+    difficulty: "medium"
+    tags: ["categorical", "high-cardinality", "feature-hashing", "sagemaker-processing"]
+    question: "A click prediction model uses a feature like user_id with millions of unique values. One-hot encoding would create an extremely wide sparse matrix. The team needs a memory-efficient encoding that works for streaming and batch. What should they do?"
+    choices:
+      - "A. Use feature hashing (the hashing trick) to map high-cardinality categorical values into a fixed-size feature space."
+      - "B. Drop the user_id feature entirely because high-cardinality features are always harmful."
+      - "C. One-hot encode user_id and increase training instance memory until it fits."
+      - "D. Convert user_id to an integer and treat it as an ordinal numeric feature."
+    answerIndex: 0
+    explanation: "Feature hashing bounds dimensionality and supports unseen categories without needing to store an ever-growing dictionary, which is practical for large-scale ML pipelines. Option D is incorrect because treating identifiers as ordinal numbers introduces artificial ordering and distance that can mislead many models."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-eda-003"
+    difficulty: "hard"
+    tags: ["time-series", "data-leakage", "validation", "forecasting"]
+    question: "A team builds a demand forecasting model using two years of daily sales data. They randomly shuffle rows to create train and test sets and report excellent accuracy, but production performance is poor. What is the most likely problem and the best fix?"
+    choices:
+      - "A. Data leakage from future information due to random splitting; use a chronological split or rolling-window backtesting."
+      - "B. Too many partitions in S3; store all records in a single file to stabilize the model."
+      - "C. Using Parquet instead of CSV; switch to CSV to improve generalization."
+      - "D. Not enough IAM permissions; grant SageMaker FullAccess to the training role."
+    answerIndex: 0
+    explanation: "Random shuffling in time series can leak future patterns into training, making offline metrics overly optimistic while failing in forward-looking production predictions. Option C is incorrect because file format choices affect performance and cost, but they do not fix the fundamental evaluation error caused by temporal leakage."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-eda-004"
+    difficulty: "easy"
+    tags: ["imbalanced-data", "metrics", "precision-recall", "evaluation"]
+    question: "A fraud detection dataset has 0.3% positive cases. A model achieves 99.7% accuracy but still misses most fraud. Which metric is generally more informative for this situation?"
+    choices:
+      - "A. Precision and recall (or PR AUC) because they focus on the minority class performance."
+      - "B. Overall accuracy because it is threshold-independent and robust to imbalance."
+      - "C. Mean squared error because it penalizes classification mistakes more heavily."
+      - "D. Training loss only because it always correlates with business outcomes."
+    answerIndex: 0
+    explanation: "With extreme class imbalance, accuracy can be dominated by the majority class, so precision/recall-based metrics better reflect minority detection performance. Option B is incorrect because accuracy is not threshold-independent and often masks poor minority-class recall in highly imbalanced datasets."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-eda-005"
+    difficulty: "easy"
+    tags: ["scaling", "normalization", "linear-models", "tree-models"]
+    question: "A team compares a linear classifier and a gradient-boosted tree model on the same dataset. The numeric features have very different scales (for example, age vs. annual revenue). Which statement is most accurate?"
+    choices:
+      - "A. Feature scaling is usually important for the linear model, but tree-based models are typically less sensitive to feature scale."
+      - "B. Feature scaling is required for all models because AWS services reject unscaled inputs."
+      - "C. Feature scaling only helps if the dataset is stored in Parquet rather than CSV."
+      - "D. Feature scaling makes models unbiased and eliminates the need for a validation set."
+    answerIndex: 0
+    explanation: "Many linear models and distance-based methods are sensitive to feature magnitudes, so scaling can improve convergence and performance, while tree splits are based on ordering and are often scale-invariant. Option D is incorrect because scaling does not address bias, leakage, or the need to validate generalization."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-eda-006"
+    difficulty: "hard"
+    tags: ["multicollinearity", "regularization", "linear-regression", "feature-selection"]
+    question: "A team trains a linear regression model to predict subscription revenue. Two engineered features are highly correlated, causing unstable coefficients and large variance across retrains. The team wants to keep both features but reduce coefficient instability. What is the best approach?"
+    choices:
+      - "A. Apply L2 regularization (ridge) to shrink coefficients and reduce variance from multicollinearity."
+      - "B. Increase the learning rate so the optimizer reaches a solution faster."
+      - "C. Switch to one-hot encoding for the correlated numeric features."
+      - "D. Remove the validation set to avoid variance in reported performance."
+    answerIndex: 0
+    explanation: "L2 regularization penalizes large weights and stabilizes solutions when predictors are correlated, reducing variance and coefficient swings across runs. Option B is incorrect because a higher learning rate changes optimization dynamics and can destabilize training, but it does not address multicollinearity in the data."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-001"
+    difficulty: "easy"
+    tags: ["sagemaker", "linear-learner", "sparse-data", "classification"]
+    question: "A company needs a binary classifier for click-through prediction using millions of sparse features (for example, hashed categories). The team wants a scalable built-in SageMaker algorithm optimized for linear models. Which should they choose?"
+    choices:
+      - "A. SageMaker Linear Learner"
+      - "B. SageMaker K-means"
+      - "C. SageMaker Principal Component Analysis (PCA)"
+      - "D. SageMaker Neural Topic Model (NTM)"
+    answerIndex: 0
+    explanation: "Linear Learner is designed for large-scale linear classification and regression and works well with sparse, high-dimensional feature spaces common in CTR problems. Option B is incorrect because K-means is an unsupervised clustering algorithm and does not produce a supervised binary classifier."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-002"
+    difficulty: "medium"
+    tags: ["xgboost", "tabular", "nonlinear", "sagemaker"]
+    question: "A retailer trains a model on tabular data with nonlinear interactions (for example, promotions, seasonality flags, and customer segments). The team wants strong performance on structured data with limited feature engineering. Which algorithm is typically a good starting point in SageMaker?"
+    choices:
+      - "A. XGBoost"
+      - "B. Random Cut Forest"
+      - "C. Neural Topic Model (NTM)"
+      - "D. BlazingText"
+    answerIndex: 0
+    explanation: "Gradient-boosted decision trees such as XGBoost often perform very well on tabular datasets and can capture nonlinear feature interactions. Option B is incorrect because Random Cut Forest is primarily used for anomaly detection rather than supervised prediction of a target label or value."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-003"
+    difficulty: "medium"
+    tags: ["recommendation", "factorization-machines", "sparse", "ranking"]
+    question: "A streaming service wants recommendations based on implicit feedback (for example, views) and metadata (for example, genre). The dataset is sparse with many users and items, and the team wants a model that can learn user-item interactions efficiently. Which SageMaker algorithm best fits?"
+    choices:
+      - "A. Factorization Machines"
+      - "B. Image Classification"
+      - "C. K-nearest neighbors (KNN)"
+      - "D. Sequence-to-sequence"
+    answerIndex: 0
+    explanation: "Factorization Machines are well-suited for sparse datasets and can model pairwise interactions between users, items, and additional features, which is common in recommender systems. Option C is incorrect because KNN can struggle at large scale with high-dimensional sparse data and typically requires expensive nearest-neighbor searches at inference time."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/fact-machines.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-004"
+    difficulty: "hard"
+    tags: ["forecasting", "deepar", "probabilistic", "time-series"]
+    question: "A company forecasts demand for 20,000 products across hundreds of stores. They need probabilistic forecasts (prediction intervals), and many time series are sparse with intermittent demand. The team wants a managed algorithm in SageMaker. Which should they choose?"
+    choices:
+      - "A. DeepAR forecasting"
+      - "B. K-means clustering"
+      - "C. BlazingText"
+      - "D. Principal Component Analysis (PCA)"
+    answerIndex: 0
+    explanation: "DeepAR is designed for forecasting large collections of related time series and produces probabilistic forecasts, which is useful for uncertainty-aware planning. Option B is incorrect because clustering groups similar items but does not directly produce next-period numeric forecasts with uncertainty bounds."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/deepar.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-005"
+    difficulty: "medium"
+    tags: ["dimensionality-reduction", "pca", "anomaly-detection", "sagemaker"]
+    question: "An operations team wants to reduce 200 sensor features into a smaller set of components before training downstream models. They also want to visualize variance explained to decide how many components to keep. Which SageMaker built-in algorithm is most appropriate?"
+    choices:
+      - "A. Principal Component Analysis (PCA)"
+      - "B. Random Cut Forest"
+      - "C. Neural Topic Model (NTM)"
+      - "D. Object2Vec"
+    answerIndex: 0
+    explanation: "PCA performs dimensionality reduction by projecting data into orthogonal components and helps quantify explained variance for component selection. Option B is incorrect because Random Cut Forest focuses on anomaly scoring rather than providing a low-dimensional representation for general feature reduction."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/pca.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-006"
+    difficulty: "easy"
+    tags: ["clustering", "kmeans", "segmentation", "unsupervised"]
+    question: "A marketing team wants to segment customers into groups based on behavior features without labeled outcomes. They need a simple baseline unsupervised algorithm available in SageMaker. Which should they choose?"
+    choices:
+      - "A. K-means"
+      - "B. Linear Learner"
+      - "C. XGBoost"
+      - "D. Logistic Regression"
+    answerIndex: 0
+    explanation: "K-means is a standard unsupervised clustering algorithm used for segmentation when labels are not available. Option B is incorrect because Linear Learner is supervised and requires labeled targets for training."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/k-means.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-007"
+    difficulty: "hard"
+    tags: ["computer-vision", "transfer-learning", "jumpstart", "fine-tuning"]
+    question: "A startup needs an image classifier for product photos but has only 5,000 labeled images. They want strong accuracy quickly and prefer not to train a deep network from scratch. What is the best approach in SageMaker?"
+    choices:
+      - "A. Use SageMaker JumpStart to fine-tune a pre-trained image model on the labeled dataset."
+      - "B. Train a new convolutional network from random initialization with a very high learning rate to compensate for limited data."
+      - "C. Use K-means on raw pixel values to learn clusters and treat clusters as classes."
+      - "D. Use PCA to reduce pixels and then deploy the PCA model as the classifier."
+    answerIndex: 0
+    explanation: "Fine-tuning a pre-trained model leverages learned visual representations and typically performs well with smaller labeled datasets, reducing training time and data requirements. Option C is incorrect because clustering pixels does not learn supervised class boundaries and generally produces poor classification performance for real-world images."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-model-008"
+    difficulty: "medium"
+    tags: ["explainability", "clarify", "shap", "governance"]
+    question: "A bank deploys a credit risk model and must provide local explanations for individual decisions to meet internal governance requirements. The team wants a managed way to compute feature attributions during evaluation. What should they use?"
+    choices:
+      - "A. Amazon SageMaker Clarify to generate SHAP-based feature attributions for predictions."
+      - "B. Amazon Kinesis Data Firehose to stream model predictions into S3 for later review."
+      - "C. AWS Glue crawlers to automatically label which features are important."
+      - "D. Amazon S3 Object Lock to prevent changes to the training dataset."
+    answerIndex: 0
+    explanation: "SageMaker Clarify supports model explainability by computing feature attributions (including SHAP) that help explain individual predictions in a consistent workflow. Option D is incorrect because Object Lock helps with immutability and retention but does not generate any explanation of model behavior."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-model-explainability.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-tune-001"
+    difficulty: "medium"
+    tags: ["hyperparameter-tuning", "sagemaker", "bayesian-optimization", "automation"]
+    question: "A team trains an XGBoost model in SageMaker and wants to automatically search hyperparameters like max_depth and eta while optimizing validation AUC. They want SageMaker to orchestrate multiple training jobs and pick the best model. What should they use?"
+    choices:
+      - "A. SageMaker Automatic Model Tuning (hyperparameter tuning jobs)"
+      - "B. SageMaker Batch Transform"
+      - "C. AWS Glue job bookmarks"
+      - "D. Amazon Athena prepared statements"
+    answerIndex: 0
+    explanation: "Automatic Model Tuning runs multiple training jobs with different hyperparameters and can use strategies such as Bayesian optimization to find better configurations based on a defined objective metric. Option B is incorrect because Batch Transform is an inference option and does not perform hyperparameter search or manage training experiments."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-tune-002"
+    difficulty: "easy"
+    tags: ["regularization", "l1", "l2", "overfitting"]
+    question: "A model overfits and the team adds regularization. Which statement best describes L1 regularization compared to L2 regularization?"
+    choices:
+      - "A. L1 regularization can drive some weights exactly to zero, acting like implicit feature selection."
+      - "B. L1 regularization always increases model variance compared to no regularization."
+      - "C. L2 regularization removes all correlated features automatically without affecting coefficients."
+      - "D. L2 regularization can only be used for neural networks, not linear models."
+    answerIndex: 0
+    explanation: "L1 penalizes absolute weight values and often yields sparse solutions where some coefficients become exactly zero, which can simplify models. Option D is incorrect because L2 regularization (ridge) is widely used in linear models and many other model families, not only neural networks."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-tune-003"
+    difficulty: "hard"
+    tags: ["hyperparameter-tuning", "hyperband", "cost-optimization", "early-stopping"]
+    question: "A team runs large hyperparameter searches and wants to reduce cost by quickly stopping poorly performing training jobs while continuing promising ones. They still want automated orchestration in SageMaker. Which tuning strategy should they choose?"
+    choices:
+      - "A. Use SageMaker Automatic Model Tuning with the Hyperband strategy to allocate resources and stop underperforming runs early."
+      - "B. Run all training jobs to completion and pick the best model by training loss only."
+      - "C. Use AWS Glue crawlers to infer hyperparameters from the training data schema."
+      - "D. Disable validation metrics so jobs cannot be compared until the very end."
+    answerIndex: 0
+    explanation: "Hyperband is designed to save compute by using early stopping and adaptive resource allocation, which reduces spend on weak configurations during large searches. Option B is incorrect because forcing every run to complete defeats the purpose of cost-aware tuning and can waste significant training time."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-tune-004"
+    difficulty: "hard"
+    tags: ["generalization", "cross-validation", "model-selection", "pipelines"]
+    question: "A small medical dataset has high variance in validation scores depending on how the train/validation split is done. The team wants a more reliable estimate of generalization performance before approving a model. What should they do?"
+    choices:
+      - "A. Use k-fold cross-validation (for example, via SageMaker Processing) and aggregate metrics across folds."
+      - "B. Train on the full dataset and evaluate on the same data to remove split variance."
+      - "C. Increase the model complexity until training accuracy is near 100%."
+      - "D. Disable data shuffling to ensure the same split is used forever."
+    answerIndex: 0
+    explanation: "K-fold cross-validation evaluates the model across multiple splits, reducing sensitivity to any single partition and providing a more stable performance estimate. Option B is incorrect because evaluating on the training data produces optimistically biased metrics and does not measure generalization."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-deploy-001"
+    difficulty: "easy"
+    tags: ["deployment", "batch-transform", "inference", "sagemaker"]
+    question: "A team needs to generate predictions for 50 million historical records once per day and store outputs in S3. Low latency is not required, and they want a managed inference option. What should they use?"
+    choices:
+      - "A. SageMaker Batch Transform"
+      - "B. A real-time SageMaker endpoint with a single instance"
+      - "C. A client application that runs predictions from a developer laptop"
+      - "D. Amazon Athena to run SQL that invokes the model directly for each row"
+    answerIndex: 0
+    explanation: "Batch Transform is designed for large-scale offline inference and writes results to S3 without requiring a long-lived endpoint. Option B is incorrect because keeping a real-time endpoint running for a once-daily batch job can be unnecessarily expensive and is not optimized for bulk batch throughput."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-deploy-002"
+    difficulty: "medium"
+    tags: ["multi-model-endpoints", "cost-optimization", "hosting", "sagemaker"]
+    question: "A company serves thousands of small customer-specific models (one per tenant). Traffic per tenant is low and unpredictable. The team wants to reduce hosting cost and avoid thousands of separate endpoints. What should they use?"
+    choices:
+      - "A. SageMaker multi-model endpoints to host many models behind a single endpoint and load models on demand."
+      - "B. One real-time endpoint per tenant to isolate traffic and keep each model always loaded."
+      - "C. Train a separate model per request and delete it after returning a prediction."
+      - "D. Use AWS Glue to deploy models into the Glue Data Catalog for online inference."
+    answerIndex: 0
+    explanation: "Multi-model endpoints let you host many models behind one endpoint and dynamically load them as needed, which is cost-effective for many low-traffic models. Option B is incorrect because maintaining thousands of always-on endpoints typically increases cost and management overhead significantly."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/multi-model-endpoints.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-deploy-003"
+    difficulty: "hard"
+    tags: ["ab-testing", "production-variants", "canary", "sagemaker-endpoints"]
+    question: "A team wants to compare a new model to the current production model using real user traffic. They need to route 10% of requests to the new model, measure performance, and roll back instantly if errors increase. Which SageMaker deployment feature should they use?"
+    choices:
+      - "A. Configure a single SageMaker endpoint with multiple production variants and set variant weights (for example, 90/10) for traffic shifting."
+      - "B. Replace the production endpoint with the new model and keep a copy of the old model artifact in S3 for manual rollback."
+      - "C. Use Batch Transform on a small sample and assume it represents production traffic patterns."
+      - "D. Publish model metrics to CloudWatch and increase the endpoint instance size if metrics look worse."
+    answerIndex: 0
+    explanation: "Production variants with weights enable controlled traffic shifting and quick rollback by adjusting weights back to 100/0, which supports A/B or canary deployments. Option B is incorrect because a full replacement introduces higher risk and rollback is slower and more error-prone than changing variant weights on an existing endpoint."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/deploy-model.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-deploy-004"
+    difficulty: "medium"
+    tags: ["model-monitor", "data-drift", "monitoring", "cloudwatch"]
+    question: "After deploying a model, a team worries that production feature distributions may drift from training data, causing degraded accuracy. They want automated monitoring that captures data, compares to a baseline, and publishes alerts. What should they use?"
+    choices:
+      - "A. SageMaker Model Monitor with baseline constraints and a monitoring schedule that publishes metrics to Amazon CloudWatch."
+      - "B. AWS Glue crawlers to detect drift by updating the table schema daily."
+      - "C. Amazon S3 Lifecycle rules to move old inference logs to Glacier."
+      - "D. Amazon Kinesis Data Firehose to compress logs before storing them."
+    answerIndex: 0
+    explanation: "Model Monitor can establish baselines from training data, run scheduled monitoring jobs, and emit drift and constraint metrics to CloudWatch for alerting. Option B is incorrect because schema inference does not measure statistical drift in feature values or detect shifts in distributions that affect model performance."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-deploy-005"
+    difficulty: "hard"
+    tags: ["mlops", "model-registry", "approval", "pipelines"]
+    question: "A regulated team must ensure that only approved models can be deployed to production. They want an auditable workflow where a model is registered after training, evaluated, and then requires a manual approval step before deployment automation runs. Which SageMaker capability best meets this requirement?"
+    choices:
+      - "A. SageMaker Model Registry with an approval status gate integrated into a CI/CD pipeline."
+      - "B. Store model artifacts in an open S3 bucket so anyone can deploy quickly."
+      - "C. Use AWS Glue to copy the model to multiple buckets and assume that implies approval."
+      - "D. Disable CloudTrail so deployments cannot be changed after the fact."
+    answerIndex: 0
+    explanation: "Model Registry supports model versioning, metadata, and an approval status that can be used as a control point before automated deployment proceeds, creating an auditable release process. Option B is incorrect because making artifacts broadly accessible undermines least privilege and does not enforce an approval workflow."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-deploy-006"
+    difficulty: "easy"
+    tags: ["async-inference", "spiky-traffic", "large-payloads", "sagemaker"]
+    question: "A model endpoint receives unpredictable bursts of requests and some requests include large payloads that may take several seconds to process. The team wants to avoid request timeouts and handle backpressure. Which SageMaker inference option is best?"
+    choices:
+      - "A. SageMaker Asynchronous Inference to queue requests and return results when ready."
+      - "B. Batch Transform because it requires manual start/stop for every request."
+      - "C. Serverless endpoints with a hard-coded 50 MB synchronous request body limit for all cases."
+      - "D. Running inference only inside AWS Glue jobs to ensure queueing."
+    answerIndex: 0
+    explanation: "Asynchronous Inference is designed for long-running inference and spiky traffic by queueing requests and providing outputs asynchronously, which reduces client timeouts. Option D is incorrect because Glue is an ETL service and is not intended as an online inference mechanism with request/response semantics."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference.html"
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"

@@ -472,3 +472,316 @@ questions:
       - "https://docs.aws.amazon.com/app2container/latest/UserGuide/what-is-app2container.html"
       - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html"
     author: "ThanhNguyxn"
+
+  - id: "sap-extra-001"
+    difficulty: "easy"
+    tags: ["control-tower", "organizations", "multi-account", "governance"]
+    question: "A company is growing quickly and expects to reach 150 AWS accounts. They want a standardized landing zone with centrally enforced guardrails, automated account provisioning, and an easy way to set up shared logging and security baselines. What should the solutions architect recommend?"
+    choices:
+      - "A. Use AWS Control Tower with AWS Organizations and guardrails for baseline governance."
+      - "B. Use a single AWS account and separate workloads only by VPC."
+      - "C. Create accounts manually and enforce standards using emailed runbooks."
+      - "D. Use only IAM user policies to standardize accounts."
+    answerIndex: 0
+    explanation: "AWS Control Tower builds and governs a multi-account landing zone on top of AWS Organizations, including guardrails and account factory provisioning. Option C is incorrect because manual provisioning does not scale and leads to inconsistent baselines and audit gaps."
+    refs:
+      - "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html"
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-002"
+    difficulty: "easy"
+    tags: ["guardduty", "organizations", "delegated-admin", "security"]
+    question: "A security team wants to enable Amazon GuardDuty across all existing and future AWS accounts in an organization and manage findings centrally from a security account. What is the best approach?"
+    choices:
+      - "A. Enable GuardDuty manually in each account and email findings to the security team."
+      - "B. Use GuardDuty with AWS Organizations and configure a delegated administrator account for centralized management."
+      - "C. Use AWS WAF on all public endpoints and disable GuardDuty to reduce cost."
+      - "D. Enable GuardDuty only in the management account because it automatically covers member accounts."
+    answerIndex: 1
+    explanation: "GuardDuty integrates with AWS Organizations to support organization-wide enablement and centralized administration through a delegated admin account. Option D is incorrect because GuardDuty must be enabled for member accounts (often via organization settings); enabling it only in the management account does not automatically monitor all member accounts by default."
+    refs:
+      - "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-003"
+    difficulty: "easy"
+    tags: ["macie", "s3", "data-security", "classification"]
+    question: "A company stores customer documents in Amazon S3 and needs a managed way to discover and alert on sensitive data such as PII being stored in buckets across multiple accounts. Which AWS service should they use?"
+    choices:
+      - "A. Amazon Macie"
+      - "B. AWS Certificate Manager (ACM)"
+      - "C. Amazon Inspector"
+      - "D. AWS Cloud Map"
+    answerIndex: 0
+    explanation: "Amazon Macie is designed to discover, classify, and protect sensitive data in S3 using managed data identification techniques. Option C is incorrect because Inspector focuses on vulnerability management for compute and container workloads, not S3 data classification."
+    refs:
+      - "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-004"
+    difficulty: "easy"
+    tags: ["security-hub", "organizations", "centralization", "compliance"]
+    question: "A CISO wants one dashboard to aggregate security findings across 80 AWS accounts and track compliance against common security standards. The security team also wants to route all findings to a central account for triage. Which service best fits?"
+    choices:
+      - "A. AWS Security Hub with AWS Organizations integration and a delegated administrator"
+      - "B. Amazon S3 Inventory reports stored in one bucket"
+      - "C. AWS Trusted Advisor checks exported manually"
+      - "D. AWS CloudTrail only"
+    answerIndex: 0
+    explanation: "Security Hub aggregates findings from multiple AWS services and partners, supports standards-based security checks, and can be centrally managed across an organization. Option D is incorrect because CloudTrail is an audit log of API activity and does not provide a consolidated findings and standards posture dashboard by itself."
+    refs:
+      - "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html"
+      - "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-005"
+    difficulty: "easy"
+    tags: ["cost-management", "cost-categories", "finops", "multi-account"]
+    question: "A FinOps team needs consistent cost allocation reporting across many AWS accounts, even when application teams use different tagging conventions. They want a central way to map accounts, tags, and services into business-friendly groupings. What should they implement?"
+    choices:
+      - "A. AWS Cost Categories in the billing account to group and re-map costs for reporting"
+      - "B. AWS CloudFormation StackSets to deploy tags"
+      - "C. Amazon CloudWatch dashboards for billing"
+      - "D. AWS WAF rules to block expensive requests"
+    answerIndex: 0
+    explanation: "AWS Cost Categories let you create logical groupings and rules that map raw cost line items into consistent business dimensions for reporting. Option B is incorrect because StackSets can help deploy tagging standards, but it does not by itself create cost allocation groupings when tags are inconsistent or missing."
+    refs:
+      - "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-categories.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-006"
+    difficulty: "easy"
+    tags: ["direct-connect", "vpn", "hybrid-networking", "resilience"]
+    question: "A company requires private connectivity from on-premises to AWS with predictable throughput for data replication. They also need encrypted failover connectivity if the dedicated circuit is unavailable. What should they deploy?"
+    choices:
+      - "A. AWS Direct Connect as primary and Site-to-Site VPN as backup using BGP for failover"
+      - "B. Only Site-to-Site VPN because it is always private"
+      - "C. VPC peering between on-premises and AWS"
+      - "D. AWS Client VPN on all servers"
+    answerIndex: 0
+    explanation: "Direct Connect provides dedicated private connectivity and consistent performance, and a Site-to-Site VPN provides encrypted backup over the internet for resilience. Option B is incorrect because VPN alone does not provide dedicated circuit characteristics and can have variable performance."
+    refs:
+      - "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html"
+      - "https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-007"
+    difficulty: "easy"
+    tags: ["backup", "aws-backup", "disaster-recovery", "multi-account"]
+    question: "A platform team wants to standardize backup policies across an AWS Organization, including automated backups for supported services and centralized reporting of backup compliance. Which service should they use?"
+    choices:
+      - "A. AWS Backup with organization-wide backup policies"
+      - "B. Amazon CloudWatch metrics only"
+      - "C. Manual EBS snapshots triggered by user scripts"
+      - "D. AWS Config rules only"
+    answerIndex: 0
+    explanation: "AWS Backup provides centralized policy-based backup management and supports backup policies across AWS Organizations. Option C is incorrect because manual scripting is error-prone and does not provide consistent compliance reporting or centralized governance at organization scale."
+    refs:
+      - "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"
+      - "https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-policies.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-008"
+    difficulty: "medium"
+    tags: ["transit-gateway", "ram", "multi-account", "networking"]
+    question: "A shared networking account owns a transit gateway, and 50 application accounts need to attach their VPCs. The organization wants to avoid manual sharing and keep governance centralized. What is the recommended way to share the transit gateway to other accounts?"
+    choices:
+      - "A. Use AWS Resource Access Manager (RAM) to share the transit gateway across accounts and OUs."
+      - "B. Use VPC peering from each VPC to the transit gateway VPC."
+      - "C. Create one VPN connection from each VPC to the networking account."
+      - "D. Move all VPCs into the networking account to avoid sharing."
+    answerIndex: 0
+    explanation: "AWS RAM is designed to share resources like transit gateways across accounts in an organization with controlled permissions. Option B is incorrect because VPC peering does not attach VPCs to a transit gateway and would also create unscalable mesh complexity."
+    refs:
+      - "https://docs.aws.amazon.com/ram/latest/userguide/what-is.html"
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-sharing.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-009"
+    difficulty: "medium"
+    tags: ["direct-connect", "direct-connect-gateway", "transit-gateway", "hybrid-networking"]
+    question: "An enterprise uses AWS Transit Gateway to connect hundreds of VPCs across multiple Regions. On-premises connectivity uses AWS Direct Connect and must provide access to multiple transit gateways with centralized control. Which design is most appropriate?"
+    choices:
+      - "A. Terminate a private VIF directly into each VPC"
+      - "B. Use a Direct Connect gateway and associate it with transit gateways (where supported) for centralized on-prem connectivity"
+      - "C. Use only an internet gateway and IPsec from each instance"
+      - "D. Use CloudFront to route all private traffic"
+    answerIndex: 1
+    explanation: "A Direct Connect gateway provides a scalable hub for connecting Direct Connect to multiple VPC or transit gateway environments with centralized management of attachments. Option A is incorrect because terminating Direct Connect per VPC does not scale and significantly increases operational overhead."
+    refs:
+      - "https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html"
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-dx.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-010"
+    difficulty: "medium"
+    tags: ["drs", "disaster-recovery", "migration", "rto"]
+    question: "A company runs critical workloads on VMware on premises and needs a disaster recovery solution to AWS with low RTO and continuous replication. They want minimal application changes and automated recovery orchestration. Which AWS service should they choose?"
+    choices:
+      - "A. AWS Elastic Disaster Recovery (DRS)"
+      - "B. AWS Snowball Edge"
+      - "C. Amazon S3 Glacier Deep Archive"
+      - "D. AWS DataSync one-time transfer"
+    answerIndex: 0
+    explanation: "AWS Elastic Disaster Recovery provides continuous block-level replication and orchestrated recovery of servers to AWS with minimal changes. Option B is incorrect because Snowball is for bulk offline data transfer and does not provide continuous replication or rapid failover of compute."
+    refs:
+      - "https://docs.aws.amazon.com/drs/latest/userguide/what-is-drs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-011"
+    difficulty: "medium"
+    tags: ["cloudtrail", "organizations", "log-archive", "security"]
+    question: "A security team needs an organization-wide CloudTrail that sends logs to a dedicated log archive account. Member accounts must not be able to disable logging or delete the trail logs. What is the best implementation?"
+    choices:
+      - "A. Create an organization trail, deliver logs to an S3 bucket in the log archive account, and protect it with an SCP plus S3 bucket policy that restricts deletes"
+      - "B. Create individual trails per account and store logs in each account locally"
+      - "C. Enable CloudTrail only in the log archive account"
+      - "D. Use VPC Flow Logs instead of CloudTrail"
+    answerIndex: 0
+    explanation: "Organization trails centralize event collection across accounts, and SCPs plus restrictive bucket policies provide preventive controls against disabling trails and deleting logs. Option D is incorrect because VPC Flow Logs capture network flows, not AWS API activity, and cannot replace CloudTrail audit requirements."
+    refs:
+      - "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html"
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-012"
+    difficulty: "medium"
+    tags: ["cur", "athena", "cost-optimization", "reporting"]
+    question: "A FinOps team wants detailed, queryable cost and usage data for all accounts and wants to run custom SQL queries for chargeback reports. What is the best approach?"
+    choices:
+      - "A. Enable the AWS Cost and Usage Report (CUR) to Amazon S3 and query it with Amazon Athena"
+      - "B. Use CloudWatch Logs Insights on billing data"
+      - "C. Export invoices as PDFs and parse them with scripts"
+      - "D. Use AWS Config advanced queries"
+    answerIndex: 0
+    explanation: "CUR provides the most granular cost and usage line items, and storing it in S3 allows flexible analysis with Athena. Option C is incorrect because PDF invoices are not intended for detailed cost analytics and are difficult to automate reliably at scale."
+    refs:
+      - "https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html"
+      - "https://docs.aws.amazon.com/athena/latest/ug/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-013"
+    difficulty: "medium"
+    tags: ["compute-optimizer", "rightsizing", "cost-optimization", "organizations"]
+    question: "A company runs thousands of EC2 instances across many accounts and wants automated recommendations to right-size instances and reduce waste. They prefer a managed recommendation engine rather than building custom analysis. Which service should they enable?"
+    choices:
+      - "A. AWS Compute Optimizer"
+      - "B. AWS CloudFormation"
+      - "C. Amazon Route 53"
+      - "D. AWS Certificate Manager"
+    answerIndex: 0
+    explanation: "Compute Optimizer analyzes utilization metrics and provides rightsizing recommendations for supported resources, helping reduce overprovisioning at scale. Option B is incorrect because CloudFormation is an IaC tool and does not generate optimization recommendations from usage data."
+    refs:
+      - "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-014"
+    difficulty: "medium"
+    tags: ["firewall-manager", "waf", "organizations", "governance"]
+    question: "A security team must enforce a common AWS WAF web ACL baseline across hundreds of CloudFront distributions and ALBs in multiple accounts. They want centralized policy management and automatic enforcement for new resources. Which service should they use?"
+    choices:
+      - "A. AWS Firewall Manager with AWS Organizations"
+      - "B. Create separate WAF web ACLs manually in each account"
+      - "C. Use security groups for all L7 protections"
+      - "D. Use AWS Budgets to alert when WAF costs increase"
+    answerIndex: 0
+    explanation: "Firewall Manager centralizes security policy management for services like AWS WAF across an AWS Organization and can automatically apply policies to new resources. Option B is incorrect because manual per-account configuration does not scale and often results in inconsistent enforcement."
+    refs:
+      - "https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-015"
+    difficulty: "hard"
+    tags: ["scp", "data-perimeter", "iam", "organizations"]
+    question: "A company wants an organization-wide data perimeter that prevents access to sensitive services unless requests come from approved networks (for example, corporate IPs or specific VPC endpoints). The control must be preventive and apply even if a member account administrator grants broad IAM permissions. What should be implemented?"
+    choices:
+      - "A. Only CloudWatch alarms for unusual activity"
+      - "B. Service Control Policies (SCPs) that enforce required condition keys (such as aws:SourceIp or aws:SourceVpce) combined with resource policies where appropriate"
+      - "C. IAM users with long-term access keys stored in a central vault"
+      - "D. Rely on AWS Trusted Advisor checks"
+    answerIndex: 1
+    explanation: "SCPs provide preventive guardrails that member account admins cannot override, making them a strong foundation for an organization-wide perimeter strategy. Option A is incorrect because alarms are detective controls and do not prevent exfiltration or unauthorized access in the moment."
+    refs:
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html"
+      - "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-016"
+    difficulty: "hard"
+    tags: ["transit-gateway", "segmentation", "networking", "inspection"]
+    question: "An enterprise uses a hub-and-spoke model with AWS Transit Gateway. They must enforce that all spoke-to-internet egress traffic passes through a centralized inspection VPC, while spoke-to-spoke traffic is denied by default except for specific shared services. Which design best meets this requirement?"
+    choices:
+      - "A. Use one transit gateway route table for all attachments and allow propagation everywhere"
+      - "B. Use multiple transit gateway route tables to segment attachments (spokes, inspection, shared services) and control route propagation and associations to steer traffic"
+      - "C. Use VPC peering between each spoke and the inspection VPC only"
+      - "D. Place NAT gateways in each spoke and rely on security groups for egress inspection"
+    answerIndex: 1
+    explanation: "Transit Gateway route tables provide the primary mechanism for segmentation and traffic steering in large hub-and-spoke designs, including forcing egress through inspection attachments. Option A is incorrect because a single shared route table with broad propagation often enables unintended lateral connectivity between spokes."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-017"
+    difficulty: "hard"
+    tags: ["disaster-recovery", "multi-region", "route53", "rto"]
+    question: "A mission-critical web platform runs in one Region and must meet an RTO of 15 minutes for a full regional outage. The team wants a cost-conscious approach that keeps a minimal footprint in the secondary Region but can be scaled quickly during failover. Which DR strategy is most appropriate?"
+    choices:
+      - "A. Backup and restore"
+      - "B. Pilot light"
+      - "C. Multi-site active-active"
+      - "D. Single-site with no backups"
+    answerIndex: 1
+    explanation: "A pilot light strategy maintains critical core components in the secondary Region and allows rapid scaling when a disaster occurs, commonly meeting tighter RTOs than backup/restore while controlling steady-state costs. Option A is incorrect because backup and restore typically has longer recovery times due to provisioning and large-scale data restore steps."
+    refs:
+      - "https://docs.aws.amazon.com/prescriptive-guidance/latest/disaster-recovery-aws/disaster-recovery-strategies.html"
+      - "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-018"
+    difficulty: "hard"
+    tags: ["kms", "organizations", "security", "guardrails"]
+    question: "A security team must ensure that no workload team can disable key usage auditing or schedule deletion of centrally managed KMS keys used for encrypting shared data. The team also needs an emergency break-glass role in the security account. What should they do?"
+    choices:
+      - "A. Use KMS key policies and an organization SCP that explicitly denies key deletion actions except for the security break-glass role"
+      - "B. Use only AWS Config rules to report when keys are deleted"
+      - "C. Store key material in application code to prevent AWS administrators from changing it"
+      - "D. Use S3 bucket policies only"
+    answerIndex: 0
+    explanation: "Key policies control who can administer KMS keys, and SCP explicit denies add preventive, organization-wide guardrails that member admins cannot bypass. Option B is incorrect because Config is primarily detective and cannot prevent a privileged user from scheduling key deletion."
+    refs:
+      - "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-019"
+    difficulty: "hard"
+    tags: ["cost-anomaly-detection", "budgets", "finops", "automation"]
+    question: "A large organization has unpredictable usage patterns across hundreds of accounts and needs near-real-time alerts for unusual spend, plus enforcement that teams cannot exceed monthly spend thresholds without review. Which combination best meets these requirements?"
+    choices:
+      - "A. AWS Cost Anomaly Detection for alerts and AWS Budgets with alerts/actions for threshold-based controls"
+      - "B. Only monthly invoice review meetings"
+      - "C. Disable CloudTrail to reduce costs"
+      - "D. Use CloudWatch alarms on EC2 CPU utilization"
+    answerIndex: 0
+    explanation: "Cost Anomaly Detection provides automated detection of unusual spend patterns, while AWS Budgets supports threshold tracking and notifications (and can integrate with actions/approvals depending on setup). Option D is incorrect because EC2 CPU utilization does not represent total spend across services and accounts and will miss non-compute cost anomalies."
+    refs:
+      - "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html"
+      - "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-extra-020"
+    difficulty: "hard"
+    tags: ["security-hub", "eventbridge", "automation", "multi-account"]
+    question: "A security operations team wants to automatically open incident tickets and trigger remediation workflows when high-severity Security Hub findings occur across any account in the organization. They want a decoupled event-driven approach. What should they implement?"
+    choices:
+      - "A. Poll the Security Hub console daily and create tickets manually"
+      - "B. Export findings to S3 once per week and run a batch job"
+      - "C. Use Amazon EventBridge to capture Security Hub finding events in the delegated admin account and route them to targets such as Lambda or Systems Manager Automation"
+      - "D. Disable Security Hub standards checks to reduce the number of findings"
+    answerIndex: 2
+    explanation: "Security Hub can send findings as events, and EventBridge provides routing to automated targets for ticketing and remediation while keeping components loosely coupled. Option A is incorrect because manual polling does not meet near-real-time response requirements and does not scale across large organizations."
+    refs:
+      - "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cloudwatch-events.html"
+      - "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html"
+    author: "ThanhNguyxn"

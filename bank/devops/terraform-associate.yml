@@ -465,3 +465,308 @@ questions:
     refs:
       - "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement"
     author: "ThanhNguyxn"
+
+  - id: "tf-extra-001"
+    difficulty: "easy"
+    tags: ["backend", "remote-state", "team-workflows"]
+    question: "A team wants a single shared source of truth for Terraform state so multiple engineers can collaborate safely. Which Terraform feature enables this?"
+    choices:
+      - "A. Configure a remote backend for state storage"
+      - "B. Store state only in local terraform.tfstate and share it by email"
+      - "C. Disable state entirely and rely on provider consoles"
+      - "D. Use terraform fmt to sync state across machines"
+    answerIndex: 0
+    explanation: "Remote backends centralize state storage and enable safer collaboration patterns than local files on individual laptops. Formatting code does not move or synchronize state, so it cannot solve team state consistency."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/settings/backends/configuration"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-002"
+    difficulty: "easy"
+    tags: ["workspaces", "state", "cli"]
+    question: "You want to keep separate state instances for dev and prod using the same configuration directory. Which Terraform CLI feature provides this capability?"
+    choices:
+      - "A. CLI workspaces"
+      - "B. terraform console"
+      - "C. terraform fmt"
+      - "D. provider aliases"
+    answerIndex: 0
+    explanation: "Workspaces allow multiple distinct state snapshots for the same configuration, commonly used for environment separation. Provider aliases create multiple provider instances, but they do not create separate state instances by themselves."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/state/workspaces"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-003"
+    difficulty: "easy"
+    tags: ["state", "locking", "concurrency"]
+    question: "Two engineers run Terraform at the same time and one run fails with an error indicating the state is locked. What does state locking prevent?"
+    choices:
+      - "A. Concurrent state writes that can corrupt or overwrite updates"
+      - "B. Providers from being downloaded"
+      - "C. HCL configuration from being formatted"
+      - "D. Modules from having outputs"
+    answerIndex: 0
+    explanation: "State locking prevents multiple operations from writing state simultaneously, which can lead to lost updates and broken infrastructure tracking. It does not affect provider downloads or formatting operations."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/state/locking"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-004"
+    difficulty: "easy"
+    tags: ["for_each", "count", "addressing"]
+    question: "A resource uses count with a list, and inserting a new list element causes many destroy/create changes due to index shifts. Which change most directly improves instance address stability?"
+    choices:
+      - "A. Switch from count to for_each with stable keys"
+      - "B. Add depends_on to all resources"
+      - "C. Run terraform taint on every resource"
+      - "D. Use terraform refresh-only before every apply"
+    answerIndex: 0
+    explanation: "for_each uses keys for identity, so changing collection order does not remap instances like count indexes do. depends_on and refresh-only do not change how instances are addressed in state and therefore do not prevent index churn."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each"
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/count"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-005"
+    difficulty: "easy"
+    tags: ["import", "state", "existing-infra"]
+    question: "A resource already exists in AWS, but it is not tracked by Terraform state. Which command brings it under Terraform management without creating a new resource?"
+    choices:
+      - "A. terraform import"
+      - "B. terraform taint"
+      - "C. terraform destroy"
+      - "D. terraform fmt"
+    answerIndex: 0
+    explanation: "terraform import associates an existing remote object with a resource address in state so Terraform can manage it going forward. taint and destroy are destructive operations and fmt only formats configuration."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/import"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-006"
+    difficulty: "easy"
+    tags: ["providers", "configuration", "required_providers"]
+    question: "Your configuration must ensure Terraform uses the correct provider source address and version constraints. Where should this be declared?"
+    choices:
+      - "A. In the terraform block under required_providers"
+      - "B. Inside each resource block"
+      - "C. In terraform.tfstate"
+      - "D. In a locals block"
+    answerIndex: 0
+    explanation: "Provider source addresses and version constraints are declared in required_providers so init can install consistent provider plugins. State files should not be edited to manage provider requirements, and locals do not control dependency installation."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/providers/requirements"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-007"
+    difficulty: "easy"
+    tags: ["dynamic-blocks", "hcl", "maintainability"]
+    question: "A resource needs a variable number of repeated nested blocks (for example, multiple ingress rules) generated from an input collection. Which Terraform feature is designed for this?"
+    choices:
+      - "A. dynamic blocks"
+      - "B. terraform providers mirror"
+      - "C. terraform console"
+      - "D. backend blocks"
+    answerIndex: 0
+    explanation: "dynamic blocks generate repeated nested blocks from a collection while keeping configuration DRY. Backends store state and do not generate resource arguments or nested blocks."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-008"
+    difficulty: "medium"
+    tags: ["backend", "s3", "locking", "dynamodb"]
+    question: "A team uses the S3 backend and wants state locking to prevent concurrent applies. What additional AWS service is commonly used to provide the lock mechanism?"
+    choices:
+      - "A. DynamoDB"
+      - "B. CloudFront"
+      - "C. Route 53"
+      - "D. SNS"
+    answerIndex: 0
+    explanation: "The S3 backend can use a DynamoDB table to coordinate state locks and prevent concurrent state writes. CloudFront and Route 53 are unrelated to state locking and do not provide a lock table abstraction for Terraform."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/settings/backends/s3"
+      - "https://developer.hashicorp.com/terraform/language/state/locking"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-009"
+    difficulty: "medium"
+    tags: ["backend", "consul", "remote-state"]
+    question: "An organization wants to store Terraform state in Consul for on-prem operations. Where is this configured?"
+    choices:
+      - "A. In the terraform block with a Consul backend configuration"
+      - "B. In a resource block named consul_state"
+      - "C. In terraform.tfvars only"
+      - "D. By editing terraform.tfstate and adding consul settings"
+    answerIndex: 0
+    explanation: "Backends are configured in the terraform block, and Consul is one of the supported backend types for state storage. Editing state files directly is unsafe and not how backend configuration is managed."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/settings/backends/consul"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-010"
+    difficulty: "medium"
+    tags: ["provisioners", "on_failure", "reliability"]
+    question: "A local-exec provisioner runs after resource creation and occasionally fails due to transient network issues. You want Terraform to continue the apply while still surfacing the error. What option can you set?"
+    choices:
+      - "A. on_failure = continue"
+      - "B. create_before_destroy = true"
+      - "C. prevent_destroy = true"
+      - "D. sensitive = true"
+    answerIndex: 0
+    explanation: "on_failure controls provisioner behavior when the command fails, and continue allows the apply to proceed while recording the failure. Lifecycle and sensitive settings address different concerns and do not change provisioner failure handling."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-011"
+    difficulty: "medium"
+    tags: ["refactor", "moved", "state"]
+    question: "You refactor a configuration and move a resource from the root module into a child module, but you want Terraform to keep the same real object. What is the recommended mechanism?"
+    choices:
+      - "A. Add moved blocks mapping the old address to the new module address"
+      - "B. Delete the state file and recreate everything"
+      - "C. Run terraform destroy and then terraform apply"
+      - "D. Add ignore_changes = all"
+    answerIndex: 0
+    explanation: "moved blocks record address changes so Terraform can update state references without replacing real infrastructure. Deleting state or destroying resources is unnecessary and increases outage risk for a refactor-only change."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/modules/develop/refactoring"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-012"
+    difficulty: "medium"
+    tags: ["terraform-cloud", "remote-execution", "workspaces"]
+    question: "A company wants Terraform runs executed remotely with centralized state, run history, and policy checks. Which configuration best fits?"
+    choices:
+      - "A. Use Terraform Cloud/Enterprise workspaces with remote operations enabled"
+      - "B. Keep local backend and ask engineers to copy state files to shared drives"
+      - "C. Use terraform apply -auto-approve from laptops"
+      - "D. Disable state locking to speed up team collaboration"
+    answerIndex: 0
+    explanation: "Terraform Cloud workspaces provide remote execution, centralized state, and governance features like policies and run history. Shared drives and disabled locking increase the risk of state corruption and reduce auditability."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cloud-docs/run/remote-operations"
+      - "https://developer.hashicorp.com/terraform/cloud-docs/workspaces"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-013"
+    difficulty: "medium"
+    tags: ["providers", "alias", "multi-account"]
+    question: "One configuration must deploy resources to two different AWS accounts. What is the recommended provider configuration pattern?"
+    choices:
+      - "A. Configure multiple aws provider blocks with aliases and select them via the provider argument"
+      - "B. Use one provider and switch accounts by changing workspace name"
+      - "C. Put both account credentials into terraform.tfstate"
+      - "D. Use count on the provider block"
+    answerIndex: 0
+    explanation: "Provider aliases allow multiple configured instances of the same provider and are the standard approach for multi-account or multi-region deployments. Workspaces separate state but do not automatically change provider credentials or targets."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/providers/configuration"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-014"
+    difficulty: "medium"
+    tags: ["for_each", "collections", "hcl"]
+    question: "A resource uses for_each = var.subnets where var.subnets is a list of subnet IDs. Terraform errors because for_each requires unique keys. What is the simplest fix?"
+    choices:
+      - "A. Convert the list to a set with toset(var.subnets)"
+      - "B. Replace for_each with depends_on"
+      - "C. Move the list into terraform.tfstate"
+      - "D. Add lifecycle ignore_changes = all"
+    answerIndex: 0
+    explanation: "for_each accepts a set of strings or a map, and converting a list to a set provides unique identity keys for instances. depends_on and lifecycle settings do not change the collection type requirements for for_each."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-015"
+    difficulty: "hard"
+    tags: ["import", "for_each", "addressing"]
+    question: "A resource uses for_each with keys blue and green. You need to import the existing green instance. What is the correct way to target it?"
+    choices:
+      - "A. Use terraform import with the full instance address, including the for_each key in brackets"
+      - "B. Import is not supported for resources using for_each"
+      - "C. Remove for_each, import, then re-add for_each"
+      - "D. Edit terraform.tfstate and paste the remote ID"
+    answerIndex: 0
+    explanation: "Import targets a specific resource instance address, so for_each resources must be imported using an address like aws_instance.web[\"key\"]. Removing for_each or editing state manually increases risk and is not required for proper import."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/import"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-016"
+    difficulty: "hard"
+    tags: ["state", "locking", "force-unlock"]
+    question: "A Terraform run crashed and left the remote state locked. Another engineer wants to immediately run force-unlock. What is the key risk to consider before doing this?"
+    choices:
+      - "A. A still-running operation could be writing state, and force-unlock could allow concurrent writes"
+      - "B. force-unlock permanently deletes all state"
+      - "C. force-unlock changes provider versions automatically"
+      - "D. force-unlock re-creates all resources"
+    answerIndex: 0
+    explanation: "Force-unlocking should be done only when you are sure no other Terraform operation is active, because concurrent state writes can corrupt state. It does not delete state or recreate infrastructure by itself, but it removes the safety barrier against concurrency."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/state/locking"
+      - "https://developer.hashicorp.com/terraform/cli/commands/force-unlock"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-017"
+    difficulty: "hard"
+    tags: ["dynamic-blocks", "for_each", "advanced-hcl"]
+    question: "A security group resource must create one ingress block per item in var.ports, each with different from_port/to_port. Which approach is correct?"
+    choices:
+      - "A. Use a dynamic ingress block with for_each = var.ports and set ports from each.value in content"
+      - "B. Use count on the nested ingress block"
+      - "C. Use a backend block per port"
+      - "D. Use terraform import to generate blocks automatically"
+    answerIndex: 0
+    explanation: "dynamic blocks are the supported method to generate repeated nested blocks, using for_each and a content block that references each.value. count cannot be applied directly to nested blocks, and backends/import do not generate configuration structures."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-018"
+    difficulty: "hard"
+    tags: ["backend", "security", "secrets"]
+    question: "A team passes AWS access keys in backend configuration for the S3 backend. They are concerned these values might end up stored in terraform.tfstate. What is the most accurate statement?"
+    choices:
+      - "A. Backend config is not stored in state, but credentials should still be supplied via environment/credential mechanisms rather than hardcoding"
+      - "B. Backend credentials are always stored in plain text inside terraform.tfstate"
+      - "C. Backends do not support authentication, so keys must be embedded in all .tf files"
+      - "D. The only secure option is to disable remote backends"
+    answerIndex: 0
+    explanation: "State stores resource data, not backend authentication details, but hardcoding secrets in config files still risks accidental exposure through VCS and logs. Using environment variables or standard provider credential chains reduces secret sprawl compared to committing keys in configuration."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/settings/backends/s3"
+      - "https://developer.hashicorp.com/terraform/language/settings/backends/configuration"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-019"
+    difficulty: "hard"
+    tags: ["workspaces", "architecture", "environments"]
+    question: "A company uses workspaces for dev and prod, but prod requires different providers and different module composition than dev. What is the best practice recommendation?"
+    choices:
+      - "A. Use separate configurations or separate roots for materially different environments rather than forcing workspaces"
+      - "B. Keep one config and encode all differences into workspace names"
+      - "C. Store prod state locally and dev state remotely"
+      - "D. Disable state locking in prod to reduce complexity"
+    answerIndex: 0
+    explanation: "Workspaces are best when the configuration is the same and only the state differs; if the desired topology and providers differ substantially, separate roots reduce complexity and risk. Disabling locking or mixing local/remote state patterns increases operational risk and does not solve configuration divergence."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/state/workspaces"
+    author: "ThanhNguyxn"
+
+  - id: "tf-extra-020"
+    difficulty: "hard"
+    tags: ["terraform-cloud", "variables", "workspaces"]
+    question: "A team migrates to Terraform Cloud and wants environment-specific values like region and instance size managed per workspace without committing secrets to Git. Where should these be configured?"
+    choices:
+      - "A. Workspace variables in Terraform Cloud (including marking sensitive variables)"
+      - "B. Hardcode values in main.tf for consistency"
+      - "C. Add values directly into terraform.tfstate"
+      - "D. Put secrets in outputs so they are easy to copy"
+    answerIndex: 0
+    explanation: "Terraform Cloud workspaces support variables and sensitive values per workspace, keeping secrets out of version control. Editing state or exposing secrets through outputs increases the likelihood of leakage and is not a recommended pattern."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables"
+    author: "ThanhNguyxn"

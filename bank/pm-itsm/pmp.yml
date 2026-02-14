@@ -1,0 +1,467 @@
+meta:
+  category: "pm-itsm"
+  cert: "PMP"
+  vendor: "PMI"
+  version: 1
+  description: "Original practice questions for PMI Project Management Professional (PMP)"
+
+questions:
+  - id: "pmp-team-001"
+    difficulty: "easy"
+    tags: ["people", "team", "leadership", "team-charter", "hybrid"]
+    question: "You are leading a newly formed cross-functional team in a hybrid project. Team members are unclear about decision-making and escalation paths, and early meetings are drifting without outcomes. What should you do first?"
+    choices:
+      - "A. Ask functional managers to assign clear responsibilities to each team member"
+      - "B. Facilitate creating team working agreements and a team charter with roles and escalation paths"
+      - "C. Publish a detailed project schedule so everyone can align their work"
+      - "D. Replace the meeting cadence with written status reports to reduce confusion"
+    answerIndex: 1
+    explanation: "Facilitating working agreements and a team charter establishes shared norms, roles, and decision rules, which directly addresses the root cause of confusion. Involving the team builds ownership and improves collaboration. Asking functional managers to assign responsibilities may help staffing, but it does not create team-owned norms and escalation rules."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-conflict-001"
+    difficulty: "easy"
+    tags: ["people", "conflict-management", "leadership", "collaboration", "predictive"]
+    question: "On a predictive project, two senior engineers are in open conflict about the technical approach and the argument is delaying design approval. You need a durable resolution that protects relationships. What conflict resolution approach is best?"
+    choices:
+      - "A. Smoothing, to emphasize areas of agreement and move on"
+      - "B. Forcing, to choose a solution quickly and end the debate"
+      - "C. Collaborating, to explore options and agree on a solution together"
+      - "D. Avoiding, to let the conflict resolve itself over time"
+    answerIndex: 2
+    explanation: "Collaborating seeks a win-win outcome and is most likely to produce a lasting decision while maintaining trust between the engineers. It also improves buy-in for the chosen design. Forcing may be faster, but it can create resentment and reduce commitment to the solution."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-stake-001"
+    difficulty: "easy"
+    tags: ["people", "stakeholders", "engagement", "process", "predictive"]
+    question: "Midway through execution, you learn that a compliance officer has high influence over acceptance but was not listed in the stakeholder register. What should you do next?"
+    choices:
+      - "A. Add the officer to the stakeholder register and update the stakeholder engagement and communications plans"
+      - "B. Proceed as planned because the officer can be engaged during final acceptance"
+      - "C. Escalate to the sponsor and request that the sponsor manages the officer"
+      - "D. Add extra contingency to the schedule to account for possible delays"
+    answerIndex: 0
+    explanation: "Updating the stakeholder register and related engagement/communications plans ensures the project deliberately manages expectations and influence. This reduces the risk of late surprises at acceptance. Proceeding without updates is risky because high-influence stakeholders can introduce requirements or constraints late in the project."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-scope-001"
+    difficulty: "easy"
+    tags: ["process", "scope", "change-control", "integration", "predictive"]
+    question: "A customer asks you to add a small feature that was not in the approved scope baseline. The feature will require additional effort and budget. What is your best next action?"
+    choices:
+      - "A. Add the feature and absorb the effort to keep the customer satisfied"
+      - "B. Submit a formal change request and evaluate impacts before approval"
+      - "C. Update the scope baseline immediately and inform the team"
+      - "D. Ask the team to work overtime so the schedule does not change"
+    answerIndex: 1
+    explanation: "A formal change request is required to evaluate impact on scope, schedule, cost, and risks before any baseline changes. This protects project integrity and ensures proper authorization. Immediately updating the scope baseline is incorrect because baselines change only after integrated change control approval."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-sched-001"
+    difficulty: "medium"
+    tags: ["process", "schedule", "critical-path", "predictive", "compression"]
+    question: "Your predictive project is two weeks behind due to late vendor deliverables. The sponsor insists the final milestone date cannot move. What should you analyze first to select an appropriate schedule compression approach?"
+    choices:
+      - "A. The critical path activities and their dependencies"
+      - "B. The organizational chart to find additional resources"
+      - "C. The communications plan to increase status reporting frequency"
+      - "D. The lessons learned register from previous projects"
+    answerIndex: 0
+    explanation: "Schedule compression decisions should begin with the critical path because reducing non-critical activities will not recover the project end date. Understanding dependencies clarifies where crashing or fast tracking is feasible. Increasing reporting does not change schedule performance, so it cannot be the first analysis step."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-cost-001"
+    difficulty: "medium"
+    tags: ["process", "cost", "evm", "monitoring", "predictive"]
+    question: "On a predictive project, the earned value (EV) is 200,000, actual cost (AC) is 250,000, and planned value (PV) is 220,000. What does this indicate?"
+    choices:
+      - "A. The project is under budget and ahead of schedule"
+      - "B. The project is over budget and behind schedule"
+      - "C. The project is under budget and behind schedule"
+      - "D. The project is over budget and ahead of schedule"
+    answerIndex: 1
+    explanation: "Because EV < AC, cost variance is negative, which indicates the project is over budget. Because EV < PV, schedule variance is also negative, indicating the project is behind schedule. Choice D is wrong because being over budget does not imply being ahead of schedule; schedule status depends on EV versus PV."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-quality-001"
+    difficulty: "medium"
+    tags: ["process", "quality", "manage-quality", "continuous-improvement", "hybrid"]
+    question: "In a hybrid project, defects are increasing even though final inspection is thorough. You suspect the team is not following agreed engineering practices during development. Which action best addresses the root cause?"
+    choices:
+      - "A. Increase final testing time and add more inspectors"
+      - "B. Perform quality assurance activities such as process audits and coaching during the work"
+      - "C. Reduce scope so fewer components need testing"
+      - "D. Defer defect fixes until after release to protect schedule"
+    answerIndex: 1
+    explanation: "Quality assurance focuses on improving and auditing the processes used to create deliverables, which prevents defects from being introduced. Coaching and audits help the team adhere to practices early, reducing rework later. Increasing final inspection finds defects but does not prevent them, so it is a weaker response to the underlying process problem."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-procure-001"
+    difficulty: "medium"
+    tags: ["process", "procurement", "contracts", "risk", "predictive"]
+    question: "You are procuring a well-defined component with stable requirements and want to minimize the buyer's cost risk. Which contract type is most appropriate?"
+    choices:
+      - "A. Time and materials (T&M)"
+      - "B. Cost reimbursable"
+      - "C. Fixed price"
+      - "D. Fixed fee plus award"
+    answerIndex: 2
+    explanation: "A fixed price contract places more cost risk on the seller and is well-suited when scope is clear and stable. This helps the buyer control costs and simplify administration. Time and materials is wrong because it shifts more cost risk to the buyer when effort is uncertain or can expand."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-integ-001"
+    difficulty: "easy"
+    tags: ["process", "integration", "change-control", "governance", "predictive"]
+    question: "During execution, a team lead asks to implement an unapproved change because it will be 'quick' and 'obvious.' What is the best response as the project manager?"
+    choices:
+      - "A. Approve it verbally and document it later"
+      - "B. Reject it immediately and tell the team to stop suggesting improvements"
+      - "C. Ask for a change request so it can be evaluated through integrated change control"
+      - "D. Implement it only if it does not affect the critical path"
+    answerIndex: 2
+    explanation: "Integrated change control ensures changes are evaluated, authorized, and recorded before implementation, preventing scope creep and hidden impacts. Even small changes can introduce risk or rework, so governance matters. Approving verbally is wrong because it bypasses control and creates audit and expectation issues."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-risk-001"
+    difficulty: "medium"
+    tags: ["process", "risk", "responses", "planning", "predictive"]
+    question: "A key supplier has a history of late shipments, which could delay your project. You decide to add a second supplier as a backup so the impact is reduced if the primary supplier fails. Which risk response strategy is this?"
+    choices:
+      - "A. Avoid"
+      - "B. Transfer"
+      - "C. Mitigate"
+      - "D. Accept"
+    answerIndex: 2
+    explanation: "Adding a backup supplier reduces the probability and/or impact of a delay, which is risk mitigation. It does not eliminate the risk entirely, so it is not avoidance. Transfer is wrong because you are not shifting the risk to a third party via a contract or insurance; you are reducing exposure through redundancy."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-agile-001"
+    difficulty: "easy"
+    tags: ["people", "agile", "scrum", "definition-of-done", "quality"]
+    question: "Your Scrum team is delivering increments, but stakeholders complain that 'done' items still require significant rework after the sprint. What should you do to improve shared understanding of completion?"
+    choices:
+      - "A. Extend sprint length so the team has more time"
+      - "B. Clarify and enforce a Definition of Done and align it with acceptance criteria"
+      - "C. Ask the product owner to reduce the amount of work planned"
+      - "D. Add more status meetings to track progress daily"
+    answerIndex: 1
+    explanation: "A clear Definition of Done aligned with acceptance criteria creates a consistent quality bar and reduces hidden work and rework. It also supports transparent forecasting because completed items are truly complete. Extending sprint length is wrong because it does not address the quality agreement problem and can reduce feedback frequency."
+    refs:
+      - "https://www.scrum.org/resources"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-agile-002"
+    difficulty: "easy"
+    tags: ["agile", "stakeholders", "feedback", "product", "scrum"]
+    question: "During a sprint review, a key stakeholder says the delivered increment meets the sprint goal but is not the direction they expected for the product. What is the best next step?"
+    choices:
+      - "A. Reopen the sprint and redo the work to match the stakeholder's preference"
+      - "B. Capture feedback and collaborate with the product owner to adjust the product backlog"
+      - "C. Escalate to the sponsor to decide which direction is correct"
+      - "D. Ignore the feedback because the sprint goal was met"
+    answerIndex: 1
+    explanation: "Agile uses frequent feedback to adapt the product backlog, and the product owner is accountable for prioritization and direction. Capturing the input and refining priorities enables inspection and adaptation without disrupting the sprint. Ignoring feedback is wrong because it undermines the value of the sprint review and increases the risk of building the wrong product."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+      - "https://www.scrum.org/resources"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-hybrid-001"
+    difficulty: "hard"
+    tags: ["hybrid", "integration", "change-control", "agile", "governance"]
+    question: "You are managing a hybrid project: core platform work is delivered in Scrum sprints, while regulatory documentation follows a predictive phase-gate process. A regulator issues a new documentation requirement effective in 30 days. What should you do first?"
+    choices:
+      - "A. Immediately add the documentation work to the current sprint and interrupt existing commitments"
+      - "B. Submit a change request to assess impacts across both delivery approaches and update plans and backlog through the appropriate governance"
+      - "C. Tell the regulator the requirement will be handled after release because development is already in progress"
+      - "D. Ask the Scrum Master to decide how to incorporate the requirement without involving governance"
+    answerIndex: 1
+    explanation: "In a hybrid environment, external regulatory changes must be evaluated through integrated change control to manage impacts on scope, schedule, risk, and compliance deliverables across both workstreams. After approval, the agile backlog and predictive plans can be updated coherently to meet the 30-day constraint. Interrupting the sprint immediately is wrong because it bypasses governance and may create unplanned tradeoffs without understanding compliance and delivery impacts."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-benefits-001"
+    difficulty: "medium"
+    tags: ["business", "benefits", "value", "governance", "alignment"]
+    question: "Your project is delivering outputs as planned, but the business owner is unsure how the organization will realize the intended benefits after handover. What should you recommend?"
+    choices:
+      - "A. Create a benefits management plan with measures, owners, and a sustainment timeline"
+      - "B. Increase scope to include additional features that stakeholders want"
+      - "C. Close the project early because benefits are not the project manager's responsibility"
+      - "D. Focus only on meeting the triple constraint and let operations decide later"
+    answerIndex: 0
+    explanation: "A benefits management plan clarifies how outcomes will be achieved, measured, and sustained, linking project outputs to business value. It also assigns ownership beyond project closure, which increases the likelihood of benefits realization. Choice D is wrong because delivering outputs without a transition and measurement plan can still fail to achieve the intended outcomes and value."
+    refs:
+      - "https://www.pmi.org/learning/library"
+      - "https://www.pmi.org/certifications/project-management-pmp"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-compliance-001"
+    difficulty: "hard"
+    tags: ["business", "compliance", "risk", "ethics", "governance"]
+    question: "A senior stakeholder asks you to bypass a required security review to meet a public launch date, saying they will 'take responsibility' if anything goes wrong. What should you do?"
+    choices:
+      - "A. Bypass the review since the stakeholder is accountable and the date is fixed"
+      - "B. Document the request, explain the compliance obligation and risks, and escalate through appropriate governance channels"
+      - "C. Quietly proceed with the review but report that it was completed on time"
+      - "D. Remove the security scope from the project so it is no longer required"
+    answerIndex: 1
+    explanation: "Compliance and governance requirements must be followed, and escalation through appropriate channels protects the organization and the project. Documenting the request and the rationale supports transparency and ethical conduct. Bypassing the review is wrong because stakeholder assurances do not remove regulatory, security, or organizational obligations and can create severe business risk."
+    refs:
+      - "https://www.pmi.org/certifications/project-management-pmp"
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-strategy-001"
+    difficulty: "medium"
+    tags: ["business", "strategy", "integration", "charter", "alignment"]
+    question: "A project has been proposed with strong executive enthusiasm, but the objectives are vague and do not clearly map to organizational strategy. Before significant funding is committed, what is the best action?"
+    choices:
+      - "A. Start execution and refine objectives later based on what the team learns"
+      - "B. Develop or refine the business case and project charter to clarify measurable objectives and strategic alignment"
+      - "C. Ask the team to estimate the schedule first to prove the project is feasible"
+      - "D. Create a detailed WBS to uncover the real requirements"
+    answerIndex: 1
+    explanation: "A solid business case and charter clarify purpose, success criteria, and alignment, enabling informed authorization and governance. Measurable objectives reduce ambiguity and prevent wasteful delivery. Creating a WBS first is wrong because decomposition assumes scope clarity; without clear objectives, the plan may optimize for the wrong outcome."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-orgchange-001"
+    difficulty: "medium"
+    tags: ["business", "organizational-change", "transition", "stakeholders", "readiness"]
+    question: "Your project will change how customer support works, but supervisors report that the organization is not ready to adopt the new process. What should you do to increase adoption probability?"
+    choices:
+      - "A. Increase the number of features to make the solution more attractive"
+      - "B. Develop a change management and transition plan including training, communications, and readiness activities"
+      - "C. Delay stakeholder engagement until the solution is fully built"
+      - "D. Replace resistant supervisors to remove blockers"
+    answerIndex: 1
+    explanation: "A transition and change management plan addresses readiness, training, communications, and stakeholder concerns, which are critical for successful adoption. It focuses on outcomes, not just deliverables. Replacing supervisors is wrong because it is disruptive and does not address root causes like understanding, capability, or incentives."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-servant-001"
+    difficulty: "easy"
+    tags: ["people", "servant-leadership", "agile", "impediments", "team"]
+    question: "In an agile project, developers report that environment provisioning delays are blocking work every sprint. As the project manager using servant leadership, what is your best action?"
+    choices:
+      - "A. Tell the team to work on other tasks and stop raising the issue"
+      - "B. Remove the impediment by coordinating with operations to streamline provisioning and make the constraint visible"
+      - "C. Assign the issue to the fastest developer so it is resolved quickly"
+      - "D. Reduce sprint commitments so delays are less noticeable"
+    answerIndex: 1
+    explanation: "Servant leadership emphasizes enabling the team by removing impediments and improving system flow. Coordinating with operations tackles the systemic blocker so the team can deliver predictably. Reducing sprint commitments is wrong because it treats the symptom and accepts recurring waste instead of addressing the underlying constraint."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-ei-001"
+    difficulty: "easy"
+    tags: ["people", "emotional-intelligence", "communication", "leadership", "conflict"]
+    question: "A team member becomes defensive when you provide feedback about missed commitments. You want to keep the conversation productive and maintain trust. What is the best next step?"
+    choices:
+      - "A. Repeat the feedback more firmly so the message is clear"
+      - "B. Pause, acknowledge emotions, ask open questions, and listen to understand contributing factors"
+      - "C. Escalate the issue to the team member's functional manager"
+      - "D. Document the issue as a performance problem and end the discussion"
+    answerIndex: 1
+    explanation: "Acknowledging emotions and listening with open questions demonstrates emotional intelligence and often reveals constraints or misunderstandings that can be addressed. This approach preserves the relationship while still supporting accountability. Escalating immediately is wrong because it can damage trust and may be unnecessary before you understand the situation and attempt direct resolution."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-comms-001"
+    difficulty: "hard"
+    tags: ["people", "communications", "stakeholders", "agile", "transparency"]
+    question: "In an agile program with multiple teams, executives complain they cannot tell whether value is being delivered, while teams complain that reporting requests are consuming too much time. What is the best approach to balance transparency with flow?"
+    choices:
+      - "A. Require each team to write a detailed weekly narrative report covering all activities"
+      - "B. Implement lightweight, automated dashboards and information radiators focused on outcomes and key flow/value metrics"
+      - "C. Stop providing executive visibility until delivery is complete"
+      - "D. Add additional approval steps to ensure data accuracy before sharing"
+    answerIndex: 1
+    explanation: "Automated dashboards and information radiators provide timely transparency with minimal manual overhead, supporting agile principles and protecting team flow. Focusing on outcomes and flow/value metrics helps executives understand progress toward benefits, not just activity. Detailed narrative reporting is wrong because it increases waste and can incentivize activity-based reporting rather than value delivery."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-risk-002"
+    difficulty: "hard"
+    tags: ["process", "risk", "quantitative", "analysis", "predictive"]
+    question: "A complex predictive project has high uncertainty and management wants to understand the probability of meeting a target completion date. Which technique best supports this request?"
+    choices:
+      - "A. Qualitative risk analysis using probability and impact matrix"
+      - "B. Monte Carlo simulation using the schedule network and risk distributions"
+      - "C. Risk breakdown structure (RBS) creation"
+      - "D. Issue log review from the previous phase"
+    answerIndex: 1
+    explanation: "Monte Carlo simulation supports probabilistic forecasting by modeling schedule variability and generating a distribution of possible completion dates. This directly answers the probability question with quantified confidence levels. A qualitative matrix is wrong because it ranks risks but does not provide a numerical likelihood of meeting a specific date."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-sched-002"
+    difficulty: "medium"
+    tags: ["process", "schedule", "fast-tracking", "crashing", "predictive"]
+    question: "You need to recover schedule on a predictive project. The sponsor asks whether you can overlap design and build activities to save time. What schedule compression technique is this, and what is a primary risk?"
+    choices:
+      - "A. Crashing; primary risk is increased rework due to overlapping"
+      - "B. Fast tracking; primary risk is increased rework due to overlapping"
+      - "C. Resource leveling; primary risk is increased cost due to overtime"
+      - "D. Leads and lags; primary risk is decreased quality due to fewer tests"
+    answerIndex: 1
+    explanation: "Overlapping activities that were originally planned in sequence is fast tracking, and the primary risk is increased rework because downstream work may proceed on incomplete or changing inputs. This can also increase coordination complexity. Crashing is wrong because it adds resources to shorten durations rather than changing logic by overlapping activities."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-scope-002"
+    difficulty: "hard"
+    tags: ["process", "scope", "validation", "stakeholders", "acceptance"]
+    question: "Near the end of a predictive project, the customer rejects several deliverables, claiming they do not meet expectations. The requirements documentation is clear, but the customer says the deliverables are not what they envisioned. What should you have done earlier to reduce this risk?"
+    choices:
+      - "A. Delay stakeholder reviews until all deliverables are complete to avoid confusion"
+      - "B. Conduct regular validation activities with stakeholders and use prototypes or demonstrations to confirm expectations"
+      - "C. Increase the number of internal quality inspections"
+      - "D. Add more contingency reserve to handle rework"
+    answerIndex: 1
+    explanation: "Frequent validation with stakeholders and early demonstrations/prototypes align expectations and surface misunderstandings before final acceptance. This reduces late-stage rejection and costly rework even when documentation is technically correct. Adding contingency is wrong because it plans for failure rather than preventing misalignment between documented requirements and stakeholder expectations."
+    refs:
+      - "https://www.pmi.org/learning/library"
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-quality-002"
+    difficulty: "hard"
+    tags: ["process", "quality", "cost-of-quality", "prevention", "business"]
+    question: "Your team proposes investing in automated tests and peer reviews, which increases upfront effort. A manager argues this will slow delivery and should be avoided. What is the best response based on cost of quality concepts?"
+    choices:
+      - "A. Agree, because prevention costs are always higher than failure costs"
+      - "B. Explain that prevention and appraisal costs often reduce total cost by avoiding expensive internal and external failures"
+      - "C. Remove quality activities and rely on customer feedback after release"
+      - "D. Increase defect tolerance so the team can move faster"
+    answerIndex: 1
+    explanation: "Prevention activities like automated tests and peer reviews can reduce overall cost by minimizing rework, support costs, and reputation damage from defects. While they add upfront effort, they often lower total cost of quality by reducing failure costs. Relying on customer feedback after release is wrong because external failures can be the most expensive and can harm trust and compliance."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-procure-002"
+    difficulty: "hard"
+    tags: ["process", "procurement", "claims", "contracts", "governance"]
+    question: "A seller submits a claim stating your team caused delays by changing technical clarifications frequently, and they request additional payment. What should you do first?"
+    choices:
+      - "A. Reject the claim immediately to protect budget"
+      - "B. Review the contract terms and procurement documentation, including change records and communications, to determine validity"
+      - "C. Pay the claim to maintain a good relationship"
+      - "D. Terminate the contract for non-performance"
+    answerIndex: 1
+    explanation: "Contract claims should be handled by following the contract terms and reviewing objective evidence such as change records, correspondence, and agreed processes. This supports fair resolution and reduces legal risk. Rejecting immediately is wrong because it can escalate conflict and may violate contract dispute procedures if the claim has merit."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-integ-002"
+    difficulty: "easy"
+    tags: ["process", "integration", "lessons-learned", "continuous-improvement", "agile"]
+    question: "In an agile project, several recurring impediments keep resurfacing across sprints. You want to ensure learning is captured and applied immediately. What is the best action?"
+    choices:
+      - "A. Wait until project closing to document all lessons learned"
+      - "B. Capture lessons in a lessons learned register and turn key improvements into actionable backlog items"
+      - "C. Ask the sponsor to attend daily standups to remove impediments"
+      - "D. Focus only on velocity, because learning will happen naturally"
+    answerIndex: 1
+    explanation: "Capturing lessons continuously and converting improvements into actionable work enables real-time adaptation and prevents repeated waste. It also makes learning transparent and trackable. Waiting until closing is wrong because it delays improvement and allows the same impediments to continue harming delivery during the project."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-kanban-001"
+    difficulty: "medium"
+    tags: ["agile", "kanban", "flow", "wip-limits", "process"]
+    question: "A Kanban team shows high work-in-progress and long cycle times. Stakeholders want faster delivery of valuable items. What change is most likely to improve flow?"
+    choices:
+      - "A. Remove WIP limits so more work can start"
+      - "B. Introduce or tighten WIP limits and focus on finishing work before starting new items"
+      - "C. Increase batch size so stakeholders see larger releases"
+      - "D. Stop tracking cycle time because it creates pressure"
+    answerIndex: 1
+    explanation: "WIP limits reduce context switching and expose bottlenecks, which typically lowers cycle time and improves throughput. Finishing work before starting new items aligns with flow-based delivery. Removing WIP limits is wrong because it usually increases multitasking and delays completion, making delivery slower rather than faster."
+    refs:
+      - "https://www.scrum.org/resources"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-team-002"
+    difficulty: "hard"
+    tags: ["people", "team", "virtual-teams", "leadership", "conflict-management"]
+    question: "You manage a globally distributed team with strong technical skills but low trust. Misunderstandings in chat escalate into conflict, and work handoffs frequently fail. What is the best first step to improve team performance?"
+    choices:
+      - "A. Replace synchronous meetings with more detailed written instructions"
+      - "B. Facilitate a working session to establish team norms (communication channels, response times, handoff definitions) and build rapport"
+      - "C. Escalate the conflicts to HR to enforce collaboration"
+      - "D. Assign all integration work to a single site to avoid handoffs"
+    answerIndex: 1
+    explanation: "Establishing explicit norms for communication and handoffs, while intentionally building rapport, addresses the root causes of trust and coordination issues in virtual teams. This creates shared expectations and reduces conflict triggers. Assigning all integration work to a single site is wrong because it may reduce handoffs short-term but introduces bottlenecks and does not build the team capabilities needed for sustained collaboration."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-stake-002"
+    difficulty: "hard"
+    tags: ["people", "stakeholders", "engagement", "analysis", "business"]
+    question: "A stakeholder with high power and high interest is supportive in meetings but repeatedly blocks decisions offline. Your engagement assessment shows their current engagement level is resistant. What is the best next action?"
+    choices:
+      - "A. Publicly challenge the stakeholder during the next steering committee meeting"
+      - "B. Meet privately to understand underlying concerns and update the engagement strategy with targeted actions and sponsor support"
+      - "C. Remove the stakeholder from distribution lists to reduce interference"
+      - "D. Proceed without their input since they appear supportive in meetings"
+    answerIndex: 1
+    explanation: "A private conversation helps uncover hidden concerns, incentives, or constraints and enables a tailored engagement strategy, potentially with sponsor support given the stakeholder's power. Updating the strategy turns the assessment into actionable management. Publicly challenging the stakeholder is wrong because it can damage the relationship and increase resistance, making decision blockage worse."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-benefits-002"
+    difficulty: "hard"
+    tags: ["business", "benefits", "governance", "value", "strategy"]
+    question: "Your project is on track for scope, schedule, and cost, but new market data shows the expected benefits are no longer achievable. Continuing would consume significant budget with limited value. What should you do?"
+    choices:
+      - "A. Continue delivery because the project is meeting its baselines"
+      - "B. Propose a benefits review and recommend pivoting scope or terminating the project based on updated business case"
+      - "C. Add more features to increase perceived value without changing objectives"
+      - "D. Hide the market data until the project is finished to avoid disruption"
+    answerIndex: 1
+    explanation: "Projects exist to deliver value, so governance should re-evaluate the business case when benefits assumptions change. A benefits review supports an informed decision to pivot or terminate to avoid sunk-cost thinking. Continuing solely because baselines are met is wrong because it optimizes delivery performance while potentially failing the larger strategic objective of benefits realization."
+    refs:
+      - "https://www.pmi.org/learning/library"
+      - "https://www.pmi.org/certifications/project-management-pmp"
+    author: "ThanhNguyxn"
