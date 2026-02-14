@@ -17,12 +17,31 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.heroDescription}>
+          <p>
+            Free, open-source study resources and practice questions for AWS, Azure, Security+, Kubernetes, and more. No dumps. No shortcuts. Just solid prep.
+          </p>
+        </div>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs">
-            Explore Certifications
+            📚 Explore Resources
           </Link>
+          <Link
+            className="button button--outline button--secondary button--lg"
+            to="/practice">
+            🧠 Start Practicing
+          </Link>
+        </div>
+        <div className={styles.statsBar}>
+          <div className={styles.statItem}>240+ Questions</div>
+          <div className={styles.statItem}>•</div>
+          <div className={styles.statItem}>215+ Resources</div>
+          <div className={styles.statItem}>•</div>
+          <div className={styles.statItem}>8 Certifications</div>
+          <div className={styles.statItem}>•</div>
+          <div className={styles.statItem}>100% Free</div>
         </div>
       </div>
     </header>
@@ -33,8 +52,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title="Home"
+      description="Community-driven certification exam prep hub — curated study resources and original practice questions for IT certifications.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

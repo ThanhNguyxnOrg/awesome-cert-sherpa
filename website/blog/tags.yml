@@ -1,19 +1,14 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+announcement:
+  label: Announcement
+  description: Project announcements and updates
+  permalink: /announcement
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+certifications:
+  label: Certifications
+  description: Certification tips, strategies, and guides
+  permalink: /certifications
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+practice:
+  label: Practice
+  description: Practice engine updates and question bank news
+  permalink: /practice

@@ -6,7 +6,7 @@ import yamlLoaderPlugin from './plugins/yaml-loader-plugin';
 const config: Config = {
   title: 'Awesome CertSherpa',
   tagline: 'Community-driven certification exam prep hub',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
@@ -56,7 +56,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/certsherpa-social-card.svg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -86,37 +86,45 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Resources',
+          title: 'Study',
           items: [
             {
               label: 'Getting Started',
               to: '/docs',
             },
             {
-              label: 'Cloud',
+              label: 'Cloud Certs',
               to: '/docs/categories/cloud',
             },
             {
-              label: 'Security',
+              label: 'Security Certs',
               to: '/docs/categories/security',
+            },
+            {
+              label: 'DevOps Certs',
+              to: '/docs/categories/devops',
+            },
+          ],
+        },
+        {
+          title: 'Practice',
+          items: [
+            {
+              label: 'Practice Engine',
+              to: '/practice',
+            },
+            {
+              label: 'Networking Certs',
+              to: '/docs/categories/networking',
+            },
+            {
+              label: 'Linux Certs',
+              to: '/docs/categories/linux',
             },
           ],
         },
         {
           title: 'Community',
-          items: [
-            {
-              label: 'GitHub Discussions',
-              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/discussions',
-            },
-            {
-              label: 'Contributing Guide',
-              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/blob/main/CONTRIBUTING.md',
-            },
-          ],
-        },
-        {
-          title: 'More',
           items: [
             {
               label: 'Blog',
@@ -125,6 +133,14 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa',
+            },
+            {
+              label: 'Discussions',
+              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/discussions',
+            },
+            {
+              label: 'Contributing',
+              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/blob/main/CONTRIBUTING.md',
             },
           ],
         },
