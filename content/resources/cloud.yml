@@ -1,0 +1,445 @@
+# Cloud Certification Resources
+# Covers: AWS, Microsoft Azure, Google Cloud Platform
+# Maintained by: awesome-cert-sherpa contributors
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # AWS — Official & Exam Guides
+  # ──────────────────────────────────────────────
+  - title: "AWS Certification – Official Home"
+    type: official-doc
+    url: https://aws.amazon.com/certification/
+    vendor: AWS
+    certs: [AWS-CLF, AWS-SAA, AWS-DVA, AWS-SOA, AWS-SAP]
+    tags: [certification, overview]
+    difficulty: beginner
+    language: [en]
+    notes: "Central portal for all AWS certification paths, exam info, and scheduling."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Certified Cloud Practitioner (CLF-C02) Exam Guide"
+    type: exam-guide
+    url: https://aws.amazon.com/certification/certified-cloud-practitioner/
+    vendor: AWS
+    certs: [AWS-CLF]
+    tags: [exam-guide, foundational]
+    difficulty: beginner
+    language: [en]
+    notes: "Official exam page with objectives, sample questions, and recommended training."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Certified Solutions Architect – Associate (SAA-C03) Exam Guide"
+    type: exam-guide
+    url: https://aws.amazon.com/certification/certified-solutions-architect-associate/
+    vendor: AWS
+    certs: [AWS-SAA]
+    tags: [exam-guide, associate, architecture]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam page covering SAA-C03 domains, sample questions, and study path."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Certified Developer – Associate (DVA-C02) Exam Guide"
+    type: exam-guide
+    url: https://aws.amazon.com/certification/certified-developer-associate/
+    vendor: AWS
+    certs: [AWS-DVA]
+    tags: [exam-guide, associate, developer]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official DVA-C02 exam page with objectives and recommended training resources."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Certified Solutions Architect – Professional (SAP-C02) Exam Guide"
+    type: exam-guide
+    url: https://aws.amazon.com/certification/certified-solutions-architect-professional/
+    vendor: AWS
+    certs: [AWS-SAP]
+    tags: [exam-guide, professional, architecture]
+    difficulty: advanced
+    language: [en]
+    notes: "Official SAP-C02 exam page for the most advanced AWS architecture certification."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # AWS — Free Training & Study
+  # ──────────────────────────────────────────────
+  - title: "AWS Skill Builder – Free Digital Training"
+    type: study-guide
+    url: https://explore.skillbuilder.aws/learn
+    vendor: AWS
+    certs: [AWS-CLF, AWS-SAA, AWS-DVA, AWS-SOA, AWS-SAP]
+    tags: [free-course, official, self-paced]
+    difficulty: beginner
+    language: [en]
+    notes: "Hundreds of free on-demand courses and exam prep plans from AWS."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Well-Architected Framework"
+    type: official-doc
+    url: https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html
+    vendor: AWS
+    certs: [AWS-SAA, AWS-SAP]
+    tags: [architecture, best-practices, six-pillars]
+    difficulty: intermediate
+    language: [en]
+    notes: "The definitive AWS architecture guide covering all six pillars — essential SAA/SAP reading."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Whitepapers & Guides"
+    type: reference
+    url: https://aws.amazon.com/whitepapers/
+    vendor: AWS
+    certs: [AWS-SAA, AWS-SAP, AWS-DVA]
+    tags: [whitepapers, architecture, best-practices]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official whitepapers covering security, reliability, cost optimization, and more."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Architecture Center"
+    type: reference
+    url: https://aws.amazon.com/architecture/
+    vendor: AWS
+    certs: [AWS-SAA, AWS-SAP]
+    tags: [architecture, reference-architectures, patterns]
+    difficulty: intermediate
+    language: [en]
+    notes: "Reference architectures, diagrams, and vetted solutions for common workloads."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # AWS — Hands-On Labs & Workshops
+  # ──────────────────────────────────────────────
+  - title: "AWS Well-Architected Labs"
+    type: lab
+    url: https://www.wellarchitectedlabs.com/
+    vendor: AWS
+    certs: [AWS-SAA, AWS-SAP]
+    tags: [hands-on, labs, architecture, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free hands-on labs aligned to each pillar of the Well-Architected Framework."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Workshops"
+    type: workshop
+    url: https://workshops.aws/
+    vendor: AWS
+    certs: [AWS-SAA, AWS-DVA, AWS-SAP]
+    tags: [hands-on, workshops, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Curated collection of free AWS workshops covering serverless, containers, ML, and more."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Serverless Workshops"
+    type: workshop
+    url: https://aws.amazon.com/serverless-workshops/
+    vendor: AWS
+    certs: [AWS-DVA]
+    tags: [serverless, lambda, hands-on]
+    difficulty: intermediate
+    language: [en]
+    notes: "Step-by-step serverless application workshops using Lambda, API Gateway, and DynamoDB."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # AWS — Community
+  # ──────────────────────────────────────────────
+  - title: "The Open Guide to Amazon Web Services"
+    type: repo
+    url: https://github.com/open-guides/og-aws
+    vendor: AWS
+    certs: [AWS-CLF, AWS-SAA, AWS-DVA]
+    tags: [community, guide, github]
+    difficulty: beginner
+    language: [en]
+    notes: "Crowdsourced, practical guide to AWS services with tips, gotchas, and best practices."
+    last_verified: "2026-02-14"
+
+  - title: "Tutorials Dojo – AWS Cheat Sheets"
+    type: cheatsheet
+    url: https://tutorialsdojo.com/aws-cheat-sheets/
+    vendor: AWS
+    certs: [AWS-SAA, AWS-DVA, AWS-SOA]
+    tags: [cheatsheet, community, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Concise per-service cheat sheets widely used by AWS exam candidates."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Azure — Official & Exam Guides
+  # ──────────────────────────────────────────────
+  - title: "Microsoft Learn – Free Training"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/training/
+    vendor: Microsoft
+    certs: [AZ-900, AZ-104, AZ-204, AZ-305, AZ-400, SC-900]
+    tags: [free-course, official, self-paced]
+    difficulty: beginner
+    language: [en]
+    notes: "Microsoft's free learning platform with structured paths for every Azure certification."
+    last_verified: "2026-02-14"
+
+  - title: "AZ-900: Azure Fundamentals – Study Guide"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/
+    vendor: Microsoft
+    certs: [AZ-900]
+    tags: [exam-guide, foundational]
+    difficulty: beginner
+    language: [en]
+    notes: "Official AZ-900 cert page with study guide, learning paths, and practice assessment."
+    last_verified: "2026-02-14"
+
+  - title: "AZ-104: Azure Administrator – Study Guide"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/
+    vendor: Microsoft
+    certs: [AZ-104]
+    tags: [exam-guide, associate, administration]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official AZ-104 cert page with exam skills outline and free learning paths."
+    last_verified: "2026-02-14"
+
+  - title: "AZ-204: Azure Developer – Study Guide"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-developer/
+    vendor: Microsoft
+    certs: [AZ-204]
+    tags: [exam-guide, associate, developer]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official AZ-204 cert page focused on building Azure solutions."
+    last_verified: "2026-02-14"
+
+  - title: "AZ-305: Azure Solutions Architect Expert – Study Guide"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/
+    vendor: Microsoft
+    certs: [AZ-305]
+    tags: [exam-guide, expert, architecture]
+    difficulty: advanced
+    language: [en]
+    notes: "Official AZ-305 cert page for designing Azure infrastructure solutions."
+    last_verified: "2026-02-14"
+
+  - title: "AZ-400: Azure DevOps Engineer Expert – Study Guide"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/
+    vendor: Microsoft
+    certs: [AZ-400]
+    tags: [exam-guide, expert, devops]
+    difficulty: advanced
+    language: [en]
+    notes: "Official AZ-400 cert page covering DevOps practices on Azure."
+    last_verified: "2026-02-14"
+
+  - title: "SC-900: Security, Compliance, and Identity Fundamentals – Study Guide"
+    type: exam-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/
+    vendor: Microsoft
+    certs: [SC-900]
+    tags: [exam-guide, foundational, security]
+    difficulty: beginner
+    language: [en]
+    notes: "Official SC-900 cert page for Microsoft security and compliance fundamentals."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Azure — Reference & Architecture
+  # ──────────────────────────────────────────────
+  - title: "Azure Architecture Center"
+    type: reference
+    url: https://learn.microsoft.com/en-us/azure/architecture/
+    vendor: Microsoft
+    certs: [AZ-305, AZ-104]
+    tags: [architecture, reference-architectures, patterns]
+    difficulty: intermediate
+    language: [en]
+    notes: "Reference architectures, design patterns, and best practices for Azure solutions."
+    last_verified: "2026-02-14"
+
+  - title: "Azure Well-Architected Framework"
+    type: official-doc
+    url: https://learn.microsoft.com/en-us/azure/well-architected/
+    vendor: Microsoft
+    certs: [AZ-305, AZ-104]
+    tags: [architecture, best-practices, pillars]
+    difficulty: intermediate
+    language: [en]
+    notes: "Azure's framework for building reliable, secure, and cost-optimised cloud workloads."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Azure — Community / Video
+  # ──────────────────────────────────────────────
+  - title: "John Savill's AZ-900 Azure Fundamentals Certification Course"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLlVtbbG169nED0_vMEniWBQjSoxTsBYS3
+    vendor: Microsoft
+    certs: [AZ-900]
+    tags: [video, free, community]
+    difficulty: beginner
+    language: [en]
+    notes: "Comprehensive free video course for AZ-900 by Microsoft MVP John Savill."
+    last_verified: "2026-02-14"
+
+  - title: "John Savill's AZ-104 Study Cram"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLlVtbbG169nGlGPWs9xaLKT1KfwqREHbs
+    vendor: Microsoft
+    certs: [AZ-104]
+    tags: [video, free, community]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free in-depth AZ-104 video series by Microsoft MVP with whiteboard diagrams."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GCP — Official & Exam Guides
+  # ──────────────────────────────────────────────
+  - title: "Google Cloud Certification Home"
+    type: official-doc
+    url: https://cloud.google.com/learn/certification
+    vendor: Google
+    certs: [GCP-CDL, GCP-ACE, GCP-PCA]
+    tags: [certification, overview]
+    difficulty: beginner
+    language: [en]
+    notes: "Central portal for all Google Cloud certification paths and exam registration."
+    last_verified: "2026-02-14"
+
+  - title: "Cloud Digital Leader Certification"
+    type: exam-guide
+    url: https://cloud.google.com/learn/certification/cloud-digital-leader
+    vendor: Google
+    certs: [GCP-CDL]
+    tags: [exam-guide, foundational]
+    difficulty: beginner
+    language: [en]
+    notes: "Official exam page for the entry-level GCP certification."
+    last_verified: "2026-02-14"
+
+  - title: "Associate Cloud Engineer Certification"
+    type: exam-guide
+    url: https://cloud.google.com/learn/certification/cloud-engineer
+    vendor: Google
+    certs: [GCP-ACE]
+    tags: [exam-guide, associate]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official ACE exam page with topics, sample questions, and study resources."
+    last_verified: "2026-02-14"
+
+  - title: "Professional Cloud Architect Certification"
+    type: exam-guide
+    url: https://cloud.google.com/learn/certification/cloud-architect
+    vendor: Google
+    certs: [GCP-PCA]
+    tags: [exam-guide, professional, architecture]
+    difficulty: advanced
+    language: [en]
+    notes: "Official PCA exam page for the flagship GCP architecture certification."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GCP — Free Training & Labs
+  # ──────────────────────────────────────────────
+  - title: "Google Cloud Skills Boost"
+    type: study-guide
+    url: https://www.cloudskillsboost.google/
+    vendor: Google
+    certs: [GCP-CDL, GCP-ACE, GCP-PCA]
+    tags: [free-course, official, labs]
+    difficulty: beginner
+    language: [en]
+    notes: "Free tier includes learning paths, quests, and hands-on labs for GCP certifications."
+    last_verified: "2026-02-14"
+
+  - title: "Cloud Digital Leader Learning Path"
+    type: study-guide
+    url: https://www.cloudskillsboost.google/paths/9
+    vendor: Google
+    certs: [GCP-CDL]
+    tags: [learning-path, free, foundational]
+    difficulty: beginner
+    language: [en]
+    notes: "Structured free learning path covering all CDL exam domains."
+    last_verified: "2026-02-14"
+
+  - title: "Associate Cloud Engineer Learning Path"
+    type: study-guide
+    url: https://www.cloudskillsboost.google/paths/11
+    vendor: Google
+    certs: [GCP-ACE]
+    tags: [learning-path, free, associate]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free hands-on path with labs aligned to ACE exam objectives."
+    last_verified: "2026-02-14"
+
+  - title: "Professional Cloud Architect Learning Path"
+    type: study-guide
+    url: https://www.cloudskillsboost.google/paths/12
+    vendor: Google
+    certs: [GCP-PCA]
+    tags: [learning-path, free, professional]
+    difficulty: advanced
+    language: [en]
+    notes: "Free learning path for the PCA cert covering design and planning."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GCP — Reference & Architecture
+  # ──────────────────────────────────────────────
+  - title: "Google Cloud Architecture Framework"
+    type: reference
+    url: https://cloud.google.com/architecture/framework
+    vendor: Google
+    certs: [GCP-PCA, GCP-ACE]
+    tags: [architecture, best-practices, framework]
+    difficulty: intermediate
+    language: [en]
+    notes: "Google's opinionated guide to building secure, reliable, and cost-effective cloud systems."
+    last_verified: "2026-02-14"
+
+  - title: "Google Cloud Architecture Center"
+    type: reference
+    url: https://cloud.google.com/architecture
+    vendor: Google
+    certs: [GCP-PCA, GCP-ACE]
+    tags: [architecture, reference-architectures, patterns]
+    difficulty: intermediate
+    language: [en]
+    notes: "Reference architectures and solution guides for common GCP workloads."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Multi-Cloud / Vendor-Neutral
+  # ──────────────────────────────────────────────
+  - title: "Cloud Computing Concepts – Georgia Tech (Coursera, audit free)"
+    type: study-guide
+    url: https://www.coursera.org/learn/cloud-computing
+    vendor: Neutral
+    certs: [AWS-CLF, AZ-900, GCP-CDL]
+    tags: [fundamentals, academic, free-audit]
+    difficulty: beginner
+    language: [en]
+    notes: "University-level cloud computing fundamentals — audit the course for free."
+    last_verified: "2026-02-14"
+
+  - title: "DevOps Roadmap – Cloud Section"
+    type: reference
+    url: https://roadmap.sh/devops
+    vendor: Neutral
+    certs: [AWS-CLF, AZ-900, GCP-CDL]
+    tags: [roadmap, learning-path, community]
+    difficulty: beginner
+    language: [en]
+    notes: "Community-maintained visual roadmap with cloud fundamentals section."
+    last_verified: "2026-02-14"

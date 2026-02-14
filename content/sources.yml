@@ -1,0 +1,258 @@
+# Trusted Sources Registry
+# Sources referenced across content/resources/*.yml files.
+# Each entry = a publisher/platform we consider reputable for cert prep.
+# Anti-dump policy: NO exam dump sites, brain dump vendors, or NDA-violating sources.
+
+sources:
+  # ──────────────────────────────────────────────
+  # Certification Vendors (Official)
+  # ──────────────────────────────────────────────
+  - name: AWS (Amazon Web Services)
+    url: https://aws.amazon.com/certification/
+    category: vendor
+    notes: "Official AWS cert portal — exam guides, free digital training via Skill Builder."
+
+  - name: Microsoft
+    url: https://learn.microsoft.com/en-us/credentials/
+    category: vendor
+    notes: "Official Microsoft certifications — free Learn paths, sandboxes, practice assessments."
+
+  - name: Google Cloud
+    url: https://cloud.google.com/learn/certification
+    category: vendor
+    notes: "Official GCP cert page — Cloud Skills Boost hosts free labs and learning paths."
+
+  - name: CompTIA
+    url: https://www.comptia.org/certifications
+    category: vendor
+    notes: "Vendor-neutral certs (Security+, Network+, Linux+, Project+). Official objectives PDFs are free."
+
+  - name: Cisco
+    url: https://www.cisco.com/site/us/en/learn/training-certifications/certifications/index.html
+    category: vendor
+    notes: "CCNA, CCNP, CCIE tracks. Networking Academy (netacad.com) offers free courses."
+
+  - name: ISC2
+    url: https://www.isc2.org/certifications
+    category: vendor
+    notes: "CISSP, CC (Certified in Cybersecurity). CC training + exam voucher is free."
+
+  - name: Linux Foundation
+    url: https://training.linuxfoundation.org/
+    category: vendor
+    notes: "LFCS, LFCA, CKA, CKAD, CKS. Free intro courses on edX."
+
+  - name: Red Hat
+    url: https://www.redhat.com/en/services/training-and-certification
+    category: vendor
+    notes: "RHCSA, RHCE, OpenShift certs. Developer sandbox provides free RHEL access."
+
+  - name: HashiCorp
+    url: https://developer.hashicorp.com/certifications
+    category: vendor
+    notes: "Terraform Associate, Vault Associate. Free tutorials on developer.hashicorp.com."
+
+  - name: Juniper Networks
+    url: https://learningportal.juniper.net/juniper/default.aspx
+    category: vendor
+    notes: "JNCIA, JNCIS tracks. Free open learning courses via Juniper Learning Portal."
+
+  - name: CNCF (Cloud Native Computing Foundation)
+    url: https://www.cncf.io/training/
+    category: vendor
+    notes: "CKA, CKAD, CKS, Prometheus cert. Free intro courses + Kubernetes docs."
+
+  - name: Docker
+    url: https://docs.docker.com/
+    category: vendor
+    notes: "DCA prep resources. Official docs + Play with Docker labs are free."
+
+  - name: PMI (Project Management Institute)
+    url: https://www.pmi.org/certifications
+    category: vendor
+    notes: "PMP, CAPM certs. PMBOK Guide overview and some Study Hall content is free."
+
+  - name: Scrum.org
+    url: https://www.scrum.org/assessments
+    category: vendor
+    notes: "PSM I/II, PSPO. Free Open Assessments for practice."
+
+  - name: AXELOS (PeopleCert)
+    url: https://www.axelos.com/certifications/itil-service-management
+    category: vendor
+    notes: "ITIL 4 Foundation. Official framework overview is free; exam requires purchase."
+
+  - name: Databricks
+    url: https://www.databricks.com/learn/certification
+    category: vendor
+    notes: "Data Engineer Associate, ML Associate. Free training via Databricks Academy."
+
+  # ──────────────────────────────────────────────
+  # Community Educators
+  # ──────────────────────────────────────────────
+  - name: Professor Messer
+    url: https://www.professormesser.com/
+    category: community
+    notes: "Free video courses for CompTIA A+, Network+, Security+. Covers full exam objectives."
+
+  - name: "Jeremy's IT Lab"
+    url: https://www.youtube.com/@JesremsITLab
+    category: community
+    notes: "Free CCNA 200-301 full video course + Packet Tracer labs on YouTube."
+
+  - name: David Bombal
+    url: https://www.youtube.com/@DavidBombal
+    category: community
+    notes: "Networking, ethical hacking, Python for network engineers. Free YouTube content."
+
+  - name: Tutorials Dojo
+    url: https://tutorialsdojo.com/
+    category: community
+    notes: "AWS cheat sheets and study guides. Free tier content; practice exams are paid."
+
+  - name: KodeKloud
+    url: https://kodekloud.com/
+    category: community
+    notes: "DevOps/Kubernetes labs. Some free challenges; full platform is paid."
+
+  - name: Killercoda
+    url: https://killercoda.com/
+    category: community
+    notes: "Free browser-based labs for Kubernetes, Linux, Docker, and more."
+
+  # ──────────────────────────────────────────────
+  # Learning Platforms (free tier)
+  # ──────────────────────────────────────────────
+  - name: AWS Skill Builder
+    url: https://explore.skillbuilder.aws/
+    category: platform
+    notes: "600+ free AWS courses. Official exam prep (some paid). Digital badges."
+
+  - name: Google Cloud Skills Boost
+    url: https://www.cloudskillsboost.google/
+    category: platform
+    notes: "Free GCP labs, quests, and learning paths. Some require credits."
+
+  - name: Microsoft Learn
+    url: https://learn.microsoft.com/
+    category: platform
+    notes: "Free learning paths, sandboxes, practice assessments for all Microsoft certs."
+
+  - name: Cisco Networking Academy
+    url: https://www.netacad.com/
+    category: platform
+    notes: "Free networking courses (CCNA-aligned). Packet Tracer simulator included."
+
+  - name: Skills for All (Cisco)
+    url: https://skillsforall.com/
+    category: platform
+    notes: "Free Cisco courses — cybersecurity, networking, Python. Self-paced."
+
+  - name: TryHackMe
+    url: https://tryhackme.com/
+    category: platform
+    notes: "Gamified cybersecurity labs. Free tier rooms for security fundamentals."
+
+  - name: Hack The Box Academy
+    url: https://academy.hackthebox.com/
+    category: platform
+    notes: "Penetration testing labs. Free tier modules for OSCP-style prep."
+
+  - name: PortSwigger Web Security Academy
+    url: https://portswigger.net/web-security
+    category: platform
+    notes: "100% free web security labs. Best resource for web app security skills."
+
+  - name: OverTheWire
+    url: https://overthewire.org/wargames/
+    category: platform
+    notes: "Free Linux/security wargames (Bandit, Natas, etc.). Great for CLI skills."
+
+  - name: Coursera (audit mode)
+    url: https://www.coursera.org/
+    category: platform
+    notes: "Google, IBM, AWS certs on Coursera. Free to audit; certificates require payment."
+
+  - name: fast.ai
+    url: https://course.fast.ai/
+    category: platform
+    notes: "Free deep learning course. Practical ML — top-down teaching approach."
+
+  - name: Kaggle
+    url: https://www.kaggle.com/learn
+    category: platform
+    notes: "Free micro-courses: Python, ML, SQL, feature engineering. Hands-on notebooks."
+
+  - name: DataTalks.Club
+    url: https://datatalks.club/
+    category: platform
+    notes: "Free data engineering and MLOps courses. Community-driven, project-based."
+
+  # ──────────────────────────────────────────────
+  # Security Frameworks & Standards
+  # ──────────────────────────────────────────────
+  - name: OWASP Foundation
+    url: https://owasp.org/
+    category: framework
+    notes: "OWASP Top 10, cheat sheets, testing guides. Essential for security certs."
+
+  - name: MITRE ATT&CK
+    url: https://attack.mitre.org/
+    category: framework
+    notes: "Adversary tactics/techniques knowledge base. Key reference for security analysts."
+
+  - name: NIST
+    url: https://www.nist.gov/cybersecurity
+    category: framework
+    notes: "Cybersecurity Framework (CSF), 800-series publications. Free government resource."
+
+  - name: CIS (Center for Internet Security)
+    url: https://www.cisecurity.org/
+    category: framework
+    notes: "CIS Benchmarks and Controls. Free PDF downloads for hardening guides."
+
+  - name: SANS
+    url: https://www.sans.org/
+    category: framework
+    notes: "GIAC certs, reading room papers, Internet Storm Center. Some free content."
+
+  # ──────────────────────────────────────────────
+  # Reference / Documentation
+  # ──────────────────────────────────────────────
+  - name: roadmap.sh
+    url: https://roadmap.sh/
+    category: reference
+    notes: "Community-driven skill roadmaps for DevOps, backend, frontend, etc."
+
+  - name: 12factor.net
+    url: https://12factor.net/
+    category: reference
+    notes: "The Twelve-Factor App methodology. Core reading for cloud-native design."
+
+  - name: Kubernetes Documentation
+    url: https://kubernetes.io/docs/
+    category: reference
+    notes: "Official K8s docs — tasks, tutorials, API reference. Primary CKA/CKAD resource."
+
+  - name: Terraform Registry
+    url: https://registry.terraform.io/
+    category: reference
+    notes: "Official provider/module docs. Essential reference for Terraform Associate."
+
+  - name: DORA (DevOps Research & Assessment)
+    url: https://dora.dev/
+    category: reference
+    notes: "DORA metrics, State of DevOps reports. Key reference for SRE/DevOps certs."
+
+  - name: SRE Book (Google)
+    url: https://sre.google/sre-book/table-of-contents/
+    category: reference
+    notes: "Free online — Google's Site Reliability Engineering book. SRE bible."
+
+  # ──────────────────────────────────────────────
+  # GitHub Repositories
+  # ──────────────────────────────────────────────
+  - name: GitHub
+    url: https://github.com/
+    category: platform
+    notes: "Hosts curated awesome-lists, study guides, and practice labs referenced throughout."

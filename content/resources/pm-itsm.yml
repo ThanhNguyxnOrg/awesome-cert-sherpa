@@ -1,0 +1,354 @@
+# Project Management & IT Service Management Certification Resources
+# Covers: PMP, CAPM, PSM I, CSM, SAFe, ITIL 4, PRINCE2, CompTIA Project+
+# Maintained by: awesome-cert-sherpa contributors
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # PMI — PMP & CAPM (Official)
+  # ──────────────────────────────────────────────
+  - title: "PMP Examination Content Outline (2026)"
+    type: exam-guide
+    url: https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf
+    vendor: PMI
+    certs: [PMP]
+    tags: [exam-objectives, official, waterfall, agile, hybrid]
+    difficulty: advanced
+    language: [en]
+    notes: "Official PMI exam blueprint — People (42%), Process (50%), Business Environment (8%)."
+    last_verified: "2026-02-14"
+
+  - title: "CAPM Exam Content Outline"
+    type: exam-guide
+    url: https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf
+    vendor: PMI
+    certs: [CAPM]
+    tags: [exam-objectives, official, pmbok]
+    difficulty: beginner
+    language: [en]
+    notes: "Official PMI exam outline for the Certified Associate in Project Management."
+    last_verified: "2026-02-14"
+
+  - title: "PMBOK Guide 7th Edition Overview"
+    type: official-doc
+    url: https://www.pmi.org/standards/pmbok
+    vendor: PMI
+    certs: [PMP, CAPM]
+    tags: [official, pmbok, principles, performance-domains]
+    difficulty: intermediate
+    language: [en]
+    notes: "PMI's standard for project management — 12 principles and 8 performance domains. Free for PMI members."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Scrum — PSM I / CSM
+  # ──────────────────────────────────────────────
+  - title: "The Scrum Guide (2020)"
+    type: official-doc
+    url: https://scrumguides.org/
+    vendor: Scrum.org
+    certs: [PSM-I, CSM]
+    tags: [scrum, agile, official, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Definitive 13-page guide to Scrum by Schwaber & Sutherland. Free PDF in 30+ languages."
+    last_verified: "2026-02-14"
+
+  - title: "Scrum.org Open Assessments"
+    type: lab
+    url: https://www.scrum.org/open-assessments
+    vendor: Scrum.org
+    certs: [PSM-I, PSPO-I]
+    tags: [free, practice-exam, scrum, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Free official practice assessments — Scrum Open, Product Owner Open, Developer Open. Unlimited attempts."
+    last_verified: "2026-02-14"
+
+  - title: "Scrum.org Suggested Reading for PSM I"
+    type: study-guide
+    url: https://www.scrum.org/resources/suggested-reading-professional-scrum-master
+    vendor: Scrum.org
+    certs: [PSM-I]
+    tags: [official, reading-list, scrum]
+    difficulty: beginner
+    language: [en]
+    notes: "Official recommended reading list to prepare for the Professional Scrum Master I assessment."
+    last_verified: "2026-02-14"
+
+  - title: "Kanban Guide for Scrum Teams"
+    type: reference
+    url: https://www.scrum.org/resources/kanban-guide-scrum-teams
+    vendor: Scrum.org
+    certs: [PSM-I, PSK]
+    tags: [kanban, scrum, agile, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official guide for applying Kanban practices within Scrum — flow metrics, WIP limits."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Agile Foundations
+  # ──────────────────────────────────────────────
+  - title: "Agile Manifesto & 12 Principles"
+    type: reference
+    url: https://agilemanifesto.org/
+    vendor: Neutral
+    certs: [PMP, PSM-I, CSM, SAFe-Agilist]
+    tags: [agile, manifesto, principles, foundational]
+    difficulty: beginner
+    language: [en]
+    notes: "The founding document of Agile — 4 values and 12 principles. Required reading for every Agile cert."
+    last_verified: "2026-02-14"
+
+  - title: "The Kanban Guide"
+    type: reference
+    url: https://www.prokanban.org/the-kanban-guide
+    vendor: ProKanban.org
+    certs: [PSM-I, PMP]
+    tags: [kanban, agile, wip-limits, flow]
+    difficulty: beginner
+    language: [en]
+    notes: "Free comprehensive Kanban reference — definition, practices, measures, and flow management."
+    last_verified: "2026-02-14"
+
+  - title: "Nexus Guide (Scaling Scrum)"
+    type: reference
+    url: https://www.scrum.org/resources/nexus-guide
+    vendor: Scrum.org
+    certs: [PSM-I]
+    tags: [scrum, scaling, nexus, official]
+    difficulty: advanced
+    language: [en]
+    notes: "Official guide for scaling Scrum to 3-9 teams working on a single product."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # SAFe (Scaled Agile Framework)
+  # ──────────────────────────────────────────────
+  - title: "SAFe Framework Reference"
+    type: official-doc
+    url: https://framework.scaledagile.com/
+    vendor: Scaled Agile
+    certs: [SAFe-Agilist]
+    tags: [safe, agile, scaling, official, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Complete SAFe framework documentation — free online reference for all SAFe configurations."
+    last_verified: "2026-02-14"
+
+  - title: "SAFe Certification Overview"
+    type: exam-guide
+    url: https://scaledagile.com/certification/
+    vendor: Scaled Agile
+    certs: [SAFe-Agilist]
+    tags: [certification, official, safe]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official SAFe certification paths, exam details, and training requirements."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # ITIL 4 Foundation
+  # ──────────────────────────────────────────────
+  - title: "ITIL 4 Foundation Certification Overview"
+    type: exam-guide
+    url: https://www.axelos.com/certifications/itil-service-management/itil-4-foundation/
+    vendor: AXELOS
+    certs: [ITIL-4-Foundation]
+    tags: [itil, service-management, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official ITIL 4 Foundation page — exam info, syllabus link, and certification path."
+    last_verified: "2026-02-14"
+
+  - title: "ITIL 4 Foundation Candidate Syllabus"
+    type: exam-guide
+    url: https://www.axelos.com/resource-hub/syllabus/itil-4-foundation-candidate-syllabus
+    vendor: AXELOS
+    certs: [ITIL-4-Foundation]
+    tags: [itil, syllabus, official, exam-objectives]
+    difficulty: beginner
+    language: [en]
+    notes: "Official exam syllabus — testable concepts, question types, and bloom's taxonomy levels."
+    last_verified: "2026-02-14"
+
+  - title: "IT Process Wiki — ITIL 4 Reference"
+    type: reference
+    url: https://wiki.en.it-processmaps.com/index.php/ITIL_4
+    vendor: Neutral
+    certs: [ITIL-4-Foundation]
+    tags: [itil, service-management, free, process-maps]
+    difficulty: beginner
+    language: [en]
+    notes: "Free community ITIL 4 reference with process maps, practice descriptions, and SVS overview."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # PRINCE2
+  # ──────────────────────────────────────────────
+  - title: "PRINCE2 Foundation Exam Cram (Free 55-Page PDF)"
+    type: study-guide
+    url: https://www.projex.com/prince2-foundation-exam-cram-2025-free-55-page-study-guide/
+    vendor: Neutral
+    certs: [PRINCE2-Foundation]
+    tags: [prince2, free, study-guide, waterfall]
+    difficulty: beginner
+    language: [en]
+    notes: "Comprehensive free study guide for PRINCE2 7 Foundation — processes, themes, principles."
+    last_verified: "2026-02-14"
+
+  - title: "PRINCE2 Certification Overview"
+    type: official-doc
+    url: https://www.axelos.com/certifications/prince2
+    vendor: AXELOS
+    certs: [PRINCE2-Foundation, PRINCE2-Practitioner]
+    tags: [prince2, official, certification]
+    difficulty: beginner
+    language: [en]
+    notes: "Official PRINCE2 certification page — Foundation and Practitioner level details."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # CompTIA Project+ (PK0-005)
+  # ──────────────────────────────────────────────
+  - title: "CompTIA Project+ Exam Objectives (PK0-005)"
+    type: exam-guide
+    url: https://partners.comptia.org/docs/default-source/resources/comptia-project-pk0-005-exam-objectives-(2-0)
+    vendor: CompTIA
+    certs: [Project+]
+    tags: [exam-objectives, official, waterfall, agile]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam blueprint covering project basics, constraints, communication, and change management."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA Project+ Certification Page"
+    type: official-doc
+    url: https://www.comptia.org/certifications/project
+    vendor: CompTIA
+    certs: [Project+]
+    tags: [certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Project+ page with exam details, career paths, and renewal information."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Video Courses & MOOCs
+  # ──────────────────────────────────────────────
+  - title: "PMBOK Processes Explained — Ricardo Vargas (YouTube)"
+    type: video
+    url: https://www.youtube.com/watch?v=GC7pN8Mjot8
+    vendor: Neutral
+    certs: [PMP, CAPM]
+    tags: [free, video, pmbok, itto, processes]
+    difficulty: intermediate
+    language: [en]
+    notes: "Famous 1-hour video explaining all 49 PMBOK processes with flow diagrams — 1.6M+ views."
+    last_verified: "2026-02-14"
+
+  - title: "PMBOK 7th Edition Explained — Ricardo Vargas (YouTube)"
+    type: video
+    url: https://www.youtube.com/watch?v=HVlrxOQoSUw
+    vendor: Neutral
+    certs: [PMP]
+    tags: [free, video, pmbok, principles, performance-domains]
+    difficulty: intermediate
+    language: [en]
+    notes: "Clear explanation of the PMBOK 7 shift to 12 principles and 8 performance domains."
+    last_verified: "2026-02-14"
+
+  - title: "David McLachlan — PMP Full Course (YouTube)"
+    type: video
+    url: https://www.youtube.com/watch?v=2gmCr40uT4U
+    vendor: Neutral
+    certs: [PMP]
+    tags: [free, video, pmbok, exam-prep]
+    difficulty: intermediate
+    language: [en]
+    notes: "Comprehensive PMBOK 7 overview covering all domains in a single long-form video."
+    last_verified: "2026-02-14"
+
+  - title: "Google Project Management Certificate (Coursera — Free Audit)"
+    type: tutorial
+    url: https://www.coursera.org/professional-certificates/google-project-management
+    vendor: Google
+    certs: [CAPM, PMP]
+    tags: [free-audit, mooc, agile, waterfall, coursera]
+    difficulty: beginner
+    language: [en]
+    notes: "6-course series covering PM fundamentals, Agile, and stakeholder management. Free to audit."
+    last_verified: "2026-02-14"
+
+  - title: "Applied Scrum for Agile PM — UMD/edX (Free Audit)"
+    type: tutorial
+    url: https://www.edx.org/learn/scrum/the-university-of-maryland-college-park-applied-scrum-for-agile-project-management
+    vendor: Neutral
+    certs: [PSM-I, CSM]
+    tags: [free-audit, mooc, scrum, agile, edx]
+    difficulty: beginner
+    language: [en]
+    notes: "4-week self-paced course from University of Maryland — practical Scrum application."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Cheatsheets & Formula References
+  # ──────────────────────────────────────────────
+  - title: "EVM Cheat Sheet (BrightWork)"
+    type: cheatsheet
+    url: https://www.brightwork.com/wp-content/uploads/Earned-Value-Management-Cheat-Sheet-1.pdf
+    vendor: Neutral
+    certs: [PMP, CAPM]
+    tags: [earned-value, formulas, evm, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free PDF covering core EVM formulas — PV, EV, AC, CPI, SPI, EAC, ETC, TCPI."
+    last_verified: "2026-02-14"
+
+  - title: "PMP Formulas Cheat Sheet — Master of Project"
+    type: cheatsheet
+    url: https://blog.masterofproject.com/pmp-formulas-pmp-cheat-sheet/
+    vendor: Neutral
+    certs: [PMP]
+    tags: [formulas, earned-value, exam-prep]
+    difficulty: intermediate
+    language: [en]
+    notes: "15 essential PMP formulas with explanations — EVM, communication channels, PERT, depreciation."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GitHub Repos & Community Resources
+  # ──────────────────────────────────────────────
+  - title: "awesome-agile"
+    type: repo
+    url: https://github.com/lorabv/awesome-agile
+    vendor: Neutral
+    certs: [PSM-I, CSM, SAFe-Agilist, PMP]
+    tags: [github, agile, scrum, curated-list]
+    difficulty: beginner
+    language: [en]
+    notes: "Curated list of Agile resources — 1.5k+ stars. Books, tools, podcasts, and communities."
+    last_verified: "2026-02-14"
+
+  - title: "awesome-project-management"
+    type: repo
+    url: https://github.com/shahedbd/awesome-project-management
+    vendor: Neutral
+    certs: [PMP, CAPM, Project+]
+    tags: [github, project-management, curated-list]
+    difficulty: beginner
+    language: [en]
+    notes: "Curated PM resource list — 700+ stars. Tools, methodologies, and learning resources."
+    last_verified: "2026-02-14"
+
+  - title: "awesome-agile-essentials"
+    type: repo
+    url: https://github.com/SaadAAkash/awesome-agile-essentials
+    vendor: Neutral
+    certs: [PSM-I, CSM]
+    tags: [github, agile, scrum, resources]
+    difficulty: beginner
+    language: [en]
+    notes: "Agile/Scrum concepts and resources for practitioners and aspiring Scrum Masters."
+    last_verified: "2026-02-14"

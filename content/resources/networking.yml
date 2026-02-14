@@ -1,0 +1,351 @@
+# Networking Certification Resources
+# Covers: Cisco CCNA, CompTIA Network+, Juniper JNCIA, General Networking
+# Maintained by: awesome-cert-sherpa contributors
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # CISCO CCNA (200-301) — Official Resources
+  # ──────────────────────────────────────────────
+  - title: "CCNA 200-301 Exam Topics (v1.1)"
+    type: exam-guide
+    url: "https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301-CCNA-v1.1.pdf"
+    vendor: "Cisco"
+    certs: [CCNA-200-301]
+    tags: [exam-topics, syllabus, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Cisco exam blueprint covering all topics tested on CCNA 200-301 v1.1"
+    last_verified: "2026-02-14"
+
+  - title: "Cisco Networking Academy"
+    type: learning-platform
+    url: "https://www.netacad.com/"
+    vendor: Cisco
+    certs: [CCNA, CCST]
+    tags: [courses, free, official, packet-tracer]
+    difficulty: beginner
+    language: [multi]
+    notes: "Free self-paced courses including Networking Basics, Introduction to Cybersecurity, NDG Linux. Requires Cisco account."
+    last_verified: "2026-02-14"
+
+  - title: "Skills for All - Cisco Learning Platform"
+    type: learning-platform
+    url: "https://skillsforall.com/"
+    vendor: Cisco
+    certs: [CCNA, CCST]
+    tags: [courses, free, official, career-path]
+    difficulty: beginner
+    language: [en]
+    notes: "Free online courses with practice labs. Includes Networking Basics, Junior Cybersecurity Analyst Career Path."
+    last_verified: "2026-02-14"
+
+  - title: "Cisco Packet Tracer"
+    type: software-tool
+    url: "https://www.netacad.com/courses/packet-tracer"
+    vendor: Cisco
+    certs: [CCNA, CCNP]
+    tags: [network-simulator, labs, free, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free network simulation software for Cisco devices. Download requires NetAcad account. Essential for CCNA lab practice."
+    last_verified: "2026-02-14"
+
+  - title: "Cisco Learning Network"
+    type: community
+    url: "https://learningnetwork.cisco.com/"
+    vendor: Cisco
+    certs: [CCNA, CCNP, CCIE]
+    tags: [community, forums, official, study-groups]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Cisco community forums for certification exam prep. Free discussions, study groups, and peer support."
+    last_verified: "2026-02-14"
+
+  - title: "CCNA Certification Community"
+    type: community
+    url: "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/community.html"
+    vendor: Cisco
+    certs: [CCNA-200-301]
+    tags: [community, official, resources, blogs]
+    difficulty: beginner
+    language: [en]
+    notes: "Official CCNA community page with free articles, blogs, webinars, and community-sourced study resources."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # CISCO CCNA (200-301) — Video Courses
+  # ──────────────────────────────────────────────
+  - title: "Jeremy's IT Lab - Free CCNA 200-301 Course"
+    type: video
+    url: "https://www.youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ"
+    vendor: "Jeremy's IT Lab"
+    certs: [CCNA-200-301]
+    tags: [video, free, youtube, complete-course]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Complete free CCNA course on YouTube. Highly rated by community. Covers all exam topics v1.1."
+    last_verified: "2026-02-14"
+
+  - title: "David Bombal - Free CCNA 200-301 Course"
+    type: video
+    url: "https://www.youtube.com/watch?v=tj3yCZWOWYc"
+    vendor: "David Bombal"
+    certs: [CCNA-200-301]
+    tags: [video, free, youtube, practical]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Practical-focused CCNA course using real equipment and Packet Tracer. CCIE #11023 Emeritus instructor."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # CISCO CCNA (200-301) — Practice Tools
+  # ──────────────────────────────────────────────
+  - title: "Subnetting Practice - Random Question Generator"
+    type: practice-tool
+    url: "https://subnetting.org/"
+    vendor: "Subnetting Practice"
+    certs: [CCNA, Network+]
+    tags: [subnetting, practice, free, interactive]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free randomly generated subnetting questions. Great for practicing IPv4 subnet calculations."
+    last_verified: "2026-02-14"
+
+  - title: "Subnetting Practice Questions"
+    type: practice-tool
+    url: "https://subnettingpractice.com/"
+    vendor: "Subnetting Practice"
+    certs: [CCNA, Network+]
+    tags: [subnetting, practice, free, calculator]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Text-based and image-based subnetting questions with subnet calculator and VLSM calculator."
+    last_verified: "2026-02-14"
+
+  - title: "Subnetting.net - Practice Game"
+    type: practice-tool
+    url: "https://www.subnetting.net/Start.aspx"
+    vendor: "Subnetting.net"
+    certs: [CCNA, Network+]
+    tags: [subnetting, game, practice, timed]
+    difficulty: intermediate
+    language: [en]
+    notes: "Timed subnetting practice game. 5-minute challenge to answer as many questions as possible."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # COMPTIA NETWORK+ (N10-009) — Official
+  # ──────────────────────────────────────────────
+  - title: "CompTIA Network+ N10-009 Exam Objectives"
+    type: exam-guide
+    url: "https://comptiacdn.azureedge.net/webcontent/docs/default-source/exam-objectives/comptia-network-n10-009-exam-objectives-(4-0)-(1).pdf"
+    vendor: CompTIA
+    certs: [Network+-N10-009]
+    tags: [exam-topics, syllabus, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official CompTIA exam objectives for Network+ N10-009 version 4.0. Essential for exam preparation."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA Network+ Certification Page"
+    type: official-doc
+    url: "https://www.comptia.org/en-us/certifications/network/"
+    vendor: CompTIA
+    certs: [Network+-N10-009]
+    tags: [official, certification, resources]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official CompTIA Network+ certification page with exam objectives summary and career paths."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # COMPTIA NETWORK+ (N10-009) — Study Resources
+  # ──────────────────────────────────────────────
+  - title: "Professor Messer - CompTIA N10-009 Network+ Training Course"
+    type: video
+    url: "https://www.professormesser.com/network-plus/n10-009/n10-009-video/n10-009-training-course/"
+    vendor: "Professor Messer"
+    certs: [Network+-N10-009]
+    tags: [video, free, youtube, complete-course]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "87 free videos totaling 12 hours 55 minutes. Complete coverage of all Network+ N10-009 exam objectives."
+    last_verified: "2026-02-14"
+
+  - title: "Professor Messer - Network+ Study Group"
+    type: video
+    url: "https://www.professormesser.com/network-plus/n10-009/n10-009-study-group/"
+    vendor: "Professor Messer"
+    certs: [Network+-N10-009]
+    tags: [video, free, study-group, Q&A]
+    difficulty: intermediate
+    language: [en]
+    notes: "Monthly live study group sessions with Q&A. Replays available. Great for exam prep discussion."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # JUNIPER NETWORKS — JNCIA
+  # ──────────────────────────────────────────────
+  - title: "Juniper Networks Learning Portal - Open Learning"
+    type: learning-platform
+    url: "https://learningportal.juniper.net/"
+    vendor: "Juniper Networks"
+    certs: [JNCIA-Junos]
+    tags: [courses, free, official, Junos]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free self-paced courses including JNCIA-Junos, Network Technology Foundations. Requires Juniper account."
+    last_verified: "2026-02-14"
+
+  - title: "Juniper Open Learning - JNCIA-Junos"
+    type: course
+    url: "https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=12035"
+    vendor: "Juniper Networks"
+    certs: [JNCIA-Junos]
+    tags: [free, official, course, Junos-OS]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free self-paced course covering Junos OS fundamentals, CLI, routing tables, static routes, OSPF."
+    last_verified: "2026-02-14"
+
+  - title: "Juniper - CCNA to JNCIA-Junos Migration"
+    type: course
+    url: "https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=EDU-JUN-WBT-JOL-CCNA-JNCIA-JUNOS"
+    vendor: "Juniper Networks"
+    certs: [JNCIA-Junos]
+    tags: [free, migration, course, Cisco]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free 7-hour video series helping CCNA-certified engineers learn Junos. Compares Cisco IOS to Junos."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GENERAL NETWORKING — STANDARDS & REFERENCE
+  # ──────────────────────────────────────────────
+  - title: "RFC Editor - RFC Index"
+    type: reference
+    url: "https://www.rfc-editor.org/rfc-index.html"
+    vendor: IETF
+    certs: [CCNA, Network+, all-networking]
+    tags: [RFC, standards, protocols, official]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Official index of all Request for Comments (RFC) documents. Includes Internet protocols and standards."
+    last_verified: "2026-02-14"
+
+  - title: "RFC Editor - Search"
+    type: reference
+    url: "https://www.rfc-editor.org/search"
+    vendor: IETF
+    certs: [CCNA, Network+, all-networking]
+    tags: [RFC, standards, search, official]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Search interface for finding specific RFCs by number, title, keywords, status, and date."
+    last_verified: "2026-02-14"
+
+  - title: "Cisco - What is Computer Networking?"
+    type: official-doc
+    url: "https://www.cisco.com/c/en/us/solutions/enterprise-networks/what-is-computer-networking.html"
+    vendor: Cisco
+    certs: [CCNA, Network+]
+    tags: [documentation, official, fundamentals]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Cisco introduction to computer networking fundamentals. Covers switches, routers, and access points."
+    last_verified: "2026-02-14"
+
+  - title: "Cisco - Networking Basics Resource Center"
+    type: official-doc
+    url: "https://www.cisco.com/c/en_us/solutions/small-business/resource-center/networking/networking-basics.html"
+    vendor: Cisco
+    certs: [CCNA, Network+]
+    tags: [documentation, official, basics, SMB]
+    difficulty: beginner
+    language: [en]
+    notes: "Cisco small business networking basics guide. Explains network types, topologies, and devices."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GENERAL NETWORKING — SIMULATION & TOOLS
+  # ──────────────────────────────────────────────
+  - title: "GNS3 - Graphical Network Simulator"
+    type: software-tool
+    url: "https://www.gns3.com/"
+    vendor: GNS3
+    certs: [CCNA, CCNP, CCIE, JNCIA]
+    tags: [network-simulator, emulator, free, open-source]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Open-source network simulator for Cisco, Juniper, and other vendor devices. Uses real router/switch images."
+    last_verified: "2026-02-14"
+
+  - title: "Wireshark Documentation"
+    type: official-doc
+    url: "https://www.wireshark.org/docs/"
+    vendor: "Wireshark Foundation"
+    certs: [CCNA, Network+, all-networking]
+    tags: [packet-analysis, documentation, official]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Official Wireshark User's Guide and release notes. Essential for network troubleshooting skills."
+    last_verified: "2026-02-14"
+
+  - title: "Wireshark Learn - Tutorials"
+    type: tutorial
+    url: "https://www.wireshark.org/learn"
+    vendor: "Wireshark Foundation"
+    certs: [CCNA, Network+, all-networking]
+    tags: [packet-analysis, tutorials, official, getting-started]
+    difficulty: beginner
+    language: [en]
+    notes: "Getting started guides, installation instructions, first capture tutorials, and basic filters."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GENERAL NETWORKING — ACADEMIC
+  # ──────────────────────────────────────────────
+  - title: "Stanford CS144: Introduction to Computer Networking"
+    type: university-course
+    url: "https://cs144.github.io/"
+    vendor: "Stanford University"
+    certs: [CCNA, Network+, all-networking]
+    tags: [university, course-materials, lectures, advanced]
+    difficulty: intermediate-advanced
+    language: [en]
+    notes: "Full Stanford course materials including lecture videos, labs, and assignments. Covers TCP/IP and socket programming."
+    last_verified: "2026-02-14"
+
+  - title: "Stanford CS144 GitHub - Lab Materials"
+    type: repo
+    url: "https://github.com/CS144"
+    vendor: "Stanford University"
+    certs: [CCNA, Network+, all-networking]
+    tags: [github, labs, source-code, C++]
+    difficulty: advanced
+    language: [en]
+    notes: "Official Stanford CS144 lab repositories including minnow TCP/IP implementation lab."
+    last_verified: "2026-02-14"
+
+  - title: "Computer Networking: A Top-Down Approach - Companion Site"
+    type: textbook-supplement
+    url: "https://gaia.cs.umass.edu/kurose_ross/"
+    vendor: "Kurose & Ross"
+    certs: [CCNA, Network+, all-networking]
+    tags: [textbook, interactive, exercises, animations]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free interactive problems, Wireshark labs, and supplemental materials. 9th edition, 2025."
+    last_verified: "2026-02-14"
+
+  - title: "Kurose & Ross - Interactive Problems"
+    type: practice-tool
+    url: "https://gaia.cs.umass.edu/kurose_ross/interactive/"
+    vendor: "Kurose & Ross"
+    certs: [CCNA, Network+, all-networking]
+    tags: [interactive, exercises, practice, free]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Interactive end-of-chapter exercises covering OSI model, DNS, HTTP, TCP/IP, routing. Generate unlimited problems."
+    last_verified: "2026-02-14"

@@ -1,0 +1,286 @@
+# Data & AI Certification Resources
+# Covers: AWS ML/Data, Azure DP/AI, GCP Data/ML, Vendor-Neutral ML, MLOps
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # AWS — Data & Machine Learning
+  # ──────────────────────────────────────────────
+  - title: "AWS Machine Learning University"
+    type: study-guide
+    url: https://aws.amazon.com/ai/machine-learning/educators/
+    vendor: AWS
+    certs: [AWS-MLS, AWS-DEA]
+    tags: [machine-learning, deep-learning, nlp, computer-vision]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free courses created by AWS ML scientists covering ML fundamentals, NLP, and CV."
+    last_verified: "2026-02-14"
+
+  - title: "AWS Skill Builder – AI/ML Learning Path"
+    type: study-guide
+    url: https://aws.amazon.com/training/learn-about/machine-learning/
+    vendor: AWS
+    certs: [AWS-MLS, AWS-DEA]
+    tags: [free-course, official, generative-ai]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free digital training with role-based learning paths for ML and AI on AWS."
+    last_verified: "2026-02-14"
+
+  - title: "Amazon SageMaker Documentation"
+    type: official-doc
+    url: https://docs.aws.amazon.com/sagemaker/
+    vendor: AWS
+    certs: [AWS-MLS]
+    tags: [sagemaker, ml-platform, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official SageMaker docs — the primary ML service tested on AWS-MLS."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Azure — Data & AI Fundamentals
+  # ──────────────────────────────────────────────
+  - title: "Microsoft Learn: Azure Data Fundamentals (DP-900)"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/
+    vendor: Microsoft
+    certs: [DP-900]
+    tags: [exam-guide, data-fundamentals, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official DP-900 cert page with free learning paths and practice assessment."
+    last_verified: "2026-02-14"
+
+  - title: "Microsoft Learn: Azure AI Fundamentals (AI-900)"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/
+    vendor: Microsoft
+    certs: [AI-900]
+    tags: [exam-guide, ai-fundamentals, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official AI-900 cert page with free learning paths covering AI, ML, and Azure AI services."
+    last_verified: "2026-02-14"
+
+  - title: "Microsoft Learn: Azure Data Engineer (DP-203)"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-data-engineer/
+    vendor: Microsoft
+    certs: [DP-203]
+    tags: [exam-guide, data-engineering, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official DP-203 cert page covering data storage, processing, and security on Azure."
+    last_verified: "2026-02-14"
+
+  - title: "Microsoft Learn: Azure AI Engineer (AI-102)"
+    type: study-guide
+    url: https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/
+    vendor: Microsoft
+    certs: [AI-102]
+    tags: [exam-guide, ai-engineer, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official AI-102 cert page for building Azure AI solutions."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Google Cloud — Data & ML
+  # ──────────────────────────────────────────────
+  - title: "Google Machine Learning Crash Course"
+    type: tutorial
+    url: https://developers.google.com/machine-learning/crash-course
+    vendor: Google
+    certs: [GCP-MLE]
+    tags: [machine-learning, tensorflow, free-course]
+    difficulty: beginner
+    language: [en]
+    notes: "Free course originally created for Google engineers — video lectures + exercises."
+    last_verified: "2026-02-14"
+
+  - title: "Google Cloud Skills Boost – Data Engineer Path"
+    type: study-guide
+    url: https://www.cloudskillsboost.google/paths/16
+    vendor: Google
+    certs: [GCP-PDE]
+    tags: [data-engineering, bigquery, dataflow, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free learning path with hands-on labs for the GCP Professional Data Engineer cert."
+    last_verified: "2026-02-14"
+
+  - title: "TensorFlow Official Tutorials"
+    type: tutorial
+    url: https://www.tensorflow.org/tutorials
+    vendor: Google
+    certs: [GCP-MLE, TF-Developer]
+    tags: [tensorflow, deep-learning, keras, colab]
+    difficulty: beginner
+    language: [en]
+    notes: "Free tutorials running in Google Colab — covers images, text, structured data, and more."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Vendor-Neutral — ML & Data Science
+  # ──────────────────────────────────────────────
+  - title: "Kaggle Learn – Free Micro-Courses"
+    type: tutorial
+    url: https://www.kaggle.com/learn
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE, DP-900]
+    tags: [python, machine-learning, sql, pandas, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Bite-sized free courses with hands-on exercises — perfect for beginners."
+    last_verified: "2026-02-14"
+
+  - title: "fast.ai – Practical Deep Learning for Coders"
+    type: study-guide
+    url: https://course.fast.ai/
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [deep-learning, pytorch, fastai, free-course]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free top-down deep learning course — book also available free online."
+    last_verified: "2026-02-14"
+
+  - title: "Stanford CS229 – Machine Learning"
+    type: study-guide
+    url: https://cs229.stanford.edu/
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [machine-learning, theory, academic, free]
+    difficulty: advanced
+    language: [en]
+    notes: "Free lecture notes and problem sets from Stanford's flagship ML course."
+    last_verified: "2026-02-14"
+
+  - title: "Python Data Science Handbook (Free Online)"
+    type: reference
+    url: https://jakevdp.github.io/PythonDataScienceHandbook/
+    vendor: Neutral
+    certs: [DP-900, AWS-DEA]
+    tags: [python, numpy, pandas, scikit-learn, free-book]
+    difficulty: beginner
+    language: [en]
+    notes: "Free online version covering NumPy, pandas, Matplotlib, and scikit-learn."
+    last_verified: "2026-02-14"
+
+  - title: "StatQuest with Josh Starmer (YouTube)"
+    type: video
+    url: https://www.youtube.com/@statquest
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [statistics, machine-learning, visual-explanations, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Excellent free YouTube channel for understanding stats and ML concepts visually."
+    last_verified: "2026-02-14"
+
+  - title: "3Blue1Brown – Neural Networks Series (YouTube)"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZJCGO3Ro
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [neural-networks, deep-learning, math, visualization]
+    difficulty: beginner
+    language: [en]
+    notes: "Best visual explanations of how neural networks actually work."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Data Engineering
+  # ──────────────────────────────────────────────
+  - title: "Apache Spark Documentation"
+    type: official-doc
+    url: https://spark.apache.org/docs/latest/
+    vendor: Apache
+    certs: [AWS-DEA, GCP-PDE, Databricks]
+    tags: [spark, big-data, distributed-computing]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Spark docs with quick-start guides — covers PySpark and Spark SQL."
+    last_verified: "2026-02-14"
+
+  - title: "Databricks Academy – Free Training"
+    type: study-guide
+    url: https://www.databricks.com/learn
+    vendor: Databricks
+    certs: [Databricks-Lakehouse, Databricks-DE]
+    tags: [databricks, spark, delta-lake, mlflow, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Free on-demand courses, badges, and Databricks Community Edition access."
+    last_verified: "2026-02-14"
+
+  - title: "dbt Documentation & Tutorials"
+    type: official-doc
+    url: https://docs.getdbt.com/
+    vendor: Neutral
+    certs: [dbt-Analytics-Engineer]
+    tags: [dbt, sql, data-transformation, elt]
+    difficulty: beginner
+    language: [en]
+    notes: "Free docs and quickstarts — dbt Core is open source."
+    last_verified: "2026-02-14"
+
+  - title: "DataTalks.Club – Data Engineering Zoomcamp"
+    type: study-guide
+    url: https://datatalks.club/blog/data-engineering-zoomcamp.html
+    vendor: Neutral
+    certs: [AWS-DEA, GCP-PDE, DP-203]
+    tags: [data-engineering, free-course, hands-on, community]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free comprehensive data engineering course with real-world projects."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # MLOps & Data Quality
+  # ──────────────────────────────────────────────
+  - title: "DataTalks.Club – MLOps Zoomcamp"
+    type: study-guide
+    url: https://datatalks.club/blog/mlops-zoomcamp.html
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [mlops, mlflow, deployment, monitoring, free-course]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free MLOps course covering experiment tracking, deployment, and monitoring."
+    last_verified: "2026-02-14"
+
+  - title: "DVC (Data Version Control) Documentation"
+    type: official-doc
+    url: https://dvc.org/doc
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [mlops, data-versioning, experiment-tracking]
+    difficulty: intermediate
+    language: [en]
+    notes: "Open-source Git extension for data and model versioning."
+    last_verified: "2026-02-14"
+
+  - title: "Great Expectations Documentation"
+    type: official-doc
+    url: https://docs.greatexpectations.io/docs/
+    vendor: Neutral
+    certs: [AWS-DEA, GCP-PDE]
+    tags: [data-quality, data-validation, testing]
+    difficulty: intermediate
+    language: [en]
+    notes: "Open-source data validation framework — GX Core is free."
+    last_verified: "2026-02-14"
+
+  - title: "MLOps Community Learning Platform"
+    type: study-guide
+    url: https://learn.mlops.community/
+    vendor: Neutral
+    certs: [AWS-MLS, GCP-MLE]
+    tags: [mlops, community, free-course]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free courses on MLOps fundamentals and advanced topics."
+    last_verified: "2026-02-14"

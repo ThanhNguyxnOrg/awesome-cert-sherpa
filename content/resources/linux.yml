@@ -1,0 +1,392 @@
+# Linux Certification Resources
+# Covers: CompTIA Linux+, LPI LPIC-1/2/3, Red Hat RHCSA/RHCE, Linux Foundation LFCS/LFCA
+# Maintained by: awesome-cert-sherpa contributors
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # CompTIA Linux+ (XK0-005)
+  # ──────────────────────────────────────────────
+  - title: "CompTIA Linux+ XK0-005 Exam Objectives"
+    type: exam-guide
+    url: https://comptiacdn.azureedge.net/webcontent/docs/default-source/exam-objectives/comptia-linux-xk0-005-exam-objectives-(1-0).pdf
+    vendor: CompTIA
+    certs: [Linux+]
+    tags: [exam-objectives, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam blueprint — covers system management, security, scripting, and containers."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA Linux+ Certification Page"
+    type: official-doc
+    url: https://www.comptia.org/certifications/linux
+    vendor: CompTIA
+    certs: [Linux+]
+    tags: [certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Linux+ page with exam details, pricing, and career path information."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # LPI — LPIC-1 / LPIC-2 / LPIC-3
+  # ──────────────────────────────────────────────
+  - title: "LPIC-1 Exam 101 Objectives"
+    type: exam-guide
+    url: https://www.lpi.org/our-certifications/exam-101-objectives/
+    vendor: LPI
+    certs: [LPIC-1]
+    tags: [exam-objectives, official, system-architecture]
+    difficulty: beginner
+    language: [en]
+    notes: "Official LPIC-1 Exam 101 objectives covering system architecture, Linux installation, and GNU commands."
+    last_verified: "2026-02-14"
+
+  - title: "LPIC-1 Exam 102 Objectives"
+    type: exam-guide
+    url: https://www.lpi.org/our-certifications/exam-102-objectives/
+    vendor: LPI
+    certs: [LPIC-1]
+    tags: [exam-objectives, official, networking, security]
+    difficulty: beginner
+    language: [en]
+    notes: "Official LPIC-1 Exam 102 objectives covering shells, scripting, interfaces, and security."
+    last_verified: "2026-02-14"
+
+  - title: "LPIC-2 Exam 201 Objectives"
+    type: exam-guide
+    url: https://www.lpi.org/our-certifications/exam-201-objectives/
+    vendor: LPI
+    certs: [LPIC-2]
+    tags: [exam-objectives, official, capacity-planning, kernel]
+    difficulty: intermediate
+    language: [en]
+    notes: "Advanced Linux admin topics — capacity planning, kernel, boot process, filesystems, networking."
+    last_verified: "2026-02-14"
+
+  - title: "LPI Learning Materials"
+    type: study-guide
+    url: https://learning.lpi.org/en/
+    vendor: LPI
+    certs: [LPIC-1, LPIC-2, Linux-Essentials]
+    tags: [free, official, study-material]
+    difficulty: beginner
+    language: [en]
+    notes: "Free official learning materials from LPI covering Linux Essentials, LPIC-1, and LPIC-2."
+    last_verified: "2026-02-14"
+
+  - title: "LPI Linux Essentials Exam Objectives"
+    type: exam-guide
+    url: https://www.lpi.org/our-certifications/linux-essentials-overview/
+    vendor: LPI
+    certs: [Linux-Essentials]
+    tags: [exam-objectives, entry-level, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Entry-level cert validating basic Linux knowledge — great starting point before LPIC-1."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Red Hat — RHCSA / RHCE
+  # ──────────────────────────────────────────────
+  - title: "Red Hat RHCSA Exam (EX200) Objectives"
+    type: exam-guide
+    url: https://www.redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa-exam
+    vendor: Red Hat
+    certs: [RHCSA]
+    tags: [exam-objectives, official, rhel]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official RHCSA exam page — performance-based exam on RHEL system administration tasks."
+    last_verified: "2026-02-14"
+
+  - title: "Red Hat RHCE Exam (EX294) Objectives"
+    type: exam-guide
+    url: https://www.redhat.com/en/services/training/ex294-red-hat-certified-engineer-rhce-exam
+    vendor: Red Hat
+    certs: [RHCE]
+    tags: [exam-objectives, official, ansible, automation]
+    difficulty: advanced
+    language: [en]
+    notes: "Official RHCE exam page — focuses on Ansible automation and advanced RHEL administration."
+    last_verified: "2026-02-14"
+
+  - title: "Red Hat Developer Sandbox"
+    type: lab
+    url: https://developers.redhat.com/developer-sandbox
+    vendor: Red Hat
+    certs: [RHCSA, RHCE]
+    tags: [free, lab, rhel, openshift, hands-on]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free 30-day OpenShift/RHEL sandbox — practice RHEL commands in a real environment."
+    last_verified: "2026-02-14"
+
+  - title: "Red Hat Enterprise Linux Documentation"
+    type: official-doc
+    url: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9
+    vendor: Red Hat
+    certs: [RHCSA, RHCE]
+    tags: [official, rhel, documentation, systemd, selinux]
+    difficulty: intermediate
+    language: [en]
+    notes: "Comprehensive RHEL 9 docs — covers every topic tested on RHCSA/RHCE exams."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Linux Foundation — LFCS / LFCA
+  # ──────────────────────────────────────────────
+  - title: "LFCS Exam Domains & Competencies"
+    type: exam-guide
+    url: https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/
+    vendor: Linux Foundation
+    certs: [LFCS]
+    tags: [exam-objectives, official, sysadmin]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official LFCS page — performance-based exam covering essential Linux system administration."
+    last_verified: "2026-02-14"
+
+  - title: "LFCA Exam Domains & Competencies"
+    type: exam-guide
+    url: https://training.linuxfoundation.org/certification/certified-it-associate/
+    vendor: Linux Foundation
+    certs: [LFCA]
+    tags: [exam-objectives, official, entry-level]
+    difficulty: beginner
+    language: [en]
+    notes: "Entry-level Linux Foundation cert covering fundamentals of IT and Linux."
+    last_verified: "2026-02-14"
+
+  - title: "Introduction to Linux (LFS101x) — Free edX Course"
+    type: tutorial
+    url: https://www.edx.org/learn/linux/the-linux-foundation-introduction-to-linux
+    vendor: Linux Foundation
+    certs: [LFCA, LPIC-1]
+    tags: [free, mooc, beginner, edx]
+    difficulty: beginner
+    language: [en]
+    notes: "Free Linux Foundation course on edX — covers Linux basics, CLI, filesystem, networking."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Free Study Guides & Tutorials
+  # ──────────────────────────────────────────────
+  - title: "Linux Journey"
+    type: tutorial
+    url: https://linuxjourney.com/
+    vendor: Neutral
+    certs: [LPIC-1, Linux+, LFCA]
+    tags: [free, interactive, beginner, cli, filesystem]
+    difficulty: beginner
+    language: [en]
+    notes: "Interactive beginner-friendly Linux tutorial — covers command line, permissions, processes, networking."
+    last_verified: "2026-02-14"
+
+  - title: "Linux Upskill Challenge"
+    type: tutorial
+    url: https://linuxupskillchallenge.org/
+    vendor: Neutral
+    certs: [LPIC-1, LFCA, LFCS]
+    tags: [free, sysadmin, hands-on, server-admin]
+    difficulty: beginner
+    language: [en]
+    notes: "Free 20-day challenge — learn Linux server admin by managing a real cloud VPS day-by-day."
+    last_verified: "2026-02-14"
+
+  - title: "The Linux Command Line (William Shotts) — Free Book"
+    type: study-guide
+    url: https://linuxcommand.org/tlcl.php
+    vendor: Neutral
+    certs: [LPIC-1, Linux+, LFCA]
+    tags: [free, book, bash, cli, scripting]
+    difficulty: beginner
+    language: [en]
+    notes: "Free 500-page book covering shell basics through advanced bash scripting. Classic reference."
+    last_verified: "2026-02-14"
+
+  - title: "Linux Survival"
+    type: tutorial
+    url: https://linuxsurvival.com/
+    vendor: Neutral
+    certs: [Linux-Essentials, LFCA]
+    tags: [free, interactive, beginner, cli]
+    difficulty: beginner
+    language: [en]
+    notes: "Browser-based interactive Linux tutorial — learn basic commands via a simulated terminal."
+    last_verified: "2026-02-14"
+
+  - title: "OverTheWire: Bandit"
+    type: lab
+    url: https://overthewire.org/wargames/bandit/
+    vendor: Neutral
+    certs: [LPIC-1, Linux+]
+    tags: [free, wargame, cli, ssh, security]
+    difficulty: beginner
+    language: [en]
+    notes: "SSH-based wargame teaching Linux CLI fundamentals through 34 progressive challenges."
+    last_verified: "2026-02-14"
+
+  - title: "Arch Wiki"
+    type: reference
+    url: https://wiki.archlinux.org/
+    vendor: Neutral
+    certs: [LPIC-1, LPIC-2, RHCSA]
+    tags: [documentation, reference, troubleshooting, systemd]
+    difficulty: intermediate
+    language: [en]
+    notes: "The most comprehensive community-maintained Linux reference. Invaluable for deep topic dives."
+    last_verified: "2026-02-14"
+
+  - title: "Ubuntu Server Guide"
+    type: official-doc
+    url: https://ubuntu.com/server/docs
+    vendor: Canonical
+    certs: [LPIC-1, LFCS]
+    tags: [documentation, official, server, networking, apt]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Ubuntu Server docs — networking, storage, security, containers, and cloud-init."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Labs & Hands-On Environments
+  # ──────────────────────────────────────────────
+  - title: "Killercoda Linux Scenarios"
+    type: lab
+    url: https://killercoda.com/playgrounds/scenario/ubuntu
+    vendor: Neutral
+    certs: [LPIC-1, Linux+, LFCS, RHCSA]
+    tags: [free, lab, browser-based, hands-on]
+    difficulty: beginner
+    language: [en]
+    notes: "Free browser-based Linux terminal — practice commands without local setup."
+    last_verified: "2026-02-14"
+
+  - title: "TryHackMe Linux Fundamentals"
+    type: lab
+    url: https://tryhackme.com/module/linux-fundamentals
+    vendor: Neutral
+    certs: [Linux+, LPIC-1]
+    tags: [free, lab, gamified, cli, permissions]
+    difficulty: beginner
+    language: [en]
+    notes: "Three-part interactive Linux module covering CLI basics, permissions, and system operations."
+    last_verified: "2026-02-14"
+
+  - title: "HackerRank Linux Shell Challenges"
+    type: lab
+    url: https://www.hackerrank.com/domains/shell
+    vendor: Neutral
+    certs: [LPIC-1, Linux+]
+    tags: [free, challenges, bash, scripting, awk, sed]
+    difficulty: intermediate
+    language: [en]
+    notes: "Bash scripting practice problems — great for building CLI fluency and scripting skills."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Video Courses
+  # ──────────────────────────────────────────────
+  - title: "Linux for Beginners — freeCodeCamp (YouTube)"
+    type: video
+    url: https://www.youtube.com/watch?v=sWbUDq4S6Y8
+    vendor: Neutral
+    certs: [LFCA, LPIC-1, Linux+]
+    tags: [free, video, beginner, cli, filesystem]
+    difficulty: beginner
+    language: [en]
+    notes: "5-hour comprehensive Linux intro on YouTube — covers CLI, file system, permissions, networking."
+    last_verified: "2026-02-14"
+
+  - title: "Learn Linux TV — RHCSA Full Course"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLT98CRl2KxKGq7TxDFM1VU0UV0ynBqvYZ
+    vendor: Neutral
+    certs: [RHCSA]
+    tags: [free, video, rhel, sysadmin, rhcsa-prep]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free RHCSA-focused YouTube playlist covering RHEL administration tasks tested on EX200."
+    last_verified: "2026-02-14"
+
+  - title: "NetworkChuck — Linux for Hackers"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLIhvC56v63IJIujb5cyE13oLuyORZpdkL
+    vendor: Neutral
+    certs: [Linux+, LPIC-1]
+    tags: [free, video, cli, networking, security]
+    difficulty: beginner
+    language: [en]
+    notes: "Engaging YouTube Linux series from NetworkChuck — beginner-friendly with practical demos."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # GitHub Repos & Cheatsheets
+  # ──────────────────────────────────────────────
+  - title: "The Art of Command Line"
+    type: repo
+    url: https://github.com/jlevy/the-art-of-command-line
+    vendor: Neutral
+    certs: [LPIC-1, Linux+, RHCSA]
+    tags: [github, cheatsheet, cli, bash, one-liners]
+    difficulty: intermediate
+    language: [en]
+    notes: "150k+ stars — master the command line in one page. Covers obscure but useful CLI techniques."
+    last_verified: "2026-02-14"
+
+  - title: "linux-insides"
+    type: repo
+    url: https://github.com/0xAX/linux-insides
+    vendor: Neutral
+    certs: [LPIC-2, LPIC-3]
+    tags: [github, kernel, internals, boot-process]
+    difficulty: advanced
+    language: [en]
+    notes: "Deep dive into Linux kernel internals — boot process, interrupts, memory management."
+    last_verified: "2026-02-14"
+
+  - title: "tldr-pages"
+    type: cheatsheet
+    url: https://tldr.sh/
+    vendor: Neutral
+    certs: [LPIC-1, Linux+, LFCS]
+    tags: [cheatsheet, cli, man-pages, reference]
+    difficulty: beginner
+    language: [en]
+    notes: "Simplified, community-driven man pages — quick command reference with practical examples."
+    last_verified: "2026-02-14"
+
+  - title: "cheat.sh"
+    type: cheatsheet
+    url: https://cheat.sh/
+    vendor: Neutral
+    certs: [LPIC-1, Linux+, RHCSA]
+    tags: [cheatsheet, cli, reference, curl]
+    difficulty: beginner
+    language: [en]
+    notes: "Unified cheat sheet access from the terminal (curl cheat.sh/command). Covers 56 languages."
+    last_verified: "2026-02-14"
+
+  - title: "Devhints — Bash Cheatsheet"
+    type: cheatsheet
+    url: https://devhints.io/bash
+    vendor: Neutral
+    certs: [LPIC-1, Linux+]
+    tags: [cheatsheet, bash, scripting, reference]
+    difficulty: beginner
+    language: [en]
+    notes: "Clean single-page bash scripting cheatsheet — variables, loops, conditionals, arrays."
+    last_verified: "2026-02-14"
+
+  - title: "roadmap.sh — Linux Roadmap"
+    type: reference
+    url: https://roadmap.sh/linux
+    vendor: Neutral
+    certs: [Linux+, LPIC-1, LFCS]
+    tags: [roadmap, learning-path, community]
+    difficulty: beginner
+    language: [en]
+    notes: "Community-driven visual roadmap for Linux skills — great for planning your study path."
+    last_verified: "2026-02-14"

@@ -1,0 +1,286 @@
+# Security Certification Resources
+# Covers: CompTIA Security+, ISC2 CC/CISSP, Offensive Security, Frameworks
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # CompTIA Security+ (SY0-701)
+  # ──────────────────────────────────────────────
+  - title: "CompTIA Security+ SY0-701 Exam Objectives"
+    type: exam-guide
+    url: https://comptiacdn.azureedge.net/webcontent/docs/default-source/exam-objectives/comptia-security-sy0-701-exam-objectives-(5-0).pdf
+    vendor: CompTIA
+    certs: [Security+]
+    tags: [exam-objectives, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam objectives PDF — the blueprint for every Security+ study plan."
+    last_verified: "2026-02-14"
+
+  - title: "CompTIA Security+ Certification Page"
+    type: official-doc
+    url: https://www.comptia.org/certifications/security
+    vendor: CompTIA
+    certs: [Security+]
+    tags: [certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Security+ page with exam details, pricing, and renewal info."
+    last_verified: "2026-02-14"
+
+  - title: "Professor Messer – CompTIA SY0-701 Security+ Course"
+    type: video
+    url: https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/
+    vendor: Neutral
+    certs: [Security+]
+    tags: [video, free, community]
+    difficulty: intermediate
+    language: [en]
+    notes: "121 free videos covering all SY0-701 objectives, plus monthly study groups."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # ISC2 — CC & CISSP
+  # ──────────────────────────────────────────────
+  - title: "ISC2 Certified in Cybersecurity (CC) – Free Training & Exam"
+    type: study-guide
+    url: https://www.isc2.org/certifications/cc
+    vendor: ISC2
+    certs: [ISC2-CC]
+    tags: [free-exam, entry-level, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Free self-paced training AND free exam voucher — part of ISC2's One Million CC pledge."
+    last_verified: "2026-02-14"
+
+  - title: "ISC2 CISSP Exam Outline"
+    type: exam-guide
+    url: https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline
+    vendor: ISC2
+    certs: [CISSP]
+    tags: [exam-outline, official, domains]
+    difficulty: advanced
+    language: [en]
+    notes: "Official CISSP exam outline with domain weights (effective April 2024)."
+    last_verified: "2026-02-14"
+
+  - title: "Destination Certification – CISSP MindMap Videos"
+    type: video
+    url: https://www.youtube.com/playlist?list=PLZKdGEfEyJhLd-pJhAD7dNbJyUgpqI4pu
+    vendor: Neutral
+    certs: [CISSP]
+    tags: [video, mindmap, free, community]
+    difficulty: advanced
+    language: [en]
+    notes: "30+ free MindMap videos covering all eight CISSP domains — highly visual approach."
+    last_verified: "2026-02-14"
+
+  - title: "Cybrary – Free Cybersecurity Courses"
+    type: study-guide
+    url: https://www.cybrary.it/free-content
+    vendor: Neutral
+    certs: [Security+, ISC2-CC, CISSP]
+    tags: [free-course, career-path, community]
+    difficulty: beginner
+    language: [en]
+    notes: "Free tier includes foundational cybersecurity courses and select virtual labs."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # OWASP
+  # ──────────────────────────────────────────────
+  - title: "OWASP Top 10"
+    type: reference
+    url: https://owasp.org/www-project-top-ten/
+    vendor: OWASP
+    certs: [Security+, CISSP, CEH]
+    tags: [owasp-top10, web-security, vulnerabilities]
+    difficulty: intermediate
+    language: [en]
+    notes: "The definitive list of critical web application security risks."
+    last_verified: "2026-02-14"
+
+  - title: "OWASP Cheat Sheet Series"
+    type: cheatsheet
+    url: https://cheatsheetseries.owasp.org/
+    vendor: OWASP
+    certs: [Security+, CISSP, CEH]
+    tags: [cheatsheet, secure-coding, best-practices]
+    difficulty: intermediate
+    language: [en]
+    notes: "100+ concise, actionable security cheat sheets for developers and pentesters."
+    last_verified: "2026-02-14"
+
+  - title: "OWASP Web Security Testing Guide (WSTG)"
+    type: reference
+    url: https://owasp.org/www-project-web-security-testing-guide/
+    vendor: OWASP
+    certs: [CEH, OSCP]
+    tags: [testing-guide, penetration-testing, methodology]
+    difficulty: advanced
+    language: [en]
+    notes: "Comprehensive web application security testing methodology."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # MITRE ATT&CK
+  # ──────────────────────────────────────────────
+  - title: "MITRE ATT&CK Framework"
+    type: reference
+    url: https://attack.mitre.org/
+    vendor: MITRE
+    certs: [CISSP, CEH, Security+]
+    tags: [mitre-attack, threat-intelligence, adversary-tactics]
+    difficulty: intermediate
+    language: [en]
+    notes: "Knowledge base of adversary tactics and techniques — essential for threat modelling."
+    last_verified: "2026-02-14"
+
+  - title: "MITRE ATT&CK Navigator"
+    type: lab
+    url: https://mitre-attack.github.io/attack-navigator/
+    vendor: MITRE
+    certs: [CISSP, CEH]
+    tags: [mitre-attack, visualization, threat-modeling]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free interactive tool for exploring and annotating ATT&CK matrices."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Hands-On Platforms (Free Tiers)
+  # ──────────────────────────────────────────────
+  - title: "PortSwigger Web Security Academy"
+    type: lab
+    url: https://portswigger.net/web-security
+    vendor: Neutral
+    certs: [CEH, OSCP, Security+]
+    tags: [web-security, labs, free, burp-suite]
+    difficulty: intermediate
+    language: [en]
+    notes: "100+ free interactive labs covering all major web vulnerabilities."
+    last_verified: "2026-02-14"
+
+  - title: "PortSwigger – All Labs"
+    type: lab
+    url: https://portswigger.net/web-security/all-labs
+    vendor: Neutral
+    certs: [CEH, OSCP]
+    tags: [hands-on, vulnerabilities, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Full index of free labs sorted by topic and difficulty."
+    last_verified: "2026-02-14"
+
+  - title: "HackTheBox Academy – Free Modules"
+    type: lab
+    url: https://academy.hackthebox.com/
+    vendor: Neutral
+    certs: [OSCP, CEH, Security+]
+    tags: [penetration-testing, hands-on, ctf]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free tier includes intro modules on Linux, Windows, and web fundamentals."
+    last_verified: "2026-02-14"
+
+  - title: "TryHackMe – Free Rooms"
+    type: lab
+    url: https://tryhackme.com/
+    vendor: Neutral
+    certs: [Security+, CEH]
+    tags: [beginner-friendly, guided-labs, free]
+    difficulty: beginner
+    language: [en]
+    notes: "Many free rooms with browser-based VMs — excellent for beginners."
+    last_verified: "2026-02-14"
+
+  - title: "PentesterLab – Free Exercises"
+    type: lab
+    url: https://pentesterlab.com/exercises
+    vendor: Neutral
+    certs: [CEH, OSCP]
+    tags: [web-vulnerabilities, free, hands-on]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free tier includes web-for-pentester, SQL injection to shell, and crypto exercises."
+    last_verified: "2026-02-14"
+
+  - title: "OverTheWire – Bandit Wargame"
+    type: lab
+    url: https://overthewire.org/wargames/bandit/
+    vendor: Neutral
+    certs: [Security+, CEH]
+    tags: [linux, cli, wargame, beginner]
+    difficulty: beginner
+    language: [en]
+    notes: "Classic SSH-based wargame teaching Linux command-line and basic security concepts."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Frameworks & Standards
+  # ──────────────────────────────────────────────
+  - title: "NIST Cybersecurity Framework (CSF) 2.0"
+    type: reference
+    url: https://www.nist.gov/cyberframework
+    vendor: NIST
+    certs: [CISSP, Security+]
+    tags: [nist, framework, risk-management, governance]
+    difficulty: intermediate
+    language: [en]
+    notes: "The US national cybersecurity framework — free PDF download."
+    last_verified: "2026-02-14"
+
+  - title: "CIS Benchmarks"
+    type: reference
+    url: https://www.cisecurity.org/cis-benchmarks
+    vendor: CIS
+    certs: [Security+, CISSP]
+    tags: [hardening, configuration, best-practices]
+    difficulty: intermediate
+    language: [en]
+    notes: "100+ free system-hardening benchmark PDFs (non-commercial use)."
+    last_verified: "2026-02-14"
+
+  - title: "SANS Reading Room"
+    type: reference
+    url: https://www.sans.org/white-papers/
+    vendor: SANS
+    certs: [CISSP, Security+]
+    tags: [whitepapers, research, free]
+    difficulty: advanced
+    language: [en]
+    notes: "3,000+ free security research papers across 100+ categories."
+    last_verified: "2026-02-14"
+
+  - title: "SANS Internet Storm Center"
+    type: reference
+    url: https://isc.sans.edu/
+    vendor: SANS
+    certs: [Security+, CISSP]
+    tags: [threat-intelligence, daily-diary, alerts]
+    difficulty: intermediate
+    language: [en]
+    notes: "Daily handler diaries, podcasts, and threat feeds — all free."
+    last_verified: "2026-02-14"
+
+  - title: "CISA Cybersecurity Advisories"
+    type: reference
+    url: https://www.cisa.gov/news-events/cybersecurity-advisories
+    vendor: CISA
+    certs: [Security+, CISSP]
+    tags: [government, advisories, vulnerabilities]
+    difficulty: intermediate
+    language: [en]
+    notes: "US government cybersecurity alerts, advisories, and best practices."
+    last_verified: "2026-02-14"
+
+  - title: "Krebs on Security"
+    type: reference
+    url: https://krebsonsecurity.com/
+    vendor: Neutral
+    certs: [Security+, CISSP]
+    tags: [news, investigative, threat-landscape]
+    difficulty: beginner
+    language: [en]
+    notes: "Industry-leading cybersecurity blog by investigative journalist Brian Krebs."
+    last_verified: "2026-02-14"

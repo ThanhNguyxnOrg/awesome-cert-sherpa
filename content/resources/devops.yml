@@ -1,0 +1,330 @@
+# DevOps & Platform Engineering Certification Resources
+# Covers: Kubernetes (CKA/CKAD/CKS), Terraform, Docker, CI/CD, GitOps, SRE
+# Anti-dump policy: NO exam dumps, leaked questions, or NDA-violating material.
+
+resources:
+  # ──────────────────────────────────────────────
+  # Kubernetes — CKA / CKAD / CKS
+  # ──────────────────────────────────────────────
+  - title: "CNCF Certification Curriculum (GitHub)"
+    type: exam-guide
+    url: https://github.com/cncf/curriculum
+    vendor: CNCF
+    certs: [CKA, CKAD, CKS]
+    tags: [kubernetes, curriculum, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official exam curriculum PDFs maintained by CNCF for all K8s certifications."
+    last_verified: "2026-02-14"
+
+  - title: "Kubernetes Official Documentation"
+    type: official-doc
+    url: https://kubernetes.io/docs/
+    vendor: CNCF
+    certs: [CKA, CKAD, CKS]
+    tags: [kubernetes, reference, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "The primary reference during CKA/CKAD/CKS exams — allowed in the exam."
+    last_verified: "2026-02-14"
+
+  - title: "Kubernetes the Hard Way"
+    type: tutorial
+    url: https://github.com/kelseyhightower/kubernetes-the-hard-way
+    vendor: Neutral
+    certs: [CKA]
+    tags: [kubernetes, hands-on, infrastructure, github]
+    difficulty: advanced
+    language: [en]
+    notes: "Kelsey Hightower's legendary tutorial — build a cluster from scratch with no scripts."
+    last_verified: "2026-02-14"
+
+  - title: "KillerCoda – Free Kubernetes Scenarios"
+    type: lab
+    url: https://killercoda.com/
+    vendor: Neutral
+    certs: [CKA, CKAD, CKS]
+    tags: [kubernetes, interactive, browser-based, free]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free browser-based K8s environments with CKA/CKAD practice scenarios."
+    last_verified: "2026-02-14"
+
+  - title: "Play with Kubernetes"
+    type: lab
+    url: https://labs.play-with-k8s.com/
+    vendor: Neutral
+    certs: [CKA, CKAD]
+    tags: [kubernetes, sandbox, free, browser-based]
+    difficulty: beginner
+    language: [en]
+    notes: "Free 4-hour Kubernetes playground in the browser — no install needed."
+    last_verified: "2026-02-14"
+
+  - title: "CNCF Training & Certification Portal"
+    type: official-doc
+    url: https://www.cncf.io/training/certification/
+    vendor: CNCF
+    certs: [CKA, CKAD, CKS, KCNA, KCSA]
+    tags: [certification, overview, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official CNCF certification portal with exam details and candidate handbook."
+    last_verified: "2026-02-14"
+
+  - title: "CNCF Cloud Native Landscape"
+    type: reference
+    url: https://landscape.cncf.io/
+    vendor: CNCF
+    certs: [CKA, CKAD, KCNA]
+    tags: [cloud-native, ecosystem, landscape]
+    difficulty: beginner
+    language: [en]
+    notes: "Interactive map of the entire cloud-native ecosystem — good for context."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # HashiCorp Terraform
+  # ──────────────────────────────────────────────
+  - title: "Terraform Documentation"
+    type: official-doc
+    url: https://developer.hashicorp.com/terraform/docs
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, iac, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Official Terraform docs — language reference, CLI, and provider guides."
+    last_verified: "2026-02-14"
+
+  - title: "Terraform Tutorials"
+    type: tutorial
+    url: https://developer.hashicorp.com/terraform/tutorials
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, hands-on, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Free interactive tutorials including a certification prep track."
+    last_verified: "2026-02-14"
+
+  - title: "Terraform Associate Certification Prep"
+    type: exam-guide
+    url: https://developer.hashicorp.com/terraform/tutorials/certification-associate
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, exam-prep, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official certification preparation tutorials aligned to exam objectives."
+    last_verified: "2026-02-14"
+
+  - title: "Terraform Registry"
+    type: reference
+    url: https://registry.terraform.io/
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, modules, providers, registry]
+    difficulty: beginner
+    language: [en]
+    notes: "Official registry of providers, modules, and policy libraries."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Docker
+  # ──────────────────────────────────────────────
+  - title: "Docker Official Documentation"
+    type: official-doc
+    url: https://docs.docker.com/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, containers, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Comprehensive Docker docs covering images, networking, storage, and orchestration."
+    last_verified: "2026-02-14"
+
+  - title: "Docker Getting Started Guide"
+    type: tutorial
+    url: https://docs.docker.com/get-started/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, tutorial, beginner]
+    difficulty: beginner
+    language: [en]
+    notes: "Official hands-on guide from building images to multi-container apps."
+    last_verified: "2026-02-14"
+
+  - title: "Play with Docker"
+    type: lab
+    url: https://labs.play-with-docker.com/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, sandbox, free, browser-based]
+    difficulty: beginner
+    language: [en]
+    notes: "Free 4-hour Docker playground in the browser — no install required."
+    last_verified: "2026-02-14"
+
+  - title: "Play with Docker – Classroom"
+    type: workshop
+    url: https://training.play-with-docker.com/
+    vendor: Docker
+    certs: [DCA]
+    tags: [docker, workshop, hands-on]
+    difficulty: beginner
+    language: [en]
+    notes: "Free structured Docker labs for IT pros and developers."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # CI/CD & GitOps
+  # ──────────────────────────────────────────────
+  - title: "GitHub Actions Documentation"
+    type: official-doc
+    url: https://docs.github.com/en/actions
+    vendor: GitHub
+    certs: [GitHub-Actions]
+    tags: [cicd, automation, github, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Complete reference for GitHub Actions workflows, runners, and marketplace."
+    last_verified: "2026-02-14"
+
+  - title: "GitLab CI/CD Documentation"
+    type: official-doc
+    url: https://docs.gitlab.com/ee/ci/
+    vendor: GitLab
+    certs: [GitLab-CI]
+    tags: [cicd, automation, gitlab, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Full GitLab CI/CD documentation with pipeline examples and configuration reference."
+    last_verified: "2026-02-14"
+
+  - title: "Argo CD Documentation"
+    type: official-doc
+    url: https://argo-cd.readthedocs.io/en/stable/
+    vendor: CNCF
+    certs: [CGOA]
+    tags: [gitops, kubernetes, continuous-delivery]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Argo CD docs for Kubernetes-native GitOps continuous delivery."
+    last_verified: "2026-02-14"
+
+  - title: "Tekton Documentation"
+    type: official-doc
+    url: https://tekton.dev/docs/
+    vendor: CNCF
+    certs: [CKA, CKAD]
+    tags: [cicd, kubernetes, pipelines, cloud-native]
+    difficulty: intermediate
+    language: [en]
+    notes: "Kubernetes-native CI/CD building blocks from the CD Foundation."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # SRE & General DevOps
+  # ──────────────────────────────────────────────
+  - title: "Google SRE Books (Free Online)"
+    type: reference
+    url: https://sre.google/books/
+    vendor: Google
+    certs: [SRE]
+    tags: [sre, reliability, observability, free-book]
+    difficulty: intermediate
+    language: [en]
+    notes: "Three free SRE books from Google — the bible of site reliability engineering."
+    last_verified: "2026-02-14"
+
+  - title: "The Twelve-Factor App"
+    type: reference
+    url: https://12factor.net/
+    vendor: Neutral
+    certs: [CKA, CKAD, DCA]
+    tags: [methodology, cloud-native, best-practices]
+    difficulty: beginner
+    language: [en]
+    notes: "Classic methodology for building modern, scalable SaaS applications."
+    last_verified: "2026-02-14"
+
+  - title: "DevOps Roadmap"
+    type: reference
+    url: https://roadmap.sh/devops
+    vendor: Neutral
+    certs: [CKA, Terraform-Associate, DCA]
+    tags: [roadmap, learning-path, community]
+    difficulty: beginner
+    language: [en]
+    notes: "Community-maintained visual roadmap for the DevOps engineering path."
+    last_verified: "2026-02-14"
+
+  - title: "DORA Research & State of DevOps"
+    type: reference
+    url: https://dora.dev/research/
+    vendor: Google
+    certs: [SRE]
+    tags: [dora-metrics, research, devops-performance]
+    difficulty: intermediate
+    language: [en]
+    notes: "Annual State of DevOps reports with the four key DORA metrics."
+    last_verified: "2026-02-14"
+
+  # ──────────────────────────────────────────────
+  # Observability & Service Mesh
+  # ──────────────────────────────────────────────
+  - title: "Prometheus Documentation"
+    type: official-doc
+    url: https://prometheus.io/docs/
+    vendor: CNCF
+    certs: [PCA, CKA]
+    tags: [monitoring, metrics, observability, prometheus]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Prometheus docs — key for CNCF Prometheus Certified Associate (PCA)."
+    last_verified: "2026-02-14"
+
+  - title: "OpenTelemetry Documentation"
+    type: official-doc
+    url: https://opentelemetry.io/docs/
+    vendor: CNCF
+    certs: [OTCA]
+    tags: [observability, tracing, metrics, logs]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official OpenTelemetry docs for distributed tracing and metrics collection."
+    last_verified: "2026-02-14"
+
+  - title: "Istio Service Mesh Documentation"
+    type: official-doc
+    url: https://istio.io/latest/docs/
+    vendor: CNCF
+    certs: [ICA]
+    tags: [service-mesh, kubernetes, networking]
+    difficulty: advanced
+    language: [en]
+    notes: "Official Istio docs — reference for the Istio Certified Associate (ICA) exam."
+    last_verified: "2026-02-14"
+
+  - title: "Ansible Documentation"
+    type: official-doc
+    url: https://docs.ansible.com/
+    vendor: Red Hat
+    certs: [RHCE]
+    tags: [automation, configuration-management, ansible]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Ansible docs for IT automation and configuration management."
+    last_verified: "2026-02-14"
+
+  - title: "Linux Foundation Free Training Courses"
+    type: study-guide
+    url: https://training.linuxfoundation.org/resources/free-courses/
+    vendor: Linux Foundation
+    certs: [CKA, CKAD, LFCS]
+    tags: [free-course, linux, kubernetes, official]
+    difficulty: beginner
+    language: [en]
+    notes: "Free intro courses from the Linux Foundation including cloud and K8s topics."
+    last_verified: "2026-02-14"
