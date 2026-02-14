@@ -72,6 +72,28 @@ resources:
     notes: "Official CNCF certification portal with exam details and candidate handbook."
     last_verified: "2026-02-14"
 
+  - title: "CKA Certification Page (Linux Foundation)"
+    type: official-doc
+    url: https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/
+    vendor: Linux Foundation
+    certs: [CKA]
+    tags: [kubernetes, certification, official]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Linux Foundation CKA exam page with pricing, domains, and candidate handbook."
+    last_verified: "2026-02-14"
+
+  - title: "CKA Curriculum Path (PDF)"
+    type: exam-guide
+    url: https://training.linuxfoundation.org/wp-content/uploads/2023/07/CKA_CurriculumPath_Jul23.pdf
+    vendor: Linux Foundation
+    certs: [CKA]
+    tags: [kubernetes, curriculum, pdf, exam-objectives]
+    difficulty: intermediate
+    language: [en]
+    notes: "PDF breakdown of CKA exam domains with topic weightings and curriculum mapping."
+    last_verified: "2026-02-14"
+
   - title: "CNCF Cloud Native Landscape"
     type: reference
     url: https://landscape.cncf.io/
@@ -117,6 +139,28 @@ resources:
     difficulty: intermediate
     language: [en]
     notes: "Official certification preparation tutorials aligned to exam objectives."
+    last_verified: "2026-02-14"
+
+  - title: "Terraform Associate 004 – Exam Content Review"
+    type: exam-guide
+    url: https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-review-004
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, exam-objectives, 004]
+    difficulty: intermediate
+    language: [en]
+    notes: "Exam content checklist for the current 004 version of the Terraform Associate exam."
+    last_verified: "2026-02-14"
+
+  - title: "Terraform Associate 004 – Study Path"
+    type: study-guide
+    url: https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-study-004
+    vendor: HashiCorp
+    certs: [Terraform-Associate]
+    tags: [terraform, study-path, 004, learning-path]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official structured study path for the 004 exam with hands-on tutorials."
     last_verified: "2026-02-14"
 
   - title: "Terraform Registry"

@@ -230,6 +230,28 @@ resources:
     notes: "The US national cybersecurity framework — free PDF download."
     last_verified: "2026-02-14"
 
+  - title: "OWASP Top 10"
+    type: reference
+    url: https://owasp.org/www-project-top-ten/
+    vendor: OWASP
+    certs: [Security+, CISSP, CEH]
+    tags: [owasp-top10, web-security, vulnerabilities]
+    difficulty: intermediate
+    language: [en]
+    notes: "The definitive list of critical web application security risks — core Security+ and CISSP topic."
+    last_verified: "2026-02-14"
+
+  - title: "MITRE ATT&CK Framework"
+    type: reference
+    url: https://attack.mitre.org/
+    vendor: MITRE
+    certs: [Security+, CISSP, CEH]
+    tags: [mitre-attack, threat-modeling, adversary-techniques]
+    difficulty: intermediate
+    language: [en]
+    notes: "Comprehensive knowledge base of adversary tactics and techniques — key for threat analysis exams."
+    last_verified: "2026-02-14"
+
   - title: "CIS Benchmarks"
     type: reference
     url: https://www.cisecurity.org/cis-benchmarks
