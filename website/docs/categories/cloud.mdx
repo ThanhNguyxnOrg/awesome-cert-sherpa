@@ -3,6 +3,9 @@ sidebar_position: 1
 title: "Cloud"
 ---
 
+import ResourceList from '@site/src/components/ResourceList';
+import cloudData from '@content/resources/cloud.yml';
+
 # Cloud Certifications
 
 Cloud computing certifications validate your ability to design, deploy, and manage workloads across major cloud platforms. This category covers provider-specific tracks as well as vendor-neutral cloud credentials.
@@ -14,6 +17,10 @@ Cloud computing certifications validate your ability to design, deploy, and mana
 - **Curated study materials** — official docs, community courses, hands-on labs, and practice exams.
 - **Comparison guides** — side-by-side breakdowns to help you pick the right cert for your career goals.
 
+## Resources
+
+<ResourceList resources={cloudData.resources} />
+
 ## Contribution Ideas
 
 Have a resource to share? Here's how you can help:
@@ -22,11 +29,3 @@ Have a resource to share? Here's how you can help:
 - Write a short "exam experience" post with tips and surprises.
 - Create a comparison table between similar certs across providers.
 - Suggest new certifications that should be tracked here.
-
-## Coming Soon
-
-- [ ] AWS Certification family (Cloud Practitioner → Solutions Architect → Specialty)
-- [ ] Azure Certification family (Fundamentals → Associate → Expert)
-- [ ] Google Cloud Certification family (Digital Leader → Professional)
-- [ ] Multi-cloud and vendor-neutral cloud credentials (e.g., CCSK, CCSP)
-- [ ] Community-voted "best resource" badges

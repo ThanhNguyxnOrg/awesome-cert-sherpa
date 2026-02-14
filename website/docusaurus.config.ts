@@ -1,38 +1,31 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import yamlLoaderPlugin from './plugins/yaml-loader-plugin';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Awesome CertSherpa',
+  tagline: 'Community-driven certification exam prep hub',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://ThanhNguyxn.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/awesome-cert-sherpa/',
 
-  // GitHub pages deployment config.
   organizationName: 'ThanhNguyxn',
   projectName: 'awesome-cert-sherpa',
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: [yamlLoaderPlugin],
 
   presets: [
     [
@@ -40,8 +33,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/ThanhNguyxn/awesome-cert-sherpa/tree/main/website/',
         },
@@ -53,7 +44,6 @@ const config: Config = {
           },
           editUrl:
             'https://github.com/ThanhNguyxn/awesome-cert-sherpa/tree/main/website/',
-          // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -66,15 +56,14 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'CertSherpa',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'CertSherpa Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -82,13 +71,13 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'mainSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Resources',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-           href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa',
-              label: 'GitHub',
-              position: 'right',
+          href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa',
+          label: 'GitHub',
+          position: 'right',
         },
       ],
     },
@@ -96,11 +85,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Resources',
           items: [
             {
               label: 'Getting Started',
               to: '/docs',
+            },
+            {
+              label: 'Cloud',
+              to: '/docs/categories/cloud',
+            },
+            {
+              label: 'Security',
+              to: '/docs/categories/security',
             },
           ],
         },
@@ -108,16 +105,12 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'GitHub Discussions',
+              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/discussions',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Contributing Guide',
+              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/blob/main/CONTRIBUTING.md',
             },
           ],
         },
@@ -135,7 +128,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Awesome CertSherpa contributors. MIT License.`,
     },
     prism: {
       theme: prismThemes.github,

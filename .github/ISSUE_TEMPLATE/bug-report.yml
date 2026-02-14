@@ -1,0 +1,70 @@
+name: "\U0001F41B Bug Report"
+description: Report a broken link, rendering issue, or site problem
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please provide enough detail so we can reproduce and fix it.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: What part of the project is affected?
+      options:
+        - Broken resource link
+        - Site rendering / display issue
+        - Build failure
+        - Incorrect resource data
+        - Navigation / sidebar issue
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Clear description of what's wrong
+      placeholder: "The link to X resource on the Cloud page returns a 404..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this?
+      placeholder: |
+        1. Go to the Cloud category page
+        2. Click on "AWS Well-Architected Framework"
+        3. See 404 error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & OS
+      description: Your browser and operating system
+      placeholder: "Chrome 120 on Windows 11"
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem
+    validations:
+      required: false

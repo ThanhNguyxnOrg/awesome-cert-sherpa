@@ -1,0 +1,112 @@
+name: "\U0001F4DA Resource Suggestion"
+description: Suggest a free certification exam prep resource to add
+title: "[Resource]: "
+labels: ["resource-suggestion", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a resource! Please fill in the details below.
+
+        **Important**: We do NOT accept exam dumps, leaked questions, or any material that violates NDA agreements.
+
+  - type: input
+    id: title
+    attributes:
+      label: Resource Title
+      description: The name of the resource
+      placeholder: "e.g. AWS Well-Architected Framework"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Direct link to the resource
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which certification category does this belong to?
+      options:
+        - Cloud (AWS, Azure, GCP)
+        - Security (CompTIA Sec+, CISSP, CEH)
+        - Networking (CCNA, CompTIA Net+)
+        - DevOps (CKA, Terraform, GitOps)
+        - Data & AI (DP-900, DE, ML)
+        - Linux (RHCSA, LFCS, LPIC)
+        - PM & ITSM (PMP, ITIL, Scrum)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Resource Type
+      options:
+        - official-doc
+        - exam-guide
+        - study-guide
+        - lab
+        - workshop
+        - tutorial
+        - reference
+        - cheatsheet
+        - video
+        - repo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Difficulty Level
+      options:
+        - beginner
+        - intermediate
+        - advanced
+    validations:
+      required: true
+
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor / Author
+      description: Who published this resource?
+      placeholder: "e.g. AWS, Microsoft, Linux Foundation"
+    validations:
+      required: true
+
+  - type: input
+    id: certs
+    attributes:
+      label: Related Certifications
+      description: Comma-separated list of cert names this resource helps with
+      placeholder: "e.g. AWS SAA-C03, AWS DVA-C02"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: 1-2 sentence summary of why this resource is valuable
+      placeholder: "Official AWS documentation covering all Well-Architected pillars..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: anti-dump
+    attributes:
+      label: Anti-Dump Policy
+      description: You must confirm this resource complies with our policy
+      options:
+        - label: "This resource does NOT contain exam dumps, leaked questions, or NDA-violating material"
+          required: true
+        - label: "This resource is freely accessible (no paywall for core content)"
+          required: true
