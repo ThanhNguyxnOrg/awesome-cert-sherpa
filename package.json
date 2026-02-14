@@ -8,7 +8,8 @@
     "build": "pnpm --filter website build",
     "serve": "pnpm --filter website serve",
     "clear": "pnpm --filter website clear",
-    "typecheck": "pnpm --filter website typecheck"
+    "typecheck": "pnpm --filter website typecheck",
+    "validate:bank": "tsx tools/validate-bank.ts"
   },
   "engines": {
     "node": ">=20.0"
@@ -18,5 +19,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ThanhNguyxn/awesome-cert-sherpa.git"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "js-yaml": "^4.1.1",
+    "tsx": "^4.21.0"
   }
 }

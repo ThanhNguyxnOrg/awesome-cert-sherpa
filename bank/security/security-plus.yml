@@ -1,0 +1,277 @@
+meta:
+  category: "security"
+  cert: "Security+"
+  vendor: "CompTIA"
+  version: 1
+  description: "Original practice questions for CompTIA Security+ (SY0-701)"
+questions:
+  - id: "sec701-general-001"
+    difficulty: "easy"
+    tags: ["cia-triad", "integrity", "security-concepts"]
+    question: "A security analyst discovers that a file server stayed online during an incident, but several records were silently altered. Which CIA triad principle was violated?"
+    choices: ["A. Integrity", "B. Availability", "C. Confidentiality", "D. Non-repudiation"]
+    answerIndex: 0
+    explanation: "Integrity ensures data is accurate and unmodified, so unauthorized record changes are an integrity failure even if service stayed up. Availability is not the primary issue because users could still access the server."
+    refs: ["https://www.comptia.org/certifications/security", "https://www.nist.gov/cyberframework"]
+    author: "ThanhNguyxn"
+  - id: "sec701-general-002"
+    difficulty: "easy"
+    tags: ["non-repudiation", "digital-signatures", "pki"]
+    question: "A procurement officer denies approving a high-value wire transfer that appears in the system. Which control provides the strongest non-repudiation evidence of approval?"
+    choices: ["A. Encrypting the transfer record with AES", "B. Applying the officer's digital signature to the transaction", "C. Storing only a SHA-256 hash of the PDF", "D. Restricting access with an ACL"]
+    answerIndex: 1
+    explanation: "Digital signatures use the sender's private key and provide cryptographic proof of origin and intent, supporting non-repudiation. A hash alone can verify integrity but cannot prove which user authorized the action."
+    refs: ["https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-general-003"
+    difficulty: "medium"
+    tags: ["aaa", "identity-access-management", "logging"]
+    question: "An organization requires VPN users to authenticate with a smart card and PIN, then logs every privileged command they run. In AAA, what function does the command logging represent?"
+    choices: ["A. Authentication", "B. Authorization", "C. Accounting", "D. Federation"]
+    answerIndex: 2
+    explanation: "Accounting records what users did, when they did it, and from where, which is exactly what command logs provide. Authorization determines what actions are permitted, but it does not by itself create an audit trail."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-general-004"
+    difficulty: "hard"
+    tags: ["zero-trust", "compensating-controls", "access-control"]
+    question: "A legacy internal application cannot support native MFA for six months due to vendor limitations. Which approach is the best compensating control that still aligns with Zero Trust principles?"
+    choices: ["A. Move the app to a separate VLAN and keep existing login process", "B. Whitelist office IP ranges and disable remote access", "C. Require password changes every 14 days for all users", "D. Place the app behind a ZTNA gateway that enforces MFA, device posture checks, and least-privilege session access"]
+    answerIndex: 3
+    explanation: "A ZTNA gateway can enforce strong identity and device verification at access time, providing a practical compensating control until the app is replaced. VLAN segmentation helps reduce exposure, but it does not provide per-session identity verification required by Zero Trust."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-207/final", "https://www.nist.gov/cyberframework"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-001"
+    difficulty: "easy"
+    tags: ["social-engineering", "smishing", "user-awareness"]
+    question: "Employees receive text messages claiming to be from IT, asking them to click a link to re-enroll MFA. What type of social engineering attack is this?"
+    choices: ["A. Smishing", "B. Vishing", "C. Shoulder surfing", "D. Tailgating"]
+    answerIndex: 0
+    explanation: "Smishing is phishing delivered through SMS or text messaging platforms. Vishing uses voice calls, so it does not match a text-based lure."
+    refs: ["https://www.cisa.gov/topics/cybersecurity-best-practices", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-002"
+    difficulty: "easy"
+    tags: ["malware", "worm", "network-attacks"]
+    question: "A malicious program spreads automatically across vulnerable hosts without user interaction. Which malware type best fits this behavior?"
+    choices: ["A. Trojan", "B. Worm", "C. Rootkit", "D. Logic bomb"]
+    answerIndex: 1
+    explanation: "A worm is designed to self-replicate and spread over networks by exploiting weaknesses. A trojan usually depends on user execution and does not inherently self-propagate."
+    refs: ["https://www.cisa.gov/topics/cybersecurity-best-practices", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-003"
+    difficulty: "medium"
+    tags: ["threat-actors", "organized-crime", "ransomware"]
+    question: "A group steals payment-card data, deploys ransomware, and sells stolen records for profit. Which threat actor category is most likely responsible?"
+    choices: ["A. Hacktivist", "B. Insider", "C. Organized crime", "D. Nation-state"]
+    answerIndex: 2
+    explanation: "Organized crime groups are typically financially motivated and often combine extortion with data monetization. Hacktivists are usually driven by ideological goals and are less focused on sustained profit operations."
+    refs: ["https://www.cisa.gov/topics/cybersecurity-best-practices", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-004"
+    difficulty: "medium"
+    tags: ["dns-poisoning", "network-security", "mitigation"]
+    question: "Users at a branch office are intermittently redirected to fake banking sites because DNS responses are being spoofed. Which control most directly mitigates this issue by validating DNS authenticity?"
+    choices: ["A. Segmenting user VLANs from printer VLANs", "B. Increasing endpoint anti-malware scan frequency", "C. Enforcing stricter password complexity", "D. Implementing DNSSEC validation on resolvers"]
+    answerIndex: 3
+    explanation: "DNSSEC provides signed DNS data so resolvers can verify records and reject tampered responses. Network segmentation can limit spread, but it does not cryptographically validate DNS answers."
+    refs: ["https://www.cisa.gov/topics/cybersecurity-best-practices", "https://www.nist.gov/cyberframework"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-005"
+    difficulty: "medium"
+    tags: ["iot-security", "segmentation", "compensating-controls"]
+    question: "A critical vulnerability is found in internet-connected cameras, but the vendor patch will not be available for 60 days. What is the best immediate mitigation?"
+    choices: ["A. Isolate cameras on a restricted VLAN with ACLs allowing only required management traffic", "B. Increase minimum password length for office email accounts", "C. Disable centralized logging to reduce system load", "D. Rotate backup tapes more frequently"]
+    answerIndex: 0
+    explanation: "Isolation with strict ACLs reduces attack surface and limits lateral movement while waiting for a vendor fix. Email password policy changes do not directly mitigate a firmware exploitation path in cameras."
+    refs: ["https://www.cisa.gov/topics/cybersecurity-best-practices", "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-006"
+    difficulty: "hard"
+    tags: ["password-attacks", "hashing", "authentication"]
+    question: "An attacker obtains password hashes and uses large precomputed lookup tables to recover weak passwords quickly. Which attack technique is being used?"
+    choices: ["A. Brute-force attack", "B. Rainbow table attack", "C. Pass-the-hash", "D. Credential stuffing"]
+    answerIndex: 1
+    explanation: "Rainbow table attacks use precomputed hash-to-password mappings to speed up cracking of unsalted or weakly protected hashes. Pass-the-hash reuses stolen hashes for authentication and does not require recovering plaintext passwords."
+    refs: ["https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-threats-007"
+    difficulty: "hard"
+    tags: ["cloud-security", "misconfiguration", "cspm"]
+    question: "A team repeatedly exposes object storage buckets due to template mistakes across multiple cloud accounts. Which mitigation most effectively prevents recurrence at scale?"
+    choices: ["A. Monthly manual review of all bucket permissions", "B. Quarterly security awareness reminders for developers", "C. Organization-level policy guardrails plus CSPM checks to block public bucket configurations", "D. Increasing encryption key length for bucket data"]
+    answerIndex: 2
+    explanation: "Preventive guardrails and automated posture checks stop or quickly detect insecure configurations across accounts, which addresses systemic recurrence. Manual monthly reviews are too slow for rapid cloud deployment cycles and are primarily detective."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-architecture-001"
+    difficulty: "easy"
+    tags: ["cloud-models", "iaas", "shared-responsibility"]
+    question: "Which cloud service model requires the customer to secure the guest operating system and applications while the provider manages physical hardware and hypervisor infrastructure?"
+    choices: ["A. SaaS", "B. FaaS", "C. PaaS", "D. IaaS"]
+    answerIndex: 3
+    explanation: "In IaaS, customers are responsible for workloads above the virtualization layer, including OS hardening and patching. In PaaS, the provider manages more of the platform stack, so customer OS management is not the same responsibility."
+    refs: ["https://www.comptia.org/certifications/security", "https://www.nist.gov/cyberframework"]
+    author: "ThanhNguyxn"
+  - id: "sec701-architecture-002"
+    difficulty: "medium"
+    tags: ["data-security", "data-in-transit", "encryption"]
+    question: "A company sends customer records over a TLS-protected API from its CRM to a payment partner. Which data state best describes those records during transfer?"
+    choices: ["A. Data in transit", "B. Data at rest", "C. Data in use", "D. Data remanence"]
+    answerIndex: 0
+    explanation: "Data moving between systems over a network is data in transit, even when protected by TLS. Data at rest refers to information stored on media such as disks, databases, or backups."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-architecture-003"
+    difficulty: "medium"
+    tags: ["disaster-recovery", "site-types", "high-availability"]
+    question: "An enterprise needs a disaster recovery site capable of near-immediate failover with fully provisioned systems, and it accepts the highest cost. Which site type should it choose?"
+    choices: ["A. Cold site", "B. Hot site", "C. Warm site", "D. Mobile site"]
+    answerIndex: 1
+    explanation: "A hot site is preconfigured and ready for rapid cutover, providing the shortest recovery time objective. A cold site has minimal infrastructure and requires significant setup time during an event."
+    refs: ["https://www.nist.gov/cyberframework", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-architecture-004"
+    difficulty: "hard"
+    tags: ["data-sovereignty", "compliance", "cloud-architecture"]
+    question: "A multinational must ensure EU customer data never leaves approved EU jurisdictions and that cryptographic key control stays with an EU legal entity. Which architecture best satisfies this requirement?"
+    choices: ["A. Replicate all customer data to a global multi-region bucket", "B. Transfer raw data to a non-EU analytics region and tokenize later", "C. Store and process data only in EU regions with geofencing and EU-controlled key management", "D. Keep backups encrypted but allow unrestricted cross-region processing"]
+    answerIndex: 2
+    explanation: "Regional processing with geofencing and locally governed key control directly supports sovereignty and residency constraints. Tokenizing after cross-border transfer still allows sensitive data movement outside the required jurisdiction."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final", "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-architecture-005"
+    difficulty: "hard"
+    tags: ["iac-security", "devsecops", "policy-as-code"]
+    question: "A DevOps team uses Terraform and wants to stop insecure security group rules before deployment. Which control is most effective?"
+    choices: ["A. Perform quarterly penetration tests after production releases", "B. Depend on manual peer review only", "C. Scan only running instances for vulnerabilities", "D. Enforce policy-as-code checks in CI/CD that fail builds on noncompliant IaC"]
+    answerIndex: 3
+    explanation: "Policy-as-code in CI/CD is preventive and blocks risky infrastructure definitions before they reach production. Post-deployment scanning is important but detective, so it cannot prevent initial exposure."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-001"
+    difficulty: "easy"
+    tags: ["incident-response", "soc", "detection-analysis"]
+    question: "A SOC analyst validates an alert and confirms malicious lateral movement is occurring. In the incident response lifecycle, which phase is this?"
+    choices: ["A. Detection and analysis", "B. Eradication", "C. Recovery", "D. Lessons learned"]
+    answerIndex: 0
+    explanation: "Confirming whether an event is truly an incident is part of detection and analysis. Eradication occurs later and focuses on removing attacker artifacts and root causes."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-002"
+    difficulty: "easy"
+    tags: ["iam", "sso", "authentication"]
+    question: "A company wants users to authenticate once to access multiple approved internal applications without repeated logins. Which IAM capability should be implemented?"
+    choices: ["A. Privileged access management", "B. Single sign-on", "C. Kerberos ticket lifetime reduction", "D. Just-in-time admin elevation"]
+    answerIndex: 1
+    explanation: "Single sign-on enables one identity assertion to be reused across multiple trusted applications. Privileged access management controls high-privilege accounts and does not by itself deliver broad user SSO behavior."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-003"
+    difficulty: "medium"
+    tags: ["digital-forensics", "chain-of-custody", "evidence-handling"]
+    question: "During a legal investigation, an analyst acquires a disk image from a compromised laptop. Which action best preserves chain of custody?"
+    choices: ["A. Reboot the laptop to confirm persistence after restart", "B. Share evidence copies via personal cloud storage", "C. Record each evidence transfer with signed timestamps and handler identity", "D. Analyze the original drive directly to save time"]
+    answerIndex: 2
+    explanation: "Chain of custody requires documented, auditable tracking of who handled evidence, when, and how it was transferred. Rebooting a system can change volatile and system state data, weakening forensic defensibility."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final", "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-004"
+    difficulty: "medium"
+    tags: ["siem", "soar", "automation", "orchestration"]
+    question: "A SOC is overwhelmed by repetitive phishing alerts and wants automatic enrichment, ticket creation, and containment playbooks with analyst approval gates. Which implementation best meets this goal?"
+    choices: ["A. Network IDS with expanded signature packs", "B. Endpoint AV with daily full scans", "C. Central syslog server with longer retention", "D. SIEM integrated with SOAR-driven response workflows"]
+    answerIndex: 3
+    explanation: "A SIEM aggregates and correlates security telemetry, while SOAR automates multi-step response actions through playbooks. A syslog server alone stores logs but does not orchestrate enrichment and response decisions."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-005"
+    difficulty: "medium"
+    tags: ["secure-baselines", "hardening", "configuration-management"]
+    question: "A security engineer needs new Linux servers to remain aligned with a hardened baseline over time. Which approach is most effective?"
+    choices: ["A. Enforce baseline configurations with automation and run continuous compliance checks", "B. Allow each admin to tune settings manually per workload", "C. Delay patching until annual maintenance windows", "D. Replace baseline checks with annual penetration testing only"]
+    answerIndex: 0
+    explanation: "Automated baseline enforcement and recurring compliance validation maintain consistency and reduce configuration drift. Annual penetration tests are valuable but too infrequent to enforce daily hardening standards."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-006"
+    difficulty: "hard"
+    tags: ["ids-ips", "false-positives", "network-security"]
+    question: "After enabling an inline IPS, legitimate business traffic is being blocked by false positives. What is the best immediate action to reduce risk while restoring reliability?"
+    choices: ["A. Disable IPS permanently and rely on perimeter firewall rules", "B. Temporarily run in detection mode and tune signatures, thresholds, and allowlists before re-enabling blocking", "C. Increase phishing simulation frequency", "D. Move logs to lower-cost cold storage"]
+    answerIndex: 1
+    explanation: "Temporary detect mode with structured tuning preserves visibility while reducing operational disruption and improving future blocking quality. Permanently disabling the IPS removes a key preventive control and increases exposure."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-007"
+    difficulty: "hard"
+    tags: ["xdr", "threat-detection", "telemetry-correlation"]
+    question: "Attackers move from a compromised endpoint into cloud workloads using stolen tokens. Which capability best helps detect the full attack chain across environments?"
+    choices: ["A. Host firewall rules on user laptops", "B. Weekly vulnerability scans only", "C. XDR that correlates endpoint, identity, network, and cloud telemetry", "D. Offline tape backup rotation"]
+    answerIndex: 2
+    explanation: "XDR is designed to correlate multi-domain telemetry and surface linked attacker behaviors across endpoint and cloud boundaries. Host firewall controls are important but provide narrow visibility and no broad behavioral correlation."
+    refs: ["https://www.nist.gov/cyberframework", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-operations-008"
+    difficulty: "hard"
+    tags: ["incident-response", "digital-forensics", "ransomware"]
+    question: "A ransomware outbreak has been contained on several servers. Before widespread reimaging, which step is most important for forensic integrity and root-cause analysis?"
+    choices: ["A. Pay the ransom immediately to reduce downtime", "B. Delete suspicious files and return systems to users", "C. Rebuild all affected hosts without evidence collection", "D. Capture memory and disk forensic images and verify them with cryptographic hashes"]
+    answerIndex: 3
+    explanation: "Forensic image capture with hash verification preserves evidence integrity for investigation and legal defensibility. Reimaging before evidence collection can destroy critical artifacts needed to identify attacker techniques and prevent recurrence."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final", "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"]
+    author: "ThanhNguyxn"
+  - id: "sec701-management-001"
+    difficulty: "easy"
+    tags: ["governance", "policies-standards", "documentation"]
+    question: "An organization mandates that all production databases must use AES-256 encryption and MFA for administrative access. Which governance document type is this requirement most likely part of?"
+    choices: ["A. Standard", "B. Procedure", "C. Guideline", "D. Runbook"]
+    answerIndex: 0
+    explanation: "A standard defines mandatory and measurable requirements that systems must meet across the organization. A procedure explains how to perform a task, not what enterprise-wide requirement must be met."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-management-002"
+    difficulty: "easy"
+    tags: ["risk-management", "risk-tolerance", "governance"]
+    question: "The steering committee states that payment platform downtime must not exceed 30 minutes per quarter. Which risk concept does this statement best represent?"
+    choices: ["A. Risk appetite", "B. Risk tolerance", "C. Inherent risk", "D. Risk transference"]
+    answerIndex: 1
+    explanation: "Risk tolerance is a specific, quantified threshold for acceptable deviation or loss. Risk appetite is broader and expresses the overall level of risk an organization is willing to pursue or retain."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-management-003"
+    difficulty: "medium"
+    tags: ["risk-assessment", "quantitative-risk", "ale"]
+    question: "A risk analyst calculates a single loss expectancy (SLE) of 80000 USD for a data breach scenario and an annual rate of occurrence (ARO) of 0.25. What is the annualized loss expectancy (ALE)?"
+    choices: ["A. 320000 USD", "B. 80000 USD", "C. 20000 USD", "D. 0.05 USD"]
+    answerIndex: 2
+    explanation: "ALE is computed as SLE multiplied by ARO, so 80000 x 0.25 equals 20000 USD. The 80000 USD option is only the single event loss and does not account for expected frequency."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final", "https://www.comptia.org/certifications/security"]
+    author: "ThanhNguyxn"
+  - id: "sec701-management-004"
+    difficulty: "medium"
+    tags: ["third-party-risk", "vendor-assessment", "compliance"]
+    question: "Before onboarding a payroll SaaS provider, which artifact provides the strongest independent evidence that security controls operated effectively over a period of time?"
+    choices: ["A. Vendor marketing one-pager", "B. Uptime SLA statement", "C. Self-attested security questionnaire", "D. SOC 2 Type II report"]
+    answerIndex: 3
+    explanation: "A SOC 2 Type II report includes independent auditor testing of control effectiveness over time, which is stronger than self-assertions. A self-attested questionnaire can support due diligence, but it lacks the same independent assurance."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final", "https://www.cisa.gov/topics/cybersecurity-best-practices"]
+    author: "ThanhNguyxn"
+  - id: "sec701-management-005"
+    difficulty: "hard"
+    tags: ["pci-dss", "compliance", "data-protection", "scope-reduction"]
+    question: "A retailer wants to reduce PCI-DSS exposure while still processing card payments. Which strategy is most effective?"
+    choices: ["A. Use tokenization with strong segmentation of the cardholder data environment", "B. Copy full card data into a central analytics data lake", "C. Store PAN values in plaintext for faster troubleshooting", "D. Rely only on annual security awareness training"]
+    answerIndex: 0
+    explanation: "Tokenization and strict segmentation reduce where cardholder data exists and can significantly limit PCI-DSS scope. Centralizing full card data in a broad analytics platform increases exposure and expands compliance burden."
+    refs: ["https://www.comptia.org/certifications/security", "https://www.nist.gov/cyberframework"]
+    author: "ThanhNguyxn"
+  - id: "sec701-management-006"
+    difficulty: "hard"
+    tags: ["risk-register", "prioritization", "gdpr", "governance"]
+    question: "An organization has a low tolerance for regulatory penalties. Which risk register entry should be prioritized for immediate treatment?"
+    choices: ["A. Rare outage of an internal wiki causing minor productivity loss", "B. Moderate likelihood of GDPR noncompliance due missing retention controls for EU customer data", "C. Frequent office printer malfunctions", "D. Delayed rollout of a noncritical employee portal theme"]
+    answerIndex: 1
+    explanation: "Given low tolerance for regulatory exposure, a likely GDPR control gap with potentially severe fines should be addressed first. Printer and wiki issues may affect operations, but they do not present comparable regulatory consequences."
+    refs: ["https://csrc.nist.gov/publications/detail/sp/800-37/rev-2/final", "https://www.nist.gov/cyberframework"]
+    author: "ThanhNguyxn"

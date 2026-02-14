@@ -1,0 +1,306 @@
+meta:
+  category: "cloud"
+  cert: "AZ-900"
+  vendor: "Microsoft"
+  version: 1
+  description: "Original practice questions for Microsoft Azure Fundamentals (AZ-900)"
+questions:
+  - id: "az900-concepts-001"
+    difficulty: "easy"
+    tags: ["cloud-computing", "consumption-model", "opex"]
+    question: "A startup wants to launch quickly without buying hardware up front and wants costs to track actual usage each month. Which cloud concept best fits this goal?"
+    choices: ["A. Use a private cloud to increase capital spending.", "B. Use a consumption-based model and pay only for resources used.", "C. Purchase physical servers on a 5-year cycle.", "D. Deploy in an availability zone to reduce billing." ]
+    answerIndex: 1
+    explanation: "A consumption-based model aligns spending to actual usage, which is exactly what the startup wants. Option C is wrong because buying physical servers is a capital expense model with high upfront cost."
+    refs: ["https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-002"
+    difficulty: "easy"
+    tags: ["shared-responsibility", "saas", "security"]
+    question: "A company adopts a SaaS CRM solution in Azure. Under the shared responsibility model, which statement is correct?"
+    choices: ["A. The customer patches the underlying operating system.", "B. The customer replaces failed disks in the datacenter.", "C. Microsoft manages the underlying infrastructure, while the customer manages data and user access.", "D. Security responsibilities are entirely Microsoft-managed in all areas."]
+    answerIndex: 2
+    explanation: "For SaaS, Microsoft manages the infrastructure and platform layers, while customers still manage their data and identity/access configuration. Option A is wrong because OS patching for the hosted SaaS platform is not a customer task."
+    refs: ["https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility", "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-003"
+    difficulty: "easy"
+    tags: ["cloud-models", "hybrid-cloud", "public-cloud"]
+    question: "A manufacturer must keep sensitive workloads in its own datacenter due to compliance, but wants to use Azure for seasonal demand spikes. Which deployment model should it use?"
+    choices: ["A. Public cloud", "B. Private cloud", "C. Community cloud", "D. Hybrid cloud"]
+    answerIndex: 3
+    explanation: "Hybrid cloud is designed for combining on-premises resources with public cloud capacity, matching this requirement. Option A is wrong because a public-only model would not keep required sensitive workloads in the company datacenter."
+    refs: ["https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-004"
+    difficulty: "easy"
+    tags: ["service-types", "paas", "application-hosting"]
+    question: "A development team wants to deploy web code without managing operating systems, patching, or runtime updates. Which cloud service model is the best fit?"
+    choices: ["A. PaaS", "B. IaaS", "C. SaaS", "D. Colocation"]
+    answerIndex: 0
+    explanation: "PaaS provides managed runtime and infrastructure so developers can focus on application code. Option B is wrong because IaaS still requires the customer to manage OS-level maintenance."
+    refs: ["https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-005"
+    difficulty: "medium"
+    tags: ["serverless", "azure-functions", "event-driven"]
+    question: "An order-processing workflow runs only when new files arrive and can be idle for long periods. The team wants minimal infrastructure management and per-execution billing. Which approach fits best?"
+    choices: ["A. Azure Virtual Machines", "B. Azure Functions", "C. Azure Kubernetes Service", "D. Azure Dedicated Host"]
+    answerIndex: 1
+    explanation: "Azure Functions is a serverless option that executes on demand and bills by execution/consumption in applicable plans. Option A is wrong because VMs require ongoing management and are billed while running."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-functions/", "https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-006"
+    difficulty: "medium"
+    tags: ["high-availability", "reliability", "resiliency"]
+    question: "A customer-facing application must remain online even if one datacenter in a region fails. Which cloud design objective is the primary focus?"
+    choices: ["A. Scalability", "B. Predictability", "C. High availability", "D. Manageability"]
+    answerIndex: 2
+    explanation: "High availability focuses on keeping services running through component or datacenter failures by using redundancy. Option A is wrong because scalability is about handling load changes, not specifically surviving failures."
+    refs: ["https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-007"
+    difficulty: "medium"
+    tags: ["predictability", "cloud-benefits", "operations"]
+    question: "An operations manager wants confidence that application performance and monthly spending can be forecasted using telemetry and standardized deployments. Which cloud benefit is most directly being targeted?"
+    choices: ["A. Predictability", "B. Agility", "C. Elasticity", "D. Fault domain isolation"]
+    answerIndex: 0
+    explanation: "Predictability refers to being able to forecast performance and cost outcomes using cloud metrics and patterns. Option C is wrong because elasticity is about automatic scale in/out, not about forecasting behavior."
+    refs: ["https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-008"
+    difficulty: "hard"
+    tags: ["elasticity", "scalability", "cost-optimization"]
+    question: "An e-commerce site automatically adds instances during flash sales and removes them when traffic drops to avoid overprovisioning. Which characteristic is most directly demonstrated?"
+    choices: ["A. Fault tolerance", "B. Disaster recovery", "C. Vertical scaling", "D. Elasticity"]
+    answerIndex: 3
+    explanation: "Elasticity is the ability to scale resources up and down automatically in response to demand changes. Option C is wrong because vertical scaling usually means changing the size of a single resource, not dynamic scale-out and scale-in behavior."
+    refs: ["https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-concepts-009"
+    difficulty: "hard"
+    tags: ["shared-responsibility", "iaas", "security"]
+    question: "A company migrates line-of-business workloads to Azure IaaS and asks what security work is reduced but not eliminated. Which statement is most accurate?"
+    choices: ["A. The company no longer needs to manage identities or access.", "B. Microsoft secures physical datacenters, while the company still secures OS settings, network controls, and data in its VMs.", "C. Security responsibility is fully transferred to Microsoft in IaaS.", "D. Encryption at rest is unavailable in public cloud environments."]
+    answerIndex: 1
+    explanation: "In IaaS, the provider secures the underlying physical infrastructure, but the customer still secures guest OS, configurations, and data. Option C is wrong because shared responsibility still applies and does not transfer all security duties to Microsoft."
+    refs: ["https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility", "https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-001"
+    difficulty: "easy"
+    tags: ["regions", "availability-zones", "resiliency"]
+    question: "A payment application in one Azure region needs protection from a single datacenter outage with minimal latency impact. What should the architect use first?"
+    choices: ["A. Deploy resources across Availability Zones in that region.", "B. Place all resources in one availability set.", "C. Run a single larger VM with premium storage.", "D. Apply delete locks on all resources."]
+    answerIndex: 0
+    explanation: "Availability Zones provide physically separate datacenter locations within a region and are designed for zonal fault tolerance. Option B is wrong because availability sets help inside one datacenter boundary and do not provide the same zonal separation."
+    refs: ["https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-002"
+    difficulty: "easy"
+    tags: ["management-groups", "subscriptions", "governance"]
+    question: "An enterprise has many Azure subscriptions and wants a single hierarchy to apply governance and policy at scale. Which Azure construct should it use?"
+    choices: ["A. Resource groups", "B. Availability sets", "C. Management groups", "D. Azure DNS zones"]
+    answerIndex: 2
+    explanation: "Management groups provide hierarchical organization above subscriptions for centralized governance. Option A is wrong because resource groups exist inside a single subscription and cannot group subscriptions together."
+    refs: ["https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-003"
+    difficulty: "easy"
+    tags: ["app-service", "paas", "web-apps"]
+    question: "A team wants to host a web application with built-in patching, scaling options, and deployment slots, without managing VMs. Which service is the best fit?"
+    choices: ["A. Azure Virtual Machines", "B. Azure Kubernetes Service", "C. Azure Container Instances", "D. Azure App Service"]
+    answerIndex: 3
+    explanation: "Azure App Service is a managed PaaS for web apps that includes platform maintenance and deployment features. Option A is wrong because VMs require the team to handle OS patching and more operational overhead."
+    refs: ["https://learn.microsoft.com/en-us/azure/app-service/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-004"
+    difficulty: "easy"
+    tags: ["azure-storage", "access-tiers", "cost-optimization"]
+    question: "A company stores backup files that are rarely accessed but must still be available quickly when needed. Which Azure Blob access tier is most appropriate?"
+    choices: ["A. Archive", "B. Cool", "C. Hot", "D. Premium"]
+    answerIndex: 1
+    explanation: "The Cool tier is optimized for infrequent access while still supporting relatively quick online retrieval. Option A is wrong because Archive has lower cost but higher retrieval latency and is not intended for immediate access scenarios."
+    refs: ["https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-005"
+    difficulty: "medium"
+    tags: ["virtual-network", "vnet-peering", "networking"]
+    question: "Two Azure virtual networks in the same region must communicate privately with low latency and without traversing the public internet. Which option should be selected?"
+    choices: ["A. Site-to-site VPN", "B. ExpressRoute", "C. VNet peering", "D. Azure Front Door"]
+    answerIndex: 2
+    explanation: "VNet peering provides private connectivity between VNets with high bandwidth and low latency. Option A is wrong because site-to-site VPN is typically used for on-premises-to-Azure or cross-network tunneling over internet paths."
+    refs: ["https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview", "https://learn.microsoft.com/en-us/azure/virtual-network/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-006"
+    difficulty: "medium"
+    tags: ["expressroute", "connectivity", "hybrid-networking"]
+    question: "A bank requires private, dedicated connectivity from its headquarters to Azure with predictable performance and no traffic over the public internet. Which service meets this requirement?"
+    choices: ["A. ExpressRoute", "B. VPN Gateway", "C. Azure DNS", "D. Network Watcher"]
+    answerIndex: 0
+    explanation: "ExpressRoute provides dedicated private connectivity between on-premises infrastructure and Azure. Option B is wrong because VPN Gateway uses encrypted tunnels over the public internet rather than a private dedicated circuit."
+    refs: ["https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction", "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-007"
+    difficulty: "medium"
+    tags: ["azure-virtual-desktop", "end-user-computing", "remote-work"]
+    question: "A contact center wants to deliver secure Windows desktops and apps to remote agents with centralized management. Which Azure service is the best fit?"
+    choices: ["A. Azure App Service", "B. Azure Functions", "C. Virtual Machine Scale Sets", "D. Azure Virtual Desktop"]
+    answerIndex: 3
+    explanation: "Azure Virtual Desktop is designed to deliver managed virtual desktops and remote applications to end users. Option C is wrong because scale sets provide VM scaling primitives but not a complete virtual desktop platform."
+    refs: ["https://learn.microsoft.com/en-us/azure/virtual-desktop/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-008"
+    difficulty: "medium"
+    tags: ["microsoft-entra-id", "sso", "identity"]
+    question: "A company wants users to sign in once and access multiple cloud applications without re-entering credentials. Which Microsoft Entra capability addresses this requirement?"
+    choices: ["A. Conditional Access", "B. Single sign-on", "C. Privileged Identity Management", "D. Custom RBAC role"]
+    answerIndex: 1
+    explanation: "Single sign-on allows one authentication event to provide access to multiple connected applications. Option A is wrong because Conditional Access evaluates sign-in conditions and policies, but it does not itself provide SSO behavior."
+    refs: ["https://learn.microsoft.com/en-us/entra/fundamentals/", "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/what-is-single-sign-on"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-009"
+    difficulty: "hard"
+    tags: ["rbac", "authorization", "least-privilege"]
+    question: "An IT lead needs to allow only the Finance-Admins group to delete storage accounts in one resource group. Which Azure mechanism should be configured?"
+    choices: ["A. Assign an Azure RBAC role at the resource group scope.", "B. Create a Conditional Access policy for compliant devices.", "C. Configure an NSG rule for outbound HTTPS.", "D. Enable Defender for Cloud recommendations."]
+    answerIndex: 0
+    explanation: "Azure RBAC controls what actions identities can perform on resources at defined scopes, which is exactly needed for delete permissions. Option B is wrong because Conditional Access controls sign-in conditions, not fine-grained Azure resource authorization actions."
+    refs: ["https://learn.microsoft.com/en-us/azure/role-based-access-control/overview", "https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-010"
+    difficulty: "hard"
+    tags: ["defender-for-cloud", "security-posture", "zero-trust"]
+    question: "Security teams want one place to continuously assess Azure security posture, view secure score, and get hardening recommendations. Which service should they use?"
+    choices: ["A. Azure Advisor", "B. Microsoft Sentinel", "C. Microsoft Defender for Cloud", "D. Azure Policy exemptions"]
+    answerIndex: 2
+    explanation: "Microsoft Defender for Cloud provides posture management, recommendations, and secure score across cloud resources. Option A is wrong because Azure Advisor includes some security guidance but does not provide the same dedicated cloud security posture management capabilities."
+    refs: ["https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-services-011"
+    difficulty: "hard"
+    tags: ["azure-migrate", "migration", "assessment"]
+    question: "Before migrating hundreds of on-premises servers, a company wants dependency mapping and readiness assessment to plan migration waves. Which Azure service should it use first?"
+    choices: ["A. Azure Data Box", "B. Azure Migrate", "C. AzCopy", "D. Azure Storage Explorer"]
+    answerIndex: 1
+    explanation: "Azure Migrate is built for discovery, assessment, and migration planning for on-premises workloads moving to Azure. Option A is wrong because Azure Data Box is primarily for large-scale data transfer, not dependency-based migration assessment."
+    refs: ["https://learn.microsoft.com/en-us/azure/migrate/migrate-services-overview", "https://learn.microsoft.com/en-us/azure/databox/data-box-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-001"
+    difficulty: "easy"
+    tags: ["cost-management", "pricing", "vm"]
+    question: "Which factor most directly affects the monthly compute cost of an Azure virtual machine?"
+    choices: ["A. Number of management groups", "B. VM size and total running hours", "C. Number of resource locks", "D. Number of tags on the VM"]
+    answerIndex: 1
+    explanation: "VM pricing is primarily driven by the selected SKU and the amount of time the VM runs. Option D is wrong because tags help with organization and reporting but do not directly change compute pricing."
+    refs: ["https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/", "https://learn.microsoft.com/en-us/azure/virtual-machines/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-002"
+    difficulty: "easy"
+    tags: ["pricing-calculator", "cost-estimation", "planning"]
+    question: "A solution architect needs a pre-deployment estimate for monthly Azure costs across several services and regions. Which tool should be used?"
+    choices: ["A. Azure Service Health", "B. Azure Cost Management anomaly detection", "C. Azure Pricing Calculator", "D. Microsoft Purview"]
+    answerIndex: 2
+    explanation: "The Azure Pricing Calculator is intended for estimating costs before deployment based on selected services and configurations. Option B is wrong because Cost Management analyzes and optimizes spend after resources are already in use."
+    refs: ["https://learn.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview", "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-003"
+    difficulty: "easy"
+    tags: ["tags", "cost-allocation", "governance"]
+    question: "A company wants to allocate Azure costs to departments consistently across many subscriptions. What should it implement broadly on resources?"
+    choices: ["A. Standardized tags such as costcenter, owner, and environment", "B. Additional availability zones", "C. Resource locks on every resource", "D. A larger Log Analytics retention period"]
+    answerIndex: 0
+    explanation: "Tags provide metadata that enables cost reporting and chargeback grouping across resources and subscriptions. Option B is wrong because availability zones improve resiliency, not cost attribution."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources", "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-004"
+    difficulty: "medium"
+    tags: ["azure-policy", "compliance", "governance"]
+    question: "An organization requires all new storage accounts to enforce secure transfer (HTTPS) and wants non-compliant resources flagged automatically. Which Azure service should be used?"
+    choices: ["A. Resource locks", "B. RBAC role assignments", "C. Application Insights", "D. Azure Policy"]
+    answerIndex: 3
+    explanation: "Azure Policy can enforce or audit configuration standards and report compliance across scopes. Option A is wrong because locks prevent modification or deletion but do not evaluate configuration compliance rules."
+    refs: ["https://learn.microsoft.com/en-us/azure/governance/policy/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-005"
+    difficulty: "medium"
+    tags: ["resource-locks", "governance", "operations"]
+    question: "A production database server must be protected from accidental deletion while still allowing administrators to view and update settings. What is the best control?"
+    choices: ["A. Apply a CanNotDelete lock", "B. Assign all admins the Reader role", "C. Move the resource to another region", "D. Use autoscale rules"]
+    answerIndex: 0
+    explanation: "A CanNotDelete lock blocks accidental deletion while allowing authorized updates, which matches the requirement. Option B is wrong because Reader role also blocks configuration updates and is therefore too restrictive for this scenario."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-006"
+    difficulty: "medium"
+    tags: ["cloud-shell", "azure-cli", "management-tools"]
+    question: "An engineer on a temporary workstation needs to run Azure CLI commands quickly without installing tools locally. Which option is most suitable?"
+    choices: ["A. Install Azure CLI on the workstation", "B. Use Azure Cloud Shell", "C. Use Azure Arc", "D. Use Azure Pricing Calculator"]
+    answerIndex: 1
+    explanation: "Azure Cloud Shell provides browser-based CLI and PowerShell access with authenticated context and no local setup. Option A is wrong because it requires local installation and configuration, which the scenario explicitly wants to avoid."
+    refs: ["https://learn.microsoft.com/en-us/azure/cloud-shell/overview", "https://learn.microsoft.com/en-us/cli/azure/what-is-azure-cli"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-007"
+    difficulty: "medium"
+    tags: ["service-health", "monitoring", "incident-management"]
+    question: "An operations team wants alerts about Microsoft service incidents that may impact their subscribed Azure services in a specific region. Which tool should they use?"
+    choices: ["A. Azure Monitor metrics", "B. Log Analytics", "C. Azure Advisor", "D. Azure Service Health"]
+    answerIndex: 3
+    explanation: "Azure Service Health communicates service incidents, planned maintenance, and advisories that affect your tenant and regions. Option A is wrong because Azure Monitor metrics focus on your resource telemetry, not platform incident communications from Microsoft."
+    refs: ["https://learn.microsoft.com/en-us/azure/service-health/service-health-overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-008"
+    difficulty: "hard"
+    tags: ["bicep", "arm", "infrastructure-as-code"]
+    question: "A platform team wants repeatable, version-controlled deployment of identical environments while avoiding verbose JSON authoring. Which approach best fits?"
+    choices: ["A. Build resources manually in Azure portal each time", "B. Use Azure Arc-enabled servers", "C. Author Bicep files and deploy through Azure Resource Manager", "D. Rely on Service Health alerts"]
+    answerIndex: 2
+    explanation: "Bicep is a higher-level, readable language for ARM-based infrastructure as code and supports repeatable deployments. Option A is wrong because manual portal creation is not version-controlled and is prone to configuration drift."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview", "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-009"
+    difficulty: "hard"
+    tags: ["application-insights", "observability", "azure-monitor"]
+    question: "A web application team needs request rates, dependency failures, and distributed performance traces from the application layer. Which Azure component should they enable first?"
+    choices: ["A. Application Insights", "B. Azure Service Health", "C. Azure Cost Management", "D. Azure Policy"]
+    answerIndex: 0
+    explanation: "Application Insights collects application performance telemetry such as requests, dependencies, failures, and response times. Option B is wrong because Service Health reports Azure platform issues, not app-level telemetry from your code."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview", "https://learn.microsoft.com/en-us/azure/azure-monitor/overview"]
+    author: "ThanhNguyxn"
+
+  - id: "az900-governance-010"
+    difficulty: "hard"
+    tags: ["azure-arc", "hybrid-cloud", "governance"]
+    question: "A company runs servers on-premises and in another cloud, but wants to manage and govern them from Azure using consistent inventory and policy controls. Which service is designed for this?"
+    choices: ["A. Management groups", "B. Microsoft Purview", "C. Azure Lighthouse", "D. Azure Arc"]
+    answerIndex: 3
+    explanation: "Azure Arc extends Azure management capabilities to non-Azure resources, enabling consistent governance across hybrid and multi-cloud environments. Option A is wrong because management groups organize Azure subscriptions but do not onboard external servers as manageable resources."
+    refs: ["https://learn.microsoft.com/en-us/azure/azure-arc/overview"]
+    author: "ThanhNguyxn"
