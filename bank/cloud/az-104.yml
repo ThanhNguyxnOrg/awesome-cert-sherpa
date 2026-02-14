@@ -1,0 +1,463 @@
+meta:
+  category: "cloud"
+  cert: "AZ-104"
+  vendor: "Microsoft"
+  version: 1
+  description: "Original practice questions for Microsoft Azure Administrator Associate (AZ-104)"
+questions:
+  - id: "az104-v1-d1-001"
+    difficulty: "medium"
+    tags: ["entra-id", "groups", "dynamic-membership"]
+    question: "A company wants all Finance employees to automatically receive access to a reporting app as soon as HR updates their department attribute in Microsoft Entra ID. What should you implement?"
+    choices:
+      - "A. Create a Microsoft 365 group and allow self-service join requests"
+      - "B. Create a dynamic security group with a membership rule based on department"
+      - "C. Create a mail-enabled security group and update membership monthly"
+      - "D. Assign app access to each user account manually"
+    answerIndex: 1
+    explanation: "A dynamic security group evaluates user attributes and updates membership automatically, which matches the requirement. This removes manual administration and keeps access aligned with HR data changes. The other options rely on manual effort or user action and can drift from policy."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/groups-dynamic-membership"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d1-002"
+    difficulty: "hard"
+    tags: ["rbac", "least-privilege", "vm"]
+    question: "Your operations team must start, stop, and connect to existing virtual machines in a resource group, but they must not be able to create or delete VMs. Which RBAC role should you assign?"
+    choices:
+      - "A. Reader"
+      - "B. Virtual Machine Contributor"
+      - "C. DevTest Labs User"
+      - "D. Contributor"
+    answerIndex: 2
+    explanation: "DevTest Labs User allows users to start, restart, and connect to VMs without broad infrastructure modification rights. Virtual Machine Contributor and Contributor are more permissive than required and violate least privilege. Reader does not allow operational VM actions."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d1-003"
+    difficulty: "medium"
+    tags: ["azure-policy", "governance", "tags"]
+    question: "A platform team requires every new resource in a subscription to include a 'costCenter' tag, and deployments missing the tag must fail. What is the best approach?"
+    choices:
+      - "A. Apply a CanNotDelete lock at the subscription scope"
+      - "B. Assign an Azure Policy with a Deny effect that requires the costCenter tag"
+      - "C. Add tag instructions to the onboarding wiki only"
+      - "D. Use an NSG to block deployments without tags"
+    answerIndex: 1
+    explanation: "Azure Policy with Deny enforces the rule at deployment time and blocks non-compliant resources automatically. This creates consistent governance without relying on manual checks. Locks and NSGs do not validate metadata like tags."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/policy/overview"
+      - "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d1-004"
+    difficulty: "easy"
+    tags: ["resource-locks", "governance", "sql"]
+    question: "Production databases were accidentally deleted last month. You must prevent deletion of a critical Azure SQL resource while still allowing configuration updates. Which control should you use?"
+    choices:
+      - "A. Apply a CanNotDelete lock to the resource"
+      - "B. Apply a ReadOnly lock to the resource"
+      - "C. Remove all RBAC assignments except Owner"
+      - "D. Move the resource to a separate subscription"
+    answerIndex: 0
+    explanation: "A CanNotDelete lock prevents delete operations but still permits authorized updates, matching the stated requirement. A ReadOnly lock would block most write operations and likely disrupt administration. Subscription moves and RBAC reduction do not directly provide targeted delete protection."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/resource-locks"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d1-005"
+    difficulty: "medium"
+    tags: ["management-groups", "governance", "rbac"]
+    question: "An enterprise has 20 Azure subscriptions and wants one place to apply governance policies and RBAC assignments that should inherit to all subscriptions. What should be used?"
+    choices:
+      - "A. Resource groups"
+      - "B. Management groups"
+      - "C. Availability sets"
+      - "D. Microsoft Entra administrative units"
+    answerIndex: 1
+    explanation: "Management groups provide hierarchical governance above subscriptions and support inherited policy and role assignments. This is the standard model for multi-subscription administration. Resource groups are scoped inside a single subscription, and the other options are unrelated to subscription governance."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d1-006"
+    difficulty: "medium"
+    tags: ["entra-id", "external-identities", "rbac"]
+    question: "External auditors need temporary read-only access to Azure resources, and the company wants them to sign in with their own corporate identities. What is the recommended solution?"
+    choices:
+      - "A. Create local administrator accounts on each VM"
+      - "B. Invite auditors as guest users in Entra ID and assign Reader at the required scope"
+      - "C. Share a common Owner account for the audit period"
+      - "D. Create one service principal per auditor and assign Owner"
+    answerIndex: 1
+    explanation: "Entra B2B guest users allow external identities to authenticate with their home credentials while you control access through Azure RBAC. Assigning Reader at the minimum scope enforces least privilege. Shared accounts and Owner assignments create major security and auditability risks."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b"
+      - "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d2-001"
+    difficulty: "medium"
+    tags: ["storage-account", "redundancy", "blob-storage"]
+    question: "A media application stores images in Azure Blob Storage. During a primary-region outage, users must still be able to read existing images from a secondary region. Which redundancy option meets this requirement?"
+    choices:
+      - "A. Locally redundant storage (LRS)"
+      - "B. Zone-redundant storage (ZRS)"
+      - "C. Geo-redundant storage (GRS)"
+      - "D. Read-access geo-redundant storage (RA-GRS)"
+    answerIndex: 3
+    explanation: "RA-GRS replicates data to a secondary region and exposes read access to the secondary endpoint. That directly satisfies the requirement for read continuity during a regional outage. GRS replicates data but does not provide read access unless a failover occurs."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d2-002"
+    difficulty: "easy"
+    tags: ["blob-storage", "lifecycle", "cost-optimization"]
+    question: "A team stores application logs in Blob Storage and wants blobs moved to Cool after 30 days and to Archive after 180 days automatically. Which feature should they configure?"
+    choices:
+      - "A. Azure Backup policy"
+      - "B. Blob lifecycle management rules"
+      - "C. Manual blob snapshots"
+      - "D. Storage account failover settings"
+    answerIndex: 1
+    explanation: "Blob lifecycle management applies policy-based tier transitions and deletion rules on schedule. It is built specifically for data aging and storage cost control. Backup policies and failover settings do not perform automated access tier movement."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/blobs/lifecycle-management-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d2-003"
+    difficulty: "hard"
+    tags: ["blob-storage", "sas", "security"]
+    question: "A serverless API must generate a time-limited URL for clients to upload files to Blob Storage without exposing storage account keys. What is the most secure option?"
+    choices:
+      - "A. Generate an account SAS using the account key"
+      - "B. Generate a service SAS using the account key"
+      - "C. Generate a user delegation SAS using Microsoft Entra credentials"
+      - "D. Enable anonymous public write access to the container"
+    answerIndex: 2
+    explanation: "A user delegation SAS is signed with Entra-backed credentials instead of the storage account key, reducing key exposure risk. It supports least privilege and aligns with modern identity-based access. Account and service SAS rely on shared keys, and anonymous write is insecure."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d2-004"
+    difficulty: "medium"
+    tags: ["azure-files", "azure-file-sync", "hybrid"]
+    question: "Branch offices use Windows file servers and need local performance while keeping a centralized Azure copy with cloud tiering to reduce on-prem disk usage. What should you deploy?"
+    choices:
+      - "A. Azure NetApp Files only"
+      - "B. Azure File Sync with a Storage Sync Service"
+      - "C. Azure Data Box Gateway"
+      - "D. Blob containers mounted with Blobfuse"
+    answerIndex: 1
+    explanation: "Azure File Sync extends Azure Files to on-prem Windows Servers and supports cloud tiering for frequently and infrequently used files. This design keeps local access fast while centralizing data in Azure. The alternatives do not provide this specific hybrid synchronization pattern."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/file-sync/file-sync-planning"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d2-005"
+    difficulty: "hard"
+    tags: ["storage-account", "private-endpoint", "network-security"]
+    question: "A storage account must be reachable only through private IP addresses from a specific VNet and from on-premises via ExpressRoute. Public endpoint access must be blocked. Which configuration is best?"
+    choices:
+      - "A. Enable service endpoints and leave public network access enabled"
+      - "B. Create a private endpoint and disable public network access"
+      - "C. Place the storage account behind Azure Front Door"
+      - "D. Enable anonymous blob access and rely on SAS tokens"
+    answerIndex: 1
+    explanation: "Private endpoints map the storage service to a private IP in your VNet, and disabling public network access enforces private-only connectivity. This works cleanly with ExpressRoute private routing from on-premises. Service endpoints still use the public endpoint and are less restrictive for this requirement."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints"
+      - "https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d3-001"
+    difficulty: "medium"
+    tags: ["bicep", "arm", "infrastructure-as-code"]
+    question: "You need repeatable deployments of the same solution to dev, test, and prod resource groups with only parameter differences. What should you implement?"
+    choices:
+      - "A. Export portal templates after each manual deployment"
+      - "B. Use ad-hoc PowerShell scripts per environment"
+      - "C. Use Bicep templates with parameters and deploy through ARM"
+      - "D. Clone resources manually in each environment"
+    answerIndex: 2
+    explanation: "Bicep provides declarative, reusable infrastructure definitions with parameterization and source control support. This enables consistent, idempotent deployments across environments. Manual cloning and ad-hoc scripts are harder to maintain and drift over time."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d3-002"
+    difficulty: "medium"
+    tags: ["virtual-machines", "availability-zones", "high-availability"]
+    question: "A line-of-business app runs on two Azure VMs and must remain available if an entire datacenter fails in the region. Which deployment pattern should be used?"
+    choices:
+      - "A. Place both VMs in one availability zone"
+      - "B. Place VMs in an availability set only"
+      - "C. Place VMs in different availability zones and load balance them"
+      - "D. Use one larger VM with premium storage"
+    answerIndex: 2
+    explanation: "Availability zones provide datacenter-level fault isolation within a region. Distributing VMs across zones with a load balancer protects service availability during a zonal failure. Availability sets protect against host and rack failures, not full datacenter outages."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-machines/availability-zone-overview"
+      - "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d3-003"
+    difficulty: "hard"
+    tags: ["virtual-machines", "managed-disks", "performance"]
+    question: "A mission-critical transactional database on an Azure VM requires the highest disk IOPS and very low latency. Which managed disk type is most appropriate?"
+    choices:
+      - "A. Standard HDD"
+      - "B. Standard SSD"
+      - "C. Premium SSD"
+      - "D. Ultra Disk"
+    answerIndex: 3
+    explanation: "Ultra Disk is designed for top-tier IOPS and throughput with low latency for demanding workloads. It is generally the best fit for high-performance database scenarios. Standard and Premium options are lower cost but may not satisfy extreme performance targets."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d3-004"
+    difficulty: "easy"
+    tags: ["aci", "containers", "serverless"]
+    question: "A batch process runs in a container for about 20 minutes every night and does not need Kubernetes orchestration. The team wants minimal management overhead. Which compute service should be used?"
+    choices:
+      - "A. Azure Kubernetes Service (AKS)"
+      - "B. Azure Container Instances (ACI)"
+      - "C. Virtual Machine Scale Sets"
+      - "D. Service Fabric cluster"
+    answerIndex: 1
+    explanation: "ACI is optimized for simple, on-demand container execution without managing cluster infrastructure. It is well suited for short-lived jobs and straightforward scheduling patterns. AKS and cluster-based services add operational complexity that is not needed here."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d3-005"
+    difficulty: "medium"
+    tags: ["aks", "containers", "orchestration"]
+    question: "A development team is migrating microservices and needs Kubernetes APIs, rolling upgrades, and cluster autoscaling with managed control plane operations. Which Azure service fits best?"
+    choices:
+      - "A. Azure Container Instances"
+      - "B. Azure App Service for Containers"
+      - "C. Azure Kubernetes Service"
+      - "D. Azure Batch"
+    answerIndex: 2
+    explanation: "AKS provides managed Kubernetes control plane capabilities while supporting core container orchestration features like scaling and rolling deployments. It is the right platform when native Kubernetes functionality is required. The other services are designed for simpler hosting models or batch workloads."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/aks/what-is-aks"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d3-006"
+    difficulty: "easy"
+    tags: ["app-service", "deployment-slots", "zero-downtime"]
+    question: "An App Service web application needs zero-downtime releases and a fast rollback path if post-deployment checks fail. What should the administrator configure?"
+    choices:
+      - "A. Deploy directly to production and restart the app"
+      - "B. Use deployment slots, validate in staging, then swap"
+      - "C. Create a new App Service plan for each release"
+      - "D. Stop traffic with an NSG during deployment"
+    answerIndex: 1
+    explanation: "Deployment slots let you stage and validate a release before swapping into production, minimizing downtime. If issues are found, you can swap back quickly. Direct production deployment increases outage and rollback risk."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-001"
+    difficulty: "easy"
+    tags: ["virtual-network", "subnets", "network-design"]
+    question: "You are designing a three-tier application in Azure and need different security controls for web, application, and database tiers. What is the recommended network layout?"
+    choices:
+      - "A. Put all VMs in one subnet and control access only with route tables"
+      - "B. Create one VNet per VM"
+      - "C. Use one VNet with separate subnets for each tier"
+      - "D. Use only Azure Firewall with no subnet segmentation"
+    answerIndex: 2
+    explanation: "Separate subnets per tier enable clear segmentation and targeted NSG policies by workload role. This is a standard Azure networking pattern for layered applications. Single-subnet designs reduce control granularity and increase blast radius."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-002"
+    difficulty: "medium"
+    tags: ["nsg", "asg", "virtual-machines"]
+    question: "Your web tier and app tier run on VM scale sets that change IP addresses frequently. You must allow web-to-app traffic on port 8443 without updating NSG rules whenever instances scale. What should you do?"
+    choices:
+      - "A. Create NSG rules that list each VM private IP address"
+      - "B. Use Application Security Groups in NSG rules for source and destination"
+      - "C. Add a user-defined route to force all traffic to Internet"
+      - "D. Configure Azure DNS alias records for each VM"
+    answerIndex: 1
+    explanation: "Application Security Groups let you group NICs logically and reference those groups in NSG rules. This keeps rules stable as VM instances scale in or out. IP-based NSG rules create heavy operational overhead in dynamic environments."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-network/application-security-groups"
+      - "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-003"
+    difficulty: "medium"
+    tags: ["azure-dns", "private-dns", "name-resolution"]
+    question: "Several spoke VNets host private endpoints for PaaS services. VM workloads must resolve internal DNS names privately across those VNets. Which DNS solution should you implement?"
+    choices:
+      - "A. Azure DNS public zone"
+      - "B. Manual hosts file entries on each VM"
+      - "C. Azure Private DNS zone linked to required VNets"
+      - "D. Traffic Manager profile"
+    answerIndex: 2
+    explanation: "Azure Private DNS provides private name resolution inside virtual networks and supports VNet links for shared resolution. It is designed for internal-only records, including private endpoint scenarios. Public DNS and hosts files do not scale or meet private name resolution requirements."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/dns/private-dns-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-004"
+    difficulty: "easy"
+    tags: ["vnet-peering", "connectivity", "latency"]
+    question: "Two application VNets in the same region need private connectivity with high bandwidth and low latency, without deploying gateways. Which option should be selected?"
+    choices:
+      - "A. Site-to-Site VPN"
+      - "B. VNet peering"
+      - "C. ExpressRoute"
+      - "D. Azure Front Door"
+    answerIndex: 1
+    explanation: "VNet peering connects VNets over the Azure backbone with low latency and high throughput. It does not require VPN gateways for this scenario. VPN and ExpressRoute are used for different connectivity patterns and add unnecessary complexity here."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-005"
+    difficulty: "medium"
+    tags: ["vpn-gateway", "hybrid", "site-to-site"]
+    question: "An on-premises datacenter must connect securely to an Azure VNet over the public internet using an existing VPN appliance. What Azure networking component is required?"
+    choices:
+      - "A. Point-to-Site VPN for each server"
+      - "B. Site-to-Site VPN through Azure VPN Gateway"
+      - "C. Global VNet peering"
+      - "D. NAT Gateway"
+    answerIndex: 1
+    explanation: "Site-to-Site VPN via Azure VPN Gateway is the standard design for encrypted network-to-network hybrid connectivity. It integrates with compatible on-prem VPN devices and supports persistent tunnels. Point-to-Site is intended for individual clients, not full datacenter connectivity."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-006"
+    difficulty: "medium"
+    tags: ["application-gateway", "waf", "load-balancing"]
+    question: "A web platform needs Layer 7 routing so '/api' and '/images' go to different backend pools, and security requires OWASP-based web application firewall protection. Which service should be used?"
+    choices:
+      - "A. Standard Load Balancer"
+      - "B. Application Gateway with WAF"
+      - "C. Traffic Manager"
+      - "D. Azure Bastion"
+    answerIndex: 1
+    explanation: "Application Gateway operates at Layer 7 and supports path-based routing with integrated WAF capabilities. This directly matches both routing and web security requirements. Standard Load Balancer is Layer 4 and cannot provide path-based HTTP routing or WAF features."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/application-gateway/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d4-007"
+    difficulty: "hard"
+    tags: ["load-balancer", "internal", "tcp"]
+    question: "A private line-of-business service uses TCP port 1433 on two backend VMs and must be reachable only from internal networks. Which Azure load balancing option is most appropriate?"
+    choices:
+      - "A. Public Basic Load Balancer"
+      - "B. Azure Front Door"
+      - "C. Internal Standard Load Balancer"
+      - "D. Application Gateway v2"
+    answerIndex: 2
+    explanation: "An internal Standard Load Balancer provides private frontend IPs for internal-only Layer 4 traffic distribution, including TCP workloads. This is the correct choice for non-HTTP internal services. Front Door and Application Gateway target different traffic patterns and exposure models."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d5-001"
+    difficulty: "medium"
+    tags: ["azure-monitor", "log-analytics", "ama"]
+    question: "Operations needs centralized queries for Windows event logs and Linux syslog across 200 VMs, using KQL with long-term retention. What should be configured?"
+    choices:
+      - "A. Azure Service Health only"
+      - "B. Log Analytics workspace with Azure Monitor Agent data collection"
+      - "C. Activity Log export only"
+      - "D. NSG flow logs only"
+    answerIndex: 1
+    explanation: "A Log Analytics workspace is the core store and query engine for Azure Monitor logs, and Azure Monitor Agent sends guest OS telemetry. This supports cross-resource KQL analysis at scale with configurable retention. The other options provide partial visibility and do not meet the full requirement."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview"
+      - "https://learn.microsoft.com/en-us/azure/azure-monitor/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d5-002"
+    difficulty: "easy"
+    tags: ["alerts", "action-groups", "azure-monitor"]
+    question: "You must alert the on-call team when VM CPU stays above 80 percent for 10 minutes, sending both email and a webhook notification. What should you configure?"
+    choices:
+      - "A. Activity Log alert without an action group"
+      - "B. Metric alert on Percentage CPU with an action group"
+      - "C. Autoscale rule notifications only"
+      - "D. Azure Advisor recommendation alerts"
+    answerIndex: 1
+    explanation: "Metric alerts evaluate platform metrics such as CPU and can trigger action groups for email, webhook, and other channels. This directly maps to the requirement for threshold-based operational notifications. Activity Log alerts target control-plane events, not sustained VM metric thresholds."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d5-003"
+    difficulty: "medium"
+    tags: ["diagnostic-settings", "log-analytics", "monitoring"]
+    question: "Security requires Key Vault audit logs to be sent to a Log Analytics workspace for analysis and to a storage account for long-term retention. Which configuration should be used?"
+    choices:
+      - "A. Install Azure Monitor Agent on the Key Vault"
+      - "B. Configure Key Vault diagnostic settings with both destinations"
+      - "C. Enable boot diagnostics on all VMs"
+      - "D. Apply a ReadOnly lock to Key Vault"
+    answerIndex: 1
+    explanation: "Diagnostic settings are the Azure-native method to route resource logs and metrics to destinations like Log Analytics and Storage. This satisfies both analytics and archival requirements in one configuration path. Agents and locks do not export PaaS audit logs."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d5-004"
+    difficulty: "easy"
+    tags: ["azure-backup", "recovery-services-vault", "vm"]
+    question: "A production VM needs daily backups with 30-day retention and the ability to restore the full VM after accidental deletion. What should be implemented?"
+    choices:
+      - "A. Manual disk snapshots taken by administrators"
+      - "B. Recovery Services vault with an Azure VM backup policy"
+      - "C. Azure Site Recovery replication only"
+      - "D. Availability set deployment"
+    answerIndex: 1
+    explanation: "Azure Backup in a Recovery Services vault provides policy-based VM backups, retention management, and restore workflows. This directly meets the daily schedule and restore requirements. Manual snapshots are error-prone, and Site Recovery addresses disaster recovery replication, not backup policy management."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/backup/backup-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d5-005"
+    difficulty: "medium"
+    tags: ["azure-files", "azure-backup", "restore"]
+    question: "A finance department uses Azure Files and needs to recover an individual file that was deleted yesterday while keeping regular protected backups. Which solution should be used?"
+    choices:
+      - "A. Increase storage account redundancy to GRS"
+      - "B. Configure Azure Backup for Azure File Shares in a Recovery Services vault"
+      - "C. Enable only soft delete without backup policy"
+      - "D. Replicate files to a second region using AzCopy"
+    answerIndex: 1
+    explanation: "Azure Backup for Azure Files provides scheduled backups and item-level restore capabilities for file shares. It is the right control for operational recovery requirements like restoring a single deleted file. Redundancy and copy workflows do not replace backup policy and recovery points."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/backup/azure-file-share-backup-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az104-v1-d5-006"
+    difficulty: "hard"
+    tags: ["service-health", "alerts", "operations"]
+    question: "The operations lead wants proactive notifications for Azure incidents and planned maintenance events that affect specific subscriptions and regions. What should you configure?"
+    choices:
+      - "A. Metric alerts on VM heartbeat"
+      - "B. Activity Log alerts for Administrative events only"
+      - "C. Service Health alerts tied to an action group"
+      - "D. Connection Monitor tests between VNets"
+    answerIndex: 2
+    explanation: "Service Health alerts are designed for platform incidents, planned maintenance, and advisories scoped to your subscriptions and regions. Coupling them with action groups enables proactive notification workflows. Metric and connection monitoring do not provide Azure platform health event coverage."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/service-health/overview"
+      - "https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview"
+    author: "ThanhNguyxn"

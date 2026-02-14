@@ -1,0 +1,474 @@
+meta:
+  category: "cloud"
+  cert: "AWS-SAP"
+  vendor: "AWS"
+  version: 1
+  description: "Original practice questions for AWS Certified Solutions Architect – Professional (SAP-C02)"
+questions:
+  - id: "sap-v1-d1-001"
+    difficulty: "hard"
+    tags: ["transit-gateway", "direct-connect", "hybrid-networking"]
+    question: "A global enterprise has 60 VPCs across three AWS Regions and two on-premises data centers connected by AWS Direct Connect. The network team needs transitive routing, simplified operations, and minimal route table sprawl. Which design best meets these requirements?"
+    choices:
+      - "A. Deploy a transit gateway in each Region, peer the transit gateways, and connect on-premises through a Direct Connect gateway"
+      - "B. Build full-mesh VPC peering between all VPCs and terminate Direct Connect private VIFs to each VPC"
+      - "C. Use NAT gateways in each VPC and route inter-VPC traffic over the internet"
+      - "D. Expose each shared service over CloudFront and remove private network connectivity"
+    answerIndex: 0
+    explanation: "Using AWS Transit Gateway with inter-Region peering and a Direct Connect gateway gives scalable transitive routing and centralizes network attachments. This pattern reduces operational overhead compared to managing dozens of peering relationships. Option B is incorrect because VPC peering is non-transitive and full-mesh peering becomes operationally complex at this scale."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html"
+      - "https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways-intro.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-002"
+    difficulty: "hard"
+    tags: ["gateway-load-balancer", "transit-gateway", "inspection-vpc"]
+    question: "A bank must inspect east-west and egress traffic for 200 spoke VPCs by using existing third-party firewall appliances. The security team wants centralized inline inspection with elastic scaling and no manual appliance failover. Which architecture should the solutions architect choose?"
+    choices:
+      - "A. Add network ACL rules to every subnet in every VPC"
+      - "B. Create a centralized inspection VPC with Gateway Load Balancer endpoints in spoke VPCs and steer traffic through transit gateway route tables"
+      - "C. Enable GuardDuty in all accounts and rely on findings for inline blocking"
+      - "D. Enable VPC Flow Logs and use Athena queries to block malicious packets"
+    answerIndex: 1
+    explanation: "Gateway Load Balancer provides transparent, scalable insertion of virtual appliances and supports centralized inspection patterns. Combined with transit gateway route segmentation, it enables consistent traffic steering from many VPCs. Option A is incorrect because NACLs are stateless packet filters and cannot replace stateful deep inspection appliances."
+    refs:
+      - "https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html"
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-003"
+    difficulty: "hard"
+    tags: ["route53-arc", "multi-region", "resilience"]
+    question: "A payment API runs active-active in two Regions. Leadership requires controlled failover mechanisms, readiness checks, and an operator-controlled switch during regional impairments. Which AWS service combination most directly addresses this resilience requirement?"
+    choices:
+      - "A. Use Route 53 Application Recovery Controller routing controls with readiness checks for coordinated multi-Region failover"
+      - "B. Use Multi-AZ only in one Region with daily backups"
+      - "C. Place CloudFront in front of the API without regional health controls"
+      - "D. Take frequent EBS snapshots and restore when needed"
+    answerIndex: 0
+    explanation: "Route 53 ARC is purpose-built for recovery readiness, zonal and regional control, and operator-driven routing actions. It complements multi-Region architectures with explicit safety checks before failover. Option B is incorrect because Multi-AZ protects only within a single Region and does not satisfy regional failover objectives."
+    refs:
+      - "https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-004"
+    difficulty: "medium"
+    tags: ["organizations", "scp", "control-tower"]
+    question: "An enterprise with 300 AWS accounts must enforce preventive guardrails so teams cannot disable CloudTrail, cannot turn off AWS Config, and cannot create public S3 buckets. The controls must be centrally managed and auditable. What is the best approach?"
+    choices:
+      - "A. Attach IAM inline policies to every administrator role in each account"
+      - "B. Use AWS Organizations SCPs and AWS Control Tower preventive controls across organizational units"
+      - "C. Apply restrictive security groups in shared VPCs"
+      - "D. Configure AWS Budgets alerts for every account"
+    answerIndex: 1
+    explanation: "SCPs enforce organization-level permission boundaries that account admins cannot bypass, and Control Tower adds managed guardrail governance. This combination gives centralized, scalable preventive control across many accounts. Option A is incorrect because per-account IAM policies are harder to guarantee and can be altered by local administrators."
+    refs:
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html"
+      - "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-005"
+    difficulty: "easy"
+    tags: ["savings-plans", "organizations", "cost-optimization"]
+    question: "A company with consolidated billing runs EC2 and Fargate workloads across many accounts. Usage patterns vary by business unit, and finance wants to maximize discounts while keeping teams flexible. Which strategy is most cost-effective?"
+    choices:
+      - "A. Purchase Convertible Reserved Instances separately in each linked account"
+      - "B. Purchase Compute Savings Plans in the management account and use organization-wide benefit sharing"
+      - "C. Run all production workloads only on Spot Instances"
+      - "D. Disable Auto Scaling so instances run at constant utilization"
+    answerIndex: 1
+    explanation: "Compute Savings Plans apply broadly across instance families, Regions, and even Fargate usage, making them suitable for variable multi-account consumption. Organization sharing allows unused commitment in one account to offset usage in others. Option C is incorrect because Spot-only production strategies can violate availability requirements when capacity is reclaimed."
+    refs:
+      - "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+      - "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-006"
+    difficulty: "hard"
+    tags: ["privatelink", "networking", "multi-tenant"]
+    question: "A SaaS provider must offer private access from hundreds of customer VPCs, many of which use overlapping CIDR ranges. Customers should consume only specific services and must not have lateral connectivity to each other. Which design is most appropriate?"
+    choices:
+      - "A. Connect each customer VPC to a shared transit gateway"
+      - "B. Build VPC peering between provider and each customer VPC"
+      - "C. Publish services through AWS PrivateLink endpoint services backed by Network Load Balancers"
+      - "D. Build site-to-site VPN tunnels from each customer to one shared VPC"
+    answerIndex: 2
+    explanation: "AWS PrivateLink provides private, one-way service consumption and avoids routing conflicts from overlapping CIDRs. It also limits exposure to specific endpoints rather than opening broader network paths. Option A is incorrect because transit gateway attachments require non-overlapping routes and can introduce unnecessary lateral network complexity."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-007"
+    difficulty: "hard"
+    tags: ["s3", "data-perimeter", "scp"]
+    question: "A security team wants to enforce a data perimeter so S3 access is allowed only from approved VPC endpoints and only by principals from accounts in the same AWS Organization. Which control set best implements this requirement at scale?"
+    choices:
+      - "A. Use S3 ACLs and enable Block Public Access"
+      - "B. Require MFA for all IAM users"
+      - "C. Use S3 bucket policies with aws:SourceVpce and aws:PrincipalOrgID conditions, backed by SCP guardrails"
+      - "D. Serve all S3 data through CloudFront signed URLs"
+    answerIndex: 2
+    explanation: "Condition keys such as aws:SourceVpce and aws:PrincipalOrgID let you enforce network and organizational boundaries directly in resource policies. SCPs then prevent accounts from bypassing those standards. Option A is incorrect because ACLs do not provide the same contextual, organization-wide perimeter controls."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies-vpc-endpoint.html"
+      - "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d1-008"
+    difficulty: "hard"
+    tags: ["aws-backup", "vault-lock", "disaster-recovery"]
+    question: "A regulated workload requires immutable backups that survive account compromise. Backups must be copied cross-account and cross-Region with centralized policy control. Which approach should the architect implement?"
+    choices:
+      - "A. Run custom scripts to create and copy snapshots daily"
+      - "B. Use AWS Backup plans with cross-account and cross-Region copy to backup vaults protected by Backup Vault Lock"
+      - "C. Store database dumps on an EC2 instance with EBS snapshots"
+      - "D. Rely on Multi-AZ deployments instead of backups"
+    answerIndex: 1
+    explanation: "AWS Backup provides policy-based automation for multi-account and multi-Region backup copies, and Vault Lock adds WORM-style immutability controls. This directly addresses ransomware-resilient recovery objectives. Option D is incorrect because Multi-AZ improves availability but does not replace immutable backup and restore capabilities."
+    refs:
+      - "https://docs.aws.amazon.com/aws-backup/latest/devguide/create-cross-account-backup.html"
+      - "https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-001"
+    difficulty: "medium"
+    tags: ["codedeploy", "ecs", "deployment-strategy"]
+    question: "A new payments service on Amazon ECS on Fargate must deploy with near-zero downtime. The release team wants canary traffic shifting and automatic rollback when CloudWatch alarms breach SLOs. Which deployment method should be used?"
+    choices:
+      - "A. Use ECS rolling updates with default deployment settings"
+      - "B. Use AWS CodeDeploy blue/green deployments for ECS with weighted target groups and alarm-based rollback"
+      - "C. Replace all tasks at once during a maintenance window"
+      - "D. Deploy on a single EC2 host and restart containers in place"
+    answerIndex: 1
+    explanation: "CodeDeploy blue/green for ECS supports controlled traffic shifting, health validation, and automatic rollback integrated with CloudWatch alarms. This is a stronger deployment safety model than a basic rolling update for high-risk releases. Option C is incorrect because all-at-once replacement increases outage risk and provides limited rollback control."
+    refs:
+      - "https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps-ecs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-002"
+    difficulty: "hard"
+    tags: ["aurora-global-database", "business-continuity", "rds"]
+    question: "A financial platform is designing a new relational datastore with cross-Region disaster recovery. Requirements are RPO under 1 second and RTO under 1 minute for regional events. Which architecture best satisfies these goals?"
+    choices:
+      - "A. Amazon RDS Multi-AZ in one Region with nightly snapshots"
+      - "B. Amazon Aurora Global Database with a secondary Region and managed failover process"
+      - "C. Amazon RDS read replicas within one Region only"
+      - "D. Amazon EBS snapshots every minute"
+    answerIndex: 1
+    explanation: "Aurora Global Database is designed for low-latency cross-Region replication and rapid regional failover, aligning with stringent BC targets. It minimizes data loss compared to snapshot-based recovery models. Option A is incorrect because Multi-AZ protects within a Region and does not provide cross-Region DR."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-003"
+    difficulty: "hard"
+    tags: ["lake-formation", "data-lake", "security"]
+    question: "A company is building a new centralized data lake for multiple business units in separate AWS accounts. Data owners require table-level and column-level permissions without maintaining hundreds of S3 bucket policies. Which service should provide primary authorization control?"
+    choices:
+      - "A. S3 object ACLs for each dataset"
+      - "B. AWS Lake Formation permissions with cross-account sharing through the AWS Glue Data Catalog"
+      - "C. IAM access keys shared among analytics teams"
+      - "D. Separate AWS Organizations for each department"
+    answerIndex: 1
+    explanation: "Lake Formation provides fine-grained data permissions and centralized governance for data lake access across accounts. It reduces policy sprawl and integrates with AWS analytics services. Option A is incorrect because S3 ACLs are coarse and difficult to manage for large, federated analytics environments."
+    refs:
+      - "https://docs.aws.amazon.com/lake-formation/latest/dg/cross-account-permissions.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-004"
+    difficulty: "hard"
+    tags: ["sqs-fifo", "lambda", "reliability"]
+    question: "A retailer is designing a new order ingestion solution. Events must be processed in order per store, duplicates must be prevented, and poison messages must not block healthy traffic. Which architecture is the best fit?"
+    choices:
+      - "A. Publish events to Amazon SNS Standard and invoke Lambda directly"
+      - "B. Stream events to Kinesis Data Firehose and process from S3"
+      - "C. Use Amazon SQS FIFO with message groups per store, Lambda idempotency, and a dead-letter queue"
+      - "D. Send events to EventBridge Scheduler for periodic batch processing"
+    answerIndex: 2
+    explanation: "SQS FIFO supports ordered processing and deduplication semantics, which align with per-store sequencing requirements. A DLQ isolates problematic messages so the main queue can continue processing. Option A is incorrect because SNS Standard does not guarantee ordered delivery and is less suitable for strict sequencing."
+    refs:
+      - "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html"
+      - "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-005"
+    difficulty: "medium"
+    tags: ["global-accelerator", "alb", "performance"]
+    question: "A new trading API is deployed behind ALBs in two Regions. Clients require static public IP addresses for firewall allow-lists and the lowest-latency path to healthy endpoints. Which service should front the application?"
+    choices:
+      - "A. AWS Global Accelerator with endpoint groups in each Region"
+      - "B. Amazon Route 53 simple routing to a single ALB"
+      - "C. Amazon CloudFront with an S3 origin"
+      - "D. AWS Site-to-Site VPN with BGP"
+    answerIndex: 0
+    explanation: "AWS Global Accelerator provides static anycast IPs and routes clients over the AWS global network to optimal healthy regional endpoints. This improves availability and latency for global users. Option B is incorrect because simple DNS routing does not provide accelerator-level traffic optimization or static anycast IPs."
+    refs:
+      - "https://docs.aws.amazon.com/global-accelerator/latest/dg/what-is-global-accelerator.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-006"
+    difficulty: "medium"
+    tags: ["ec2", "spot", "auto-scaling"]
+    question: "A new risk analytics platform runs interruptible compute jobs and checkpoints progress every few minutes. The business wants the lowest compute cost while preserving minimum baseline capacity. Which strategy should be chosen?"
+    choices:
+      - "A. Use only On-Demand Instances in a fixed Auto Scaling group"
+      - "B. Use EC2 Auto Scaling mixed instances with Spot capacity and an On-Demand base capacity"
+      - "C. Use Dedicated Hosts for all workers"
+      - "D. Disable Auto Scaling and run a single large instance"
+    answerIndex: 1
+    explanation: "Mixed instances groups combine low-cost Spot capacity with a stable On-Demand baseline for predictable minimum throughput. This model is widely used for fault-tolerant, checkpointed batch workloads. Option C is incorrect because Dedicated Hosts typically increase cost and are not a cost-optimization default for elastic analytics workers."
+    refs:
+      - "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-007"
+    difficulty: "easy"
+    tags: ["cloudformation", "stacksets", "multi-account"]
+    question: "A platform team must deploy standardized networking, logging, and IAM baseline stacks to 120 accounts in three Regions. They need centralized governance and repeatable updates with minimum manual effort. Which deployment approach is best?"
+    choices:
+      - "A. Use AWS CloudFormation StackSets with service-managed permissions and delegated administration"
+      - "B. Run local scripts with account root credentials in sequence"
+      - "C. Ask each account team to copy and paste templates manually"
+      - "D. Put all workloads in one account to avoid baseline deployment"
+    answerIndex: 0
+    explanation: "CloudFormation StackSets are purpose-built for multi-account, multi-Region deployments with centralized control and consistent rollouts. Service-managed permissions reduce operational overhead and improve governance. Option C is incorrect because manual copy/paste deployment is error-prone and does not scale."
+    refs:
+      - "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-008"
+    difficulty: "hard"
+    tags: ["api-gateway", "sqs", "lambda"]
+    question: "A new public API experiences burst traffic up to 20x normal load, causing downstream database throttling. The company wants to absorb spikes, avoid request loss, and protect downstream systems. Which architecture should be implemented?"
+    choices:
+      - "A. Integrate API Gateway directly with the relational database"
+      - "B. Buffer requests in Amazon SQS and process asynchronously with Lambda using reserved concurrency and a dead-letter queue"
+      - "C. Permanently upsize the database to peak capacity"
+      - "D. Add CloudFront between API Gateway and the database"
+    answerIndex: 1
+    explanation: "SQS decouples ingestion from processing and smooths spikes, while Lambda concurrency controls protect downstream dependencies. A DLQ captures failed events for replay and investigation without data loss. Option C is incorrect because permanent overprovisioning is expensive and does not address queueing and back-pressure design."
+    refs:
+      - "https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d2-009"
+    difficulty: "hard"
+    tags: ["dynamodb", "global-tables", "dax"]
+    question: "A new product catalog service serves global users with very high read traffic and infrequent writes. The solution must provide low-latency regional reads and reduce database load as usage scales. Which design best fits these requirements?"
+    choices:
+      - "A. Use a single-Region relational database with read replicas"
+      - "B. Use Amazon DynamoDB Global Tables and add DynamoDB Accelerator (DAX) for microsecond read caching"
+      - "C. Store catalog rows in S3 and query with S3 Select for every request"
+      - "D. Use Amazon Redshift as the primary OLTP database"
+    answerIndex: 1
+    explanation: "DynamoDB Global Tables provide multi-Region, low-latency local reads, and DAX further reduces read latency for hot keys. This combination is optimized for globally distributed, read-heavy workloads. Option A is incorrect because cross-Region latency and failover complexity remain higher with a single-Region primary relational model."
+    refs:
+      - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html"
+      - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-001"
+    difficulty: "medium"
+    tags: ["cloudwatch", "observability", "operational-excellence"]
+    question: "An operations team supports workloads in 80 AWS accounts and struggles to correlate metrics, logs, and alarms during incidents. They need a centralized, least-privilege observability model without sharing long-lived credentials. What should they implement?"
+    choices:
+      - "A. Ask each team to email CloudWatch screenshots during incidents"
+      - "B. Configure CloudWatch cross-account observability with a centralized monitoring account and standardized dashboards/alarms"
+      - "C. Enable detailed monitoring only on production EC2 instances"
+      - "D. Export all logs to local files on bastion hosts"
+    answerIndex: 1
+    explanation: "CloudWatch cross-account observability enables centralized visibility while preserving account boundaries and controlled access. Standardized dashboards and alarms improve incident response consistency. Option A is incorrect because manual reporting delays response and cannot support real-time operational excellence."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-002"
+    difficulty: "hard"
+    tags: ["security-hub", "aws-config", "continuous-compliance"]
+    question: "A recent audit found inconsistent security controls across multiple accounts. The CISO wants continuous compliance checks aligned to standards and automated remediation for common findings. Which combination should be prioritized?"
+    choices:
+      - "A. Perform manual security reviews once per quarter"
+      - "B. Use Security Hub delegated administrator, AWS Config conformance packs, and Systems Manager Automation remediation"
+      - "C. Disable all IAM users and use only root credentials"
+      - "D. Rotate security group IDs every week"
+    answerIndex: 1
+    explanation: "Security Hub centralizes findings and standards tracking, while Config conformance packs continuously evaluate control compliance. Systems Manager Automation can remediate recurring issues with consistent workflows. Option A is incorrect because periodic manual checks cannot provide continuous assurance or fast remediation."
+    refs:
+      - "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html"
+      - "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-003"
+    difficulty: "medium"
+    tags: ["x-ray", "lambda", "performance-tuning"]
+    question: "A serverless checkout application has intermittent p95 latency spikes after recent feature releases. Engineers need a repeatable method to identify bottlenecks and tune runtime performance. What is the best next step?"
+    choices:
+      - "A. Increase Lambda timeout values for all functions"
+      - "B. Use AWS X-Ray tracing and Lambda performance metrics, then tune memory/CPU settings based on measured bottlenecks"
+      - "C. Replace API Gateway with a larger NAT gateway"
+      - "D. Migrate immediately to EC2 without profiling"
+    answerIndex: 1
+    explanation: "X-Ray and Lambda metrics provide request-level visibility into where latency is introduced so teams can optimize with evidence. Adjusting Lambda memory can increase CPU allocation and reduce execution time for compute-bound functions. Option D is incorrect because replatforming without profiling increases effort and may not solve the root cause."
+    refs:
+      - "https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html"
+      - "https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-004"
+    difficulty: "hard"
+    tags: ["fis", "route53", "reliability"]
+    question: "After several production incidents, leadership asks the platform team to prove that failover runbooks work before peak season. They want controlled experiments with stop conditions and measurable blast radius. Which approach best supports this objective?"
+    choices:
+      - "A. Wait for the next real outage to validate runbooks"
+      - "B. Run AWS Fault Injection Service experiments with Route 53 health checks and CloudWatch alarm stop conditions"
+      - "C. Disable Auto Scaling to stabilize behavior during tests"
+      - "D. Increase backup retention from 7 to 35 days"
+    answerIndex: 1
+    explanation: "AWS Fault Injection Service enables controlled chaos experiments with guardrails and objective-based validation. Integrating health checks and alarms helps test reliability mechanisms safely and repeatedly. Option A is incorrect because relying on real outages is risky and does not provide proactive reliability improvement."
+    refs:
+      - "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html"
+      - "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-005"
+    difficulty: "medium"
+    tags: ["cost-anomaly-detection", "compute-optimizer", "finops"]
+    question: "A FinOps team wants continuous cost improvement for a multi-account environment. They need early warning for unusual spend and concrete resource rightsizing recommendations. Which solution provides both capabilities?"
+    choices:
+      - "A. Review the monthly invoice manually and file tickets"
+      - "B. Use AWS Cost Anomaly Detection and AWS Compute Optimizer with budget alert thresholds"
+      - "C. Buy Dedicated Hosts for every workload"
+      - "D. Turn off production instances during weekends"
+    answerIndex: 1
+    explanation: "Cost Anomaly Detection provides near-real-time alerts for unexpected usage or spend patterns, while Compute Optimizer gives data-driven rightsizing guidance. Together they support ongoing, proactive optimization. Option A is incorrect because monthly manual review is too late to prevent many cost overruns."
+    refs:
+      - "https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html"
+      - "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-006"
+    difficulty: "easy"
+    tags: ["systems-manager", "patch-manager", "operations"]
+    question: "Operations teams patch Windows and Linux instances inconsistently across multiple accounts and Regions. The goal is standardized patch baselines, controlled maintenance windows, and auditability. Which service set should be adopted?"
+    choices:
+      - "A. Patch each instance manually over SSH or RDP"
+      - "B. Use AWS Systems Manager Patch Manager, Maintenance Windows, and State Manager associations"
+      - "C. Rebuild all servers every day from AMIs"
+      - "D. Enable CloudTrail only"
+    answerIndex: 1
+    explanation: "Systems Manager provides centralized patch policy, scheduling, and execution tracking across fleets. Maintenance Windows reduce operational risk by controlling when changes occur. Option A is incorrect because manual patching does not scale and creates inconsistent compliance outcomes."
+    refs:
+      - "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager.html"
+      - "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-maintenance.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d3-007"
+    difficulty: "hard"
+    tags: ["eks", "hpa", "autoscaling"]
+    question: "An EKS-based API platform frequently experiences node pressure and pod evictions during traffic surges. The team wants a continuous improvement plan that increases resilience and reduces overprovisioning. Which action is most appropriate?"
+    choices:
+      - "A. Increase pod CPU limits only and keep node count static"
+      - "B. Implement EKS autoscaling (Cluster Autoscaler or Karpenter), right-size requests, and use Horizontal Pod Autoscaler"
+      - "C. Disable readiness probes to prevent pod restarts"
+      - "D. Consolidate all workloads onto one very large node"
+    answerIndex: 1
+    explanation: "Combining node and pod autoscaling with correct resource requests improves both reliability and cost efficiency under variable load. It reduces eviction risk while avoiding permanent overcapacity. Option D is incorrect because a single large node increases blast radius and creates a potential single point of failure."
+    refs:
+      - "https://docs.aws.amazon.com/eks/latest/userguide/autoscaling.html"
+      - "https://docs.aws.amazon.com/eks/latest/userguide/horizontal-pod-autoscaler.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d4-001"
+    difficulty: "medium"
+    tags: ["application-discovery-service", "migration-evaluator", "migration-planning"]
+    question: "A company has 500 on-premises applications with unclear dependencies and wants to plan migration waves. Executives need data-driven prioritization based on technical complexity and business cost impact. What should the team do first?"
+    choices:
+      - "A. Move random low-CPU servers to AWS to start quickly"
+      - "B. Use Application Discovery Service and Migration Evaluator, then classify workloads using the 6 Rs"
+      - "C. Refactor every application into microservices before assessment"
+      - "D. Decommission legacy systems without dependency analysis"
+    answerIndex: 1
+    explanation: "Application Discovery Service and Migration Evaluator provide dependency, utilization, and TCO insights for informed wave planning. Mapping workloads to the 6 Rs creates practical migration strategies per application. Option A is incorrect because random migration sequencing often breaks dependencies and increases project risk."
+    refs:
+      - "https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html"
+      - "https://docs.aws.amazon.com/migration-evaluator/latest/ug/what-is-migration-evaluator.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d4-002"
+    difficulty: "easy"
+    tags: ["mgn", "rehost", "migration"]
+    question: "A legacy three-tier application running on VMware must migrate to AWS in four months with minimal code changes. The business prioritizes speed to exit the data center over immediate modernization. Which migration strategy is most suitable?"
+    choices:
+      - "A. Refactor the full application into microservices before migration"
+      - "B. Rehost with AWS Application Migration Service, then optimize post-migration"
+      - "C. Replace the platform with a SaaS product regardless of fit"
+      - "D. Retain the workload on premises and delay migration"
+    answerIndex: 1
+    explanation: "Rehosting with AWS Application Migration Service is optimized for fast lift-and-shift migrations with minimal code changes. It enables rapid data center exit while preserving a path to later modernization. Option A is incorrect because full refactoring usually extends timelines and conflicts with the speed-first objective."
+    refs:
+      - "https://docs.aws.amazon.com/mgn/latest/ug/what-is-application-migration-service.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d4-003"
+    difficulty: "hard"
+    tags: ["modernization", "strangler-pattern", "api-gateway"]
+    question: "A monolithic order system has a checkout module that scales poorly during promotions. The company wants incremental modernization with low release risk and continuous delivery for new checkout features. Which approach should the architect recommend?"
+    choices:
+      - "A. Perform a big-bang rewrite of the entire monolith"
+      - "B. Apply a strangler pattern by fronting the monolith with APIs and incrementally moving checkout capabilities to new services"
+      - "C. Keep the monolith unchanged and scale vertically only"
+      - "D. Migrate directly to a single DynamoDB table without domain decomposition"
+    answerIndex: 1
+    explanation: "The strangler approach allows gradual extraction of high-change domains while keeping core business operations stable. It reduces migration risk and enables iterative release of modern components. Option A is incorrect because big-bang rewrites carry high delivery and outage risk for critical systems."
+    refs:
+      - "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/strangler-fig.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d4-004"
+    difficulty: "hard"
+    tags: ["aurora-postgresql", "dms", "sct"]
+    question: "An enterprise application uses Oracle Enterprise Edition and licensing costs are rising. The application is mostly ANSI SQL with moderate procedural logic, and the team wants a managed target with lower total cost. Which migration path is best?"
+    choices:
+      - "A. Keep Oracle on EC2 Dedicated Hosts to preserve the same model"
+      - "B. Convert schema with AWS Schema Conversion Tool and migrate data with AWS DMS to Amazon Aurora PostgreSQL-Compatible"
+      - "C. Export CSV files nightly and import manually into Amazon S3"
+      - "D. Move directly to DynamoDB with unchanged JDBC calls"
+    answerIndex: 1
+    explanation: "Using SCT plus DMS is a standard approach for heterogeneous database migration with reduced downtime and manageable conversion workflows. Aurora PostgreSQL offers managed operations and lower licensing burden compared to Oracle EE. Option D is incorrect because DynamoDB is a NoSQL service and is not a drop-in replacement for JDBC-based relational workloads."
+    refs:
+      - "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
+      - "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Introduction.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d4-005"
+    difficulty: "medium"
+    tags: ["snowball", "datasync", "data-migration"]
+    question: "A media company must migrate 1.5 PB of NAS data to AWS in eight weeks, but the current WAN link is only 1 Gbps. After initial migration, daily deltas must continue syncing until final cutover. Which strategy is most effective?"
+    choices:
+      - "A. Transfer everything over the internet link with rsync"
+      - "B. Use AWS Snowball Edge for bulk transfer and AWS DataSync for incremental synchronization"
+      - "C. Copy data to USB drives and ship them without service integration"
+      - "D. Use CloudFront invalidations to accelerate file transfer"
+    answerIndex: 1
+    explanation: "Snowball Edge accelerates large initial data seeding when network bandwidth is limited, and DataSync handles ongoing deltas efficiently. This hybrid approach minimizes migration timeline risk while maintaining consistency before cutover. Option A is incorrect because 1 Gbps bandwidth is often insufficient for PB-scale transfer within the required window."
+    refs:
+      - "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatissnowball.html"
+      - "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-v1-d4-006"
+    difficulty: "hard"
+    tags: ["app2container", "ecs", "fargate", "modernization"]
+    question: "A .NET Framework IIS application includes scheduled background tasks and currently runs on manually managed Windows servers. The organization wants to reduce operational overhead and modernize incrementally without rewriting everything at once. Which approach is best?"
+    choices:
+      - "A. Keep the existing EC2 architecture and only increase instance size"
+      - "B. Use AWS App2Container to containerize and run on Amazon ECS with Fargate, then move schedulable jobs to managed event-driven services"
+      - "C. Migrate the application to Amazon Lightsail for enterprise production"
+      - "D. Replace the database first and postpone application migration indefinitely"
+    answerIndex: 1
+    explanation: "App2Container accelerates packaging existing applications into containers, and ECS on Fargate reduces server management overhead. Migrating scheduled tasks to managed services supports gradual modernization and better operational resilience. Option A is incorrect because vertical scaling on manually managed servers does not materially improve operational model or modernization outcomes."
+    refs:
+      - "https://docs.aws.amazon.com/app2container/latest/UserGuide/what-is-app2container.html"
+      - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html"
+    author: "ThanhNguyxn"

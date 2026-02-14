@@ -1,0 +1,456 @@
+meta:
+  category: "devops"
+  cert: "CKA"
+  vendor: "CNCF"
+  version: 1
+  description: "Original practice questions for Certified Kubernetes Administrator (CKA)"
+questions:
+  - id: "cka-v1-d1-001"
+    difficulty: "medium"
+    tags: ["rbac", "authorization", "namespace"]
+    question: "A platform team wants developers in namespace team-a to view Pods and Pod logs but not modify any resources. What is the safest configuration?"
+    choices:
+      - "A. Create a Role in team-a with get/list/watch on pods and pods/log, then bind it with a RoleBinding."
+      - "B. Create a ClusterRoleBinding that grants cluster-admin to the developer group."
+      - "C. Add developers to the system:masters group for temporary access."
+      - "D. Disable RBAC and rely on namespace naming conventions."
+    answerIndex: 0
+    explanation: "A namespaced Role plus RoleBinding provides least-privilege access scoped to team-a. It gives read-only access to pods and logs without cluster-wide permissions. Options B and C are over-privileged, and D removes an essential security control."
+    refs:
+      - "https://kubernetes.io/docs/reference/access-authn-authz/rbac/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-002"
+    difficulty: "easy"
+    tags: ["kubeadm", "cluster-bootstrap", "node-join"]
+    question: "A new worker node fails to join because the bootstrap token used yesterday has expired. What should the administrator do next?"
+    choices:
+      - "A. Generate a new kubeadm token on the control plane and rerun kubeadm join with the current discovery-token-ca-cert-hash."
+      - "B. Copy /etc/kubernetes/admin.conf to the worker and restart kubelet."
+      - "C. Run kubeadm reset on the control plane and recreate the cluster."
+      - "D. Delete the Node object and wait for automatic bootstrap."
+    answerIndex: 0
+    explanation: "kubeadm join requires a valid bootstrap token for discovery and TLS bootstrapping. Creating a fresh token and re-running join is the standard recovery path. Copying admin kubeconfig to workers bypasses proper node bootstrap and is insecure."
+    refs:
+      - "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-003"
+    difficulty: "hard"
+    tags: ["kubeadm", "ha", "control-plane"]
+    question: "In a kubeadm HA cluster, kubelets still point to one control-plane node IP. When that node fails, node-to-API communication breaks. What should be fixed?"
+    choices:
+      - "A. Configure a stable controlPlaneEndpoint backed by a load balancer and ensure kubeconfigs use that endpoint."
+      - "B. Expose kube-apiserver as NodePort on each control-plane node."
+      - "C. Run kubectl proxy on every worker and target localhost."
+      - "D. Increase etcd election timeout and leave kubelet configs unchanged."
+    answerIndex: 0
+    explanation: "HA control planes require one stable API endpoint, typically a load balancer DNS name. kubelets and admins should target that endpoint so single-node failure does not break control-plane access. NodePort and ad-hoc proxies are not a correct HA design for the Kubernetes API."
+    refs:
+      - "https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-004"
+    difficulty: "hard"
+    tags: ["helm", "kustomize", "release-management"]
+    question: "Your team deploys a third-party Helm chart but must inject a consistent production security patch without forking upstream templates. Which approach is most maintainable?"
+    choices:
+      - "A. Fork the chart repository and edit chart templates directly for each release."
+      - "B. Keep Helm for chart upgrades and apply a Kustomize overlay as a post-render step for environment patches."
+      - "C. Use kubectl edit on live resources after every helm install."
+      - "D. Render manifests once and stop upgrading the chart."
+    answerIndex: 1
+    explanation: "Using Helm for packaging plus Kustomize overlays keeps upgrade flow clean while applying controlled environment-specific changes. This reduces drift from upstream chart updates. Forking templates or manual live edits increases long-term maintenance risk."
+    refs:
+      - "https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-005"
+    difficulty: "medium"
+    tags: ["csi", "storageclass", "dynamic-provisioning"]
+    question: "A PVC using StorageClass fast-ssd stays Pending with event 'waiting for a volume to be created, either by external provisioner or manually created by system administrator'. What is the best action?"
+    choices:
+      - "A. Verify the CSI provisioner/controller for that StorageClass is installed and running, and that the provisioner name matches."
+      - "B. Restart kube-scheduler to rebind the PVC."
+      - "C. Change the application Service from ClusterIP to NodePort."
+      - "D. Cordon all worker nodes and recreate the Deployment."
+    answerIndex: 0
+    explanation: "That event usually indicates the external volume provisioner is missing, misconfigured, or not matching the StorageClass provisioner field. Checking CSI controller and node components is the correct path. Scheduler and Service settings do not create persistent volumes."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/storage-classes/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-006"
+    difficulty: "medium"
+    tags: ["cni", "network-plugin", "node-troubleshooting"]
+    question: "After adding a new worker node, every Pod scheduled there remains in ContainerCreating with network plugin initialization errors. What should you do first?"
+    choices:
+      - "A. Confirm the CNI plugin is installed correctly on that node and its DaemonSet is Running cluster-wide."
+      - "B. Delete CoreDNS Pods to force DNS regeneration."
+      - "C. Change kube-proxy mode from iptables to userspace."
+      - "D. Restart kube-controller-manager on all control-plane nodes."
+    answerIndex: 0
+    explanation: "Pod sandbox networking is initialized by the CNI plugin on each node. If binaries, config, or CNI DaemonSet state is broken, pods cannot start networking and stay in ContainerCreating. DNS or controller-manager restarts do not resolve node-local CNI initialization."
+    refs:
+      - "https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-007"
+    difficulty: "medium"
+    tags: ["cri", "containerd", "kubelet"]
+    question: "A node migrated from Docker to containerd becomes NotReady, and kubelet logs show runtime service connection failures. What is the likely fix?"
+    choices:
+      - "A. Point kubelet to the containerd CRI socket and restart kubelet."
+      - "B. Re-enable dockershim and leave containerd unchanged."
+      - "C. Change cluster DNS domain from cluster.local to local.cluster."
+      - "D. Remove imagePullSecrets from all namespaces."
+    answerIndex: 0
+    explanation: "kubelet communicates with the runtime through CRI, so the runtime endpoint must match containerd after migration. Restarting kubelet applies the corrected endpoint configuration. Dockershim is deprecated and not the right recovery path."
+    refs:
+      - "https://kubernetes.io/docs/concepts/architecture/cri/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d1-008"
+    difficulty: "hard"
+    tags: ["crd", "operator", "controllers"]
+    question: "Database backup requests are repeatedly handled by manual scripts. The platform team wants a Kubernetes-native, declarative workflow for this operation. What should they implement?"
+    choices:
+      - "A. Define a Backup custom resource with a CRD and run an Operator/controller that reconciles Backup objects into real backup jobs."
+      - "B. Store backup commands in a ConfigMap and ask admins to run them manually."
+      - "C. Add backup aliases to every engineer's shell profile."
+      - "D. Patch the API server binary whenever backup logic changes."
+    answerIndex: 0
+    explanation: "CRDs extend the API, and operators implement reconciliation logic to continuously enforce desired state. This pattern is reliable, repeatable, and auditable for operational workflows like backups. Manual scripts and workstation conventions are not robust cluster automation."
+    refs:
+      - "https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d2-001"
+    difficulty: "easy"
+    tags: ["deployment", "rollout", "rollback"]
+    question: "A Deployment rollout in production introduces 500 errors right after an image update. What is the fastest safe rollback action?"
+    choices:
+      - "A. Run kubectl rollout undo on the Deployment in the affected namespace."
+      - "B. Delete the newest ReplicaSet and manually scale older pods."
+      - "C. Restart all worker node kubelets to clear cached images."
+      - "D. Delete the namespace and redeploy from scratch."
+    answerIndex: 0
+    explanation: "Deployment rollout history enables immediate rollback to the previous stable ReplicaSet. kubectl rollout undo is the intended and safest command for this scenario. Deleting resources manually can cause unnecessary downtime and inconsistency."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d2-002"
+    difficulty: "medium"
+    tags: ["configmap", "secret", "pod-lifecycle"]
+    question: "An app reads DB_PASSWORD from a Secret via environment variables. After rotating the Secret, the running Pods still use the old password. What should the admin do?"
+    choices:
+      - "A. Update the Secret and restart the Pods (or rollout restart the Deployment) so containers read the new env value."
+      - "B. Wait; kubelet automatically rewrites running process environment variables from Secrets."
+      - "C. Convert the Secret to a ConfigMap for instant hot reload."
+      - "D. Recreate the Service to force Secret refresh."
+    answerIndex: 0
+    explanation: "Environment variables sourced from Secrets are set at container startup and are not live-updated in running processes. Restarting Pods is required for env-based secret consumption. Secret volumes can update files, but this specific pattern still needs a restart."
+    refs:
+      - "https://kubernetes.io/docs/concepts/configuration/secret/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d2-003"
+    difficulty: "medium"
+    tags: ["hpa", "metrics-server", "autoscaling"]
+    question: "An HPA shows 'unknown' CPU utilization and never scales a busy Deployment. Which fix is most likely required?"
+    choices:
+      - "A. Install/verify metrics-server and ensure the target Pods have CPU requests set."
+      - "B. Increase maxSurge on the Deployment strategy."
+      - "C. Add a PodDisruptionBudget to the namespace."
+      - "D. Convert the Deployment into a DaemonSet."
+    answerIndex: 0
+    explanation: "HPA depends on resource metrics and compares usage to requested CPU values. Without metrics-server or proper resource requests, utilization cannot be calculated correctly. Rollout strategy and PDB settings do not fix missing autoscaling inputs."
+    refs:
+      - "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d2-004"
+    difficulty: "hard"
+    tags: ["scheduling", "node-affinity", "pod-anti-affinity"]
+    question: "Compliance requires payment Pods to run only on nodes labeled pci=true and to avoid colocating replicas on the same node. Which scheduling setup meets both requirements?"
+    choices:
+      - "A. Use required nodeAffinity for pci=true and required podAntiAffinity on app=payment with topologyKey kubernetes.io/hostname."
+      - "B. Use only nodeSelector pci=true and rely on default spreading."
+      - "C. Taint all non-PCI nodes with NoExecute and remove requests/limits."
+      - "D. Set priorityClassName to system-cluster-critical."
+    answerIndex: 0
+    explanation: "Required nodeAffinity enforces strict node eligibility, and required podAntiAffinity enforces separation of replicas by host. Together they satisfy both compliance and availability intent. nodeSelector alone cannot guarantee anti-colocation behavior."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d2-005"
+    difficulty: "easy"
+    tags: ["taints", "tolerations", "gpu"]
+    question: "GPU nodes are tainted dedicated=gpu:NoSchedule, and a machine-learning Job remains Pending. What change should be made to the Job spec?"
+    choices:
+      - "A. Add a matching toleration for dedicated=gpu:NoSchedule and constrain scheduling to GPU nodes with selector or affinity."
+      - "B. Remove the taint from all GPU nodes to simplify scheduling."
+      - "C. Set imagePullPolicy to Always to bypass taints."
+      - "D. Move the Job to kube-system so taints are ignored."
+    answerIndex: 0
+    explanation: "NoSchedule taints block pods unless they include matching tolerations. Adding toleration plus placement constraints is the standard dedicated-node pattern for special hardware. Removing taints globally weakens workload isolation."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d3-001"
+    difficulty: "medium"
+    tags: ["dns", "coredns", "service-discovery"]
+    question: "A Pod cannot resolve kubernetes.default.svc.cluster.local, while the API server is reachable by IP. What should be checked first?"
+    choices:
+      - "A. CoreDNS Pod health and the kube-dns Service/endpoints in kube-system."
+      - "B. Change the app Service type from ClusterIP to LoadBalancer."
+      - "C. Restart etcd to rebuild DNS records."
+      - "D. Add static DNS entries to each worker node /etc/hosts."
+    answerIndex: 0
+    explanation: "Cluster DNS resolution depends on CoreDNS and the kube-dns service endpoints. Verifying those components quickly identifies most name-resolution failures. Service type changes and host file hacks do not address root DNS component issues."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d3-002"
+    difficulty: "hard"
+    tags: ["networkpolicy", "ingress", "namespace-isolation"]
+    question: "A backend namespace has a default-deny ingress policy. You must allow traffic only from frontend Pods labeled app=web to backend Pods on TCP 8080. What is correct?"
+    choices:
+      - "A. Create a NetworkPolicy selecting backend Pods with an ingress rule from namespace/pod selectors and port 8080."
+      - "B. Change backend Service to NodePort so frontend can reach it."
+      - "C. Enable hostNetwork on backend Pods to bypass policy evaluation."
+      - "D. Delete kube-proxy to force direct Pod routing."
+    answerIndex: 0
+    explanation: "With default deny in place, explicit allow rules are required. A NetworkPolicy with proper pod and namespace selectors on port 8080 provides minimal, targeted access. Service type and hostNetwork changes do not replace policy-based segmentation."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/network-policies/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d3-003"
+    difficulty: "easy"
+    tags: ["service", "nodeport", "exposure"]
+    question: "In an on-prem cluster without a cloud load balancer, you need temporary external access to an internal web app. Which Service type is appropriate?"
+    choices:
+      - "A. ClusterIP"
+      - "B. NodePort"
+      - "C. ExternalName"
+      - "D. Headless Service"
+    answerIndex: 1
+    explanation: "NodePort exposes the service on a static port across all nodes, which works without cloud-provider integration. ClusterIP is internal only, and ExternalName only maps DNS names. Headless services do not provide node-level external exposure by themselves."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/service/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d3-004"
+    difficulty: "medium"
+    tags: ["ingress", "ingressclass", "controller"]
+    question: "An NGINX Ingress controller is installed with class nginx, but a newly created Ingress never gets configured. What is the likely fix?"
+    choices:
+      - "A. Set spec.ingressClassName: nginx on the Ingress resource."
+      - "B. Change the backing Service selector to app=nginx-ingress."
+      - "C. Restart kubectl on the admin workstation."
+      - "D. Enable hostPID in the backend Deployment."
+    answerIndex: 0
+    explanation: "Ingress controllers watch only resources matching their configured class. Setting ingressClassName ensures the NGINX controller picks up and programs routes. Service selector changes are unrelated to controller selection."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/ingress/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d3-005"
+    difficulty: "medium"
+    tags: ["gateway-api", "httproute", "traffic-routing"]
+    question: "You are using Gateway API and need canary routing when HTTP header x-canary=true is present. Where should this rule be defined?"
+    choices:
+      - "A. In the Service object using selector-based header rules."
+      - "B. In an HTTPRoute attached to the Gateway listener via parentRefs."
+      - "C. In a ConfigMap referenced by kube-proxy."
+      - "D. In a PodDisruptionBudget for the canary Deployment."
+    answerIndex: 1
+    explanation: "Gateway API places Layer-7 matching and routing logic in HTTPRoute resources. HTTPRoute rules can match headers and direct traffic to canary backends while attached to a Gateway listener. Services and PDBs do not define HTTP header routing."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/gateway/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d3-006"
+    difficulty: "medium"
+    tags: ["service", "endpoints", "selector"]
+    question: "A Service exists, but client requests time out. Pods are Running, yet the Service has no endpoints. What is the most likely issue?"
+    choices:
+      - "A. Service selector labels do not match Pod labels, so endpoints are never populated."
+      - "B. CoreDNS cache is stale and requires manual flush."
+      - "C. The container image was built on a different Linux distro."
+      - "D. The Service should be changed to type LoadBalancer immediately."
+    answerIndex: 0
+    explanation: "Endpoint objects are generated when Service selectors match running Pod labels. Empty endpoints with healthy pods strongly suggests selector mismatch. DNS cache or Service type changes cannot fix incorrect label selection."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d4-001"
+    difficulty: "medium"
+    tags: ["storageclass", "pvc", "dynamic-provisioning"]
+    question: "A PVC remains Pending in a cluster where no default StorageClass is configured. What is the correct remediation?"
+    choices:
+      - "A. Specify a valid storageClassName on the PVC or mark an existing StorageClass as default."
+      - "B. Convert the PVC manifest into a ConfigMap and mount it."
+      - "C. Set accessMode to ReadWriteMany regardless of backend capability."
+      - "D. Restart kube-controller-manager and wait for automatic class creation."
+    answerIndex: 0
+    explanation: "Dynamic provisioning depends on a StorageClass and matching provisioner. Without a default class, PVCs need an explicit storageClassName or a defined default class. Access mode changes alone do not trigger provisioning."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/storage-classes/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d4-002"
+    difficulty: "hard"
+    tags: ["persistent-volumes", "access-modes", "rwx"]
+    question: "A content service needs the same writable data mounted by multiple Pods across different nodes. Which storage approach is appropriate?"
+    choices:
+      - "A. hostPath volume with ReadWriteOnce"
+      - "B. NFS or CSI-backed storage that supports ReadWriteMany, requested via a PVC"
+      - "C. emptyDir volume with medium: Memory"
+      - "D. local PersistentVolume tied to a single node"
+    answerIndex: 1
+    explanation: "Multi-node shared writes require a backend supporting ReadWriteMany. NFS or compatible CSI drivers are typical solutions for this access pattern. hostPath, emptyDir, and local node-bound volumes do not satisfy durable multi-node RWX requirements."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d4-003"
+    difficulty: "medium"
+    tags: ["pv", "pvc", "reclaim-policy"]
+    question: "Before deleting a claim, an administrator must ensure underlying data is preserved for forensic analysis. Which PV setting is required?"
+    choices:
+      - "A. Set persistentVolumeReclaimPolicy to Retain on the PV."
+      - "B. Set persistentVolumeReclaimPolicy to Delete to avoid stale data."
+      - "C. Change access mode to ReadOnlyMany."
+      - "D. Remove all finalizers from the namespace."
+    answerIndex: 0
+    explanation: "Retain prevents automatic backend deletion when the PVC is removed, preserving data for manual recovery. Delete would remove the volume and violate the requirement. Access modes do not control reclaim lifecycle."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-001"
+    difficulty: "medium"
+    tags: ["troubleshooting", "nodes", "kubelet"]
+    question: "A worker node shows NotReady after a reboot, and workloads stop scheduling there. What should you inspect first?"
+    choices:
+      - "A. Node conditions/events and kubelet logs on that node to identify runtime, CNI, or cert errors."
+      - "B. Delete all Pods from healthy nodes to rebalance the cluster."
+      - "C. Rotate the entire cluster CA immediately."
+      - "D. Remove the node from etcd membership manually."
+    answerIndex: 0
+    explanation: "Node status and kubelet logs are the fastest path to root cause for NotReady conditions. They reveal runtime connectivity, networking, and certificate issues directly. Broad destructive actions should come only after targeted diagnosis."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-cluster/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-002"
+    difficulty: "hard"
+    tags: ["control-plane", "static-pods", "apiserver"]
+    question: "After editing control-plane settings, kubectl commands time out and the API server appears down. In kubeadm, where should you investigate first?"
+    choices:
+      - "A. Check /etc/kubernetes/manifests/kube-apiserver.yaml and inspect container logs with crictl on the control-plane node."
+      - "B. Reinstall kubectl on admin laptops."
+      - "C. Drain all worker nodes before any debugging."
+      - "D. Recreate the kube-system namespace from backup."
+    answerIndex: 0
+    explanation: "kubeadm runs control-plane components as static pods sourced from manifest files under /etc/kubernetes/manifests. A bad manifest change can immediately break API server startup. Local control-plane manifest and runtime logs are the primary diagnostics."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-cluster/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-003"
+    difficulty: "easy"
+    tags: ["monitoring", "resource-usage", "kubectl-top"]
+    question: "During an incident, you need a quick view of top CPU consumers across namespaces. Which command is most appropriate?"
+    choices:
+      - "A. kubectl top pod -A"
+      - "B. kubectl get pod -A -o wide"
+      - "C. kubectl describe node | grep Image"
+      - "D. kubectl api-resources"
+    answerIndex: 0
+    explanation: "kubectl top provides live CPU and memory usage from the metrics pipeline for fast triage. It is the standard built-in command for utilization checks. Basic get/describe outputs do not show current runtime consumption."
+    refs:
+      - "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_top/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-004"
+    difficulty: "easy"
+    tags: ["logs", "containers", "crashloop"]
+    question: "A sidecar container in a multi-container Pod is CrashLoopBackOff. You need logs from the previous failed container instance. Which command pattern is correct?"
+    choices:
+      - "A. kubectl logs <pod-name> -c <sidecar-name> --previous"
+      - "B. kubectl get events --watch-only=false"
+      - "C. kubectl describe node <node-name>"
+      - "D. kubectl top pod <pod-name>"
+    answerIndex: 0
+    explanation: "The --previous flag fetches logs from the prior terminated container, which is crucial for crash-loop root-cause analysis. Adding -c targets the specific sidecar in a multi-container pod. Events and metrics are useful context but do not replace previous stdout/stderr logs."
+    refs:
+      - "https://kubernetes.io/docs/concepts/cluster-administration/logging/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-005"
+    difficulty: "medium"
+    tags: ["scheduling", "failedscheduling", "resources"]
+    question: "A Pod is stuck Pending with event '0/5 nodes are available: 5 Insufficient cpu'. What is the best next step?"
+    choices:
+      - "A. Describe the Pod to confirm scheduling details, then reduce CPU requests or add node capacity."
+      - "B. Delete the kube-scheduler Pod and let kubelet reschedule workloads directly."
+      - "C. Change the Service type to ClusterIP."
+      - "D. Set imagePullPolicy to Never for the Pod."
+    answerIndex: 0
+    explanation: "FailedScheduling events already indicate a resource-fit problem. You should validate details and either adjust workload requests or provide more cluster capacity. Service settings and image pull behavior do not affect scheduler CPU fit checks."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-006"
+    difficulty: "hard"
+    tags: ["service", "nodeport", "kube-proxy"]
+    question: "A NodePort service works through two nodes but times out on one specific node. What should you verify first on the failing node?"
+    choices:
+      - "A. kube-proxy health and host firewall/iptables rules affecting NodePort traffic"
+      - "B. CoreDNS deployment replica count"
+      - "C. Whether the Service has an ExternalName"
+      - "D. TLS certificates for the kube-apiserver"
+    answerIndex: 0
+    explanation: "NodePort traffic depends on per-node packet handling configured by kube-proxy and host networking rules. A single-node failure pattern strongly points to node-local kube-proxy or firewall issues. DNS and API server certificates are unrelated to this datapath symptom."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-007"
+    difficulty: "hard"
+    tags: ["etcd", "backup", "restore"]
+    question: "After disk corruption on a control-plane node, etcd reports unhealthy and API requests intermittently fail. Which recovery path is most appropriate?"
+    choices:
+      - "A. Restore etcd from a recent snapshot and restart control-plane static pods with the restored data directory."
+      - "B. Delete all namespaces to reduce etcd object count."
+      - "C. Disable RBAC to simplify API operations during incident response."
+      - "D. Reinstall kubelet on all worker nodes first."
+    answerIndex: 0
+    explanation: "When etcd state is corrupted, snapshot restore is the reliable recovery mechanism. In kubeadm environments, etcd and apiserver static pod configuration must reference restored data correctly. Namespace deletion and RBAC changes do not repair datastore integrity."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-v1-d5-008"
+    difficulty: "medium"
+    tags: ["networkpolicy", "dns", "egress", "troubleshooting"]
+    question: "Only Pods in namespace payments fail DNS lookups to external domains after a new egress policy rollout. What is the most likely fix?"
+    choices:
+      - "A. Update NetworkPolicy to allow egress DNS traffic (UDP/TCP 53) to CoreDNS and required external destinations."
+      - "B. Change the CoreDNS Service type to NodePort for all namespaces."
+      - "C. Enable hostPID on payments Pods so DNS bypasses policy."
+      - "D. Remove readiness probes from the affected Deployments."
+    answerIndex: 0
+    explanation: "Restrictive egress policies commonly break DNS if traffic to CoreDNS is not explicitly allowed. Allowing UDP/TCP 53 plus required destinations restores name resolution and outbound connectivity. Pod process namespace settings and probes do not fix network policy blocks."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/network-policies/"
+    author: "ThanhNguyxn"

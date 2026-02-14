@@ -1,0 +1,456 @@
+meta:
+  category: "networking"
+  cert: "CCNA"
+  vendor: "Cisco"
+  version: 1
+  description: "Original practice questions for Cisco CCNA 200-301"
+questions:
+  - id: "ccna-v1-d1-001"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "network-components"]
+    question: "A branch office is adding a direct internet circuit and requires stateful inspection between user VLANs and the ISP handoff. Which device best fits this edge requirement?"
+    choices:
+      - "A. Layer 2 access switch"
+      - "B. Wireless access point"
+      - "C. Next-generation firewall"
+      - "D. Passive optical splitter"
+    answerIndex: 2
+    explanation: "A next-generation firewall provides stateful inspection and policy enforcement between trust zones at the WAN edge. A Layer 2 switch or AP does not provide edge security controls, and a passive splitter is not a security device."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d1-002"
+    difficulty: "medium"
+    tags: ["topology", "spine-leaf"]
+    question: "A data center team is scaling east-west application traffic and wants predictable low-latency forwarding with many equal-cost paths. Which architecture should they choose?"
+    choices:
+      - "A. Two-tier collapsed core"
+      - "B. Three-tier campus core-distribution-access"
+      - "C. Spine-leaf fabric"
+      - "D. Hub-and-spoke WAN"
+    answerIndex: 2
+    explanation: "Spine-leaf is designed for high east-west traffic with consistent hop count and ECMP behavior. Traditional campus and hub-and-spoke models are not optimized for that data center traffic pattern."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d1-003"
+    difficulty: "medium"
+    tags: ["physical-layer", "cabling"]
+    question: "Two distribution switches with SFP+ ports must be linked at 10 Gbps across 300 meters in the same building. Which media/transceiver choice is most appropriate?"
+    choices:
+      - "A. Cat5e copper with 10GBASE-T RJ45"
+      - "B. Multimode fiber with 10GBASE-SR"
+      - "C. Single-mode fiber with 1000BASE-LX"
+      - "D. Coaxial cable with DOCSIS modem"
+    answerIndex: 1
+    explanation: "10GBASE-SR on multimode fiber is commonly used for short-to-medium in-building 10-Gbps links like 300 meters. 1000BASE-LX is only 1 Gbps, and the other options do not fit the SFP+ 10-Gbps design."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d1-004"
+    difficulty: "easy"
+    tags: ["transport-layer", "tcp-udp"]
+    question: "A voice application is sensitive to delay and can tolerate minor packet loss better than retransmission delays. Which transport protocol should it prefer?"
+    choices:
+      - "A. TCP"
+      - "B. UDP"
+      - "C. ICMP"
+      - "D. ARP"
+    answerIndex: 1
+    explanation: "UDP avoids connection setup and retransmission overhead, which helps keep latency low for real-time traffic. TCP reliability mechanisms increase delay and jitter for this use case."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d1-005"
+    difficulty: "medium"
+    tags: ["ipv4", "subnetting"]
+    question: "You are subnetting 192.168.10.0/24 and need a subnet for 50 hosts while conserving addresses. Which mask should you assign?"
+    choices:
+      - "A. /26"
+      - "B. /27"
+      - "C. /28"
+      - "D. /25"
+    answerIndex: 0
+    explanation: "A /26 provides 64 total addresses and 62 usable host addresses, meeting the 50-host requirement efficiently. A /27 or /28 is too small, while /25 wastes more addresses than necessary."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d1-006"
+    difficulty: "medium"
+    tags: ["ipv6", "wireless"]
+    question: "A company deploys an IPv6-only guest WLAN and wants clients to self-configure addresses without stateful DHCPv6. What must the wireless gateway send?"
+    choices:
+      - "A. ARP replies for each client"
+      - "B. Router Advertisements with prefix information"
+      - "C. Static NAT64 mappings"
+      - "D. DNS A records only"
+    answerIndex: 1
+    explanation: "SLAAC depends on Router Advertisements that include prefix and gateway information for clients. ARP and IPv4 DNS records do not provide IPv6 address autoconfiguration."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d2-001"
+    difficulty: "easy"
+    tags: ["vlan", "switching"]
+    question: "A user was moved to a desk where the access port is still in VLAN 1, but the user should be in VLAN 30 with nearby printers. What is the correct fix on that interface?"
+    choices:
+      - "A. Set switchport mode trunk"
+      - "B. Set switchport access vlan 30"
+      - "C. Disable spanning-tree portfast"
+      - "D. Add channel-group 1 mode active"
+    answerIndex: 1
+    explanation: "Access ports carry one VLAN for end hosts, so assigning VLAN 30 places the user in the correct broadcast domain. Trunking and EtherChannel are not needed for a single endpoint port."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d2-002"
+    difficulty: "medium"
+    tags: ["trunking", "8021q"]
+    question: "Two switches are connected by an 802.1Q trunk, and CDP reports a native VLAN mismatch. Untagged management traffic is intermittent. What should you do first?"
+    choices:
+      - "A. Configure the same native VLAN on both trunk ends"
+      - "B. Disable DTP only"
+      - "C. Convert both ends to access VLAN 1"
+      - "D. Prune all VLANs except VLAN 1"
+    answerIndex: 0
+    explanation: "Native VLAN must match on both trunk interfaces to avoid untagged traffic mismatches and security issues. DTP settings alone do not resolve a native VLAN inconsistency."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d2-003"
+    difficulty: "medium"
+    tags: ["dtp", "trunking"]
+    question: "A security baseline forbids dynamic trunk negotiation. A switch-to-switch link must carry only VLANs 10 and 20. Which configuration approach is best?"
+    choices:
+      - "A. Use dynamic desirable on both ends"
+      - "B. Set trunk mode, disable negotiation, and allow VLANs 10,20"
+      - "C. Set both interfaces to access mode with voice VLAN 20"
+      - "D. Use dynamic auto on both ends"
+    answerIndex: 1
+    explanation: "Hard-coding trunk mode with negotiation disabled prevents unintended DTP behavior and limits VLAN exposure. Dynamic modes can form trunks unexpectedly and violate policy."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d2-004"
+    difficulty: "hard"
+    tags: ["etherchannel", "lacp"]
+    question: "A port-channel between two switches is down. One side uses channel-group 5 mode active, while the other side uses mode on. What is the likely cause?"
+    choices:
+      - "A. STP is blocking the bundle, so PortFast is required"
+      - "B. LACP negotiation mismatch between active and on"
+      - "C. Native VLAN mismatch always disables EtherChannel"
+      - "D. MTU must be exactly 1500 for LACP"
+    answerIndex: 1
+    explanation: "Mode active uses LACP, but mode on forces a static bundle with no LACP negotiation, so the modes are incompatible. Both sides should use compatible LACP modes such as active/passive or both on for static."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d2-005"
+    difficulty: "medium"
+    tags: ["stp", "bpdu-guard"]
+    question: "Design policy says distribution switch D1 must be root bridge for VLAN 100, and edge ports must shut down if they receive BPDUs. Which combination meets the policy?"
+    choices:
+      - "A. Lower D1 bridge priority and enable BPDU guard on PortFast access ports"
+      - "B. Enable root guard only on D1 uplinks"
+      - "C. Set D1 priority to 65535 and disable PortFast globally"
+      - "D. Enable loop guard on all access ports"
+    answerIndex: 0
+    explanation: "Lower bridge priority makes D1 more likely to become root for that VLAN. BPDU guard on PortFast access ports protects against accidental or malicious switch insertion at the edge."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d2-006"
+    difficulty: "medium"
+    tags: ["layer3-switching", "svi"]
+    question: "A multilayer switch must route between VLAN 10 and VLAN 20 at wire speed without an external router. What design should be used?"
+    choices:
+      - "A. Router-on-a-stick with subinterfaces on an external router"
+      - "B. Create SVIs for VLANs and enable ip routing"
+      - "C. Enable DTP desirable on all uplinks"
+      - "D. Configure transparent bridging only"
+    answerIndex: 1
+    explanation: "Inter-VLAN routing on a multilayer switch is done with SVIs and global Layer 3 routing enabled. Router-on-a-stick works but does not match the requirement to keep routing local on the switch."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-001"
+    difficulty: "medium"
+    tags: ["routing", "administrative-distance"]
+    question: "A router learns 10.20.30.0/24 from both OSPF and EIGRP. OSPF metric is lower, but EIGRP has AD 90 and OSPF has AD 110. Which route is installed?"
+    choices:
+      - "A. OSPF because it has the lower metric"
+      - "B. EIGRP because it has the lower administrative distance"
+      - "C. Both equally because both are dynamic protocols"
+      - "D. Neither, because static route is required"
+    answerIndex: 1
+    explanation: "The router first compares administrative distance across different routing sources, then compares metrics within the winning protocol. Since EIGRP has lower AD than OSPF, the EIGRP route is selected."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-002"
+    difficulty: "easy"
+    tags: ["static-routing", "default-route"]
+    question: "A branch router has one ISP next-hop at 203.0.113.1 and must send all unknown destinations to the internet. Which route type is needed?"
+    choices:
+      - "A. A default static route to 203.0.113.1"
+      - "B. A host route for 203.0.113.1 only"
+      - "C. A summary route to 10.0.0.0/8"
+      - "D. A connected route on the LAN interface"
+    answerIndex: 0
+    explanation: "A default static route catches traffic for destinations not already in the routing table. Host and summary routes do not provide full internet reachability for all unknown networks."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-003"
+    difficulty: "hard"
+    tags: ["static-routing", "floating-static"]
+    question: "MPLS is the primary WAN path learned by OSPF, and LTE should be used only if OSPF routes disappear. Which backup design is correct?"
+    choices:
+      - "A. Add a static route with AD 1 via LTE"
+      - "B. Add a static route with AD 110 via LTE"
+      - "C. Add a floating static route with AD higher than OSPF"
+      - "D. Replace OSPF with only static routes"
+    answerIndex: 2
+    explanation: "A floating static route has a higher AD so it stays inactive while the dynamic OSPF route exists. If OSPF is lost, the floating static route becomes active as the backup path."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-004"
+    difficulty: "medium"
+    tags: ["ospfv2", "router-id"]
+    question: "OSPFv2 starts without a manually configured router ID. Loopback0 is 10.10.10.10, and the highest active physical interface is 172.16.5.2. Which router ID is chosen after process start?"
+    choices:
+      - "A. 172.16.5.2"
+      - "B. 10.10.10.10"
+      - "C. 0.0.0.0"
+      - "D. 255.255.255.255"
+    answerIndex: 1
+    explanation: "OSPF prefers the highest IP address on any loopback interface before considering physical interfaces. Because a loopback exists, 10.10.10.10 is selected as the router ID in this scenario."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-005"
+    difficulty: "medium"
+    tags: ["ospfv2", "adjacency"]
+    question: "On a broadcast Ethernet segment with three OSPF routers, R2 and R3 show 2-WAY with each other but FULL with R1. What is the most likely explanation?"
+    choices:
+      - "A. Duplicate router IDs on R2 and R3"
+      - "B. R1 is DR/BDR, so DROTHER routers remain 2-WAY with each other"
+      - "C. Area mismatch intentionally keeps neighbors in 2-WAY"
+      - "D. OSPF authentication must be disabled"
+    answerIndex: 1
+    explanation: "On broadcast networks, full adjacency is typically formed with the DR and BDR, not between all DROTHER routers. Seeing 2-WAY between DROTHER peers is expected behavior, not a failure."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-006"
+    difficulty: "hard"
+    tags: ["ospfv2", "network-statement"]
+    question: "You must advertise only interface subnet 10.1.12.0/30 into OSPF area 0 on a router. Which wildcard-based network statement is correct?"
+    choices:
+      - "A. network 10.1.12.0 0.0.0.3 area 0"
+      - "B. network 10.1.12.0 255.255.255.252 area 0"
+      - "C. network 10.1.12.1 0.0.0.0 area 1"
+      - "D. network 0.0.0.0 255.255.255.255 area 0"
+    answerIndex: 0
+    explanation: "OSPF network statements use wildcard masks, so /30 corresponds to 0.0.0.3. Option B uses a subnet mask format, and options C and D either target the wrong area or far more interfaces than intended."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d3-007"
+    difficulty: "medium"
+    tags: ["fhrp", "glbp"]
+    question: "A campus wants a single default gateway IP per VLAN while using both distribution switches to actively forward client traffic. Which FHRP best meets this goal?"
+    choices:
+      - "A. HSRP"
+      - "B. VRRP"
+      - "C. GLBP"
+      - "D. OSPF"
+    answerIndex: 2
+    explanation: "GLBP provides gateway redundancy and load balancing across multiple active forwarders under one virtual gateway. HSRP and VRRP are primarily active-standby for forwarding."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d4-001"
+    difficulty: "easy"
+    tags: ["nat", "pat"]
+    question: "A branch has one public IPv4 address but dozens of inside hosts need internet access simultaneously. Which translation method should be configured?"
+    choices:
+      - "A. Static NAT one-to-one"
+      - "B. Dynamic NAT with equal-size public pool"
+      - "C. PAT overload on the public interface"
+      - "D. No NAT, only default route"
+    answerIndex: 2
+    explanation: "PAT overload maps many inside private addresses to one public address using unique source ports. Static and dynamic one-to-one approaches require more public addresses than this scenario provides."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d4-002"
+    difficulty: "medium"
+    tags: ["dhcp", "dns", "ntp"]
+    question: "Clients receive IP addresses and can ping external IPs, but hostnames fail to resolve after a DHCP scope change. Which missing DHCP option is the most likely cause?"
+    choices:
+      - "A. Default gateway option"
+      - "B. DNS server option"
+      - "C. Lease time option"
+      - "D. NTP server option"
+    answerIndex: 1
+    explanation: "Name resolution requires clients to receive valid DNS server information from DHCP or static configuration. NTP affects time sync, not whether names can be resolved to IP addresses."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d4-003"
+    difficulty: "medium"
+    tags: ["snmp", "syslog", "qos"]
+    question: "Operations needs centralized event logging, near-real-time interface fault alerts, and priority treatment for voice during congestion. Which combination best fits?"
+    choices:
+      - "A. Syslog plus SNMP traps, and QoS low-latency queue for voice"
+      - "B. TFTP backups plus CDP discovery, and FIFO only"
+      - "C. DHCP snooping plus NAT, and equal treatment for all classes"
+      - "D. FTP transfer plus ARP inspection, and random drop scheduling"
+    answerIndex: 0
+    explanation: "Syslog centralizes logs, SNMP traps provide alerting, and LLQ/priority queuing protects delay-sensitive voice traffic. The other options do not satisfy both observability and QoS requirements."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d5-001"
+    difficulty: "easy"
+    tags: ["security-concepts", "segmentation"]
+    question: "After a user opens a malicious attachment, security wants to reduce lateral movement risk inside the campus network. Which control is most effective first?"
+    choices:
+      - "A. Disable spanning tree on all access switches"
+      - "B. Use VLAN segmentation with least-privilege ACLs between segments"
+      - "C. Increase DHCP lease duration"
+      - "D. Enable DTP dynamic desirable everywhere"
+    answerIndex: 1
+    explanation: "Segmentation and restrictive ACLs limit east-west propagation and reduce blast radius after endpoint compromise. The other options do not provide meaningful containment of malware movement."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d5-002"
+    difficulty: "medium"
+    tags: ["ssh", "access-control"]
+    question: "A router must be managed remotely with encrypted access, and only subnet 10.50.0.0/24 should reach the VTY lines. Which approach is correct?"
+    choices:
+      - "A. Enable Telnet with a shared line password"
+      - "B. Enable SSHv2 and apply a VTY access-class ACL"
+      - "C. Enable HTTP server on all interfaces"
+      - "D. Use reverse Telnet on the AUX port"
+    answerIndex: 1
+    explanation: "SSHv2 provides encrypted management access, and a VTY ACL restricts who can connect. Telnet and open HTTP management expose credentials and increase attack surface."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d5-003"
+    difficulty: "medium"
+    tags: ["port-security", "switch-security"]
+    question: "An access port should allow only the first learned endpoint MAC and shut down on violations. Which configuration behavior matches that requirement?"
+    choices:
+      - "A. Port security with sticky MAC, maximum 1, violation shutdown"
+      - "B. Disable port security and rely on storm control"
+      - "C. Convert the interface to an 802.1Q trunk"
+      - "D. Enable DHCP relay on the interface"
+    answerIndex: 0
+    explanation: "Sticky learning with maximum one MAC binds the first device and violation shutdown enforces strict endpoint control. Storm control and DHCP relay do not enforce MAC-based admission policy."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d5-004"
+    difficulty: "hard"
+    tags: ["dhcp-snooping", "dynamic-arp-inspection"]
+    question: "After enabling DHCP snooping and DAI, valid hosts in VLAN 20 lose connectivity due to ARP drops toward the default gateway uplink. What is the most likely fix?"
+    choices:
+      - "A. Trust all user access ports for DHCP snooping and DAI"
+      - "B. Trust the uplink toward the legitimate gateway/server infrastructure"
+      - "C. Disable ARP inspection globally"
+      - "D. Change the uplink to access mode"
+    answerIndex: 1
+    explanation: "Infrastructure-facing uplinks that carry legitimate ARP and DHCP responses must be marked trusted. Access ports should remain untrusted to block rogue DHCP and ARP spoofing attempts."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d5-005"
+    difficulty: "medium"
+    tags: ["aaa", "tacacs-radius"]
+    question: "An enterprise needs centralized device admin authentication with per-command authorization and accounting, plus local fallback if servers fail. Which AAA choice is best?"
+    choices:
+      - "A. RADIUS only with no local fallback"
+      - "B. TACACS+ with local fallback in AAA method lists"
+      - "C. SNMPv2 community strings"
+      - "D. PAP on VTY lines"
+    answerIndex: 1
+    explanation: "TACACS+ is commonly preferred for device administration because it supports granular command authorization and accounting. Defining local fallback maintains emergency access during AAA server outages."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d6-001"
+    difficulty: "easy"
+    tags: ["automation", "network-operations"]
+    question: "Engineers spend hours applying the same QoS policy manually to hundreds of switches. What is the primary benefit of moving to automation templates?"
+    choices:
+      - "A. More manual typing per device"
+      - "B. Consistent deployment with fewer human errors"
+      - "C. Elimination of change control"
+      - "D. Removal of rollback planning"
+    answerIndex: 1
+    explanation: "Automation improves consistency and repeatability, reducing configuration drift and operator mistakes. It complements, rather than replaces, change control and rollback practices."
+    refs:
+      - "https://learningnetwork.cisco.com/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d6-002"
+    difficulty: "medium"
+    tags: ["controller-based-networking", "sdn"]
+    question: "In a controller-based campus design, how does control logic placement differ from traditional distributed networking?"
+    choices:
+      - "A. Control logic exists only in each access switch"
+      - "B. A controller centralizes policy decisions pushed to devices"
+      - "C. DHCP servers make all forwarding decisions"
+      - "D. End hosts compute switch forwarding tables"
+    answerIndex: 1
+    explanation: "Controller-based designs centralize policy and orchestration, while devices enforce programmed forwarding behavior. Traditional networks rely more heavily on independent control decisions on each device."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-v1-d6-003"
+    difficulty: "hard"
+    tags: ["rest-api", "json", "yang", "ansible", "python"]
+    question: "A Python script queries a RESTCONF endpoint and Ansible consumes the returned interface data. Which payload and model pairing is correct for this workflow?"
+    choices:
+      - "A. Binary pcap payload structured by STP"
+      - "B. JSON payload structured by a YANG data model"
+      - "C. CSV payload structured by VLAN.dat"
+      - "D. Syslog payload structured by CDP"
+    answerIndex: 1
+    explanation: "RESTCONF commonly exchanges structured data in JSON or XML that maps to YANG models. That model-driven format is what automation tools like Python and Ansible can parse reliably."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/"
+    author: "ThanhNguyxn"

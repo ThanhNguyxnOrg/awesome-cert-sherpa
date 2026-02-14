@@ -1,0 +1,467 @@
+meta:
+  category: "devops"
+  cert: "Terraform-Associate"
+  vendor: "HashiCorp"
+  version: 1
+  description: "Original practice questions for HashiCorp Terraform Associate (003)"
+questions:
+  - id: "tf-v1-d1-001"
+    difficulty: "easy"
+    tags: ["iac", "declarative"]
+    question: "A team managing AWS and Azure with custom shell scripts wants a consistent way to define infrastructure and preview changes before execution. Which Terraform concept best addresses this need?"
+    choices:
+      - "A. Terraform uses declarative configuration and generates an execution plan before apply"
+      - "B. Terraform requires imperative scripts for each provider API call"
+      - "C. Terraform only supports HashiCorp-managed infrastructure services"
+      - "D. Terraform cannot manage existing infrastructure that already exists"
+    answerIndex: 0
+    explanation: "Terraform lets teams declare desired state and inspect an execution plan before making changes, which is the core IaC value here. B is wrong because imperative scripting is not required, C is wrong because Terraform supports many providers, and D is wrong because existing resources can be brought under management."
+    refs:
+      - "https://developer.hashicorp.com/terraform/intro"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d1-002"
+    difficulty: "medium"
+    tags: ["iac", "drift-detection"]
+    question: "An engineer manually changed a security group rule in the cloud console outside Terraform. Before applying any configuration change, what is the best way to detect this drift?"
+    choices:
+      - "A. Run terraform plan in the initialized working directory"
+      - "B. Run terraform destroy and then terraform apply"
+      - "C. Delete terraform.tfstate and start over"
+      - "D. Run terraform fmt to normalize formatting"
+    answerIndex: 0
+    explanation: "`terraform plan` compares configuration, state, and real infrastructure to show drift safely before apply. B and C are destructive and unnecessary, and D only formats files without checking infrastructure differences."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/plan"
+      - "https://developer.hashicorp.com/terraform/language/state"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d1-003"
+    difficulty: "medium"
+    tags: ["iac", "idempotency"]
+    question: "A platform team reruns `terraform apply` on unchanged configuration right after a successful apply. What behavior should they expect from Terraform in a stable environment?"
+    choices:
+      - "A. Terraform reports no changes needed"
+      - "B. Terraform duplicates all managed resources"
+      - "C. Terraform fails unless every resource is tainted first"
+      - "D. Terraform recreates resources on every run by design"
+    answerIndex: 0
+    explanation: "Terraform is designed for idempotent workflows, so unchanged desired state should produce no-op results. B, C, and D contradict Terraform's normal reconciliation model and would indicate misconfiguration or explicit replacement commands."
+    refs:
+      - "https://developer.hashicorp.com/terraform/intro"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d2-001"
+    difficulty: "easy"
+    tags: ["hcl", "syntax"]
+    question: "During a code review, a junior engineer asks which line in a resource block is an argument rather than a block. Which example is an argument?"
+    choices:
+      - "A. instance_type = \"t3.micro\""
+      - "B. resource \"aws_instance\" \"web\" {}"
+      - "C. variable \"instance_type\" {}"
+      - "D. output \"instance_id\" {}"
+    answerIndex: 0
+    explanation: "Arguments in HCL are name/value assignments, such as `instance_type = \"t3.micro\"`. B, C, and D are block declarations that define resource, variable, and output constructs rather than argument assignments."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/syntax/configuration"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d2-002"
+    difficulty: "medium"
+    tags: ["hcl", "expressions"]
+    question: "A module should use a larger instance type only when `var.environment` is `prod`. Which HCL expression is valid for this requirement?"
+    choices:
+      - "A. instance_type = var.environment == \"prod\" ? \"m6i.large\" : \"t3.micro\""
+      - "B. instance_type = if var.environment == \"prod\" then \"m6i.large\" else \"t3.micro\""
+      - "C. instance_type = if(var.environment == \"prod\") { \"m6i.large\" } else { \"t3.micro\" }"
+      - "D. instance_type = var.environment == \"prod\" : \"m6i.large\" ? \"t3.micro\""
+    answerIndex: 0
+    explanation: "Terraform uses the `condition ? true_val : false_val` conditional expression syntax shown in A. B, C, and D are invalid HCL expression forms and will fail parsing or evaluation."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/expressions/conditionals"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d2-003"
+    difficulty: "hard"
+    tags: ["hcl", "for-expression"]
+    question: "You receive `var.subnets` as a list of objects, each containing `id` and `az`, and need only a list of subnet IDs for a module input. Which expression is correct?"
+    choices:
+      - "A. [for s in var.subnets : s.id]"
+      - "B. {for s in var.subnets : s.id}"
+      - "C. for s in var.subnets => s.id"
+      - "D. var.subnets[*].id = true"
+    answerIndex: 0
+    explanation: "A valid list-producing `for` expression in Terraform is `[for item in list : value]`, so A is correct. B is an invalid map/object form without keys, C is not valid expression syntax, and D is an invalid assignment-style statement."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/expressions/for"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d3-001"
+    difficulty: "easy"
+    tags: ["cli", "init"]
+    question: "A developer just cloned a Terraform repository with modules and provider requirements. What command should be run first in that directory?"
+    choices:
+      - "A. terraform init"
+      - "B. terraform plan"
+      - "C. terraform apply"
+      - "D. terraform validate"
+    answerIndex: 0
+    explanation: "`terraform init` prepares the working directory by installing providers/modules and configuring backend settings. `plan`, `apply`, and `validate` depend on initialization and are not the first step after cloning."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/init"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d3-002"
+    difficulty: "medium"
+    tags: ["cli", "plan", "apply"]
+    question: "Your team requires that the exact reviewed plan is what gets applied in production. Which workflow satisfies that control requirement?"
+    choices:
+      - "A. Run terraform plan -out=tfplan, review it, then run terraform apply tfplan"
+      - "B. Run terraform apply -auto-approve after a verbal review meeting"
+      - "C. Run terraform destroy first to guarantee clean deployment"
+      - "D. Run terraform fmt and then terraform apply"
+    answerIndex: 0
+    explanation: "Saving a plan file and applying that file ensures Terraform executes the reviewed set of actions. B skips reproducible plan artifact control, C is unnecessary and risky, and D addresses formatting not change approval integrity."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/plan"
+      - "https://developer.hashicorp.com/terraform/cli/commands/apply"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d3-003"
+    difficulty: "easy"
+    tags: ["cli", "fmt", "validate"]
+    question: "A CI job should quickly fail a pull request when Terraform code is malformed or syntactically invalid, before contacting cloud APIs. Which command pair is most appropriate?"
+    choices:
+      - "A. terraform fmt -check and terraform validate"
+      - "B. terraform refresh and terraform apply"
+      - "C. terraform import and terraform state list"
+      - "D. terraform taint and terraform destroy"
+    answerIndex: 0
+    explanation: "`fmt -check` enforces style and `validate` checks internal configuration validity without creating infrastructure. B, C, and D are operational or state-mutating commands that do not provide the intended static quality gate."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/fmt"
+      - "https://developer.hashicorp.com/terraform/cli/commands/validate"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d3-004"
+    difficulty: "medium"
+    tags: ["cli", "refresh-only"]
+    question: "An operations engineer wants to reconcile Terraform state with real infrastructure after out-of-band console edits, without changing remote resources to match configuration yet. Which command mode is correct?"
+    choices:
+      - "A. terraform apply -refresh-only"
+      - "B. terraform apply -replace=aws_instance.web"
+      - "C. terraform destroy -target=aws_instance.web"
+      - "D. terraform init -upgrade"
+    answerIndex: 0
+    explanation: "`-refresh-only` updates state based on current remote objects without proposing normal configuration-driven infrastructure updates. B and C intentionally alter resources, while D only upgrades dependencies and does not reconcile drift."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/apply"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d3-005"
+    difficulty: "medium"
+    tags: ["cli", "dependency-management"]
+    question: "After changing provider and module version constraints, a teammate wants Terraform to fetch newer allowed versions in the working directory. Which command should they run?"
+    choices:
+      - "A. terraform init -upgrade"
+      - "B. terraform plan -refresh-only"
+      - "C. terraform output -json"
+      - "D. terraform state rm"
+    answerIndex: 0
+    explanation: "`terraform init -upgrade` re-resolves and downloads newer versions that still satisfy declared constraints. B does not install dependencies, C only prints outputs, and D mutates state addresses rather than dependency versions."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cli/commands/init"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d4-001"
+    difficulty: "medium"
+    tags: ["providers", "version-constraints"]
+    question: "A team was broken by an unexpected major provider release and now wants safer upgrades. What is the best Terraform-native control?"
+    choices:
+      - "A. Define provider version constraints in required_providers"
+      - "B. Set provider version to latest in each resource block"
+      - "C. Edit terraform.tfstate manually to pin provider versions"
+      - "D. Use terraform fmt to lock provider binaries"
+    answerIndex: 0
+    explanation: "Provider versions should be constrained in `required_providers` so upgrades stay within intended bounds. B is not how provider versions are set, C is unsafe state tampering, and D only formats code."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/providers/requirements"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d4-002"
+    difficulty: "easy"
+    tags: ["data-sources", "resources"]
+    question: "Your configuration must read attributes of an existing VPC created by another team, without managing that VPC lifecycle. Which Terraform construct should you use?"
+    choices:
+      - "A. A data source such as data \"aws_vpc\""
+      - "B. A resource block such as resource \"aws_vpc\""
+      - "C. An output block in the same module"
+      - "D. A local value with placeholder text"
+    answerIndex: 0
+    explanation: "Data sources are for reading existing infrastructure information managed outside the current configuration. B would imply lifecycle management, while C and D do not query provider APIs for real infrastructure metadata."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/data-sources"
+      - "https://developer.hashicorp.com/terraform/language/resources"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d4-003"
+    difficulty: "hard"
+    tags: ["providers", "alias", "multi-region"]
+    question: "A platform module must create resources in both us-east-1 and eu-west-1 within one root configuration. What is the recommended provider pattern?"
+    choices:
+      - "A. Configure multiple provider blocks with aliases and select them via the provider argument"
+      - "B. Use a single provider block and set count = 2 on it"
+      - "C. Switch regions by changing Terraform workspace names only"
+      - "D. Import second-region resources after every apply"
+    answerIndex: 0
+    explanation: "Multiple configured provider instances with aliases are the standard approach for multi-region and multi-account targeting. B is invalid provider syntax, C does not configure provider endpoints, and D is manual overhead unrelated to normal provider selection."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/providers/configuration"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d4-004"
+    difficulty: "medium"
+    tags: ["resources", "depends_on"]
+    question: "A resource should wait for an IAM policy attachment that is not referenced in any direct argument, but ordering is still required for correctness. What should you add?"
+    choices:
+      - "A. depends_on to declare the explicit dependency"
+      - "B. terraform taint on each run to force recreation"
+      - "C. output blocks to sequence operations"
+      - "D. local-exec provisioner as dependency glue"
+    answerIndex: 0
+    explanation: "`depends_on` is the right mechanism when Terraform cannot infer dependency through references. B is disruptive, C has no ordering effect, and D adds fragile imperative behavior instead of proper graph metadata."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d5-001"
+    difficulty: "medium"
+    tags: ["variables", "sensitive"]
+    question: "A CI pipeline injects a database password through a Terraform variable, and security asks to reduce accidental exposure in CLI output. Which variable setting is correct?"
+    choices:
+      - "A. Mark the variable with sensitive = true"
+      - "B. Mark the variable with nullable = false"
+      - "C. Mark the variable with default = \"***\""
+      - "D. Mark the variable with validation only"
+    answerIndex: 0
+    explanation: "Setting `sensitive = true` tells Terraform to redact that value in many command outputs. B, C, and D do not provide output redaction behavior and therefore do not meet the stated logging risk requirement."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/values/variables"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d5-002"
+    difficulty: "easy"
+    tags: ["locals", "maintainability"]
+    question: "Engineers keep repeating the same naming expression across many resource blocks, causing copy-paste mistakes. Which Terraform feature best centralizes that derived value?"
+    choices:
+      - "A. locals block with reusable local values"
+      - "B. Separate output block per resource"
+      - "C. terraform state rm before each apply"
+      - "D. Replace every expression with hardcoded strings"
+    answerIndex: 0
+    explanation: "Locals are designed for computed values reused within a module, reducing duplication and typo risk. B exports values rather than centralizing internal expressions, C is unrelated state surgery, and D worsens maintainability."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/values/locals"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d5-003"
+    difficulty: "medium"
+    tags: ["outputs", "modules"]
+    question: "A root module must expose a load balancer DNS name created inside a child module so another automation step can read it. What is the correct pattern?"
+    choices:
+      - "A. Define an output in the child module and reference module.<name>.<output> from a root output"
+      - "B. Reference child resources directly from root without module outputs"
+      - "C. Use variable blocks in root to automatically pull child values"
+      - "D. Use terraform console manually after each deployment"
+    answerIndex: 0
+    explanation: "Child module outputs are the supported interface boundary for exposing values to the parent module. B breaks encapsulation and is not supported, while C and D do not provide durable module-to-module contracts."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/values/outputs"
+      - "https://developer.hashicorp.com/terraform/language/modules"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d6-001"
+    difficulty: "medium"
+    tags: ["modules", "sources", "git"]
+    question: "Your organization stores a reusable network module in Git and wants consumers to pin to a release tag. Which module source style is most appropriate?"
+    choices:
+      - "A. source = \"git::https://example.com/org/network.git?ref=v1.2.0\""
+      - "B. source = \"latest\""
+      - "C. source = \"provider::network\""
+      - "D. source = \"module.network\""
+    answerIndex: 0
+    explanation: "Git sources with `?ref=` allow explicit version pinning to a commit, branch, or tag for predictable behavior. B, C, and D are not valid Terraform module source addressing patterns."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/modules/sources"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d6-002"
+    difficulty: "medium"
+    tags: ["modules", "variables"]
+    question: "A child module requires `project_id`, but callers occasionally forget to pass it and cause unclear runtime failures. How should the module interface enforce this input?"
+    choices:
+      - "A. Declare variable \"project_id\" without a default and pass it from each module call"
+      - "B. Put project_id in an output block so callers must read it"
+      - "C. Replace the variable with a local value hardcoded in the module"
+      - "D. Depend on terraform apply -target to skip missing inputs"
+    answerIndex: 0
+    explanation: "A variable without a default is required, so Terraform fails fast and clearly if the caller omits it. B and C misuse outputs/locals for interface design, and D is an execution workaround that does not solve required input validation."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/values/variables"
+      - "https://developer.hashicorp.com/terraform/language/modules"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d6-003"
+    difficulty: "easy"
+    tags: ["modules", "registry"]
+    question: "A team consumes a public registry module and wants controlled updates that avoid accidental major version jumps. Which argument should they use in the module block?"
+    choices:
+      - "A. version with an explicit version constraint"
+      - "B. provider_version inside the resource block"
+      - "C. lock_version in terraform.tfvars"
+      - "D. required_version inside the module block"
+    answerIndex: 0
+    explanation: "Registry module versions are controlled using the module `version` argument with semver constraints. B and C are not valid Terraform mechanisms for module pinning, and D applies to Terraform CLI version constraints, not module selection."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/modules/sources"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d6-004"
+    difficulty: "hard"
+    tags: ["modules", "for_each", "scaling"]
+    question: "You need one module instance per application team and stable addresses even if a new team is inserted alphabetically later. Which approach is best?"
+    choices:
+      - "A. Use for_each on the module block with a map keyed by team name"
+      - "B. Use count with a list of team names and rely on index order"
+      - "C. Copy-paste separate module blocks manually for every team"
+      - "D. Use a single module and switch team by workspace name"
+    answerIndex: 0
+    explanation: "`for_each` with stable keys gives predictable module addresses and avoids index-shift churn when collection order changes. B is fragile due index renumbering, C hurts maintainability, and D does not create distinct module instances in the same graph."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each"
+      - "https://developer.hashicorp.com/terraform/language/modules"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d7-001"
+    difficulty: "medium"
+    tags: ["state", "backend", "locking"]
+    question: "Multiple engineers apply the same configuration, and occasional concurrent runs corrupt state updates. What architecture change best reduces this risk?"
+    choices:
+      - "A. Use a remote backend with state locking enabled"
+      - "B. Commit terraform.tfstate to Git and resolve merge conflicts"
+      - "C. Disable locking to improve speed"
+      - "D. Keep local state and coordinate through chat messages"
+    answerIndex: 0
+    explanation: "Remote backends with locking coordinate concurrent operations and protect state consistency in team workflows. B, C, and D are either unsafe or operationally unreliable for collaborative infrastructure management."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/state"
+      - "https://developer.hashicorp.com/terraform/language/backend"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d7-002"
+    difficulty: "hard"
+    tags: ["state", "refactor", "moved"]
+    question: "After renaming a resource block from `aws_instance.app` to `aws_instance.web`, you want Terraform to keep the same real instance instead of replacing it. What should you do in configuration?"
+    choices:
+      - "A. Add a moved block mapping the old address to the new address"
+      - "B. Delete state and import everything again"
+      - "C. Run terraform destroy for the old name first"
+      - "D. Add ignore_changes = all to lifecycle"
+    answerIndex: 0
+    explanation: "A `moved` block tells Terraform state address history so it can track refactors without destructive replacement. B and C are heavy and risky, while D does not remap resource addresses in state."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/modules/develop/refactoring"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d7-003"
+    difficulty: "medium"
+    tags: ["state", "workspaces"]
+    question: "A team wants to test the same Terraform configuration for dev and stage while keeping separate state snapshots. Which statement about CLI workspaces is accurate?"
+    choices:
+      - "A. Workspaces allow multiple distinct state instances for one configuration"
+      - "B. Workspaces create separate Git branches automatically"
+      - "C. Workspaces share one state file but different plans"
+      - "D. Workspaces remove the need for backends"
+    answerIndex: 0
+    explanation: "Workspaces are a state-partitioning feature for the same configuration, typically used for environment variants. B and C misrepresent workspace behavior, and D is incorrect because backend configuration still governs where state is stored."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/state/workspaces"
+      - "https://developer.hashicorp.com/terraform/cli/commands/workspace"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d8-001"
+    difficulty: "hard"
+    tags: ["resource-graph", "for_each", "count"]
+    question: "A resource currently uses `count` over a list, and reordering that list causes unexpected destroy/create operations. What change most directly improves address stability?"
+    choices:
+      - "A. Switch to for_each with stable keys"
+      - "B. Keep count and sort the list manually every run"
+      - "C. Add depends_on for all resources"
+      - "D. Run terraform taint before apply"
+    answerIndex: 0
+    explanation: "`for_each` uses keys for identity, so order changes do not remap instances like index-based `count` often does. B is brittle, C does not affect instance addressing, and D intentionally forces replacement rather than preventing churn."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/count"
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/for_each"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d8-002"
+    difficulty: "medium"
+    tags: ["lifecycle", "meta-arguments"]
+    question: "An immutable resource must be replaced after a configuration change, but downtime must be minimized by creating the new object first when the provider allows it. Which lifecycle setting helps?"
+    choices:
+      - "A. create_before_destroy = true"
+      - "B. prevent_destroy = true"
+      - "C. ignore_changes = all"
+      - "D. replace_triggered_by = []"
+    answerIndex: 0
+    explanation: "`create_before_destroy` instructs Terraform to prefer creating the replacement object before deleting the old one. B blocks destruction, C suppresses diff handling, and D without meaningful triggers does not implement the requested replacement ordering."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d9-001"
+    difficulty: "easy"
+    tags: ["provisioners", "best-practices"]
+    question: "A team wants to run post-create shell commands on every VM through Terraform. What guidance aligns with Terraform best practices?"
+    choices:
+      - "A. Prefer cloud-init or image baking first, and use provisioners only as a last resort"
+      - "B. Use local-exec for all software deployment and configuration management"
+      - "C. Use provisioners as Terraform's primary steady-state mechanism"
+      - "D. Add a provisioner to every resource to keep parity"
+    answerIndex: 0
+    explanation: "Provisioners are intentionally a last resort because they are less predictable and harder to manage than declarative alternatives. B, C, and D overuse imperative steps and conflict with Terraform's infrastructure lifecycle focus."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d10-001"
+    difficulty: "medium"
+    tags: ["terraform-cloud", "workspaces", "vcs"]
+    question: "A company wants Terraform runs triggered from VCS commits, executed remotely, and stored with centralized state and history. Which setup best fits Terraform Cloud?"
+    choices:
+      - "A. Create a Terraform Cloud workspace linked to the VCS repository with remote execution"
+      - "B. Keep local CLI applies on engineer laptops and upload logs manually"
+      - "C. Use local backend for state and copy files to shared storage nightly"
+      - "D. Use Terraform Cloud only for viewing docs while running everything elsewhere"
+    answerIndex: 0
+    explanation: "A VCS-connected Terraform Cloud workspace provides remote runs, centralized state, and consistent auditability. B, C, and D fail to deliver managed remote execution and integrated workspace workflow benefits."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cloud-docs/workspaces"
+      - "https://developer.hashicorp.com/terraform/cloud-docs/run/remote-operations"
+    author: "ThanhNguyxn"
+
+  - id: "tf-v1-d10-002"
+    difficulty: "hard"
+    tags: ["terraform-cloud", "policy-enforcement", "governance"]
+    question: "Security requires mandatory governance checks so noncompliant infrastructure changes are blocked before apply in Terraform Cloud. Which feature should be implemented?"
+    choices:
+      - "A. Attach policy sets so runs fail when policies are violated"
+      - "B. Mark all variables as sensitive"
+      - "C. Require terraform fmt in pull requests"
+      - "D. Add extra outputs for auditors to review later"
+    answerIndex: 0
+    explanation: "Policy enforcement in Terraform Cloud applies governance rules during runs and can block noncompliant plans before apply. B improves secrecy only, C enforces style not policy logic, and D is passive reporting rather than preventative control."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cloud-docs/policy-enforcement"
+    author: "ThanhNguyxn"
