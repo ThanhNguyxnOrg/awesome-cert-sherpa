@@ -36,7 +36,7 @@ awesome-cert-sherpa/
 ├── content/          # Raw markdown/YAML content sources (planned)
 ├── bank/             # Question bank data (planned)
 ├── tools/            # CLI utilities and scripts (planned)
-├── .github/          # Workflows, issue/PR templates (planned)
+├── .github/          # CI/CD workflows, issue/PR templates
 ├── package.json      # Root workspace scripts
 └── pnpm-workspace.yaml
 ```
@@ -71,7 +71,7 @@ We welcome contributions of all sizes. See [CONTRIBUTING.md](CONTRIBUTING.md) fo
 ## Links
 
 - **Repository**: [github.com/ThanhNguyxn/awesome-cert-sherpa](https://github.com/ThanhNguyxn/awesome-cert-sherpa)
-- **Docs site** *(coming soon)*: [ThanhNguyxn.github.io/awesome-cert-sherpa](https://ThanhNguyxn.github.io/awesome-cert-sherpa/)
+- **Docs site**: [ThanhNguyxn.github.io/awesome-cert-sherpa](https://ThanhNguyxn.github.io/awesome-cert-sherpa/)
 
 ## License
 
