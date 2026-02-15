@@ -5,8 +5,8 @@
 [![Deploy to GitHub Pages](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/deploy.yml/badge.svg)](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/deploy.yml)
 [![Validate Question Bank](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/validate-bank.yml/badge.svg)](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/validate-bank.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Questions](https://img.shields.io/badge/Questions-1%2C590%2B-0ea5e9)](https://thanhnguyxn.github.io/awesome-cert-sherpa/practice)
-[![Certifications](https://img.shields.io/badge/Certifications-14-14b8a6)](https://thanhnguyxn.github.io/awesome-cert-sherpa/practice)
+[![Questions](https://img.shields.io/badge/Questions-1%2C590%2B-0ea5e9)](https://ThanhNguyxn.github.io/awesome-cert-sherpa/practice)
+[![Certifications](https://img.shields.io/badge/Certifications-14-14b8a6)](https://ThanhNguyxn.github.io/awesome-cert-sherpa/practice)
 
 CertSherpa collects high-quality prep material in one place so you can **study smarter, not harder**. It combines awesome-list style curation with an interactive practice runner for major IT certifications.
 
@@ -105,7 +105,7 @@ Contributions are welcome: resources, questions, docs, fixes, and tooling.
 ## 🔗 Links
 
 - Repository: [github.com/ThanhNguyxn/awesome-cert-sherpa](https://github.com/ThanhNguyxn/awesome-cert-sherpa)
-- Docs site: [ThanhNguyxn.github.io/awesome-cert-sherpa](https://thanhnguyxn.github.io/awesome-cert-sherpa/)
+- Docs site: [ThanhNguyxn.github.io/awesome-cert-sherpa](https://ThanhNguyxn.github.io/awesome-cert-sherpa/)
 
 ## 📄 License
 

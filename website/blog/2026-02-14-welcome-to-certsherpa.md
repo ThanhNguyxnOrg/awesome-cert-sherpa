@@ -46,6 +46,6 @@ CertSherpa is built by the community, for the community. Here's how you can help
 - 🐛 **Report issues** — found a broken link or inaccurate info? Let us know.
 - 💬 **Join the discussion** — share your study tips and exam experiences.
 
-👉 **[Start exploring resources](/awesome-cert-sherpa/docs/)** or **[try the practice engine](/awesome-cert-sherpa/practice)**
+👉 **[Start exploring resources](/docs/)** or **[try the practice engine](/practice)**
 
 Welcome aboard. Let's climb together. 🏔️

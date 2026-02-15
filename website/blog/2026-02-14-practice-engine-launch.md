@@ -32,7 +32,7 @@ We've built question banks for 14 certifications, with carefully crafted questio
 
 ## How It Works
 
-1. **Pick a certification** — choose from 14 available tracks on the [Practice page](/awesome-cert-sherpa/practice).
+1. **Pick a certification** — choose from 14 available tracks on the [Practice page](/practice).
 2. **Answer questions** — each question has 4 options with a detailed explanation.
 3. **Learn from explanations** — every answer (right or wrong) comes with a thorough explanation of *why* that's the correct choice.
 4. **Track your progress** — see your score at the end and identify weak areas.
@@ -67,6 +67,6 @@ This means the entire system is forkable, self-hostable, and auditable.
 
 ## Try It Now
 
-👉 **[Launch the Practice Engine](/awesome-cert-sherpa/practice)**
+👉 **[Launch the Practice Engine](/practice)**
 
 Found a mistake? Want to contribute questions? [Open an issue](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues) or submit a PR. Every contribution makes CertSherpa better for everyone.
