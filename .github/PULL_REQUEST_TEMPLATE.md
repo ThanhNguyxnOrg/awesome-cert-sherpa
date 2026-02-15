@@ -6,6 +6,7 @@
 
 - [ ] New resource(s) added
 - [ ] Resource update (fix link, update metadata)
+- [ ] Practice question bank update
 - [ ] Documentation improvement
 - [ ] Site feature / component
 - [ ] Bug fix
@@ -15,6 +16,7 @@
 
 - [ ] I have read the [Contributing Guide](../CONTRIBUTING.md)
 - [ ] Resources follow the [YAML schema](../CONTRIBUTING.md) (title, type, url, vendor, certs, tags, difficulty, language, notes, last_verified)
+- [ ] Question bank changes (if any) pass `pnpm validate:bank`
 - [ ] No exam dumps, leaked questions, or NDA-violating material
 - [ ] All resource links are working and freely accessible
 - [ ] Notes are original 1-2 sentence summaries (not copied text)

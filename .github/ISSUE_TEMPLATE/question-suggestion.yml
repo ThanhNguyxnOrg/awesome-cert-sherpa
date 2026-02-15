@@ -1,0 +1,100 @@
+name: "🧠 Question Suggestion"
+description: Suggest new original practice questions for a certification
+title: "[Question Suggestion]: "
+labels: ["question-suggestion", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the practice bank.
+
+        Important: we only accept original, objective-aligned questions.
+        Do not submit real exam questions, leaked content, or NDA-protected material.
+
+  - type: input
+    id: cert
+    attributes:
+      label: Certification
+      description: Which certification should this question target?
+      placeholder: "e.g. AWS SAA-C03, AZ-104, Security+ SY0-701"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Suggested Difficulty
+      options:
+        - easy
+        - medium
+        - hard
+    validations:
+      required: true
+
+  - type: input
+    id: domain
+    attributes:
+      label: Exam Objective / Domain
+      description: What exam objective should this question assess?
+      placeholder: "e.g. IAM policy evaluation logic"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question-stem
+    attributes:
+      label: Question Stem (Original)
+      description: Provide your original question prompt
+      placeholder: "Your question here..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: choices
+    attributes:
+      label: Answer Choices
+      description: Provide 2-6 options, one per line
+      placeholder: |
+        A. Choice one
+        B. Choice two
+        C. Choice three
+        D. Choice four
+    validations:
+      required: true
+
+  - type: input
+    id: answer
+    attributes:
+      label: Correct Answer
+      description: Which option is correct?
+      placeholder: "e.g. B"
+    validations:
+      required: true
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Explanation
+      description: Explain why the correct answer is correct and why alternatives are not
+      placeholder: "Detailed explanation..."
+    validations:
+      required: true
+
+  - type: input
+    id: reference
+    attributes:
+      label: Reference URL
+      description: Official doc or high-quality source
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: compliance
+    attributes:
+      label: Policy Confirmation
+      options:
+        - label: "This submission is original and does not contain real exam content"
+          required: true
+        - label: "I understand dump/leaked/NDA-violating material is prohibited"
+          required: true

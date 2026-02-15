@@ -25,7 +25,7 @@ const FeatureList: FeatureItem[] = [
     emoji: '🧠',
     description: (
       <>
-        240+ original practice questions across 8 certifications. Test your
+        1,590+ original practice questions across 14 certifications. Test your
         knowledge with our interactive quiz — no exam dumps, ever.
       </>
     ),

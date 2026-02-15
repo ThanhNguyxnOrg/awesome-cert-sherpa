@@ -1,78 +1,112 @@
 # Awesome CertSherpa
 
-> A community-driven certification exam prep hub — curated study resources, structured learning paths, and an interactive practice engine with 1,590+ original questions. Open-source, vendor-neutral, and built by people who actually sit these exams.
+> 🏔️ Community-driven certification prep hub with curated resources and a no-dump practice engine.
 
-IT certifications are expensive and the study landscape is fragmented. CertSherpa collects the best free and paid resources in one place, organised by domain and difficulty, so you can **study smarter, not harder**. Think [awesome-list](https://github.com/sindresorhus/awesome) meets structured exam prep.
-
+[![Deploy to GitHub Pages](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/deploy.yml/badge.svg)](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/deploy.yml)
+[![Validate Question Bank](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/validate-bank.yml/badge.svg)](https://github.com/ThanhNguyxn/awesome-cert-sherpa/actions/workflows/validate-bank.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Questions](https://img.shields.io/badge/Questions-1%2C590%2B-0ea5e9)](https://thanhnguyxn.github.io/awesome-cert-sherpa/practice)
+[![Certifications](https://img.shields.io/badge/Certifications-14-14b8a6)](https://thanhnguyxn.github.io/awesome-cert-sherpa/practice)
 
----
+CertSherpa collects high-quality prep material in one place so you can **study smarter, not harder**. It combines awesome-list style curation with an interactive practice runner for major IT certifications.
 
-## Quickstart
+## ✨ Highlights
+
+- 🧠 **1,590+ original practice questions** across 14 certifications
+- 📚 **440+ curated resources** across 7 categories
+- 🚫 **Strict anti-dump policy** (no leaked or NDA-violating material)
+- 🌍 **Vendor-neutral coverage**: AWS, Azure, GCP, CompTIA, Cisco, Kubernetes, Linux, and more
+- 🆓 **100% open source and free**
+
+## 🎯 Covered Certifications
+
+| Domain | Certifications |
+|---|---|
+| Cloud | AWS SAA, AWS SAP, AZ-900, AZ-104, GCP ACE |
+| Security | CompTIA Security+ (SY0-701), CISSP |
+| Networking | CCNA, Network+ |
+| DevOps | CKA, Terraform Associate |
+| Linux | LPIC-1 |
+| Data & AI | AWS MLS |
+| PM & ITSM | PMP |
+
+## ⚡ Quickstart
 
 ```bash
-# Clone
 git clone git@github.com:ThanhNguyxn/awesome-cert-sherpa.git
 cd awesome-cert-sherpa
-
-# Install (requires Node >= 20 + pnpm)
 pnpm install
 
-# Run the docs site locally
-pnpm dev        # → http://localhost:3000/awesome-cert-sherpa/
+# Local docs site
+pnpm dev
 
-# Build for production
+# Validate question bank
+pnpm validate:bank
+
+# Production build
 pnpm build
 
-# Preview the production build
+# Serve production build locally
 pnpm serve
 ```
 
-## Project Structure
+Local URL: `http://localhost:3000/awesome-cert-sherpa/`
 
-```
+## 🧱 Project Structure
+
+```text
 awesome-cert-sherpa/
-├── website/          # Docusaurus docs portal (TypeScript + pnpm)
-├── content/          # Curated resource YAML files and source registry
-├── bank/             # Question bank YAML data (1,590+ questions, 14 certs)
-├── tools/            # CLI utilities — bank validator, build pipeline
-├── .github/          # CI/CD workflows, issue/PR templates
+├── website/          # Docusaurus portal + practice UI
+├── content/          # Curated resource YAML + source registry
+├── bank/             # Question bank YAML (1,590+ questions)
+├── tools/            # Validator and bank build pipeline
+├── .github/          # Actions workflows + templates
 ├── package.json      # Root workspace scripts
 └── pnpm-workspace.yaml
 ```
 
-## Roadmap
+## 🛠️ Stack
+
+- Node.js 20+
+- pnpm workspaces
+- TypeScript
+- Docusaurus 3.9.x
+- YAML + JSON Schema (Ajv validation)
+- GitHub Actions (validation + pages deploy)
+
+## 🗺️ Roadmap
 
 | Phase | Status | Description |
-|-------|--------|-------------|
-| **1 — Scaffold** | ✅ Done | Docusaurus portal, GitHub Pages config, category structure, OSS docs |
-| **2 — Content** | ✅ Done | 1,590+ practice questions across 14 certs, 440+ curated resources across 7 categories |
-| **3 — Community** | ✅ Done | GitHub Discussions, contribution workflows, issue templates |
-| **4 — Practice Engine** | ✅ Done | Interactive quiz runner with 14 certification question banks |
-| **5 — Grow** | 🔜 Next | Community voting, "verified resource" badges, multilingual support, CI/CD |
+|---|---|---|
+| **1 — Scaffold** | ✅ Done | Docusaurus portal, GitHub Pages config, category structure |
+| **2 — Content** | ✅ Done | 1,590+ practice questions, 440+ curated resources |
+| **3 — Community** | ✅ Done | Discussions, contribution workflow, issue/PR templates |
+| **4 — Practice Engine** | ✅ Done | Interactive quiz runner with objective-aligned explanations |
+| **5 — Grow** | 🚧 In Progress | Community voting, verified resource badges, multilingual support |
+| **6 — Platform Hardening** | ✅ Done | CI/CD validation and automated GitHub Pages deployment |
 
-## Anti-Dump Policy
+## 🛡️ Anti-Dump Policy
 
 > **This project does NOT contain, host, or link to exam dumps, leaked questions, or any material that violates NDA agreements.**
 
-We take this seriously:
+- **No exam dumps**: real exam questions are strictly forbidden.
+- **No NDA violations**: verbatim exam content is removed immediately.
+- **Practice questions only**: original, objective-aligned, community-written content.
+- **Report violations**: [open an issue](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues) and maintainers will triage within 48 hours.
 
-- **No exam dumps** — real questions from any vendor's live exam pool are strictly forbidden.
-- **No NDA violations** — if a resource reproduces verbatim exam content, it will be removed immediately.
-- **Practice questions only** — community-written practice questions that test the same *objectives* (not the same *questions*) are welcome.
-- **Report violations** — if you spot a linked resource that contains dump material, [open an issue](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues) and we will act within 48 hours.
+## 🤝 Contributing
 
-Violating this policy results in immediate removal of the content and a ban for repeat offenders.
+Contributions are welcome: resources, questions, docs, fixes, and tooling.
 
-## Contributing
+- Start here: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Security reports: [SECURITY.md](SECURITY.md)
+- Governance and review model: [GOVERNANCE.md](GOVERNANCE.md)
 
-We welcome contributions of all sizes. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+## 🔗 Links
 
-## Links
+- Repository: [github.com/ThanhNguyxn/awesome-cert-sherpa](https://github.com/ThanhNguyxn/awesome-cert-sherpa)
+- Docs site: [ThanhNguyxn.github.io/awesome-cert-sherpa](https://thanhnguyxn.github.io/awesome-cert-sherpa/)
 
-- **Repository**: [github.com/ThanhNguyxn/awesome-cert-sherpa](https://github.com/ThanhNguyxn/awesome-cert-sherpa)
-- **Docs site**: [ThanhNguyxn.github.io/awesome-cert-sherpa](https://ThanhNguyxn.github.io/awesome-cert-sherpa/)
+## 📄 License
 
-## License
-
-[MIT](LICENSE) — use it, fork it, learn from it.
+[MIT](LICENSE)

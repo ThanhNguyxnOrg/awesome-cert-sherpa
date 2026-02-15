@@ -1,63 +1,82 @@
 # Contributing to Awesome CertSherpa
 
-First off — thank you for considering a contribution! Every fix, resource link, or new cert page makes this project better for everyone.
+Thanks for contributing. Every high-quality resource, fix, or question helps someone pass the right way. 🏔️
 
-## The Golden Rule
+## 🚫 Golden Rule (Non-Negotiable)
 
 > **No exam dumps. No leaked questions. No NDA-violating material. Ever.**
 
-Any pull request that adds, links to, or references real exam questions from a vendor's live pool will be **closed immediately**. Community-written practice questions that cover the same *exam objectives* are perfectly fine — just don't copy the actual exam.
+PRs that include or reference live exam question pools are closed immediately.
 
-If you're unsure whether a resource crosses the line, open an issue first and ask.
+Allowed:
+- Objective-aligned, original practice questions
+- Curated links to legitimate study materials
 
-## Getting Started
+Not allowed:
+- Verbatim exam questions
+- Leaked content or "brain dumps"
+- Rehosted copyrighted question banks
+
+If you're unsure, open an issue before submitting.
+
+## 🧰 Local Setup
 
 ```bash
-# 1. Fork & clone
 git clone git@github.com:<your-username>/awesome-cert-sherpa.git
 cd awesome-cert-sherpa
-
-# 2. Install dependencies (Node >= 20 + pnpm required)
 pnpm install
-
-# 3. Start the dev server
 pnpm dev
 ```
 
-The site will be available at `http://localhost:3000/awesome-cert-sherpa/`.
+Local site: `http://localhost:3000/awesome-cert-sherpa/`
 
-## What You Can Contribute
+## 🧩 Contribution Types
 
-- **Resource links** — study guides, video courses, labs, practice exams (legitimate ones).
-- **New cert pages** — pick a certification that's missing and create its page.
-- **Typo / grammar fixes** — always welcome, no issue required.
-- **Practice questions** — original, community-written questions mapped to exam objectives.
-- **Bug fixes** — if the site is broken, help us fix it.
+- 📚 Add or improve resource links
+- 🧠 Add original practice questions
+- 📝 Improve docs and wording
+- 🐛 Fix bugs in site/components/scripts
+- 🧪 Improve validation/build tooling
 
-## Pull Request Guidelines
+## 🧠 Practice Question Contribution Guide
 
-1. **Keep PRs small and focused.** One cert page per PR, one fix per PR. Don't bundle unrelated changes.
-2. **Use a descriptive title.** `Add AWS SAA-C03 resource page` is good. `Update docs` is not.
-3. **Follow existing formatting.** Look at an existing category or cert page and match the structure.
-4. **Test locally.** Run `pnpm build` before submitting — it will catch broken links.
-5. **No generated files.** Don't commit `node_modules/`, `build/`, or `.docusaurus/`.
+Question bank files are in `bank/**.yml` and validated by `bank/schema.json`.
 
-## Commit Messages
+Requirements:
+- Questions must be original and objective-aligned
+- Each question must include a clear explanation and at least one reference URL
+- IDs must be globally unique across all bank files
+- `answerIndex` must match the choices array bounds
 
-We're not strict about format, but prefer clear messages:
+Before opening a PR:
 
+```bash
+pnpm validate:bank
+pnpm build
 ```
-docs: add CCNA resource page
-fix: broken link on security category page
-chore: update dependencies
+
+## 📌 Pull Request Guidelines
+
+1. Keep PRs focused (one theme per PR).
+2. Use a specific title (`docs:`, `fix:`, `feat:` style is preferred).
+3. Follow existing data and formatting conventions.
+4. Do not commit generated artifacts (`build/`, `.docusaurus/`, `node_modules/`).
+5. Verify links and run local checks before requesting review.
+
+## ✅ Suggested Commit Message Style
+
+```text
+docs: improve README badges and roadmap
+fix: correct outdated practice question counts
+feat: add 20 original questions for AZ-104
 ```
 
-## Reporting Issues
+## 🐞 Reporting Issues
 
-- **Broken link or incorrect info** — open an issue with the page URL and what's wrong.
-- **Dump/NDA violation** — open an issue immediately. We respond within 48 hours.
-- **Feature request** — open an issue describing what you'd like and why.
+- Broken link or bad metadata: open an issue with URL + details
+- Dump/NDA concern: open an issue immediately (high priority triage)
+- Feature request: explain problem, proposed outcome, and impact
 
-## Code of Conduct
+## 🤝 Code of Conduct
 
-This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). Be kind, be respectful.
+This project follows [Contributor Covenant](CODE_OF_CONDUCT.md). Be respectful and constructive.

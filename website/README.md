@@ -1,41 +1,32 @@
 # Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
-
-## Installation
-
-```bash
-yarn
-```
+This website uses [Docusaurus](https://docusaurus.io/) and is managed from the workspace root with `pnpm`.
 
 ## Local Development
 
+Run commands from repository root:
+
 ```bash
-yarn start
+pnpm install
+pnpm dev
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Site URL: `http://localhost:3000/awesome-cert-sherpa/`
 
 ## Build
 
 ```bash
-yarn build
+pnpm build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This runs bank build + static site build and outputs production assets to `website/build/`.
+
+## Preview Production Build
+
+```bash
+pnpm serve
+```
 
 ## Deployment
 
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Deployment is handled by GitHub Actions (`.github/workflows/deploy.yml`) on push to `main`.

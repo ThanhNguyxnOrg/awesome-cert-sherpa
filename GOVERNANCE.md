@@ -1,36 +1,38 @@
 # Governance
 
-## Maintainers
+## 👥 Maintainer Team
 
-This project is currently maintained by [@ThanhNguyxn](https://github.com/ThanhNguyxn).
+Primary maintainer: [@ThanhNguyxn](https://github.com/ThanhNguyxn)
 
 Maintainers are responsible for:
 
-- Reviewing and merging pull requests.
-- Enforcing the [Anti-Dump Policy](README.md#anti-dump-policy).
-- Triaging issues and security reports.
-- Setting project direction and roadmap priorities.
+- Reviewing and merging pull requests
+- Enforcing the [Anti-Dump Policy](README.md#anti-dump-policy)
+- Triaging issues and security reports
+- Setting roadmap priorities
 
-## Decision Making
+## 🧭 Decision Model
 
-- **Small changes** (typos, resource links, formatting) — a single maintainer can merge.
-- **New cert pages** — reviewed by at least one maintainer for accuracy and anti-dump compliance.
-- **Structural changes** (new features, architecture, dependencies) — discussed in an issue or Discussion before implementation.
+- **Small changes** (typos, link fixes, formatting): one maintainer can merge
+- **Content additions** (new cert pages, major resource sets): at least one maintainer review
+- **Structural changes** (features, architecture, dependency strategy): discuss first in an issue or discussion
 
-## Becoming a Maintainer
+## 🌱 Becoming a Maintainer
 
-Active contributors who demonstrate consistent, high-quality contributions and alignment with project values may be invited to join as maintainers. There is no formal application process — just keep contributing.
+Active contributors with consistent, high-quality contributions and good policy alignment may be invited.
 
-## Review Checklist
+There is no formal application process.
 
-Before merging any PR, maintainers verify:
+## ✅ PR Review Checklist
 
-- [ ] No exam dumps, leaked questions, or NDA-violating material.
-- [ ] Content is accurate and links are functional.
-- [ ] Follows existing formatting and structure conventions.
-- [ ] `pnpm build` passes with no broken links.
-- [ ] Commit messages are clear and descriptive.
+Before merge, maintainers confirm:
 
-## Removal
+- [ ] No dumps, leaked questions, or NDA-violating material
+- [ ] Content accuracy and working links
+- [ ] Consistent formatting and schema compliance
+- [ ] `pnpm build` passes
+- [ ] Commit messages are clear and meaningful
 
-Maintainers who are inactive for 6+ months or violate the Code of Conduct may have their access revoked after discussion with remaining maintainers.
+## 🚫 Maintainer Removal
+
+Maintainer access may be revoked after maintainer discussion when there is prolonged inactivity (6+ months) or serious policy/conduct violations.

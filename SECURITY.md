@@ -1,31 +1,34 @@
 # Security Policy
 
-## Reporting a Vulnerability
+## 🔐 Reporting a Vulnerability
 
-If you discover a security vulnerability in this project, please report it responsibly.
+If you discover a vulnerability, report it responsibly.
 
-**Do NOT open a public issue.**
+**Do not open a public issue for security vulnerabilities.**
 
-Instead, use [GitHub Security Advisories](https://github.com/ThanhNguyxn/awesome-cert-sherpa/security/advisories/new) to report the vulnerability privately. This ensures the issue can be triaged and addressed before public disclosure.
+Use GitHub Security Advisories:
 
-## What to Include
+- [Report a vulnerability privately](https://github.com/ThanhNguyxn/awesome-cert-sherpa/security/advisories/new)
 
-- A description of the vulnerability and its potential impact.
-- Steps to reproduce (if applicable).
-- Any suggested fixes or mitigations.
+## 🧾 What to Include
 
-## Response Timeline
+- Vulnerability description and potential impact
+- Reproduction steps (if available)
+- Affected files/components
+- Suggested mitigation (if known)
 
-- **Acknowledgement**: within 72 hours of report.
-- **Initial assessment**: within 1 week.
-- **Fix or mitigation**: as soon as practically possible, depending on severity.
+## ⏱️ Response Timeline
 
-## Scope
+- **Acknowledgement**: within 72 hours
+- **Initial assessment**: within 7 days
+- **Fix/mitigation**: as soon as practical based on severity
 
-This policy applies to:
+## 📦 Scope
 
-- The Docusaurus website and its configuration.
-- Any scripts, tools, or automation in this repository.
-- GitHub Actions workflows and CI/CD pipelines.
+This policy covers:
 
-Content-only issues (e.g., a linked resource turns malicious) should be reported as a regular [GitHub issue](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues).
+- Docusaurus website and configuration
+- Scripts/tools in this repository
+- GitHub Actions workflows and CI/CD pipelines
+
+For content-only issues (for example a malicious external link), open a regular [GitHub issue](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues).
