@@ -455,3 +455,1053 @@ questions:
     refs:
       - "https://cloud.google.com/bigquery/docs/access-control"
     author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-001"
+    difficulty: "easy"
+    tags: ["setup", "projects", "resource-hierarchy"]
+    question: "What is the lowest-level resource container in the Google Cloud resource hierarchy?"
+    choices:
+      - "A. Organization"
+      - "B. Folder"
+      - "C. Project"
+      - "D. Billing account"
+    answerIndex: 2
+    explanation: "Projects are the base-level organizing entity in GCP. Resources like VMs, buckets, and databases all belong to a project. Organizations and folders sit above projects in the hierarchy."
+    refs:
+      - "https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-002"
+    difficulty: "easy"
+    tags: ["setup", "cloud-sdk", "gcloud"]
+    question: "Which command initializes the gcloud CLI and sets up a default project and authentication?"
+    choices:
+      - "A. gcloud config set"
+      - "B. gcloud init"
+      - "C. gcloud auth login"
+      - "D. gcloud projects create"
+    answerIndex: 1
+    explanation: "gcloud init walks through configuration including authentication, project selection, and default compute zone/region. gcloud auth login only handles authentication without project setup."
+    refs:
+      - "https://cloud.google.com/sdk/docs/initializing"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-003"
+    difficulty: "easy"
+    tags: ["setup", "billing", "accounts"]
+    question: "What must be linked to a Google Cloud project before any billable resources can be created?"
+    choices:
+      - "A. A Cloud Storage bucket"
+      - "B. A billing account"
+      - "C. A VPC network"
+      - "D. A service account"
+    answerIndex: 1
+    explanation: "A billing account must be linked to a project to enable the creation of billable resources. Without this link, resource creation for paid services will fail."
+    refs:
+      - "https://cloud.google.com/billing/docs/how-to/manage-billing-account"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-004"
+    difficulty: "easy"
+    tags: ["setup", "apis", "enabling"]
+    question: "Before you can use a Google Cloud service like Cloud Run in a project, what step is often required?"
+    choices:
+      - "A. Create a VPC"
+      - "B. Enable the service's API in the project"
+      - "C. Create a Cloud Storage bucket"
+      - "D. Configure Cloud DNS"
+    answerIndex: 1
+    explanation: "Most GCP services require their API to be enabled in the project before use. This can be done via the console or gcloud services enable command."
+    refs:
+      - "https://cloud.google.com/apis/docs/getting-started"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-005"
+    difficulty: "easy"
+    tags: ["setup", "iam", "roles"]
+    question: "Which IAM role type is defined and managed by Google and bundles permissions for common job functions?"
+    choices:
+      - "A. Basic roles"
+      - "B. Predefined roles"
+      - "C. Custom roles"
+      - "D. Service account roles"
+    answerIndex: 1
+    explanation: "Predefined roles are created and maintained by Google, offering fine-grained permissions for specific services. Basic roles (Owner, Editor, Viewer) are broad and not recommended for production."
+    refs:
+      - "https://cloud.google.com/iam/docs/understanding-roles"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-006"
+    difficulty: "easy"
+    tags: ["setup", "cloud-shell"]
+    question: "What is Cloud Shell in Google Cloud?"
+    choices:
+      - "A. A managed Kubernetes cluster"
+      - "B. A browser-based terminal with the gcloud CLI and common tools pre-installed"
+      - "C. A virtual machine size option"
+      - "D. A DNS management service"
+    answerIndex: 1
+    explanation: "Cloud Shell is a free, browser-based shell environment with the Google Cloud SDK, kubectl, and other tools pre-installed. It includes 5 GB of persistent home directory storage."
+    refs:
+      - "https://cloud.google.com/shell/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-007"
+    difficulty: "easy"
+    tags: ["setup", "regions", "zones"]
+    question: "What is the relationship between regions and zones in Google Cloud?"
+    choices:
+      - "A. A zone contains multiple regions"
+      - "B. A region contains multiple zones, each representing an isolated failure domain"
+      - "C. Regions and zones are the same thing"
+      - "D. Zones are only used for DNS"
+    answerIndex: 1
+    explanation: "A region is a geographic area that contains multiple zones. Each zone is an independent failure domain within a region, providing isolation from infrastructure failures."
+    refs:
+      - "https://cloud.google.com/compute/docs/regions-zones"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-008"
+    difficulty: "easy"
+    tags: ["setup", "labels"]
+    question: "What is the primary purpose of labels in Google Cloud?"
+    choices:
+      - "A. To enforce security policies"
+      - "B. To organize resources and track costs using key-value metadata"
+      - "C. To encrypt data at rest"
+      - "D. To define network routes"
+    answerIndex: 1
+    explanation: "Labels are key-value pairs attached to resources that help organize them and enable cost attribution by filtering billing reports. They do not enforce policies or encrypt data."
+    refs:
+      - "https://cloud.google.com/resource-manager/docs/creating-managing-labels"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-009"
+    difficulty: "easy"
+    tags: ["setup", "iam", "basic-roles"]
+    question: "Which basic IAM role grants read-only access to all resources in a project?"
+    choices:
+      - "A. Owner"
+      - "B. Editor"
+      - "C. Viewer"
+      - "D. Browser"
+    answerIndex: 2
+    explanation: "The Viewer basic role grants read-only access to existing resources and data. Editor can modify resources, and Owner has full control including IAM management."
+    refs:
+      - "https://cloud.google.com/iam/docs/understanding-roles#basic"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-010"
+    difficulty: "easy"
+    tags: ["planning", "compute-engine", "machine-types"]
+    question: "Which Compute Engine machine type family is optimized for memory-intensive workloads like in-memory databases?"
+    choices:
+      - "A. E2 (general-purpose)"
+      - "B. N2 (general-purpose)"
+      - "C. M2 (memory-optimized)"
+      - "D. C2 (compute-optimized)"
+    answerIndex: 2
+    explanation: "M2 machine types are memory-optimized, offering the highest memory-to-vCPU ratios for workloads like SAP HANA and large in-memory databases. E2 and N2 are general-purpose."
+    refs:
+      - "https://cloud.google.com/compute/docs/machine-resource"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-011"
+    difficulty: "easy"
+    tags: ["planning", "storage", "classes"]
+    question: "Which Cloud Storage class offers the lowest storage cost for data accessed less than once a year?"
+    choices:
+      - "A. Standard"
+      - "B. Nearline"
+      - "C. Coldline"
+      - "D. Archive"
+    answerIndex: 3
+    explanation: "Archive storage has the lowest per-GB storage cost but the highest retrieval cost, designed for data accessed less than once a year. Nearline is for monthly access, Coldline for quarterly."
+    refs:
+      - "https://cloud.google.com/storage/docs/storage-classes"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-012"
+    difficulty: "medium"
+    tags: ["planning", "networking", "vpc"]
+    question: "In Google Cloud, VPC networks are global resources. What does this mean for subnet placement?"
+    choices:
+      - "A. Subnets must all be in the same region"
+      - "B. Subnets are regional resources within a global VPC, and a single VPC can have subnets in multiple regions"
+      - "C. Subnets span all regions automatically"
+      - "D. You cannot create subnets in a VPC"
+    answerIndex: 1
+    explanation: "GCP VPCs are global, meaning a single VPC can contain subnets in different regions. Each subnet is a regional resource with its own IP range, but they all belong to the same VPC."
+    refs:
+      - "https://cloud.google.com/vpc/docs/vpc"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-013"
+    difficulty: "medium"
+    tags: ["planning", "compute", "preemptible"]
+    question: "A batch processing job is fault-tolerant and can be restarted if interrupted. Which VM type offers the lowest cost?"
+    choices:
+      - "A. Standard VM"
+      - "B. Spot VM (preemptible)"
+      - "C. Sole-tenant node"
+      - "D. Committed use VM"
+    answerIndex: 1
+    explanation: "Spot VMs (formerly preemptible VMs) offer up to 60-91% discount but can be reclaimed by Google with 30 seconds notice. They are ideal for fault-tolerant batch workloads."
+    refs:
+      - "https://cloud.google.com/compute/docs/instances/spot"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-014"
+    difficulty: "medium"
+    tags: ["planning", "database", "selection"]
+    question: "A team needs a managed NoSQL document database with automatic scaling and real-time synchronization for a mobile app. Which service should they choose?"
+    choices:
+      - "A. Cloud SQL"
+      - "B. Cloud Spanner"
+      - "C. Firestore"
+      - "D. Bigtable"
+    answerIndex: 2
+    explanation: "Firestore is a serverless NoSQL document database with real-time listeners and offline support, ideal for mobile and web apps. Cloud SQL is relational, and Bigtable is for wide-column analytical workloads."
+    refs:
+      - "https://cloud.google.com/firestore/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-015"
+    difficulty: "medium"
+    tags: ["planning", "compute", "committed-use"]
+    question: "A company runs production VMs 24/7 and wants to reduce compute costs with a 1 or 3 year commitment. What should they use?"
+    choices:
+      - "A. Spot VMs"
+      - "B. Committed use discounts (CUDs)"
+      - "C. Sustained use discounts"
+      - "D. Free tier instances"
+    answerIndex: 1
+    explanation: "Committed use discounts provide up to 57% savings for a 1 or 3-year commitment to a specific amount of vCPUs and memory. Spot VMs are interruptible and not suitable for always-on production workloads."
+    refs:
+      - "https://cloud.google.com/compute/docs/instances/committed-use-discounts-overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-016"
+    difficulty: "medium"
+    tags: ["deploying", "compute-engine", "instance-templates"]
+    question: "You need to create multiple identical VMs for a stateless web tier. What should you create first?"
+    choices:
+      - "A. A snapshot"
+      - "B. An instance template"
+      - "C. A Cloud Storage bucket"
+      - "D. A firewall rule"
+    answerIndex: 1
+    explanation: "An instance template defines the machine type, boot disk image, network, and other properties, enabling you to create identical VMs or managed instance groups from a single template."
+    refs:
+      - "https://cloud.google.com/compute/docs/instance-templates"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-017"
+    difficulty: "medium"
+    tags: ["deploying", "compute-engine", "managed-instance-groups"]
+    question: "Which feature automatically replaces unhealthy VMs in a managed instance group?"
+    choices:
+      - "A. Autoscaling"
+      - "B. Autohealing"
+      - "C. Load balancing"
+      - "D. Instance migration"
+    answerIndex: 1
+    explanation: "Autohealing uses health checks to detect and automatically recreate unhealthy VMs in a managed instance group. Autoscaling adjusts the number of instances based on load, not health."
+    refs:
+      - "https://cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-018"
+    difficulty: "medium"
+    tags: ["deploying", "gke", "cluster"]
+    question: "Which command creates a new GKE cluster with 3 nodes in zone us-central1-a?"
+    choices:
+      - "A. gcloud container clusters create my-cluster --zone us-central1-a --num-nodes 3"
+      - "B. gcloud compute instances create my-cluster --count 3"
+      - "C. kubectl create cluster my-cluster"
+      - "D. gcloud app deploy my-cluster"
+    answerIndex: 0
+    explanation: "The gcloud container clusters create command creates a GKE cluster with the specified zone and node count. kubectl manages workloads on existing clusters but does not create GKE clusters."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-zonal-cluster"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-019"
+    difficulty: "medium"
+    tags: ["deploying", "cloud-run", "containers"]
+    question: "A developer wants to deploy a containerised API that scales to zero when there is no traffic. Which service should they use?"
+    choices:
+      - "A. Compute Engine"
+      - "B. GKE"
+      - "C. Cloud Run"
+      - "D. App Engine Flex"
+    answerIndex: 2
+    explanation: "Cloud Run is a fully managed serverless platform for containers that automatically scales to zero when there is no traffic, eliminating idle costs. GKE always has at least one node running."
+    refs:
+      - "https://cloud.google.com/run/docs/overview/what-is-cloud-run"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-020"
+    difficulty: "medium"
+    tags: ["deploying", "cloud-functions", "serverless"]
+    question: "Which service lets you deploy a single function that triggers when a message is published to a Pub/Sub topic?"
+    choices:
+      - "A. Cloud Run"
+      - "B. Cloud Functions"
+      - "C. Compute Engine"
+      - "D. Cloud Composer"
+    answerIndex: 1
+    explanation: "Cloud Functions is an event-driven serverless platform where individual functions can be triggered by events like Pub/Sub messages, HTTP requests, or Cloud Storage changes."
+    refs:
+      - "https://cloud.google.com/functions/docs/concepts/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-021"
+    difficulty: "medium"
+    tags: ["deploying", "app-engine", "versions"]
+    question: "How do you deploy a new version of an App Engine application and gradually shift traffic to it?"
+    choices:
+      - "A. Delete the old version first"
+      - "B. Deploy the new version and use traffic splitting to gradually route traffic"
+      - "C. Create a new project for the new version"
+      - "D. Use Cloud DNS to redirect traffic"
+    answerIndex: 1
+    explanation: "App Engine supports deploying multiple versions simultaneously and using traffic splitting to gradually shift traffic by percentage, enabling canary deployments."
+    refs:
+      - "https://cloud.google.com/appengine/docs/standard/splitting-traffic"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-022"
+    difficulty: "medium"
+    tags: ["deploying", "networking", "load-balancing"]
+    question: "Which load balancer type should you use to distribute HTTPS traffic to backend services across multiple regions?"
+    choices:
+      - "A. Internal TCP/UDP Load Balancer"
+      - "B. External HTTP(S) Load Balancer (global)"
+      - "C. Network Load Balancer"
+      - "D. Cloud NAT"
+    answerIndex: 1
+    explanation: "The external HTTP(S) load balancer is a global, Layer 7 load balancer that distributes traffic across backends in multiple regions based on proximity and health. Internal load balancers only serve traffic within a VPC."
+    refs:
+      - "https://cloud.google.com/load-balancing/docs/https"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-023"
+    difficulty: "medium"
+    tags: ["deploying", "networking", "firewall"]
+    question: "You need to allow SSH access to a specific VM from a single IP address. What should you create?"
+    choices:
+      - "A. A VPC peering connection"
+      - "B. A VPC firewall rule allowing TCP port 22 from the source IP with a target tag matching the VM"
+      - "C. A Cloud NAT gateway"
+      - "D. A Cloud Armor security policy"
+    answerIndex: 1
+    explanation: "VPC firewall rules control ingress and egress traffic. A rule allowing TCP:22 from the specific source IP, targeting the VM via a network tag, provides precise SSH access control."
+    refs:
+      - "https://cloud.google.com/vpc/docs/firewalls"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-024"
+    difficulty: "medium"
+    tags: ["deploying", "storage", "lifecycle"]
+    question: "You want logs stored in a Cloud Storage bucket to automatically move from Standard to Coldline after 30 days. What should you configure?"
+    choices:
+      - "A. A transfer service job"
+      - "B. A lifecycle management rule with a SetStorageClass action"
+      - "C. A Pub/Sub notification"
+      - "D. A Cloud Function"
+    answerIndex: 1
+    explanation: "Object Lifecycle Management rules can automatically change the storage class of objects based on conditions like age. A SetStorageClass action with an age condition of 30 days achieves this."
+    refs:
+      - "https://cloud.google.com/storage/docs/lifecycle"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-025"
+    difficulty: "medium"
+    tags: ["deploying", "cloud-sql", "ha"]
+    question: "How do you configure a Cloud SQL instance for high availability within a region?"
+    choices:
+      - "A. Create a read replica in another region"
+      - "B. Enable high availability, which creates a standby instance in another zone within the same region"
+      - "C. Use Cloud Spanner instead"
+      - "D. Take daily backups"
+    answerIndex: 1
+    explanation: "Cloud SQL regional HA creates a primary and standby instance in different zones within the same region with synchronous replication and automatic failover. Read replicas are for scaling reads, not HA failover."
+    refs:
+      - "https://cloud.google.com/sql/docs/mysql/high-availability"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-026"
+    difficulty: "hard"
+    tags: ["deploying", "gke", "deployments"]
+    question: "You need to update a GKE deployment with zero downtime, rolling out new pods gradually while keeping old pods running until new ones pass health checks. Which strategy should you use?"
+    choices:
+      - "A. Recreate strategy"
+      - "B. Rolling update strategy"
+      - "C. Delete all pods and recreate"
+      - "D. Blue-green with manual DNS switch"
+    answerIndex: 1
+    explanation: "A rolling update strategy gradually replaces old pods with new ones, ensuring the application remains available throughout the deployment. The Recreate strategy terminates all existing pods before creating new ones, causing downtime."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/how-to/updating-apps"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-027"
+    difficulty: "hard"
+    tags: ["deploying", "networking", "cloud-nat"]
+    question: "VMs in a private subnet with no external IP addresses need to access the internet for software updates. What should you configure?"
+    choices:
+      - "A. Assign external IPs to all VMs"
+      - "B. Configure Cloud NAT on the subnet's Cloud Router"
+      - "C. Create a VPN tunnel to the internet"
+      - "D. Use Cloud DNS"
+    answerIndex: 1
+    explanation: "Cloud NAT provides outbound internet access for VMs without external IP addresses by performing network address translation at the subnet level through a Cloud Router."
+    refs:
+      - "https://cloud.google.com/nat/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-028"
+    difficulty: "hard"
+    tags: ["deploying", "compute", "startup-scripts"]
+    question: "You want every new VM in a managed instance group to automatically install and configure a monitoring agent on boot. What is the best approach?"
+    choices:
+      - "A. SSH into each VM after creation"
+      - "B. Add a startup script to the instance template"
+      - "C. Create a Cloud Function to monitor VMs"
+      - "D. Use Cloud DNS"
+    answerIndex: 1
+    explanation: "Startup scripts in the instance template run automatically when each VM boots, ensuring consistent configuration across all instances in the group without manual intervention."
+    refs:
+      - "https://cloud.google.com/compute/docs/instances/startup-scripts"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-029"
+    difficulty: "hard"
+    tags: ["deploying", "artifact-registry", "containers"]
+    question: "Where should you store container images for GKE deployments within Google Cloud?"
+    choices:
+      - "A. Cloud Storage"
+      - "B. Artifact Registry"
+      - "C. BigQuery"
+      - "D. Cloud Filestore"
+    answerIndex: 1
+    explanation: "Artifact Registry is Google Cloud's recommended service for storing and managing container images, language packages, and OS packages. It integrates with GKE for seamless image pulls."
+    refs:
+      - "https://cloud.google.com/artifact-registry/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-030"
+    difficulty: "easy"
+    tags: ["deploying", "cloud-storage", "gsutil"]
+    question: "Which command copies a local file to a Cloud Storage bucket?"
+    choices:
+      - "A. gcloud storage cp local-file.txt gs://my-bucket/"
+      - "B. gcloud compute scp local-file.txt gs://my-bucket/"
+      - "C. kubectl cp local-file.txt gs://my-bucket/"
+      - "D. gcloud sql import gs://my-bucket/ local-file.txt"
+    answerIndex: 0
+    explanation: "The gcloud storage cp command (or gsutil cp) copies files between local filesystems and Cloud Storage buckets. gcloud compute scp copies files to/from VM instances, not buckets."
+    refs:
+      - "https://cloud.google.com/storage/docs/gsutil/commands/cp"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-031"
+    difficulty: "easy"
+    tags: ["deploying", "iam", "service-accounts"]
+    question: "What is the default identity used by a Compute Engine VM to access Google Cloud APIs?"
+    choices:
+      - "A. The project owner's user account"
+      - "B. The VM's attached service account"
+      - "C. An API key stored in metadata"
+      - "D. The billing account credentials"
+    answerIndex: 1
+    explanation: "Compute Engine VMs use an attached service account as their identity when calling Google Cloud APIs. By default, VMs use the Compute Engine default service account."
+    refs:
+      - "https://cloud.google.com/compute/docs/access/service-accounts"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-032"
+    difficulty: "easy"
+    tags: ["deploying", "compute", "snapshots"]
+    question: "What is the purpose of a persistent disk snapshot in Google Cloud?"
+    choices:
+      - "A. To monitor disk I/O performance"
+      - "B. To create a point-in-time backup of a persistent disk"
+      - "C. To increase disk throughput"
+      - "D. To encrypt the disk"
+    answerIndex: 1
+    explanation: "Snapshots capture the state of a persistent disk at a specific point in time for backup and recovery purposes. They are incremental after the first full snapshot."
+    refs:
+      - "https://cloud.google.com/compute/docs/disks/create-snapshots"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-033"
+    difficulty: "medium"
+    tags: ["operations", "monitoring", "uptime-checks"]
+    question: "You need to verify that your public-facing web application is reachable from multiple global locations. Which Cloud Monitoring feature should you use?"
+    choices:
+      - "A. Custom metrics"
+      - "B. Uptime checks"
+      - "C. Log-based metrics"
+      - "D. Trace analysis"
+    answerIndex: 1
+    explanation: "Uptime checks in Cloud Monitoring periodically test the availability of URLs, TCP ports, or other endpoints from multiple global locations and can trigger alerts on failures."
+    refs:
+      - "https://cloud.google.com/monitoring/uptime-checks"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-034"
+    difficulty: "medium"
+    tags: ["operations", "logging", "exclusion"]
+    question: "Your Cloud Logging costs are too high because verbose debug logs are being ingested. How can you reduce costs without losing all logs?"
+    choices:
+      - "A. Delete the logs bucket"
+      - "B. Create a logging exclusion filter to exclude debug-level log entries from ingestion"
+      - "C. Disable Cloud Logging entirely"
+      - "D. Move to a different region"
+    answerIndex: 1
+    explanation: "Exclusion filters prevent specified log entries from being ingested into Cloud Logging, reducing costs while keeping other logs. Disabling logging entirely removes all observability."
+    refs:
+      - "https://cloud.google.com/logging/docs/exclusions"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-035"
+    difficulty: "medium"
+    tags: ["operations", "monitoring", "alerting"]
+    question: "How do you get notified when CPU utilization on a Compute Engine instance exceeds 90% for 5 minutes?"
+    choices:
+      - "A. Check the Cloud Console manually"
+      - "B. Create a Cloud Monitoring alerting policy with a CPU utilization threshold condition"
+      - "C. Set up a cron job on the VM"
+      - "D. Use Cloud DNS health checks"
+    answerIndex: 1
+    explanation: "Cloud Monitoring alerting policies can be configured with metric threshold conditions (like CPU > 90% for 5 min) and notification channels (email, Slack, PagerDuty) for automated alerting."
+    refs:
+      - "https://cloud.google.com/monitoring/alerts"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-036"
+    difficulty: "medium"
+    tags: ["operations", "logging", "audit-logs"]
+    question: "Which type of Cloud Audit Log records when a user creates, modifies, or deletes a Google Cloud resource?"
+    choices:
+      - "A. Data Access audit logs"
+      - "B. Admin Activity audit logs"
+      - "C. System Event audit logs"
+      - "D. Policy Denied audit logs"
+    answerIndex: 1
+    explanation: "Admin Activity audit logs record API calls that modify the configuration or metadata of resources. They are always enabled and cannot be disabled. Data Access logs record data read/write operations."
+    refs:
+      - "https://cloud.google.com/logging/docs/audit"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-037"
+    difficulty: "medium"
+    tags: ["operations", "error-reporting"]
+    question: "Which service automatically groups and counts application errors, providing a centralized view across GCP services?"
+    choices:
+      - "A. Cloud Trace"
+      - "B. Error Reporting"
+      - "C. Cloud Profiler"
+      - "D. Cloud Debugger"
+    answerIndex: 1
+    explanation: "Error Reporting aggregates and displays errors produced by cloud services, analyzing stack traces and grouping them by root cause. Cloud Trace tracks request latency, not errors."
+    refs:
+      - "https://cloud.google.com/error-reporting/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-038"
+    difficulty: "medium"
+    tags: ["operations", "budgets", "billing"]
+    question: "How can you receive an alert when your Google Cloud spending reaches 80% of a monthly budget?"
+    choices:
+      - "A. Use Cloud Monitoring CPU alerts"
+      - "B. Create a budget in Cloud Billing with alert thresholds"
+      - "C. Check invoices manually"
+      - "D. Use Cloud Armor"
+    answerIndex: 1
+    explanation: "Cloud Billing budgets let you set spending thresholds (e.g., 50%, 80%, 100%) and trigger email notifications or Pub/Sub messages when actual or forecasted spend reaches those thresholds."
+    refs:
+      - "https://cloud.google.com/billing/docs/how-to/budgets"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-039"
+    difficulty: "medium"
+    tags: ["operations", "maintenance", "live-migration"]
+    question: "What happens to a running Compute Engine VM during a scheduled host maintenance event by default?"
+    choices:
+      - "A. The VM is terminated"
+      - "B. The VM is live migrated to another host with no noticeable downtime"
+      - "C. The VM is stopped and restarted manually"
+      - "D. The VM's data is deleted"
+    answerIndex: 1
+    explanation: "By default, Compute Engine uses live migration to move running instances to another host during maintenance, avoiding downtime. The VM continues running throughout the migration."
+    refs:
+      - "https://cloud.google.com/compute/docs/instances/live-migration-process"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-040"
+    difficulty: "medium"
+    tags: ["operations", "deployment-manager"]
+    question: "Which Google Cloud service allows you to define and deploy infrastructure resources using YAML configuration files?"
+    choices:
+      - "A. Cloud Build"
+      - "B. Cloud Deployment Manager"
+      - "C. Cloud Scheduler"
+      - "D. Cloud Tasks"
+    answerIndex: 1
+    explanation: "Cloud Deployment Manager uses YAML templates to define and deploy GCP resources in a repeatable, declarative manner. Cloud Build is a CI/CD service for building and testing code."
+    refs:
+      - "https://cloud.google.com/deployment-manager/docs/fundamentals"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-041"
+    difficulty: "hard"
+    tags: ["operations", "trace", "performance"]
+    question: "Your distributed application has intermittent slow responses. Which service helps you trace requests across microservices to identify bottlenecks?"
+    choices:
+      - "A. Cloud Logging"
+      - "B. Cloud Trace"
+      - "C. Cloud Monitoring dashboards"
+      - "D. Cloud Scheduler"
+    answerIndex: 1
+    explanation: "Cloud Trace collects latency data from distributed applications, showing how requests propagate through services to help identify performance bottlenecks. Cloud Logging records events but does not trace request flow."
+    refs:
+      - "https://cloud.google.com/trace/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-042"
+    difficulty: "hard"
+    tags: ["operations", "gke", "hpa"]
+    question: "You want your GKE deployment to automatically add more pods when CPU utilization exceeds 70%. What should you configure?"
+    choices:
+      - "A. A Cluster Autoscaler"
+      - "B. A Horizontal Pod Autoscaler (HPA)"
+      - "C. A node pool resize"
+      - "D. A CronJob"
+    answerIndex: 1
+    explanation: "The Horizontal Pod Autoscaler automatically scales the number of pods based on observed CPU utilization or custom metrics. Cluster Autoscaler scales nodes, not pods."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/concepts/horizontalpodautoscaler"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-043"
+    difficulty: "easy"
+    tags: ["deploying", "networking", "vpc-peering"]
+    question: "Two teams in separate projects need their VMs to communicate using internal IP addresses. What should you configure?"
+    choices:
+      - "A. Public IP addresses on all VMs"
+      - "B. VPC Network Peering between the two project VPCs"
+      - "C. Cloud CDN"
+      - "D. Cloud Armor"
+    answerIndex: 1
+    explanation: "VPC Network Peering allows VMs in different VPC networks (even across projects) to communicate using internal IP addresses without traffic going through the public internet."
+    refs:
+      - "https://cloud.google.com/vpc/docs/vpc-peering"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-044"
+    difficulty: "easy"
+    tags: ["deploying", "pub-sub", "messaging"]
+    question: "Which Google Cloud service provides asynchronous messaging between independent applications?"
+    choices:
+      - "A. Cloud SQL"
+      - "B. Cloud Pub/Sub"
+      - "C. Cloud DNS"
+      - "D. Cloud Armor"
+    answerIndex: 1
+    explanation: "Cloud Pub/Sub is a fully managed messaging service for asynchronous, event-driven communication between services. Publishers send messages to topics; subscribers receive them."
+    refs:
+      - "https://cloud.google.com/pubsub/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-045"
+    difficulty: "easy"
+    tags: ["security", "encryption", "default"]
+    question: "How is data at rest encrypted in Google Cloud by default?"
+    choices:
+      - "A. It is not encrypted"
+      - "B. Data at rest is encrypted by default using Google-managed encryption keys (GMEK)"
+      - "C. Customers must enable encryption manually"
+      - "D. Encryption is only available for premium tier"
+    answerIndex: 1
+    explanation: "Google Cloud encrypts all data at rest by default using Google-managed encryption keys at no additional charge. Customers can optionally use CMEK or CSEK for more control."
+    refs:
+      - "https://cloud.google.com/security/encryption/default-encryption"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-046"
+    difficulty: "medium"
+    tags: ["security", "iam", "conditions"]
+    question: "You want to grant a developer access to Cloud Storage buckets only during business hours (9 AM to 5 PM). Which IAM feature enables this?"
+    choices:
+      - "A. Basic roles"
+      - "B. IAM Conditions"
+      - "C. VPC Service Controls"
+      - "D. Organization policies"
+    answerIndex: 1
+    explanation: "IAM Conditions allow you to define conditional role bindings based on attributes like time of day, resource attributes, or request attributes, enabling time-based access control."
+    refs:
+      - "https://cloud.google.com/iam/docs/conditions-overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-047"
+    difficulty: "medium"
+    tags: ["security", "vpc-service-controls"]
+    question: "You need to prevent data exfiltration by ensuring that BigQuery data in a project cannot be copied to buckets outside your organization. Which feature should you use?"
+    choices:
+      - "A. VPC firewall rules"
+      - "B. VPC Service Controls with a service perimeter"
+      - "C. Cloud Armor"
+      - "D. Cloud NAT"
+    answerIndex: 1
+    explanation: "VPC Service Controls create a security perimeter around Google Cloud resources that prevents data from being accessed or exfiltrated outside the defined perimeter boundary."
+    refs:
+      - "https://cloud.google.com/vpc-service-controls/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-048"
+    difficulty: "hard"
+    tags: ["security", "org-policy", "constraints"]
+    question: "You want to ensure that no one in your organization can create VMs with external IP addresses. Which feature enforces this across all projects?"
+    choices:
+      - "A. IAM deny policies"
+      - "B. Organization Policy with the compute.vmExternalIpAccess constraint"
+      - "C. Firewall rules"
+      - "D. Cloud Armor"
+    answerIndex: 1
+    explanation: "Organization policies enforce constraints across the resource hierarchy. The compute.vmExternalIpAccess constraint can restrict which VMs are allowed external IPs, applied at the org, folder, or project level."
+    refs:
+      - "https://cloud.google.com/resource-manager/docs/organization-policy/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-049"
+    difficulty: "hard"
+    tags: ["deploying", "cloud-build", "cicd"]
+    question: "You want to automatically build and deploy a container to Cloud Run every time code is pushed to a GitHub repository. Which service orchestrates this?"
+    choices:
+      - "A. Cloud Scheduler"
+      - "B. Cloud Build with a trigger connected to the GitHub repository"
+      - "C. Cloud Tasks"
+      - "D. Cloud Composer"
+    answerIndex: 1
+    explanation: "Cloud Build triggers can automatically start builds when code is pushed to a connected repository. The build steps can build a container image and deploy it to Cloud Run."
+    refs:
+      - "https://cloud.google.com/build/docs/automating-builds/create-manage-triggers"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-050"
+    difficulty: "hard"
+    tags: ["deploying", "networking", "interconnect"]
+    question: "An enterprise needs a dedicated, high-bandwidth private connection between its on-premises data center and Google Cloud. Which service should they use?"
+    choices:
+      - "A. Cloud VPN"
+      - "B. Dedicated Interconnect"
+      - "C. Cloud CDN"
+      - "D. Cloud DNS"
+    answerIndex: 1
+    explanation: "Dedicated Interconnect provides a direct physical connection to Google's network with 10 Gbps or 100 Gbps links. Cloud VPN sends encrypted traffic over the public internet with lower bandwidth guarantees."
+    refs:
+      - "https://cloud.google.com/network-connectivity/docs/interconnect/concepts/dedicated-overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-051"
+    difficulty: "hard"
+    tags: ["deploying", "gke", "private-cluster"]
+    question: "You want to create a GKE cluster where nodes do not have external IP addresses and the control plane is only accessible from authorized networks. What should you configure?"
+    choices:
+      - "A. A standard public cluster"
+      - "B. A private cluster with authorized networks"
+      - "C. A cluster with only preemptible nodes"
+      - "D. A cluster with Cloud Armor"
+    answerIndex: 1
+    explanation: "A private GKE cluster assigns internal IP addresses to nodes and can restrict control plane access to specified authorized networks, reducing the cluster's exposure to the internet."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-052"
+    difficulty: "easy"
+    tags: ["planning", "bigquery", "serverless"]
+    question: "Which characteristic makes BigQuery different from traditional data warehouses?"
+    choices:
+      - "A. BigQuery requires you to provision and manage clusters"
+      - "B. BigQuery is serverless — you pay per query and storage, with no cluster management"
+      - "C. BigQuery only supports CSV files"
+      - "D. BigQuery cannot handle more than 1 TB of data"
+    answerIndex: 1
+    explanation: "BigQuery is a serverless data warehouse that separates storage and compute. You do not need to provision clusters; you pay for queries processed and data stored."
+    refs:
+      - "https://cloud.google.com/bigquery/docs/introduction"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-053"
+    difficulty: "easy"
+    tags: ["planning", "dataflow", "etl"]
+    question: "Which Google Cloud service provides managed Apache Beam pipelines for batch and streaming data processing?"
+    choices:
+      - "A. Cloud Dataproc"
+      - "B. Cloud Dataflow"
+      - "C. Cloud Pub/Sub"
+      - "D. Cloud Composer"
+    answerIndex: 1
+    explanation: "Cloud Dataflow is a fully managed service for executing Apache Beam pipelines for both batch and streaming data processing. Dataproc is managed Spark/Hadoop, not Beam."
+    refs:
+      - "https://cloud.google.com/dataflow/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-054"
+    difficulty: "medium"
+    tags: ["deploying", "cloud-sql", "backups"]
+    question: "Which Cloud SQL feature creates daily backups of your database automatically?"
+    choices:
+      - "A. On-demand backups"
+      - "B. Automated backups"
+      - "C. Read replicas"
+      - "D. Failover replicas"
+    answerIndex: 1
+    explanation: "Cloud SQL automated backups run daily during a configurable backup window, retaining backups for a configurable retention period. On-demand backups are manually triggered."
+    refs:
+      - "https://cloud.google.com/sql/docs/mysql/backup-recovery/backups"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-055"
+    difficulty: "medium"
+    tags: ["deploying", "memorystore", "caching"]
+    question: "An application needs a low-latency, in-memory cache compatible with Redis. Which Google Cloud service should they use?"
+    choices:
+      - "A. Cloud SQL"
+      - "B. Memorystore for Redis"
+      - "C. Firestore"
+      - "D. Cloud Bigtable"
+    answerIndex: 1
+    explanation: "Memorystore for Redis is a fully managed Redis service providing sub-millisecond data access for caching and session management. Cloud SQL is a relational database, not an in-memory cache."
+    refs:
+      - "https://cloud.google.com/memorystore/docs/redis/redis-overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-056"
+    difficulty: "medium"
+    tags: ["deploying", "networking", "cloud-armor"]
+    question: "How do you protect a global HTTP(S) load balancer from SQL injection and cross-site scripting attacks?"
+    choices:
+      - "A. VPC firewall rules"
+      - "B. Cloud Armor WAF security policies"
+      - "C. Cloud NAT"
+      - "D. Cloud DNS"
+    answerIndex: 1
+    explanation: "Cloud Armor provides WAF capabilities with preconfigured rules for OWASP Top 10 threats including SQL injection and XSS, applied to external HTTP(S) load balancers."
+    refs:
+      - "https://cloud.google.com/armor/docs/cloud-armor-overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-057"
+    difficulty: "hard"
+    tags: ["deploying", "networking", "private-google-access"]
+    question: "VMs with only internal IP addresses need to access Google Cloud APIs like Cloud Storage. What should you enable on the subnet?"
+    choices:
+      - "A. Cloud NAT"
+      - "B. Private Google Access"
+      - "C. External IP addresses"
+      - "D. Cloud VPN"
+    answerIndex: 1
+    explanation: "Private Google Access allows VMs with only internal IPs to reach Google APIs and services without needing external IP addresses or Cloud NAT for that specific traffic."
+    refs:
+      - "https://cloud.google.com/vpc/docs/configure-private-google-access"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-058"
+    difficulty: "hard"
+    tags: ["operations", "gke", "node-auto-provisioning"]
+    question: "Your GKE cluster needs to automatically create new node pools with the right machine types to schedule pending pods. Which feature enables this?"
+    choices:
+      - "A. Horizontal Pod Autoscaler"
+      - "B. Node Auto-Provisioning"
+      - "C. Cluster Autoscaler"
+      - "D. Vertical Pod Autoscaler"
+    answerIndex: 1
+    explanation: "Node Auto-Provisioning automatically creates and deletes node pools with appropriate machine types based on pending pod requirements. Cluster Autoscaler only scales existing node pools."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/concepts/node-auto-provisioning"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-059"
+    difficulty: "hard"
+    tags: ["security", "secret-manager"]
+    question: "An application running on Cloud Run needs to access database credentials securely at runtime without embedding them in code or environment variables. Which service should you use?"
+    choices:
+      - "A. Cloud Storage"
+      - "B. Secret Manager"
+      - "C. Cloud KMS"
+      - "D. Firestore"
+    answerIndex: 1
+    explanation: "Secret Manager stores, manages, and accesses secrets as binary blobs or text strings. Cloud Run can mount secrets directly. Cloud KMS manages encryption keys but does not store arbitrary secrets."
+    refs:
+      - "https://cloud.google.com/secret-manager/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-060"
+    difficulty: "hard"
+    tags: ["deploying", "gke", "services"]
+    question: "You have a GKE deployment and want to expose it to the internet with a stable IP address and Google-managed SSL certificate. What Kubernetes resource should you create?"
+    choices:
+      - "A. A ClusterIP Service"
+      - "B. An Ingress resource with a Google-managed certificate"
+      - "C. A NodePort Service"
+      - "D. A ConfigMap"
+    answerIndex: 1
+    explanation: "A Kubernetes Ingress resource backed by GKE's Ingress controller provisions a Google Cloud HTTP(S) load balancer with a stable IP and supports Google-managed SSL certificates."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/concepts/ingress"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-061"
+    difficulty: "easy"
+    tags: ["planning", "dataproc", "big-data"]
+    question: "Which Google Cloud service provides managed Apache Spark and Hadoop clusters?"
+    choices:
+      - "A. Cloud Dataflow"
+      - "B. Cloud Dataproc"
+      - "C. Cloud Pub/Sub"
+      - "D. BigQuery"
+    answerIndex: 1
+    explanation: "Cloud Dataproc is a managed service for running Apache Spark, Hadoop, Hive, and Pig workloads. Dataflow runs Apache Beam pipelines, which is a different processing framework."
+    refs:
+      - "https://cloud.google.com/dataproc/docs/concepts/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-062"
+    difficulty: "easy"
+    tags: ["planning", "cloud-dns"]
+    question: "Which service provides a scalable, reliable, and managed authoritative DNS service on Google Cloud?"
+    choices:
+      - "A. Cloud CDN"
+      - "B. Cloud DNS"
+      - "C. Cloud Armor"
+      - "D. Cloud Load Balancing"
+    answerIndex: 1
+    explanation: "Cloud DNS is a high-performance, resilient, global DNS service that publishes domain names to the global DNS. It is fully managed with 100% uptime SLA."
+    refs:
+      - "https://cloud.google.com/dns/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-063"
+    difficulty: "medium"
+    tags: ["operations", "cloud-profiler"]
+    question: "You want to identify CPU and memory hotspots in your production application code with minimal performance overhead. Which service should you use?"
+    choices:
+      - "A. Cloud Trace"
+      - "B. Cloud Profiler"
+      - "C. Cloud Logging"
+      - "D. Error Reporting"
+    answerIndex: 1
+    explanation: "Cloud Profiler continuously gathers CPU and heap profiling data from production applications with minimal overhead, helping developers identify and fix performance bottlenecks in code."
+    refs:
+      - "https://cloud.google.com/profiler/docs/about-profiler"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-064"
+    difficulty: "medium"
+    tags: ["deploying", "compute", "custom-images"]
+    question: "You need to ensure all VMs in your organization start with your company's hardened OS configuration. What should you create?"
+    choices:
+      - "A. A startup script"
+      - "B. A custom image based on your hardened configuration"
+      - "C. A firewall rule"
+      - "D. An IAM policy"
+    answerIndex: 1
+    explanation: "A custom image captures a pre-configured disk state that can be used as the boot disk for new VMs, ensuring consistent baseline configuration across all instances."
+    refs:
+      - "https://cloud.google.com/compute/docs/images/create-custom"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-065"
+    difficulty: "hard"
+    tags: ["deploying", "networking", "cloud-vpn"]
+    question: "A remote office needs secure connectivity to a Google Cloud VPC over the internet. Which service provides an encrypted IPsec tunnel?"
+    choices:
+      - "A. Dedicated Interconnect"
+      - "B. Cloud VPN"
+      - "C. VPC Peering"
+      - "D. Cloud CDN"
+    answerIndex: 1
+    explanation: "Cloud VPN establishes IPsec tunnels between on-premises networks and Google Cloud VPCs over the public internet. Dedicated Interconnect provides a private physical connection without using the internet."
+    refs:
+      - "https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-066"
+    difficulty: "hard"
+    tags: ["operations", "logging", "sinks"]
+    question: "You need to export all Cloud Logging entries matching a specific filter to BigQuery for long-term analysis. What should you configure?"
+    choices:
+      - "A. A logging alert"
+      - "B. A log sink with a BigQuery dataset destination and a filter"
+      - "C. A Cloud Storage transfer job"
+      - "D. A Pub/Sub topic"
+    answerIndex: 1
+    explanation: "Log sinks route log entries matching a filter to a destination such as BigQuery, Cloud Storage, or Pub/Sub. A sink with a BigQuery destination enables SQL analysis of log data."
+    refs:
+      - "https://cloud.google.com/logging/docs/export/configure_export_v2"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-067"
+    difficulty: "hard"
+    tags: ["security", "cmek", "encryption"]
+    question: "Your compliance requirements mandate that you control the encryption keys for Cloud Storage data. Which key management approach should you use?"
+    choices:
+      - "A. Google-managed encryption keys (default)"
+      - "B. Customer-managed encryption keys (CMEK) with Cloud KMS"
+      - "C. Disable encryption"
+      - "D. Use SSH keys"
+    answerIndex: 1
+    explanation: "CMEK allows you to create, manage, and control the encryption keys in Cloud KMS that are used to encrypt your data, providing more control over key lifecycle and access than default Google-managed keys."
+    refs:
+      - "https://cloud.google.com/storage/docs/encryption/customer-managed-keys"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-068"
+    difficulty: "hard"
+    tags: ["deploying", "gke", "network-policy"]
+    question: "You want to restrict pod-to-pod communication in a GKE cluster so that only the frontend pods can talk to the backend pods. What should you configure?"
+    choices:
+      - "A. VPC firewall rules"
+      - "B. Kubernetes Network Policies"
+      - "C. Cloud Armor"
+      - "D. IAM roles"
+    answerIndex: 1
+    explanation: "Kubernetes Network Policies define how groups of pods are allowed to communicate with each other and other network endpoints, providing micro-segmentation within the cluster."
+    refs:
+      - "https://cloud.google.com/kubernetes-engine/docs/how-to/network-policy"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-069"
+    difficulty: "hard"
+    tags: ["deploying", "bigtable", "nosql"]
+    question: "A real-time analytics platform needs to handle millions of writes per second with single-digit millisecond latency for time-series data. Which service is best suited?"
+    choices:
+      - "A. Cloud SQL"
+      - "B. Cloud Bigtable"
+      - "C. Firestore"
+      - "D. Cloud Memorystore"
+    answerIndex: 1
+    explanation: "Cloud Bigtable is a fully managed, wide-column NoSQL database designed for high-throughput, low-latency workloads like time-series data, IoT, and analytics. Cloud SQL is relational and not optimized for this scale."
+    refs:
+      - "https://cloud.google.com/bigtable/docs/overview"
+    author: "ThanhNguyxn"
+
+  - id: "gcp-ace-expand-070"
+    difficulty: "hard"
+    tags: ["operations", "scc", "security"]
+    question: "Which Google Cloud service provides centralized visibility into security misconfigurations and vulnerabilities across your entire organization?"
+    choices:
+      - "A. Cloud Monitoring"
+      - "B. Security Command Center"
+      - "C. Cloud Armor"
+      - "D. Cloud Logging"
+    answerIndex: 1
+    explanation: "Security Command Center (SCC) is Google Cloud's security and risk management platform that helps identify misconfigurations, vulnerabilities, and threats across your GCP organization."
+    refs:
+      - "https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview"
+    author: "ThanhNguyxn"

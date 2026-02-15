@@ -504,3 +504,1053 @@ questions:
     explanation: "Separate Entra tenants create distinct identity directories and administrative boundaries, which is the strongest isolation model for identity management. Option A is wrong because resource groups do not isolate identity administration; they only scope Azure resource management inside the same tenant and subscription."
     refs: ["https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis"]
     author: "ThanhNguyxn"
+
+  - id: "az900-expand-001"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "high-availability"]
+    question: "Which cloud characteristic ensures that a service remains available even when individual components fail?"
+    choices:
+      - "A. Scalability"
+      - "B. High availability"
+      - "C. Elasticity"
+      - "D. Agility"
+    answerIndex: 1
+    explanation: "High availability is the characteristic that keeps services running despite component-level failures, typically through redundancy. Scalability refers to handling increased load, not surviving failures."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/well-architected/reliability/"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-002"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "capex-opex"]
+    question: "A company migrates from on-premises servers to Azure VMs. How does this affect their spending model?"
+    choices:
+      - "A. All costs become capital expenditures"
+      - "B. Costs shift from capital expenditure to operational expenditure"
+      - "C. There is no change in cost classification"
+      - "D. Azure requires upfront hardware purchases"
+    answerIndex: 1
+    explanation: "Moving to the cloud shifts spending from CapEx (buying hardware) to OpEx (pay-as-you-go consumption). Azure does not require purchasing physical hardware."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/fiscal-outcomes"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-003"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "shared-responsibility"]
+    question: "In the shared responsibility model for Azure SQL Database (PaaS), who is responsible for patching the operating system?"
+    choices:
+      - "A. The customer"
+      - "B. Microsoft"
+      - "C. A third-party vendor"
+      - "D. Both the customer and Microsoft jointly"
+    answerIndex: 1
+    explanation: "In PaaS, Microsoft manages the underlying OS, runtime, and patching. The customer is responsible for data, access management, and application-level configuration."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-004"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "cloud-models"]
+    question: "An organisation runs sensitive workloads on-premises but wants to use Azure for non-sensitive web apps. Which cloud model best describes this approach?"
+    choices:
+      - "A. Public cloud only"
+      - "B. Private cloud only"
+      - "C. Hybrid cloud"
+      - "D. Community cloud"
+    answerIndex: 2
+    explanation: "A hybrid cloud combines on-premises (private) infrastructure with public cloud services. This allows sensitive workloads to stay on-prem while leveraging Azure for less sensitive apps."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/define-cloud-types"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-005"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "elasticity"]
+    question: "A retail website experiences a traffic spike during a holiday sale and automatically adds more VM instances to handle load. Which cloud benefit does this demonstrate?"
+    choices:
+      - "A. Disaster recovery"
+      - "B. Elasticity"
+      - "C. Predictability"
+      - "D. Compliance"
+    answerIndex: 1
+    explanation: "Elasticity is the ability to automatically scale resources up or down based on demand. Disaster recovery relates to recovering from failures, not handling traffic spikes."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/optimize-scaling-costs"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-006"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "iaas"]
+    question: "Which Azure service is an example of Infrastructure as a Service (IaaS)?"
+    choices:
+      - "A. Azure App Service"
+      - "B. Azure Virtual Machines"
+      - "C. Azure Logic Apps"
+      - "D. Azure Functions"
+    answerIndex: 1
+    explanation: "Azure Virtual Machines provide IaaS — you manage the OS, runtime, and applications while Azure manages the physical hardware. App Service, Logic Apps, and Functions are PaaS or serverless."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-machines/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-007"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "consumption-model"]
+    question: "What is the primary financial benefit of the cloud consumption-based model?"
+    choices:
+      - "A. Fixed monthly billing regardless of usage"
+      - "B. You only pay for resources you actually use"
+      - "C. All services are free during the first year"
+      - "D. Hardware costs are amortised over five years"
+    answerIndex: 1
+    explanation: "The consumption-based model means you pay only for what you consume. There are no upfront hardware costs and you can stop paying when you deallocate resources."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/well-architected/cost-optimization/cost-model"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-008"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "fault-tolerance"]
+    question: "Which concept describes a system's ability to continue operating correctly even when some of its components fail?"
+    choices:
+      - "A. Geo-redundancy"
+      - "B. Fault tolerance"
+      - "C. Load balancing"
+      - "D. Scalability"
+    answerIndex: 1
+    explanation: "Fault tolerance is the ability of a system to continue functioning when components fail. Geo-redundancy is a specific strategy for fault tolerance, not the concept itself."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/well-architected/reliability/highly-available-multi-region-design"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-009"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "economies-of-scale"]
+    question: "Why can cloud providers like Microsoft offer services at lower per-unit costs than most individual companies?"
+    choices:
+      - "A. They use older, cheaper hardware"
+      - "B. Economies of scale allow them to spread costs over millions of customers"
+      - "C. They do not pay for electricity"
+      - "D. Cloud providers receive tax exemptions"
+    answerIndex: 1
+    explanation: "Cloud providers achieve economies of scale by operating massive datacentres serving millions of customers, reducing the per-unit cost of compute, storage, and networking."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/fiscal-outcomes"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-010"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "serverless"]
+    question: "Which characteristic distinguishes serverless computing from traditional IaaS?"
+    choices:
+      - "A. Serverless requires you to manage the operating system"
+      - "B. Serverless automatically scales and you pay only per execution"
+      - "C. Serverless does not support event-driven architectures"
+      - "D. Serverless runs only on dedicated physical hardware"
+    answerIndex: 1
+    explanation: "Serverless computing abstracts all infrastructure management; you pay per execution and it scales automatically. With IaaS, you manage the OS and pay for provisioned resources."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-011"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "saas"]
+    question: "Microsoft 365 is an example of which cloud service type?"
+    choices:
+      - "A. IaaS"
+      - "B. PaaS"
+      - "C. SaaS"
+      - "D. FaaS"
+    answerIndex: 2
+    explanation: "Microsoft 365 is Software as a Service (SaaS) — a complete application delivered over the internet. Users consume it directly without managing infrastructure or platform components."
+    refs:
+      - "https://learn.microsoft.com/en-us/microsoft-365/enterprise/cloud-services-roadmap-microsoft-365"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-012"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "reliability"]
+    question: "What does the term 'reliability' mean in the context of Azure cloud services?"
+    choices:
+      - "A. The ability to grow compute capacity on demand"
+      - "B. The ability of a system to recover from failures and continue to function"
+      - "C. The speed at which data travels across the network"
+      - "D. The cost savings achieved by migrating to the cloud"
+    answerIndex: 1
+    explanation: "Reliability in cloud computing refers to a system's ability to recover from failures and continue operating. Scalability is about growing capacity, not recovering from failures."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/well-architected/reliability/"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-013"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "governance"]
+    question: "Which cloud benefit allows an organisation to enforce corporate standards and regulatory compliance across all deployed resources?"
+    choices:
+      - "A. Scalability"
+      - "B. Governance"
+      - "C. Elasticity"
+      - "D. Agility"
+    answerIndex: 1
+    explanation: "Governance enables organisations to set policies, audit resource configurations, and enforce compliance. Scalability and elasticity relate to resource sizing, not policy enforcement."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/azure-management"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-014"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "manageability"]
+    question: "Which statement best describes 'manageability of the cloud'?"
+    choices:
+      - "A. The ability to deploy resources only through the Azure portal"
+      - "B. Management tools like the portal, CLI, PowerShell, and APIs to create, configure, and monitor resources"
+      - "C. The automatic patching of all customer applications"
+      - "D. Manageability only applies to SaaS services"
+    answerIndex: 1
+    explanation: "Manageability of the cloud refers to the various tools available (portal, CLI, PowerShell, REST APIs, ARM templates) to manage cloud resources. It is not limited to the portal or SaaS."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-015"
+    difficulty: "easy"
+    tags: ["azure-services", "regions"]
+    question: "What is an Azure region?"
+    choices:
+      - "A. A single datacenter"
+      - "B. A set of datacenters deployed within a latency-defined perimeter connected through a low-latency network"
+      - "C. A logical container for billing"
+      - "D. A DNS zone"
+    answerIndex: 1
+    explanation: "An Azure region is a set of datacenters connected through a dedicated low-latency network, deployed within a latency-defined perimeter. A region contains multiple datacenters, not just one."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-016"
+    difficulty: "easy"
+    tags: ["azure-services", "availability-zones"]
+    question: "What is the purpose of Azure Availability Zones?"
+    choices:
+      - "A. To provide discounted pricing for reserved instances"
+      - "B. To protect applications from datacenter-level failures by distributing resources across physically separate locations within a region"
+      - "C. To enable multi-region deployments"
+      - "D. To automatically encrypt data at rest"
+    answerIndex: 1
+    explanation: "Availability Zones are physically separate datacenter locations within a region that protect against datacenter-level failures. They are within a single region, not across multiple regions."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-017"
+    difficulty: "easy"
+    tags: ["azure-services", "resource-groups"]
+    question: "Which statement about Azure resource groups is correct?"
+    choices:
+      - "A. A resource can belong to multiple resource groups simultaneously"
+      - "B. A resource group can contain resources from different Azure regions"
+      - "C. Deleting a resource group does not affect the resources inside it"
+      - "D. Resource groups must be in the same region as their resources"
+    answerIndex: 1
+    explanation: "A resource group can contain resources deployed to any Azure region. However, each resource can only belong to one resource group, and deleting a resource group deletes all resources within it."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-018"
+    difficulty: "easy"
+    tags: ["azure-services", "virtual-machines"]
+    question: "Which Azure service allows you to create and run Windows or Linux virtual machines in the cloud?"
+    choices:
+      - "A. Azure App Service"
+      - "B. Azure Virtual Machines"
+      - "C. Azure Container Instances"
+      - "D. Azure Kubernetes Service"
+    answerIndex: 1
+    explanation: "Azure Virtual Machines provide on-demand, scalable computing for running Windows or Linux workloads. App Service is PaaS for web apps, not full VM access."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-machines/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-019"
+    difficulty: "easy"
+    tags: ["azure-services", "storage", "blob"]
+    question: "Azure Blob Storage is optimised for storing which type of data?"
+    choices:
+      - "A. Relational tables"
+      - "B. Massive amounts of unstructured data such as text and binary data"
+      - "C. Active Directory objects"
+      - "D. DNS records"
+    answerIndex: 1
+    explanation: "Azure Blob Storage is designed for storing massive amounts of unstructured data — text, images, videos, backups, and logs. Relational data belongs in Azure SQL Database."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-020"
+    difficulty: "easy"
+    tags: ["azure-services", "networking", "vnet"]
+    question: "What is the purpose of Azure Virtual Network (VNet)?"
+    choices:
+      - "A. To store files in the cloud"
+      - "B. To enable Azure resources to securely communicate with each other, the internet, and on-premises networks"
+      - "C. To manage user identities"
+      - "D. To provide serverless compute"
+    answerIndex: 1
+    explanation: "Azure Virtual Network enables Azure resources to communicate securely with each other, the internet, and on-premises networks through private IP addressing and network isolation."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-021"
+    difficulty: "medium"
+    tags: ["azure-services", "compute", "app-service"]
+    question: "A developer wants to deploy a Python web API without managing virtual machines or container orchestration. Which service is most appropriate?"
+    choices:
+      - "A. Azure Virtual Machines"
+      - "B. Azure App Service"
+      - "C. Azure Virtual Machine Scale Sets"
+      - "D. Azure Dedicated Host"
+    answerIndex: 1
+    explanation: "Azure App Service is a fully managed PaaS for hosting web apps and APIs in multiple languages including Python. It abstracts away VM management. VMSS still requires OS management."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/app-service/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-022"
+    difficulty: "medium"
+    tags: ["azure-services", "containers", "aci"]
+    question: "A team needs to quickly run a containerised batch job without setting up a Kubernetes cluster. Which Azure service should they use?"
+    choices:
+      - "A. Azure Kubernetes Service"
+      - "B. Azure Container Instances"
+      - "C. Azure Virtual Machines"
+      - "D. Azure Batch"
+    answerIndex: 1
+    explanation: "Azure Container Instances (ACI) provides the fastest and simplest way to run a container in Azure without managing servers or orchestrators. AKS is more suited for complex multi-container workloads."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/container-instances/container-instances-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-023"
+    difficulty: "medium"
+    tags: ["azure-services", "networking", "load-balancer"]
+    question: "Which Azure service distributes inbound traffic across multiple VMs to ensure high availability at the transport layer (Layer 4)?"
+    choices:
+      - "A. Azure Application Gateway"
+      - "B. Azure Load Balancer"
+      - "C. Azure Front Door"
+      - "D. Azure Traffic Manager"
+    answerIndex: 1
+    explanation: "Azure Load Balancer operates at Layer 4 (TCP/UDP) and distributes traffic across VMs. Application Gateway works at Layer 7 (HTTP/HTTPS). Traffic Manager uses DNS-based routing."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-024"
+    difficulty: "medium"
+    tags: ["azure-services", "database", "cosmos-db"]
+    question: "A global e-commerce company needs a database that supports multi-region writes with single-digit millisecond latency for reads worldwide. Which Azure service is most appropriate?"
+    choices:
+      - "A. Azure SQL Database"
+      - "B. Azure Cosmos DB"
+      - "C. Azure Database for MySQL"
+      - "D. Azure Table Storage"
+    answerIndex: 1
+    explanation: "Azure Cosmos DB is a globally distributed, multi-model database with guaranteed single-digit millisecond latency and multi-region write support. Azure SQL Database does not natively support multi-region writes."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cosmos-db/introduction"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-025"
+    difficulty: "medium"
+    tags: ["azure-services", "compute", "functions"]
+    question: "An organisation wants to run code that triggers whenever a new file is uploaded to Azure Blob Storage. They want to pay only when the code executes. Which service should they use?"
+    choices:
+      - "A. Azure Virtual Machines"
+      - "B. Azure App Service"
+      - "C. Azure Functions"
+      - "D. Azure Batch"
+    answerIndex: 2
+    explanation: "Azure Functions is a serverless compute service that runs event-driven code and charges only per execution. A blob trigger can automatically invoke the function when new files are uploaded."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-026"
+    difficulty: "medium"
+    tags: ["azure-services", "storage", "access-tiers"]
+    question: "A hospital needs to retain medical imaging data for 7 years but rarely accesses it after the first month. Which storage access tier minimises cost for this scenario?"
+    choices:
+      - "A. Hot"
+      - "B. Cool"
+      - "C. Cold"
+      - "D. Archive"
+    answerIndex: 3
+    explanation: "Archive tier offers the lowest storage cost for data that is rarely accessed and stored for long periods. It has higher access costs and retrieval latency, which is acceptable for infrequent access."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-027"
+    difficulty: "medium"
+    tags: ["azure-services", "networking", "expressroute"]
+    question: "A financial institution needs a private, dedicated connection between its on-premises datacenter and Azure that does not traverse the public internet. Which service should they use?"
+    choices:
+      - "A. Azure VPN Gateway"
+      - "B. Azure ExpressRoute"
+      - "C. Azure CDN"
+      - "D. Azure DNS"
+    answerIndex: 1
+    explanation: "Azure ExpressRoute provides a private, dedicated connection from on-premises to Azure via a connectivity provider. VPN Gateway traffic travels over the public internet (encrypted), which does not meet the requirement."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/expressroute/expressroute-introduction"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-028"
+    difficulty: "medium"
+    tags: ["azure-services", "database", "sql"]
+    question: "Which Azure service provides a fully managed relational database engine compatible with the Microsoft SQL Server engine?"
+    choices:
+      - "A. Azure Cosmos DB"
+      - "B. Azure SQL Database"
+      - "C. Azure Blob Storage"
+      - "D. Azure Data Lake Storage"
+    answerIndex: 1
+    explanation: "Azure SQL Database is a fully managed PaaS relational database engine based on the latest SQL Server engine. Cosmos DB is NoSQL, and Blob/Data Lake are for unstructured data."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-029"
+    difficulty: "medium"
+    tags: ["azure-services", "ai", "cognitive-services"]
+    question: "A company wants to add image recognition capabilities to their mobile app without building machine learning models from scratch. Which Azure service should they use?"
+    choices:
+      - "A. Azure Machine Learning"
+      - "B. Azure AI Vision (Computer Vision)"
+      - "C. Azure HDInsight"
+      - "D. Azure Databricks"
+    answerIndex: 1
+    explanation: "Azure AI Vision (formerly Computer Vision) provides pre-built image analysis capabilities via APIs. Azure Machine Learning is for building custom models, which is unnecessary when pre-built APIs suffice."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-030"
+    difficulty: "medium"
+    tags: ["azure-services", "iot", "iot-hub"]
+    question: "Which Azure service provides bi-directional communication between an IoT application and millions of connected devices?"
+    choices:
+      - "A. Azure Event Hubs"
+      - "B. Azure IoT Hub"
+      - "C. Azure Notification Hubs"
+      - "D. Azure Service Bus"
+    answerIndex: 1
+    explanation: "Azure IoT Hub enables reliable, secure bi-directional communication between IoT devices and the cloud. Event Hubs is for one-way high-throughput event ingestion, not bi-directional device management."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/iot-hub/iot-concepts-and-iot-hub"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-031"
+    difficulty: "medium"
+    tags: ["azure-services", "networking", "dns"]
+    question: "An organisation wants to host its public DNS domain in Azure and manage DNS records alongside other Azure resources. Which service should they use?"
+    choices:
+      - "A. Azure Traffic Manager"
+      - "B. Azure DNS"
+      - "C. Azure Front Door"
+      - "D. Azure Firewall"
+    answerIndex: 1
+    explanation: "Azure DNS hosts DNS domains and manages DNS records using Azure infrastructure. Traffic Manager is a DNS-based traffic routing service, not a general-purpose DNS hosting service."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/dns/dns-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-032"
+    difficulty: "medium"
+    tags: ["azure-services", "storage", "files"]
+    question: "A company needs a fully managed cloud file share accessible via the SMB protocol from both Windows and Linux machines. Which service should they choose?"
+    choices:
+      - "A. Azure Blob Storage"
+      - "B. Azure Files"
+      - "C. Azure Queue Storage"
+      - "D. Azure Disk Storage"
+    answerIndex: 1
+    explanation: "Azure Files provides fully managed file shares in the cloud that are accessible via SMB and NFS protocols. Blob Storage uses REST APIs, not SMB."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/storage/files/storage-files-introduction"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-033"
+    difficulty: "medium"
+    tags: ["azure-services", "compute", "vmss"]
+    question: "Which Azure service automatically increases or decreases the number of VM instances based on demand or a defined schedule?"
+    choices:
+      - "A. Azure Virtual Machines"
+      - "B. Azure Virtual Machine Scale Sets"
+      - "C. Azure Dedicated Host"
+      - "D. Azure Bastion"
+    answerIndex: 1
+    explanation: "Azure Virtual Machine Scale Sets let you create and manage a group of identical, load-balanced VMs that can automatically scale based on demand or a schedule."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-034"
+    difficulty: "medium"
+    tags: ["azure-services", "networking", "application-gateway"]
+    question: "A company hosts multiple web applications behind a single public IP address and wants to route traffic to different backend pools based on the URL path. Which service should they use?"
+    choices:
+      - "A. Azure Load Balancer"
+      - "B. Azure Application Gateway"
+      - "C. Azure Traffic Manager"
+      - "D. Azure Bastion"
+    answerIndex: 1
+    explanation: "Azure Application Gateway is a Layer 7 (HTTP/HTTPS) load balancer that supports URL path-based routing, SSL termination, and WAF. Azure Load Balancer operates at Layer 4 and does not inspect URLs."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/application-gateway/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-035"
+    difficulty: "medium"
+    tags: ["azure-services", "devops", "azure-devops"]
+    question: "A development team needs CI/CD pipelines, Git repositories, and agile planning tools all in one integrated platform within Azure. Which service should they use?"
+    choices:
+      - "A. GitHub only"
+      - "B. Azure DevOps Services"
+      - "C. Azure Monitor"
+      - "D. Azure Advisor"
+    answerIndex: 1
+    explanation: "Azure DevOps Services provides an integrated set of tools including Azure Repos (Git), Azure Pipelines (CI/CD), Azure Boards (agile planning), Azure Artifacts, and Azure Test Plans."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-036"
+    difficulty: "medium"
+    tags: ["management", "azure-monitor"]
+    question: "Which Azure service collects, analyses, and acts on telemetry from Azure and on-premises environments?"
+    choices:
+      - "A. Azure Advisor"
+      - "B. Azure Monitor"
+      - "C. Azure Policy"
+      - "D. Azure Security Center"
+    answerIndex: 1
+    explanation: "Azure Monitor collects and analyses telemetry data (metrics, logs, traces) from Azure resources and on-premises environments. Azure Advisor provides recommendations, not raw telemetry collection."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-monitor/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-037"
+    difficulty: "easy"
+    tags: ["management", "azure-advisor"]
+    question: "Which Azure service provides personalised recommendations for high availability, security, performance, operational excellence, and cost?"
+    choices:
+      - "A. Azure Monitor"
+      - "B. Azure Advisor"
+      - "C. Azure Policy"
+      - "D. Azure Service Health"
+    answerIndex: 1
+    explanation: "Azure Advisor analyses your resource configuration and usage telemetry and then provides personalised best-practice recommendations across five categories."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/advisor/advisor-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-038"
+    difficulty: "easy"
+    tags: ["management", "service-health"]
+    question: "Which Azure service alerts you about Azure service incidents and planned maintenance that might affect your resources?"
+    choices:
+      - "A. Azure Advisor"
+      - "B. Azure Service Health"
+      - "C. Azure Cost Management"
+      - "D. Azure Marketplace"
+    answerIndex: 1
+    explanation: "Azure Service Health provides personalised alerts and guidance when Azure service issues, planned maintenance, or health advisories affect your subscribed resources."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/service-health/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-039"
+    difficulty: "medium"
+    tags: ["management", "arm-templates"]
+    question: "A team wants to deploy the same set of Azure resources consistently across dev, staging, and production. Which approach should they use?"
+    choices:
+      - "A. Manually create resources in the portal for each environment"
+      - "B. Use Azure Resource Manager (ARM) templates or Bicep to define infrastructure as code"
+      - "C. Clone VMs from one environment to another"
+      - "D. Use Azure Service Health"
+    answerIndex: 1
+    explanation: "ARM templates and Bicep enable infrastructure as code, allowing consistent, repeatable deployments across environments. Manual portal creation is error-prone and not repeatable."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-040"
+    difficulty: "easy"
+    tags: ["management", "azure-policy"]
+    question: "Which Azure service can automatically enforce organisational standards and assess compliance at scale across all resources?"
+    choices:
+      - "A. Azure Advisor"
+      - "B. Azure Policy"
+      - "C. Azure Active Directory"
+      - "D. Azure Key Vault"
+    answerIndex: 1
+    explanation: "Azure Policy evaluates resources for compliance with business rules expressed as policy definitions. It can deny non-compliant deployments, audit existing resources, and remediate drift."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/policy/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-041"
+    difficulty: "medium"
+    tags: ["management", "rbac"]
+    question: "An administrator wants to grant a user the ability to restart VMs in a specific resource group but not delete them. Which Azure feature should they use?"
+    choices:
+      - "A. Azure Policy"
+      - "B. Azure RBAC with a custom role"
+      - "C. Network Security Groups"
+      - "D. Azure Blueprints"
+    answerIndex: 1
+    explanation: "Azure RBAC allows fine-grained access management. A custom role can include the restart action but exclude delete. Azure Policy enforces resource configurations, not user permissions."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-042"
+    difficulty: "medium"
+    tags: ["management", "resource-locks"]
+    question: "A company wants to prevent accidental deletion of a production database. Which Azure feature should they apply?"
+    choices:
+      - "A. Azure Policy"
+      - "B. Resource lock (Delete lock)"
+      - "C. Network Security Group"
+      - "D. Azure Firewall"
+    answerIndex: 1
+    explanation: "A Delete resource lock prevents users from accidentally deleting a resource regardless of their RBAC permissions. Azure Policy can enforce tags or configurations but resource locks are the direct mechanism for preventing deletion."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-043"
+    difficulty: "medium"
+    tags: ["management", "cost-management"]
+    question: "Which Azure tool allows you to set spending limits and receive alerts when costs approach a defined threshold?"
+    choices:
+      - "A. Azure Pricing Calculator"
+      - "B. Azure Cost Management + Billing budgets"
+      - "C. Azure Advisor"
+      - "D. Azure Service Health"
+    answerIndex: 1
+    explanation: "Azure Cost Management + Billing lets you create budgets with alerts that notify you when spending reaches a configured threshold. The Pricing Calculator is for estimating costs before deployment."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-acm-create-budgets"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-044"
+    difficulty: "easy"
+    tags: ["management", "tags"]
+    question: "What is the primary purpose of applying tags to Azure resources?"
+    choices:
+      - "A. To restrict who can access the resource"
+      - "B. To organise resources and track costs by metadata such as department, project, or environment"
+      - "C. To encrypt data at rest"
+      - "D. To increase the performance of resources"
+    answerIndex: 1
+    explanation: "Tags are name-value pairs that help organise resources logically, enable cost tracking by department or project, and support governance. They do not control access or affect performance."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-045"
+    difficulty: "medium"
+    tags: ["management", "blueprints"]
+    question: "An enterprise needs to set up new Azure subscriptions with predefined policies, RBAC roles, and ARM templates every time a new project starts. Which service automates this?"
+    choices:
+      - "A. Azure Policy"
+      - "B. Azure Blueprints"
+      - "C. Azure Advisor"
+      - "D. Azure Monitor"
+    answerIndex: 1
+    explanation: "Azure Blueprints enables you to define a repeatable set of Azure resources, policies, and RBAC assignments that can be applied to new subscriptions for consistent governance."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/blueprints/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-046"
+    difficulty: "medium"
+    tags: ["security", "key-vault"]
+    question: "A development team needs a centralised, secure store for API keys, certificates, and connection strings. Which Azure service should they use?"
+    choices:
+      - "A. Azure Storage Account"
+      - "B. Azure Key Vault"
+      - "C. Azure Active Directory"
+      - "D. Azure Information Protection"
+    answerIndex: 1
+    explanation: "Azure Key Vault provides centralised, hardware-backed storage for secrets, keys, and certificates with fine-grained access policies. Storage accounts are for data, not secret management."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/key-vault/general/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-047"
+    difficulty: "medium"
+    tags: ["security", "nsg"]
+    question: "Which Azure resource filters network traffic to and from Azure resources within a virtual network using security rules?"
+    choices:
+      - "A. Azure Firewall"
+      - "B. Network Security Group (NSG)"
+      - "C. Azure DDoS Protection"
+      - "D. Azure Front Door"
+    answerIndex: 1
+    explanation: "Network Security Groups contain security rules that allow or deny inbound and outbound network traffic to/from Azure resources within a VNet. Azure Firewall is a managed firewall service with more advanced features."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-048"
+    difficulty: "medium"
+    tags: ["security", "mfa"]
+    question: "Which security feature requires users to provide two or more verification methods before they can sign in to Azure resources?"
+    choices:
+      - "A. Single sign-on (SSO)"
+      - "B. Multi-factor authentication (MFA)"
+      - "C. Conditional Access"
+      - "D. Privileged Identity Management"
+    answerIndex: 1
+    explanation: "MFA requires two or more authentication factors (something you know, have, or are). SSO allows signing in once to access multiple applications but does not mandate multiple factors."
+    refs:
+      - "https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mfa-howitworks"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-049"
+    difficulty: "medium"
+    tags: ["security", "defender-for-cloud"]
+    question: "Which Azure service provides a unified security management system that strengthens the security posture of cloud and on-premises workloads?"
+    choices:
+      - "A. Azure Monitor"
+      - "B. Microsoft Defender for Cloud"
+      - "C. Azure Policy"
+      - "D. Azure Advisor"
+    answerIndex: 1
+    explanation: "Microsoft Defender for Cloud (formerly Azure Security Center) provides unified security management, advanced threat protection, and security posture assessment for cloud and hybrid workloads."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-050"
+    difficulty: "medium"
+    tags: ["security", "ddos"]
+    question: "Which Azure service provides always-on traffic monitoring and automatic mitigation of network-layer DDoS attacks?"
+    choices:
+      - "A. Azure Firewall"
+      - "B. Azure DDoS Protection"
+      - "C. Web Application Firewall"
+      - "D. Azure Bastion"
+    answerIndex: 1
+    explanation: "Azure DDoS Protection provides always-on monitoring and automatic network-layer DDoS attack mitigation. Azure Firewall filters traffic but is not specifically designed for volumetric DDoS mitigation."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-051"
+    difficulty: "easy"
+    tags: ["security", "entra-id"]
+    question: "What is Microsoft Entra ID (formerly Azure Active Directory)?"
+    choices:
+      - "A. A NoSQL database service"
+      - "B. A cloud-based identity and access management service"
+      - "C. A virtual networking service"
+      - "D. A storage encryption tool"
+    answerIndex: 1
+    explanation: "Microsoft Entra ID is a cloud-based identity and access management service that helps employees sign in and access resources. It is not a database, networking, or storage service."
+    refs:
+      - "https://learn.microsoft.com/en-us/entra/fundamentals/whatis"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-052"
+    difficulty: "easy"
+    tags: ["security", "defense-in-depth"]
+    question: "Which security strategy uses multiple layers of protection so that if one layer fails, others are still in place?"
+    choices:
+      - "A. Zero trust"
+      - "B. Defense in depth"
+      - "C. Single sign-on"
+      - "D. Least privilege"
+    answerIndex: 1
+    explanation: "Defense in depth is a security strategy that employs multiple layers of protection (physical, identity, network, compute, application, data) to slow attackers and provide multiple detection points."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/security/fundamentals/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-053"
+    difficulty: "hard"
+    tags: ["management", "management-groups"]
+    question: "A multinational corporation has 200 Azure subscriptions across 10 business units. They want to apply a consistent set of policies across all subscriptions in a specific business unit. Which Azure feature should they use?"
+    choices:
+      - "A. Resource groups"
+      - "B. Management groups"
+      - "C. Azure Blueprints"
+      - "D. Tags"
+    answerIndex: 1
+    explanation: "Management groups provide a governance scope above subscriptions. By organising subscriptions into management groups per business unit, policies can be applied once and inherited by all subscriptions in that group."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-054"
+    difficulty: "hard"
+    tags: ["azure-services", "networking", "vpn-gateway"]
+    question: "A company needs an encrypted tunnel between their on-premises network and Azure that travels over the public internet. Which service should they configure?"
+    choices:
+      - "A. Azure ExpressRoute"
+      - "B. Azure VPN Gateway"
+      - "C. Azure CDN"
+      - "D. Azure Bastion"
+    answerIndex: 1
+    explanation: "Azure VPN Gateway creates an encrypted tunnel over the public internet between on-premises and Azure (site-to-site VPN). ExpressRoute uses a private connection that does not traverse the public internet."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-055"
+    difficulty: "hard"
+    tags: ["azure-services", "compute", "aks"]
+    question: "A company wants to run a microservices architecture using containers with automated orchestration, scaling, and management. Which Azure service is best suited?"
+    choices:
+      - "A. Azure Container Instances"
+      - "B. Azure Kubernetes Service (AKS)"
+      - "C. Azure Functions"
+      - "D. Azure App Service"
+    answerIndex: 1
+    explanation: "AKS provides managed Kubernetes for orchestrating containerised microservices with automated scaling, rolling updates, and self-healing. ACI is simpler but lacks full orchestration capabilities."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/aks/intro-kubernetes"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-056"
+    difficulty: "easy"
+    tags: ["cloud-concepts", "paas"]
+    question: "Which of the following is a characteristic of Platform as a Service (PaaS)?"
+    choices:
+      - "A. The customer manages the physical servers"
+      - "B. The cloud provider manages the infrastructure and operating system while the customer manages applications and data"
+      - "C. The customer has no access to their application code"
+      - "D. PaaS provides only storage services"
+    answerIndex: 1
+    explanation: "In PaaS, the cloud provider manages infrastructure and OS while customers focus on deploying and managing their applications and data. Customers never manage physical servers in PaaS."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/define-cloud-types"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-057"
+    difficulty: "easy"
+    tags: ["azure-services", "marketplace"]
+    question: "What is the Azure Marketplace?"
+    choices:
+      - "A. A service for managing domain names"
+      - "B. An online store for buying and selling solutions and services certified to run on Azure"
+      - "C. A billing portal for Azure subscriptions"
+      - "D. A monitoring dashboard"
+    answerIndex: 1
+    explanation: "The Azure Marketplace is an online store that offers applications, services, and solutions from Microsoft and partners that are certified and optimised to run on Azure."
+    refs:
+      - "https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-058"
+    difficulty: "medium"
+    tags: ["management", "compliance", "trust-center"]
+    question: "Where can an organisation find details about how Microsoft meets regulatory and compliance standards for Azure services?"
+    choices:
+      - "A. Azure Advisor"
+      - "B. Microsoft Trust Center"
+      - "C. Azure Monitor"
+      - "D. Azure Marketplace"
+    answerIndex: 1
+    explanation: "The Microsoft Trust Center provides comprehensive information about security, privacy, compliance, and transparency across Microsoft cloud services including Azure."
+    refs:
+      - "https://learn.microsoft.com/en-us/compliance/regulatory/offering-home"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-059"
+    difficulty: "hard"
+    tags: ["management", "sla"]
+    question: "If two Azure services each have an SLA of 99.9% availability and both must be running for the application to function, what is the composite SLA?"
+    choices:
+      - "A. 99.9%"
+      - "B. 99.99%"
+      - "C. 99.8%"
+      - "D. 99.81%"
+    answerIndex: 2
+    explanation: "When two services are both required (in series), the composite SLA is calculated by multiplying: 0.999 × 0.999 = 0.998001, approximately 99.8%. The composite availability is always lower than the individual SLAs."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/well-architected/reliability/metrics"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-060"
+    difficulty: "hard"
+    tags: ["management", "tco-calculator"]
+    question: "A CFO wants to compare the cost of running existing on-premises workloads versus migrating them to Azure over three years. Which tool provides this analysis?"
+    choices:
+      - "A. Azure Pricing Calculator"
+      - "B. Azure Total Cost of Ownership (TCO) Calculator"
+      - "C. Azure Cost Management"
+      - "D. Azure Advisor"
+    answerIndex: 1
+    explanation: "The TCO Calculator estimates cost savings by comparing on-premises infrastructure costs (servers, power, networking, labour) with equivalent Azure services over time. The Pricing Calculator estimates Azure-only costs without on-premises comparison."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/business-outcomes/fiscal-outcomes"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-061"
+    difficulty: "hard"
+    tags: ["security", "conditional-access"]
+    question: "An organisation wants to require MFA only when users sign in from outside the corporate network or from unmanaged devices. Which feature enables this?"
+    choices:
+      - "A. Azure RBAC"
+      - "B. Conditional Access policies in Microsoft Entra ID"
+      - "C. Network Security Groups"
+      - "D. Azure Firewall"
+    answerIndex: 1
+    explanation: "Conditional Access policies evaluate signals like user location, device state, and risk level to make adaptive access decisions such as requiring MFA. RBAC controls what users can do, not how they authenticate."
+    refs:
+      - "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-062"
+    difficulty: "hard"
+    tags: ["azure-services", "data", "synapse"]
+    question: "A data engineering team needs to combine big data analytics and enterprise data warehousing in a single unified service. Which Azure service should they evaluate?"
+    choices:
+      - "A. Azure SQL Database"
+      - "B. Azure Synapse Analytics"
+      - "C. Azure Cosmos DB"
+      - "D. Azure Table Storage"
+    answerIndex: 1
+    explanation: "Azure Synapse Analytics brings together data integration, enterprise data warehousing, and big data analytics in one unified platform. Azure SQL Database is for transactional workloads, not big data analytics."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/synapse-analytics/overview-what-is"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-063"
+    difficulty: "easy"
+    tags: ["management", "subscription"]
+    question: "What is an Azure subscription?"
+    choices:
+      - "A. A physical datacenter location"
+      - "B. A logical unit of Azure services that is linked to an Azure account and is a billing boundary"
+      - "C. A type of virtual machine"
+      - "D. A DNS domain"
+    answerIndex: 1
+    explanation: "An Azure subscription is a logical container that links to an Azure account and serves as both a billing boundary and an access control boundary for Azure resources."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-064"
+    difficulty: "easy"
+    tags: ["azure-services", "compute", "windows-virtual-desktop"]
+    question: "Which Azure service enables a full desktop virtualisation experience hosted in the cloud?"
+    choices:
+      - "A. Azure App Service"
+      - "B. Azure Virtual Desktop"
+      - "C. Azure Functions"
+      - "D. Azure Batch"
+    answerIndex: 1
+    explanation: "Azure Virtual Desktop (formerly Windows Virtual Desktop) provides a full desktop and app virtualisation service running in the cloud, accessible from any device."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/virtual-desktop/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-065"
+    difficulty: "easy"
+    tags: ["management", "portal"]
+    question: "Which tool provides a web-based, unified console for building, managing, and monitoring all Azure resources?"
+    choices:
+      - "A. Azure CLI"
+      - "B. Azure portal"
+      - "C. Azure PowerShell"
+      - "D. Azure Cloud Shell"
+    answerIndex: 1
+    explanation: "The Azure portal is a web-based GUI that provides a unified console for managing all Azure resources. CLI and PowerShell are command-line tools; Cloud Shell provides a browser-based shell experience."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-066"
+    difficulty: "medium"
+    tags: ["azure-services", "networking", "cdn"]
+    question: "A media company wants to deliver video content to users worldwide with low latency by caching content at edge locations. Which Azure service should they use?"
+    choices:
+      - "A. Azure ExpressRoute"
+      - "B. Azure CDN"
+      - "C. Azure DNS"
+      - "D. Azure VPN Gateway"
+    answerIndex: 1
+    explanation: "Azure CDN caches content at strategically placed edge locations around the world to minimise latency for end users. ExpressRoute is for private connectivity, not content caching."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cdn/cdn-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-067"
+    difficulty: "medium"
+    tags: ["management", "cloud-shell"]
+    question: "What is a key benefit of Azure Cloud Shell compared to installing Azure CLI locally?"
+    choices:
+      - "A. Cloud Shell requires no installation and is accessible from any browser with Azure authentication"
+      - "B. Cloud Shell can only run PowerShell commands"
+      - "C. Cloud Shell does not support file storage"
+      - "D. Cloud Shell provides faster execution than local CLI"
+    answerIndex: 0
+    explanation: "Azure Cloud Shell is a browser-based shell that requires no local installation, supports both Bash and PowerShell, and persists files in an Azure Files share."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-shell/overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-068"
+    difficulty: "hard"
+    tags: ["security", "sovereign-regions"]
+    question: "A government agency requires that all data and services remain within a specific country to meet data sovereignty requirements. Which Azure concept addresses this?"
+    choices:
+      - "A. Availability Zones"
+      - "B. Azure Sovereign Regions (e.g., Azure Government, Azure China)"
+      - "C. Resource groups"
+      - "D. Management groups"
+    answerIndex: 1
+    explanation: "Azure Sovereign Regions like Azure Government and Azure China 21Vianet are physically and logically isolated instances of Azure that meet strict government compliance and data sovereignty requirements."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/regions"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-069"
+    difficulty: "hard"
+    tags: ["azure-services", "integration", "logic-apps"]
+    question: "A company wants to automate a workflow that integrates Salesforce, Office 365, and an on-premises SQL Server without writing code. Which Azure service should they use?"
+    choices:
+      - "A. Azure Functions"
+      - "B. Azure Logic Apps"
+      - "C. Azure Batch"
+      - "D. Azure Data Factory"
+    answerIndex: 1
+    explanation: "Azure Logic Apps provides a visual designer for building automated workflows that integrate cloud and on-premises services using hundreds of pre-built connectors — all without writing code. Azure Functions requires code."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview"
+    author: "ThanhNguyxn"
+
+  - id: "az900-expand-070"
+    difficulty: "hard"
+    tags: ["management", "arc"]
+    question: "An organisation runs servers on-premises and in AWS. They want to manage all servers from the Azure portal using Azure Policy and Azure Monitor. Which service enables this?"
+    choices:
+      - "A. Azure Migrate"
+      - "B. Azure Arc"
+      - "C. Azure Site Recovery"
+      - "D. Azure Lighthouse"
+    answerIndex: 1
+    explanation: "Azure Arc extends Azure management capabilities (Policy, Monitor, RBAC) to servers and Kubernetes clusters running anywhere — on-premises, multi-cloud, or at the edge."
+    refs:
+      - "https://learn.microsoft.com/en-us/azure/azure-arc/overview"
+    author: "ThanhNguyxn"

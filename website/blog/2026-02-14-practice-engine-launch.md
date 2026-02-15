@@ -1,11 +1,11 @@
 ---
 slug: practice-engine-launch
-title: "Practice Engine is Live — 640+ Questions Across 14 Certifications 🧠"
+title: "Practice Engine is Live — 1,590+ Questions Across 14 Certifications 🧠"
 authors: [thanhnguyxn]
 tags: [announcement, practice]
 ---
 
-The CertSherpa Practice Engine is officially live! Test your knowledge with 640+ original practice questions covering 14 of the most popular IT certifications — all free, all open-source, and absolutely zero exam dumps.
+The CertSherpa Practice Engine is officially live! Test your knowledge with 1,590+ original practice questions covering 14 of the most popular IT certifications — all free, all open-source, and absolutely zero exam dumps.
 
 <!-- truncate -->
 
@@ -15,20 +15,20 @@ We've built question banks for 14 certifications, with carefully crafted questio
 
 | Certification | Questions | Difficulty |
 |---------------|-----------|------------|
-| ☁️ AWS Solutions Architect Associate (SAA-C03) | 50 | Associate |
-| ☁️ AWS Solutions Architect Professional (SAP-C02) | 50 | Professional |
-| ☁️ Azure Fundamentals (AZ-900) | 50 | Fundamentals |
-| ☁️ Azure Administrator (AZ-104) | 70 | Associate |
-| ☁️ Google Cloud Associate Cloud Engineer | 30 | Associate |
-| 🛡️ CompTIA Security+ (SY0-701) | 50 | Entry-level |
-| 🛡️ (ISC)² CISSP | 30 | Professional |
-| 🌐 Cisco CCNA (200-301) | 70 | Associate |
-| 🌐 CompTIA Network+ (N10-009) | 30 | Entry-level |
-| ⚙️ Kubernetes CKA | 70 | Professional |
-| ⚙️ HashiCorp Terraform Associate (003) | 50 | Associate |
-| 🐧 Linux LPIC-1 | 30 | Entry-level |
-| 🤖 AWS Machine Learning Specialty (MLS-C01) | 30 | Specialty |
-| 📋 PMP | 30 | Professional |
+| ☁️ AWS Solutions Architect Associate (SAA-C03) | 120 | Associate |
+| ☁️ AWS Solutions Architect Professional (SAP-C02) | 120 | Professional |
+| ☁️ Azure Fundamentals (AZ-900) | 120 | Fundamentals |
+| ☁️ Azure Administrator (AZ-104) | 130 | Associate |
+| ☁️ Google Cloud Associate Cloud Engineer | 100 | Associate |
+| 🛡️ CompTIA Security+ (SY0-701) | 120 | Entry-level |
+| 🛡️ (ISC)² CISSP | 100 | Professional |
+| 🌐 Cisco CCNA (200-301) | 130 | Associate |
+| 🌐 CompTIA Network+ (N10-009) | 100 | Entry-level |
+| ⚙️ Kubernetes CKA | 130 | Professional |
+| ⚙️ HashiCorp Terraform Associate (003) | 120 | Associate |
+| 🐧 Linux LPIC-1 | 100 | Entry-level |
+| 🤖 AWS Machine Learning Specialty (MLS-C01) | 100 | Specialty |
+| 📋 PMP | 100 | Professional |
 
 ## How It Works
 
@@ -59,7 +59,7 @@ This means the entire system is forkable, self-hostable, and auditable.
 
 ## What's Next
 
-- 📈 **More questions** — we're aiming for 100+ per certification.
+- 📈 **More questions** — we've hit 100+ per certification and continue expanding.
 - 🔀 **Randomized quizzes** — shuffle questions and pick subsets.
 - 📊 **Performance analytics** — track improvement over time (local storage, no tracking).
 - 🌍 **More certifications** — CCSP, CISA, AWS DevOps Professional, Azure Solutions Architect, and more.

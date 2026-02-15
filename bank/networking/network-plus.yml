@@ -460,3 +460,1053 @@ questions:
     refs:
       - "https://www.cloudflare.com/learning/security/glossary/rto-rpo/"
     author: "ThanhNguyxn"
+
+  - id: "nplus-expand-001"
+    difficulty: "easy"
+    tags: ["networking-concepts", "osi-model"]
+    question: "Which OSI layer is responsible for logical addressing and routing packets between networks?"
+    choices:
+      - "A. Layer 3 — Network"
+      - "B. Layer 2 — Data Link"
+      - "C. Layer 4 — Transport"
+      - "D. Layer 1 — Physical"
+    answerIndex: 0
+    explanation: "Layer 3 (Network) handles logical addressing (IP addresses) and routing decisions. Layer 2 handles MAC addresses and frame switching. Layer 4 handles transport protocols. Layer 1 handles physical signaling."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-002"
+    difficulty: "easy"
+    tags: ["networking-concepts", "ipv4"]
+    question: "Which IPv4 address class provides a default subnet mask of 255.255.0.0?"
+    choices:
+      - "A. Class B"
+      - "B. Class A"
+      - "C. Class C"
+      - "D. Class D"
+    answerIndex: 0
+    explanation: "Class B addresses (128.0.0.0 – 191.255.255.255) have a default mask of 255.255.0.0 (/16). Class A uses 255.0.0.0 (/8). Class C uses 255.255.255.0 (/24). Class D is multicast and has no subnet mask."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc791"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-003"
+    difficulty: "easy"
+    tags: ["networking-concepts", "ports"]
+    question: "Which well-known port is used by HTTPS?"
+    choices:
+      - "A. 443"
+      - "B. 80"
+      - "C. 22"
+      - "D. 3389"
+    answerIndex: 0
+    explanation: "HTTPS uses TCP port 443 for encrypted web traffic. Port 80 is HTTP (unencrypted). Port 22 is SSH. Port 3389 is RDP (Remote Desktop Protocol)."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2818"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-004"
+    difficulty: "easy"
+    tags: ["networking-concepts", "dhcp"]
+    question: "What is the correct order of the DHCP lease process (DORA)?"
+    choices:
+      - "A. Discover, Offer, Request, Acknowledge"
+      - "B. Discover, Open, Request, Accept"
+      - "C. Demand, Offer, Reply, Acknowledge"
+      - "D. Detect, Open, Request, Assign"
+    answerIndex: 0
+    explanation: "The DHCP DORA process consists of Discover (client broadcasts), Offer (server responds), Request (client selects), and Acknowledge (server confirms). This four-step handshake assigns IP configuration to clients dynamically."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2131"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-005"
+    difficulty: "easy"
+    tags: ["networking-concepts", "topology"]
+    question: "Which network topology connects all devices to a single central cable or backbone?"
+    choices:
+      - "A. Bus"
+      - "B. Star"
+      - "C. Ring"
+      - "D. Mesh"
+    answerIndex: 0
+    explanation: "A bus topology uses a single shared backbone cable where all devices tap into the same medium. Star connects all devices to a central switch/hub. Ring passes data in a circular path. Mesh has point-to-point links between every pair."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-006"
+    difficulty: "easy"
+    tags: ["networking-concepts", "wireless"]
+    question: "Which wireless frequency band provides greater range but is more susceptible to interference from household devices like microwaves?"
+    choices:
+      - "A. 2.4 GHz"
+      - "B. 5 GHz"
+      - "C. 6 GHz"
+      - "D. 60 GHz"
+    answerIndex: 0
+    explanation: "The 2.4 GHz band offers greater range due to lower frequency but has only 3 non-overlapping channels and shares the ISM band with microwaves, Bluetooth, and cordless phones. The 5 GHz band has more channels and less interference but shorter range."
+    refs:
+      - "https://www.ieee802.org/11/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-007"
+    difficulty: "easy"
+    tags: ["networking-concepts", "protocols"]
+    question: "Which protocol is used to send email from a client to a mail server?"
+    choices:
+      - "A. SMTP"
+      - "B. POP3"
+      - "C. IMAP"
+      - "D. FTP"
+    answerIndex: 0
+    explanation: "SMTP (Simple Mail Transfer Protocol, port 25/587) sends email from client to server or between servers. POP3 (port 110) and IMAP (port 143) are used to retrieve email from a server. FTP is for file transfers."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5321"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-008"
+    difficulty: "easy"
+    tags: ["networking-concepts", "vlans"]
+    question: "What is the primary purpose of creating VLANs on a switch?"
+    choices:
+      - "A. To segment broadcast domains without requiring separate physical switches"
+      - "B. To increase the speed of all ports"
+      - "C. To encrypt traffic between devices"
+      - "D. To provide wireless access"
+    answerIndex: 0
+    explanation: "VLANs logically segment a switch into separate broadcast domains, improving security and reducing broadcast traffic. They don't increase port speed, encrypt traffic, or provide wireless access."
+    refs:
+      - "https://www.ieee802.org/1/pages/802.1Q.html"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-009"
+    difficulty: "easy"
+    tags: ["networking-concepts", "nat"]
+    question: "What does NAT (Network Address Translation) allow a network to do?"
+    choices:
+      - "A. Map private IP addresses to public IP addresses for internet access"
+      - "B. Encrypt all outbound traffic"
+      - "C. Assign IP addresses automatically to hosts"
+      - "D. Route traffic between VLANs"
+    answerIndex: 0
+    explanation: "NAT translates private (RFC 1918) addresses to public addresses, allowing multiple internal hosts to share limited public IPs. Encryption is handled by VPN/TLS. DHCP assigns addresses. Inter-VLAN routing requires a Layer 3 device."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc3022"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-010"
+    difficulty: "easy"
+    tags: ["networking-concepts", "dns"]
+    question: "Which DNS record type maps a hostname to an IPv4 address?"
+    choices:
+      - "A. A record"
+      - "B. AAAA record"
+      - "C. MX record"
+      - "D. CNAME record"
+    answerIndex: 0
+    explanation: "An A record maps a hostname to an IPv4 address. AAAA maps to IPv6. MX specifies mail exchange servers. CNAME creates an alias from one hostname to another."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc1035"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-011"
+    difficulty: "easy"
+    tags: ["networking-concepts", "subnetting"]
+    question: "A network uses the address 10.0.0.0 with a subnet mask of 255.255.255.192 (/26). How many usable host addresses are in each subnet?"
+    choices:
+      - "A. 62"
+      - "B. 64"
+      - "C. 30"
+      - "D. 126"
+    answerIndex: 0
+    explanation: "A /26 has 6 host bits, giving 2^6 = 64 total addresses per subnet. Subtracting network and broadcast addresses yields 62 usable hosts. A /27 gives 30 and /25 gives 126."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc1878"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-012"
+    difficulty: "easy"
+    tags: ["networking-concepts", "ipv6"]
+    question: "How long is an IPv6 address in bits?"
+    choices:
+      - "A. 128 bits"
+      - "B. 64 bits"
+      - "C. 32 bits"
+      - "D. 256 bits"
+    answerIndex: 0
+    explanation: "IPv6 addresses are 128 bits long, represented as 8 groups of 4 hexadecimal digits. IPv4 addresses are 32 bits. The 128-bit space provides approximately 3.4 × 10^38 unique addresses."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc4291"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-013"
+    difficulty: "easy"
+    tags: ["infrastructure", "switches"]
+    question: "What type of device operates at Layer 2 and uses MAC address tables to forward frames?"
+    choices:
+      - "A. Switch"
+      - "B. Router"
+      - "C. Firewall"
+      - "D. Access point"
+    answerIndex: 0
+    explanation: "A switch operates at Layer 2 and builds a MAC address table to forward frames to the correct port. Routers operate at Layer 3. Firewalls operate at Layers 3-7. Access points bridge wireless to wired at Layer 2 but don't maintain MAC tables the same way."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-014"
+    difficulty: "easy"
+    tags: ["infrastructure", "cabling"]
+    question: "What is the maximum cable length for a single Cat5e/Cat6 copper Ethernet run?"
+    choices:
+      - "A. 100 meters (328 feet)"
+      - "B. 50 meters (164 feet)"
+      - "C. 200 meters (656 feet)"
+      - "D. 55 meters (180 feet)"
+    answerIndex: 0
+    explanation: "The TIA/EIA-568 standard specifies a maximum of 100 meters for a horizontal copper Ethernet run (90m permanent link + 10m patch cables). Beyond this distance, signal attenuation causes errors."
+    refs:
+      - "https://www.tiaonline.org/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-015"
+    difficulty: "easy"
+    tags: ["infrastructure", "fiber"]
+    question: "Which type of fiber optic cable uses a larger core (typically 50 or 62.5 micrometers) and supports multiple light paths?"
+    choices:
+      - "A. Multimode fiber (MMF)"
+      - "B. Single-mode fiber (SMF)"
+      - "C. Coaxial cable"
+      - "D. Shielded twisted pair"
+    answerIndex: 0
+    explanation: "Multimode fiber has a larger core (50 or 62.5 µm) that allows multiple light paths (modes). It's used for short distances (up to ~550m for 10GbE). Single-mode fiber has a 9 µm core and supports much longer distances using a single light path."
+    refs:
+      - "https://www.thefoa.org/tech/ref/basic/fiber.html"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-016"
+    difficulty: "medium"
+    tags: ["infrastructure", "routing"]
+    question: "A company has two WAN links — a primary 100 Mbps fiber and a backup 10 Mbps DSL. The admin wants the DSL link to be used only when the fiber link fails. Which routing concept achieves this?"
+    choices:
+      - "A. Floating static route with a higher administrative distance on the DSL path"
+      - "B. Equal-cost multipath routing"
+      - "C. Policy-based routing to prefer DSL"
+      - "D. VLAN trunking between the two links"
+    answerIndex: 0
+    explanation: "A floating static route has a higher administrative distance than the primary route. It stays in the routing table but is only used when the primary route disappears. ECMP would use both links simultaneously. VLAN trunking is unrelated to WAN failover."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-017"
+    difficulty: "medium"
+    tags: ["infrastructure", "wireless", "security"]
+    question: "An enterprise deploys WPA2-Enterprise for wireless security. Which authentication framework does this use?"
+    choices:
+      - "A. 802.1X with EAP and a RADIUS server"
+      - "B. Pre-shared key (PSK) entered on each client"
+      - "C. MAC address filtering on the access point"
+      - "D. WEP with a shared secret"
+    answerIndex: 0
+    explanation: "WPA2-Enterprise uses 802.1X with EAP (Extensible Authentication Protocol) and a RADIUS server for centralized authentication. WPA2-Personal uses PSK. MAC filtering and WEP are outdated and insecure methods."
+    refs:
+      - "https://www.wi-fi.org/discover-wi-fi/security"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-018"
+    difficulty: "medium"
+    tags: ["infrastructure", "poe"]
+    question: "Which IEEE standard defines PoE+ that can deliver up to 30W per port?"
+    choices:
+      - "A. 802.3at"
+      - "B. 802.3af"
+      - "C. 802.3bt"
+      - "D. 802.3az"
+    answerIndex: 0
+    explanation: "802.3at (PoE+) delivers up to 30W per port, sufficient for devices like PTZ cameras and dual-radio APs. 802.3af (original PoE) delivers 15.4W. 802.3bt (PoE++) delivers up to 90W. 802.3az is Energy Efficient Ethernet."
+    refs:
+      - "https://www.ieee802.org/3/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-019"
+    difficulty: "medium"
+    tags: ["infrastructure", "load-balancer"]
+    question: "A web application receives traffic through a load balancer configured with round-robin scheduling. What does this mean?"
+    choices:
+      - "A. Each new request is sent to the next server in sequential order"
+      - "B. All requests go to the server with the fewest active connections"
+      - "C. Requests are directed based on the client's geographic location"
+      - "D. The load balancer randomly selects a server for each request"
+    answerIndex: 0
+    explanation: "Round-robin distributes requests sequentially across available servers in rotation. Least-connections sends to the server with fewest active sessions. Geographic distribution is content-based routing. Random selection is a different algorithm."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-020"
+    difficulty: "medium"
+    tags: ["infrastructure", "vpn"]
+    question: "Which VPN type creates a secure tunnel between two sites (e.g., branch offices) and encrypts all traffic between the site gateways?"
+    choices:
+      - "A. Site-to-site VPN"
+      - "B. Remote access VPN"
+      - "C. SSL VPN portal"
+      - "D. Split tunnel VPN"
+    answerIndex: 0
+    explanation: "A site-to-site VPN establishes a permanent encrypted tunnel between two network gateways, encrypting all inter-site traffic. Remote access VPN connects individual users. SSL VPN portal provides browser-based access. Split tunnel routes some traffic outside the VPN."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc6071"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-021"
+    difficulty: "medium"
+    tags: ["infrastructure", "dns", "hierarchy"]
+    question: "In the DNS hierarchy, which server type is queried first by a recursive DNS resolver when it doesn't have a cached answer?"
+    choices:
+      - "A. Root name server"
+      - "B. TLD (Top-Level Domain) name server"
+      - "C. Authoritative name server"
+      - "D. The client's local hosts file"
+    answerIndex: 0
+    explanation: "A recursive resolver first queries a root name server, which directs it to the appropriate TLD server, which then directs it to the authoritative server for the specific domain. The hosts file is checked by the client OS before DNS is queried."
+    refs:
+      - "https://www.iana.org/domains/root/servers"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-022"
+    difficulty: "medium"
+    tags: ["operations", "monitoring", "snmp"]
+    question: "An admin sets up SNMP monitoring and wants the network device to proactively send alerts when thresholds are exceeded. Which SNMP message type enables this?"
+    choices:
+      - "A. Trap"
+      - "B. Get"
+      - "C. Set"
+      - "D. Walk"
+    answerIndex: 0
+    explanation: "SNMP traps are unsolicited notifications sent from agents to the NMS when events or thresholds are triggered. Get retrieves a specific OID value. Set modifies a value. Walk iterates through a MIB tree."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc3411"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-023"
+    difficulty: "medium"
+    tags: ["operations", "documentation"]
+    question: "A technician is troubleshooting a connectivity issue and needs to verify the physical cable path from patch panel to switch. Which documentation should they consult?"
+    choices:
+      - "A. Network wiring diagram and cable management records"
+      - "B. The firewall rule set"
+      - "C. The DNS zone file"
+      - "D. The DHCP scope options"
+    answerIndex: 0
+    explanation: "Network wiring diagrams show physical cable paths, patch panel assignments, and switch port mappings. Firewall rules control traffic flow. DNS zone files contain name records. DHCP scope options define address assignments."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-024"
+    difficulty: "medium"
+    tags: ["operations", "change-management"]
+    question: "Before implementing a major switch firmware upgrade across the enterprise, what should be completed according to change management best practices?"
+    choices:
+      - "A. Submit a change request with a rollback plan and schedule a maintenance window"
+      - "B. Immediately deploy to all switches during business hours"
+      - "C. Test only on the core switches first"
+      - "D. Update the firmware and inform users afterward"
+    answerIndex: 0
+    explanation: "Change management requires a formal change request, impact analysis, rollback plan, and a scheduled maintenance window to minimize disruption. Testing should occur in a lab or on non-critical devices first, not directly on core infrastructure."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-025"
+    difficulty: "medium"
+    tags: ["operations", "backup"]
+    question: "An organization performs a full backup every Sunday and incremental backups Monday through Saturday. On Wednesday, the server crashes. Which backups are needed to restore?"
+    choices:
+      - "A. Sunday's full backup plus Monday's, Tuesday's, and Wednesday's incremental backups"
+      - "B. Only Wednesday's incremental backup"
+      - "C. Sunday's full backup only"
+      - "D. All seven daily backups from the previous week"
+    answerIndex: 0
+    explanation: "Incremental backups capture only changes since the last backup (full or incremental). To restore, you need the last full backup (Sunday) plus all subsequent incrementals (Monday, Tuesday, Wednesday) applied in order."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-026"
+    difficulty: "medium"
+    tags: ["operations", "syslog"]
+    question: "A syslog server receives a message with severity level 3. What does this severity represent?"
+    choices:
+      - "A. Error — error conditions requiring attention"
+      - "B. Warning — warning conditions"
+      - "C. Critical — critical conditions"
+      - "D. Emergency — system is unusable"
+    answerIndex: 0
+    explanation: "Syslog severity 3 is Error. The scale runs from 0 (Emergency) to 7 (Debug): 0=Emergency, 1=Alert, 2=Critical, 3=Error, 4=Warning, 5=Notice, 6=Informational, 7=Debug."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5424"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-027"
+    difficulty: "medium"
+    tags: ["operations", "scanning"]
+    question: "A security admin runs a port scan on a server and discovers TCP port 3306 is open. Which service is most likely running?"
+    choices:
+      - "A. MySQL database"
+      - "B. Microsoft SQL Server"
+      - "C. PostgreSQL"
+      - "D. Apache web server"
+    answerIndex: 0
+    explanation: "MySQL defaults to TCP port 3306. Microsoft SQL Server uses 1433. PostgreSQL uses 5432. Apache uses 80/443. Identifying open ports helps assess the attack surface of a system."
+    refs:
+      - "https://www.iana.org/assignments/service-names-port-numbers"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-028"
+    difficulty: "medium"
+    tags: ["operations", "performance"]
+    question: "Users complain about slow file transfers to a NAS. The admin checks the switch port and sees high utilization at 95%. What is the most effective short-term solution?"
+    choices:
+      - "A. Configure link aggregation (LACP) to increase available bandwidth"
+      - "B. Reboot the NAS"
+      - "C. Change the DNS server"
+      - "D. Replace the switch with a hub"
+    answerIndex: 0
+    explanation: "Link aggregation (LACP/EtherChannel) bundles multiple physical links into one logical link, increasing available bandwidth. Rebooting doesn't fix capacity limits. DNS is unrelated to file transfer speed. A hub would reduce performance by sharing bandwidth."
+    refs:
+      - "https://www.ieee802.org/3/ad/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-029"
+    difficulty: "medium"
+    tags: ["operations", "ipam"]
+    question: "A network team notices IP address conflicts appearing on the network. Which tool or practice would best prevent this?"
+    choices:
+      - "A. IP Address Management (IPAM) system with centralized DHCP"
+      - "B. Assigning all addresses statically"
+      - "C. Disabling ARP on all hosts"
+      - "D. Using a single /8 subnet for the entire network"
+    answerIndex: 0
+    explanation: "An IPAM system tracks all address assignments and coordinates with DHCP to prevent duplicates. All-static is error-prone at scale. Disabling ARP breaks communication. A huge subnet doesn't prevent conflicts — it makes them harder to detect."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc6632"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-030"
+    difficulty: "medium"
+    tags: ["security", "firewall"]
+    question: "Which type of firewall inspects traffic at the application layer and can make decisions based on the content of HTTP headers, URIs, and payloads?"
+    choices:
+      - "A. Next-generation firewall (NGFW) / Layer 7 firewall"
+      - "B. Stateless packet filter"
+      - "C. Circuit-level gateway"
+      - "D. NAT firewall"
+    answerIndex: 0
+    explanation: "NGFWs / Layer 7 firewalls perform deep packet inspection including application-layer content. Stateless packet filters only check headers (L3/L4). Circuit-level gateways monitor TCP handshakes. NAT firewalls translate addresses but don't inspect application content."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-031"
+    difficulty: "medium"
+    tags: ["security", "ids-ips"]
+    question: "What is the key difference between an IDS and an IPS?"
+    choices:
+      - "A. An IDS detects and alerts on threats; an IPS actively blocks them"
+      - "B. An IDS blocks traffic; an IPS only logs events"
+      - "C. An IDS operates at Layer 2; an IPS operates at Layer 7"
+      - "D. An IDS requires a TAP; an IPS requires a hub"
+    answerIndex: 0
+    explanation: "An Intrusion Detection System (IDS) passively monitors traffic and generates alerts. An Intrusion Prevention System (IPS) sits inline and can actively block or drop malicious traffic. Both can use signatures or anomaly detection."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-032"
+    difficulty: "medium"
+    tags: ["security", "802.1x"]
+    question: "In an 802.1X network access control deployment, which three roles are involved?"
+    choices:
+      - "A. Supplicant, authenticator, authentication server"
+      - "B. Client, switch, DHCP server"
+      - "C. Host, gateway, DNS server"
+      - "D. User, firewall, proxy server"
+    answerIndex: 0
+    explanation: "802.1X defines three roles: the supplicant (client requesting access), the authenticator (switch/AP controlling the port), and the authentication server (typically RADIUS). DHCP and DNS play no role in 802.1X authentication."
+    refs:
+      - "https://www.ieee802.org/1/pages/802.1x-2020.html"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-033"
+    difficulty: "medium"
+    tags: ["security", "vpn", "ipsec"]
+    question: "Which two protocols make up the IPsec suite for VPN encryption and authentication?"
+    choices:
+      - "A. ESP (Encapsulating Security Payload) and AH (Authentication Header)"
+      - "B. SSL and TLS"
+      - "C. SSH and SCP"
+      - "D. PPTP and L2TP"
+    answerIndex: 0
+    explanation: "IPsec uses ESP for encryption and integrity, and AH for authentication and integrity (without encryption). SSL/TLS are separate protocols. SSH/SCP are for remote administration. PPTP and L2TP are tunneling protocols that can work with IPsec."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc4301"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-034"
+    difficulty: "medium"
+    tags: ["security", "acl"]
+    question: "An admin creates an ACL on a router to deny all traffic from 192.168.5.0/24 to the server at 10.0.0.50. Where should this ACL be applied for optimal performance?"
+    choices:
+      - "A. As close to the source as possible (inbound on the interface facing 192.168.5.0/24)"
+      - "B. As close to the destination as possible"
+      - "C. On the loopback interface"
+      - "D. On all interfaces simultaneously"
+    answerIndex: 0
+    explanation: "Extended ACLs should be applied as close to the source as possible to prevent unwanted traffic from consuming bandwidth across the network. Standard ACLs are placed near the destination. Placing on all interfaces wastes processing."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-035"
+    difficulty: "medium"
+    tags: ["security", "social-engineering"]
+    question: "An employee receives a phone call from someone claiming to be from IT support, asking for their password to 'fix an urgent issue.' What type of attack is this?"
+    choices:
+      - "A. Vishing (voice phishing)"
+      - "B. Smishing (SMS phishing)"
+      - "C. Tailgating"
+      - "D. Evil twin"
+    answerIndex: 0
+    explanation: "Vishing is voice-based phishing where attackers impersonate trusted entities over the phone to extract sensitive information. Smishing uses SMS. Tailgating is physical access by following authorized personnel. An evil twin is a rogue wireless AP."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-036"
+    difficulty: "medium"
+    tags: ["security", "segmentation"]
+    question: "A company wants to isolate IoT devices from the corporate network for security. Which approach is most appropriate?"
+    choices:
+      - "A. Place IoT devices in a separate VLAN with restricted ACLs"
+      - "B. Connect IoT devices using crossover cables"
+      - "C. Assign IoT devices static IP addresses"
+      - "D. Disable DHCP for IoT devices"
+    answerIndex: 0
+    explanation: "Network segmentation via VLANs with ACLs isolates IoT devices into their own broadcast domain and controls what traffic can flow between segments. Static IPs and DHCP settings don't provide isolation. Crossover cables don't segment networks."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-037"
+    difficulty: "hard"
+    tags: ["troubleshooting", "methodology"]
+    question: "A user reports they cannot access a specific website. Other users can access it fine. Following the CompTIA troubleshooting methodology, what is the correct first step?"
+    choices:
+      - "A. Identify the problem by gathering information and questioning the user"
+      - "B. Establish a theory of probable cause"
+      - "C. Test the theory by replacing the network cable"
+      - "D. Implement the solution and verify functionality"
+    answerIndex: 0
+    explanation: "The CompTIA troubleshooting methodology starts with identifying the problem: gather information, question users, identify symptoms, and determine scope. Theorizing before gathering information leads to misdiagnosis."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-038"
+    difficulty: "hard"
+    tags: ["troubleshooting", "tools"]
+    question: "A technician suspects a cable is causing intermittent connectivity. The cable passes a basic continuity test. Which tool provides the most detailed analysis of cable performance including crosstalk and attenuation?"
+    choices:
+      - "A. Cable certifier"
+      - "B. Tone generator and probe"
+      - "C. Loopback plug"
+      - "D. Protocol analyzer"
+    answerIndex: 0
+    explanation: "A cable certifier tests against TIA/EIA standards including crosstalk (NEXT/FEXT), attenuation, return loss, and delay skew. A tone generator traces cable paths. A loopback plug tests interface functionality. A protocol analyzer captures packets, not cable performance."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-039"
+    difficulty: "hard"
+    tags: ["troubleshooting", "wireless"]
+    question: "Users in a large office report intermittent Wi-Fi disconnections. A site survey reveals excessive co-channel interference. What is the best remediation?"
+    choices:
+      - "A. Adjust AP channel assignments to minimize overlap and reduce AP transmit power"
+      - "B. Increase all AP transmit power to maximum"
+      - "C. Switch all APs to the same channel for consistency"
+      - "D. Replace all APs with newer models"
+    answerIndex: 0
+    explanation: "Co-channel interference occurs when nearby APs use the same channel. The fix is to assign non-overlapping channels (1, 6, 11 for 2.4 GHz) and reduce power so AP coverage areas don't overlap excessively. Maximum power worsens interference. Same channel guarantees interference."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-040"
+    difficulty: "hard"
+    tags: ["troubleshooting", "routing"]
+    question: "A remote branch office suddenly loses connectivity to headquarters. Traceroute from the branch stops at the third hop. The admin confirms the branch router is up. What is the most likely issue?"
+    choices:
+      - "A. A routing loop or missing route at the third hop router"
+      - "B. The branch office DNS server is down"
+      - "C. The DHCP lease expired at the branch"
+      - "D. A VLAN mismatch on the branch switch"
+    answerIndex: 0
+    explanation: "When traceroute stops at a specific hop, that device likely has a routing problem — either a missing route for the destination or a routing loop. DNS doesn't affect traceroute (it uses IP). DHCP and VLAN issues would affect local connectivity, not a mid-path failure."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-041"
+    difficulty: "hard"
+    tags: ["troubleshooting", "dns"]
+    question: "An admin runs 'nslookup server1.example.com' and gets a valid IP, but 'ping server1.example.com' fails while 'ping <IP>' succeeds from the same host. What should be checked?"
+    choices:
+      - "A. The client's hosts file for a conflicting entry that overrides DNS"
+      - "B. The DNS TTL value"
+      - "C. The DHCP relay agent"
+      - "D. The switch port VLAN assignment"
+    answerIndex: 0
+    explanation: "When nslookup returns the correct IP but ping by name fails, the local hosts file may contain a stale or incorrect entry for that hostname. The OS checks the hosts file before DNS, so a conflicting entry overrides the DNS response."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-042"
+    difficulty: "hard"
+    tags: ["troubleshooting", "performance"]
+    question: "A network experiences high latency and packet loss during business hours. A bandwidth monitor shows regular 95% utilization on the WAN link from 9 AM to 5 PM. What is the most effective long-term solution?"
+    choices:
+      - "A. Implement QoS policies to prioritize critical traffic and consider upgrading WAN bandwidth"
+      - "B. Disable all non-essential VLANs"
+      - "C. Reboot the WAN router every morning"
+      - "D. Switch from TCP to UDP for all applications"
+    answerIndex: 0
+    explanation: "High utilization causing latency/loss requires both traffic management (QoS to prioritize critical apps) and possibly a bandwidth upgrade. Disabling VLANs reduces segmentation. Rebooting is a band-aid. Switching to UDP would cause data loss in applications expecting reliability."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-043"
+    difficulty: "hard"
+    tags: ["troubleshooting", "switching"]
+    question: "After adding a new switch to the network, a broadcast storm occurs. STP was disabled on the new switch for 'faster convergence.' What should the admin do first?"
+    choices:
+      - "A. Re-enable STP on the new switch to break the Layer 2 loop"
+      - "B. Unplug all uplinks and start troubleshooting DNS"
+      - "C. Increase the MTU on all switches"
+      - "D. Configure all ports as trunk ports"
+    answerIndex: 0
+    explanation: "Broadcast storms are caused by Layer 2 loops, and STP's primary purpose is to prevent loops by blocking redundant paths. Re-enabling STP on the new switch immediately breaks the loop. Trunk configurations and MTU are unrelated to loop prevention."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-044"
+    difficulty: "hard"
+    tags: ["security", "mitm"]
+    question: "A penetration tester successfully performs an ARP spoofing attack on the LAN, intercepting traffic between two hosts. Which security measure would have prevented this?"
+    choices:
+      - "A. Dynamic ARP Inspection (DAI) on the switch"
+      - "B. Enabling HTTPS on the web server"
+      - "C. Configuring a longer DHCP lease time"
+      - "D. Using a stronger Wi-Fi password"
+    answerIndex: 0
+    explanation: "DAI validates ARP packets against the DHCP snooping binding table and drops spoofed ARP replies. HTTPS encrypts data but doesn't prevent ARP spoofing. DHCP lease time and Wi-Fi passwords are unrelated to wired ARP attacks."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-045"
+    difficulty: "hard"
+    tags: ["security", "zero-trust"]
+    question: "Which security model assumes no implicit trust for any user or device, regardless of whether they are inside or outside the network perimeter?"
+    choices:
+      - "A. Zero Trust"
+      - "B. Defense in Depth"
+      - "C. Castle and Moat"
+      - "D. Least Privilege (by itself)"
+    answerIndex: 0
+    explanation: "Zero Trust assumes all traffic is untrusted until verified, requiring continuous authentication and authorization regardless of network location. Defense in Depth uses multiple layers but may still trust internal traffic. Castle and Moat is the traditional perimeter model."
+    refs:
+      - "https://www.nist.gov/publications/zero-trust-architecture"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-046"
+    difficulty: "medium"
+    tags: ["infrastructure", "wan"]
+    question: "Which WAN technology uses label switching to forward packets along predetermined paths through a service provider's network?"
+    choices:
+      - "A. MPLS"
+      - "B. DSL"
+      - "C. Cable modem"
+      - "D. Dial-up"
+    answerIndex: 0
+    explanation: "MPLS (Multiprotocol Label Switching) uses labels to determine forwarding paths, enabling traffic engineering and QoS across provider networks. DSL and cable modem are access technologies. Dial-up uses analog phone lines."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc3031"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-047"
+    difficulty: "medium"
+    tags: ["infrastructure", "cloud"]
+    question: "A company uses a cloud-based virtual network that connects their on-premises data center to AWS. What is this type of connection commonly called?"
+    choices:
+      - "A. Hybrid cloud with a VPN or direct connect"
+      - "B. Public cloud-only deployment"
+      - "C. Private cloud"
+      - "D. Community cloud"
+    answerIndex: 0
+    explanation: "A hybrid cloud combines on-premises infrastructure with cloud services, connected via site-to-site VPN or dedicated connections like AWS Direct Connect. Public cloud is entirely hosted. Private cloud is entirely on-premises. Community cloud is shared among organizations."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-048"
+    difficulty: "medium"
+    tags: ["networking-concepts", "tcp", "handshake"]
+    question: "What is the correct sequence for the TCP three-way handshake?"
+    choices:
+      - "A. SYN → SYN-ACK → ACK"
+      - "B. ACK → SYN → SYN-ACK"
+      - "C. SYN → ACK → SYN-ACK"
+      - "D. SYN-ACK → SYN → ACK"
+    answerIndex: 0
+    explanation: "The TCP three-way handshake starts with the client sending SYN, the server responding with SYN-ACK, and the client completing with ACK. This establishes a reliable, bidirectional connection before data transfer begins."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc9293"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-049"
+    difficulty: "medium"
+    tags: ["operations", "disaster-recovery"]
+    question: "Which disaster recovery site type has equipment pre-installed and data partially replicated, allowing recovery within hours to a day?"
+    choices:
+      - "A. Warm site"
+      - "B. Hot site"
+      - "C. Cold site"
+      - "D. Mobile site"
+    answerIndex: 0
+    explanation: "A warm site has hardware installed and network connectivity but requires data restoration from backups, enabling recovery in hours. A hot site is fully replicated and can take over immediately. A cold site has only basic infrastructure and takes days/weeks."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-050"
+    difficulty: "medium"
+    tags: ["security", "hardening"]
+    question: "Which action is part of network device hardening?"
+    choices:
+      - "A. Disabling unused ports and services"
+      - "B. Enabling all services for maximum functionality"
+      - "C. Using default credentials for consistency"
+      - "D. Allowing Telnet for ease of management"
+    answerIndex: 0
+    explanation: "Device hardening includes disabling unused ports/services, changing default credentials, using encrypted management protocols (SSH over Telnet), and applying firmware updates. Leaving defaults or enabling unnecessary services increases the attack surface."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-051"
+    difficulty: "hard"
+    tags: ["infrastructure", "sdwan"]
+    question: "What advantage does SD-WAN provide over traditional WAN with MPLS?"
+    choices:
+      - "A. Application-aware routing that can dynamically choose the best path across multiple transport types"
+      - "B. Higher physical bandwidth on each link"
+      - "C. Elimination of the need for encryption"
+      - "D. Built-in Layer 1 redundancy"
+    answerIndex: 0
+    explanation: "SD-WAN provides application-aware routing, dynamically steering traffic across MPLS, broadband, and LTE based on real-time performance metrics. It doesn't increase physical bandwidth, still requires encryption for non-MPLS links, and doesn't provide physical redundancy."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-052"
+    difficulty: "hard"
+    tags: ["networking-concepts", "multicast"]
+    question: "Which IPv4 address range is reserved for multicast traffic?"
+    choices:
+      - "A. 224.0.0.0 – 239.255.255.255"
+      - "B. 240.0.0.0 – 255.255.255.255"
+      - "C. 10.0.0.0 – 10.255.255.255"
+      - "D. 169.254.0.0 – 169.254.255.255"
+    answerIndex: 0
+    explanation: "Class D addresses (224.0.0.0/4) are reserved for multicast. 240.0.0.0/4 is reserved (Class E). 10.0.0.0/8 is private (RFC 1918). 169.254.0.0/16 is link-local (APIPA). Multicast allows one-to-many communication without flooding the entire network."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5771"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-053"
+    difficulty: "hard"
+    tags: ["troubleshooting", "ip-conflict"]
+    question: "Two devices on the same subnet are configured with the same static IP address. What symptom is most commonly observed?"
+    choices:
+      - "A. Intermittent connectivity for both devices as ARP cache entries fluctuate"
+      - "B. Both devices work perfectly with no issues"
+      - "C. Only the first device that booted retains connectivity"
+      - "D. The switch port for both devices goes into err-disabled state"
+    answerIndex: 0
+    explanation: "IP address conflicts cause intermittent connectivity because ARP responses from both devices update neighbors' ARP caches alternately. Traffic is randomly sent to one or the other. Modern OSes often detect and warn about conflicts, but network behavior remains unpredictable."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-054"
+    difficulty: "hard"
+    tags: ["security", "radius", "tacacs"]
+    question: "What is a key difference between RADIUS and TACACS+ for AAA?"
+    choices:
+      - "A. TACACS+ encrypts the entire packet body while RADIUS only encrypts the password"
+      - "B. RADIUS uses TCP while TACACS+ uses UDP"
+      - "C. TACACS+ is an open standard while RADIUS is Cisco-proprietary"
+      - "D. RADIUS separates authentication and authorization while TACACS+ combines them"
+    answerIndex: 0
+    explanation: "TACACS+ encrypts the entire packet payload providing better security, while RADIUS only encrypts the password field. RADIUS uses UDP (1812/1813); TACACS+ uses TCP (49). RADIUS is the open standard; TACACS+ is Cisco-developed. TACACS+ separates AAA functions; RADIUS combines authentication and authorization."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-055"
+    difficulty: "hard"
+    tags: ["infrastructure", "qos"]
+    question: "An admin needs to ensure VoIP traffic gets priority over file downloads. Which QoS marking value in the DSCP field is commonly used for Expedited Forwarding (voice)?"
+    choices:
+      - "A. DSCP 46 (EF)"
+      - "B. DSCP 0 (Best Effort)"
+      - "C. DSCP 8 (CS1)"
+      - "D. DSCP 10 (AF11)"
+    answerIndex: 0
+    explanation: "DSCP 46 (Expedited Forwarding) is the standard marking for voice traffic, ensuring low latency, low jitter, and low loss. DSCP 0 is best effort (no priority). CS1 is scavenger class. AF11 is assured forwarding with low drop probability."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2598"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-056"
+    difficulty: "hard"
+    tags: ["security", "encryption"]
+    question: "Which encryption algorithm is considered insecure and should no longer be used for protecting network communications?"
+    choices:
+      - "A. DES (Data Encryption Standard)"
+      - "B. AES-256"
+      - "C. ChaCha20"
+      - "D. AES-128"
+    answerIndex: 0
+    explanation: "DES uses a 56-bit key and is vulnerable to brute-force attacks with modern hardware. AES-128, AES-256, and ChaCha20 are all considered secure. 3DES is also deprecated due to the Sweet32 attack. AES is the current standard."
+    refs:
+      - "https://www.nist.gov/publications/data-encryption-standard-des"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-057"
+    difficulty: "medium"
+    tags: ["operations", "netflow"]
+    question: "Which protocol collects IP traffic statistics including source/destination IP, ports, and byte counts, and exports them to a flow collector for analysis?"
+    choices:
+      - "A. NetFlow / IPFIX"
+      - "B. SNMP"
+      - "C. CDP"
+      - "D. LLDP"
+    answerIndex: 0
+    explanation: "NetFlow (and its IETF standard IPFIX) exports flow data including source/destination IPs, ports, protocols, and byte counts for traffic analysis. SNMP monitors device health. CDP and LLDP are neighbor discovery protocols."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc7011"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-058"
+    difficulty: "medium"
+    tags: ["networking-concepts", "proxy"]
+    question: "What is the primary function of a forward proxy server?"
+    choices:
+      - "A. It makes requests to the internet on behalf of internal clients, providing caching and content filtering"
+      - "B. It distributes traffic across multiple backend servers"
+      - "C. It provides DNS resolution for external domains"
+      - "D. It encrypts all internal LAN traffic"
+    answerIndex: 0
+    explanation: "A forward proxy acts on behalf of clients, forwarding their requests to the internet. It can cache content and filter URLs. A reverse proxy (load balancer) distributes traffic to backend servers. DNS and encryption are separate functions."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-059"
+    difficulty: "hard"
+    tags: ["troubleshooting", "mtu"]
+    question: "A user can browse websites but fails to download large files over a VPN tunnel. Small pings succeed but large pings (1400+ bytes with DF bit) fail. What is the most likely issue?"
+    choices:
+      - "A. MTU/MSS mismatch — the VPN overhead causes packets exceeding the path MTU to be dropped"
+      - "B. The DNS server is returning incorrect addresses"
+      - "C. The VPN license has expired"
+      - "D. The user's MAC address is blocked"
+    answerIndex: 0
+    explanation: "VPN encapsulation adds overhead (typically 50-80 bytes for IPsec), reducing the effective MTU. If the Don't Fragment bit is set and a packet exceeds the path MTU, it's dropped. Adjusting TCP MSS clamping on the VPN gateway resolves this."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc1191"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-060"
+    difficulty: "hard"
+    tags: ["security", "dmz"]
+    question: "A company hosts a public web server and wants to protect internal resources. Where should the web server be placed?"
+    choices:
+      - "A. In a DMZ (demilitarized zone) between two firewalls or on a separate firewall interface"
+      - "B. On the internal LAN alongside employee workstations"
+      - "C. Directly on the internet without any firewall"
+      - "D. On the same VLAN as the database servers"
+    answerIndex: 0
+    explanation: "A DMZ is a network segment that sits between the internet and internal network, protected by firewalls on both sides. Public-facing servers in the DMZ can be accessed from the internet while the internal network remains protected from direct exposure."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-061"
+    difficulty: "easy"
+    tags: ["networking-concepts", "protocols"]
+    question: "Which protocol provides automatic IP address assignment to hosts on a network?"
+    choices:
+      - "A. DHCP"
+      - "B. DNS"
+      - "C. SNMP"
+      - "D. FTP"
+    answerIndex: 0
+    explanation: "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to hosts. DNS resolves names. SNMP monitors devices. FTP transfers files."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc2131"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-062"
+    difficulty: "easy"
+    tags: ["infrastructure", "rack"]
+    question: "In a standard 19-inch server rack, what does 'U' measure?"
+    choices:
+      - "A. 1.75 inches (44.45 mm) of vertical rack space"
+      - "B. The width of the rack in inches"
+      - "C. The depth of the rack in centimeters"
+      - "D. The weight capacity in kilograms"
+    answerIndex: 0
+    explanation: "One rack unit (1U) equals 1.75 inches (44.45 mm) of vertical space in a standard 19-inch rack. A 42U rack is about 73.5 inches tall. The width (19 inches) and depth vary by manufacturer."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-063"
+    difficulty: "easy"
+    tags: ["networking-concepts", "bandwidth"]
+    question: "What is the difference between bandwidth and throughput?"
+    choices:
+      - "A. Bandwidth is the theoretical maximum capacity; throughput is the actual data rate achieved"
+      - "B. They mean exactly the same thing"
+      - "C. Throughput is always higher than bandwidth"
+      - "D. Bandwidth measures latency; throughput measures jitter"
+    answerIndex: 0
+    explanation: "Bandwidth is the maximum theoretical data rate of a link (e.g., 1 Gbps). Throughput is the actual measured data transfer rate, which is always lower due to overhead, congestion, and protocol inefficiencies."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-064"
+    difficulty: "medium"
+    tags: ["operations", "mfa"]
+    question: "A company implements multi-factor authentication requiring a password and a fingerprint scan. Which authentication factors are being used?"
+    choices:
+      - "A. Something you know and something you are"
+      - "B. Something you know and something you have"
+      - "C. Something you are and something you have"
+      - "D. Two instances of something you know"
+    answerIndex: 0
+    explanation: "A password is 'something you know' and a fingerprint is 'something you are' (biometric). For true MFA, factors must be from different categories: know (passwords/PINs), have (tokens/smart cards), are (biometrics)."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-065"
+    difficulty: "medium"
+    tags: ["infrastructure", "sdn"]
+    question: "In a Software-Defined Networking (SDN) architecture, which plane is responsible for making forwarding decisions and is centralized in an SDN controller?"
+    choices:
+      - "A. Control plane"
+      - "B. Data plane"
+      - "C. Management plane"
+      - "D. Physical plane"
+    answerIndex: 0
+    explanation: "SDN separates the control plane (forwarding decisions) from the data plane (packet forwarding). The control plane is centralized in the SDN controller, which programs forwarding rules into network devices. The management plane handles configuration and monitoring."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-066"
+    difficulty: "medium"
+    tags: ["security", "certificate"]
+    question: "A user's browser shows a certificate warning when accessing an internal website. The certificate is valid and not expired. What is the most likely cause?"
+    choices:
+      - "A. The certificate was issued by an internal CA that is not trusted by the browser"
+      - "B. The server's IP address changed"
+      - "C. The DNS TTL is too high"
+      - "D. The server is using HTTP instead of HTTPS"
+    answerIndex: 0
+    explanation: "Browsers trust certificates from publicly recognized CAs. An internal/private CA certificate must be explicitly added to the browser's trust store. IP changes don't cause certificate warnings. DNS TTL is unrelated. HTTP wouldn't show a cert warning at all."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-067"
+    difficulty: "hard"
+    tags: ["troubleshooting", "asymmetric-routing"]
+    question: "A stateful firewall is dropping return traffic for sessions that appear to originate externally. Investigation reveals traffic takes a different path on the return. What is this condition called?"
+    choices:
+      - "A. Asymmetric routing"
+      - "B. Route poisoning"
+      - "C. Split horizon"
+      - "D. Route redistribution"
+    answerIndex: 0
+    explanation: "Asymmetric routing occurs when outbound and return traffic take different paths. Stateful firewalls track sessions and may drop return traffic that arrives on a different interface than expected. Solutions include redundant firewall state sync or route adjustments."
+    refs:
+      - "https://www.comptia.org/certifications/network"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-068"
+    difficulty: "hard"
+    tags: ["infrastructure", "virtualization"]
+    question: "Which network virtualization technology allows creating multiple isolated Layer 2 networks over a shared Layer 3 infrastructure using a 24-bit segment ID?"
+    choices:
+      - "A. VXLAN"
+      - "B. Traditional VLAN (802.1Q)"
+      - "C. GRE tunnel"
+      - "D. MPLS"
+    answerIndex: 0
+    explanation: "VXLAN (Virtual Extensible LAN) encapsulates Layer 2 frames in UDP and uses a 24-bit VNI (VXLAN Network Identifier) supporting up to 16 million segments. 802.1Q VLANs are limited to 4094. GRE is a generic tunneling protocol. MPLS uses labels, not segment IDs."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc7348"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-069"
+    difficulty: "hard"
+    tags: ["security", "dos"]
+    question: "A web server is overwhelmed by thousands of SYN packets from spoofed source addresses, exhausting its connection table. What type of attack is this?"
+    choices:
+      - "A. SYN flood attack"
+      - "B. DNS amplification attack"
+      - "C. ARP spoofing"
+      - "D. VLAN hopping"
+    answerIndex: 0
+    explanation: "A SYN flood sends many TCP SYN packets with spoofed sources. The server allocates resources for half-open connections that never complete, exhausting its connection table. Mitigation includes SYN cookies, rate limiting, and firewall rules."
+    refs:
+      - "https://www.cloudflare.com/learning/ddos/syn-flood-ddos-attack/"
+    author: "ThanhNguyxn"
+
+  - id: "nplus-expand-070"
+    difficulty: "hard"
+    tags: ["troubleshooting", "spanning-tree"]
+    question: "After a network topology change, some switches show ports stuck in STP blocking state for an extended period. Users on those segments lose connectivity for 30-50 seconds. What is the recommended improvement?"
+    choices:
+      - "A. Migrate from legacy STP (802.1D) to RSTP (802.1w) for faster convergence"
+      - "B. Disable STP entirely on all switches"
+      - "C. Increase the STP hello timer to 10 seconds"
+      - "D. Set all ports to PortFast mode"
+    answerIndex: 0
+    explanation: "Legacy STP (802.1D) can take 30-50 seconds to converge. RSTP (802.1w) converges in seconds by proactively negotiating port roles. Disabling STP risks loops. Increasing hello timers slows convergence. PortFast on non-edge ports creates loop risk."
+    refs:
+      - "https://www.ieee802.org/1/pages/802.1w.html"
+    author: "ThanhNguyxn"

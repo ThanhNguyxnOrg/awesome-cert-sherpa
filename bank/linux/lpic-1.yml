@@ -464,3 +464,1053 @@ questions:
       - "https://man7.org/linux/man-pages/man8/iptables.8.html"
       - "https://learning.lpi.org/en/learning-materials/102-500/"
     author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-001"
+    difficulty: "easy"
+    tags: ["system-architecture", "bios-uefi", "boot"]
+    question: "What is the primary difference between BIOS and UEFI firmware?"
+    choices:
+      - "A. UEFI supports GPT partition tables and larger disks natively, while BIOS uses MBR"
+      - "B. BIOS is faster than UEFI for modern hardware"
+      - "C. UEFI cannot boot from USB devices"
+      - "D. BIOS supports Secure Boot while UEFI does not"
+    answerIndex: 0
+    explanation: "UEFI (Unified Extensible Firmware Interface) supports GPT partition tables enabling disks larger than 2TB, provides a Secure Boot feature, and offers a more modern boot process. BIOS relies on MBR which limits disk size to 2TB."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/101/101.1/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-002"
+    difficulty: "easy"
+    tags: ["system-architecture", "kernel", "modules"]
+    question: "Which command lists all currently loaded kernel modules?"
+    choices:
+      - "A. lsmod"
+      - "B. modinfo"
+      - "C. insmod --list"
+      - "D. dmesg --modules"
+    answerIndex: 0
+    explanation: "lsmod reads /proc/modules and displays all currently loaded kernel modules along with their size and dependency count. modinfo shows details about a specific module, not a list of loaded ones."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/lsmod.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-003"
+    difficulty: "easy"
+    tags: ["system-architecture", "dmesg", "hardware"]
+    question: "Which command displays kernel ring buffer messages, useful for diagnosing hardware detection at boot?"
+    choices:
+      - "A. dmesg"
+      - "B. syslog"
+      - "C. journalctl --hardware"
+      - "D. lshw"
+    answerIndex: 0
+    explanation: "dmesg prints the kernel ring buffer which contains messages from boot, including hardware detection, driver loading, and kernel errors. journalctl can show similar data but dmesg is the traditional direct interface."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/dmesg.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-004"
+    difficulty: "medium"
+    tags: ["system-architecture", "udev", "devices"]
+    question: "What is the role of udev in a Linux system?"
+    choices:
+      - "A. It dynamically creates and manages device nodes in /dev when hardware is detected"
+      - "B. It schedules cron jobs for device maintenance"
+      - "C. It manages network interface IP addresses"
+      - "D. It compiles kernel modules on demand"
+    answerIndex: 0
+    explanation: "udev is the device manager for the Linux kernel. It dynamically creates, removes, and renames device nodes in /dev based on rules when hardware events (hotplug) occur. It replaces the old static /dev approach."
+    refs:
+      - "https://man7.org/linux/man-pages/man7/udev.7.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-005"
+    difficulty: "medium"
+    tags: ["system-architecture", "proc", "pseudo-filesystem"]
+    question: "What type of information does the /proc filesystem provide?"
+    choices:
+      - "A. Runtime information about the kernel, processes, and hardware configuration"
+      - "B. Permanent storage for user configuration files"
+      - "C. Backup copies of system binaries"
+      - "D. Log files from all system services"
+    answerIndex: 0
+    explanation: "/proc is a virtual (pseudo) filesystem that provides an interface to kernel data structures. It contains process information (/proc/PID/), CPU info (/proc/cpuinfo), memory info (/proc/meminfo), and kernel parameters."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/proc.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-006"
+    difficulty: "easy"
+    tags: ["linux-install", "package-management", "apt"]
+    question: "Which command installs a package named 'nginx' on a Debian-based system?"
+    choices:
+      - "A. apt install nginx"
+      - "B. yum install nginx"
+      - "C. pacman -S nginx"
+      - "D. zypper install nginx"
+    answerIndex: 0
+    explanation: "apt is the package manager for Debian-based distributions (Debian, Ubuntu, Mint). yum/dnf is for Red Hat-based, pacman for Arch, and zypper for SUSE."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/apt.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-007"
+    difficulty: "easy"
+    tags: ["linux-install", "package-management", "rpm"]
+    question: "Which command queries whether the package 'httpd' is installed on an RPM-based system?"
+    choices:
+      - "A. rpm -q httpd"
+      - "B. rpm -i httpd"
+      - "C. rpm -e httpd"
+      - "D. rpm -V httpd"
+    answerIndex: 0
+    explanation: "rpm -q queries whether a package is installed and shows its version. -i installs a package, -e removes one, and -V verifies installed files against the RPM database."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/rpm.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-008"
+    difficulty: "medium"
+    tags: ["linux-install", "package-management", "dpkg"]
+    question: "Which command lists all files installed by a specific .deb package?"
+    choices:
+      - "A. dpkg -L <package-name>"
+      - "B. dpkg -l <package-name>"
+      - "C. dpkg -S <package-name>"
+      - "D. dpkg -c <package-name>"
+    answerIndex: 0
+    explanation: "dpkg -L lists all files installed by a named package. dpkg -l lists packages matching a pattern, dpkg -S searches for which package owns a file, and dpkg -c lists the contents of a .deb archive file."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/dpkg.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-009"
+    difficulty: "medium"
+    tags: ["linux-install", "grub", "bootloader"]
+    question: "After modifying /etc/default/grub, which command regenerates the GRUB2 configuration file?"
+    choices:
+      - "A. grub-mkconfig -o /boot/grub/grub.cfg"
+      - "B. grub-install /dev/sda"
+      - "C. update-rc.d grub defaults"
+      - "D. grub-reboot 0"
+    answerIndex: 0
+    explanation: "grub-mkconfig reads /etc/default/grub and scripts in /etc/grub.d/ to generate the GRUB configuration file. grub-install installs the bootloader to a disk's boot sector but does not regenerate the configuration."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/102/102.2/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-010"
+    difficulty: "medium"
+    tags: ["linux-install", "shared-libraries", "ldconfig"]
+    question: "Which command updates the dynamic linker cache after installing a new shared library?"
+    choices:
+      - "A. ldconfig"
+      - "B. ldd"
+      - "C. ld"
+      - "D. ldmod"
+    answerIndex: 0
+    explanation: "ldconfig creates the necessary links and cache for the most recent shared libraries found in /etc/ld.so.conf directories. ldd shows shared library dependencies of a binary but does not update the cache."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/ldconfig.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-011"
+    difficulty: "easy"
+    tags: ["gnu-commands", "ls", "files"]
+    question: "Which option makes 'ls' display hidden files (those starting with a dot)?"
+    choices:
+      - "A. -a"
+      - "B. -l"
+      - "C. -h"
+      - "D. -r"
+    answerIndex: 0
+    explanation: "ls -a shows all files including hidden ones (names starting with '.') and the special '.' and '..' entries. -l shows long format, -h makes sizes human-readable, and -r reverses sort order."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/ls.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-012"
+    difficulty: "easy"
+    tags: ["gnu-commands", "cp", "files"]
+    question: "Which 'cp' option copies directories recursively?"
+    choices:
+      - "A. -r"
+      - "B. -f"
+      - "C. -v"
+      - "D. -l"
+    answerIndex: 0
+    explanation: "cp -r (or -R) copies directories and their contents recursively. -f forces overwrite, -v shows verbose output, and -l creates hard links instead of copying."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/cp.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-013"
+    difficulty: "easy"
+    tags: ["gnu-commands", "grep", "text-processing"]
+    question: "Which grep option makes the search case-insensitive?"
+    choices:
+      - "A. -i"
+      - "B. -v"
+      - "C. -c"
+      - "D. -n"
+    answerIndex: 0
+    explanation: "grep -i performs a case-insensitive match. -v inverts the match (shows non-matching lines), -c counts matching lines, and -n prefixes output with line numbers."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/grep.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-014"
+    difficulty: "medium"
+    tags: ["gnu-commands", "find", "file-search"]
+    question: "Which command finds all files larger than 100MB in the /var directory?"
+    choices:
+      - "A. find /var -size +100M"
+      - "B. find /var -maxsize 100M"
+      - "C. locate /var --size 100M"
+      - "D. ls -R /var --min-size=100M"
+    answerIndex: 0
+    explanation: "find with -size +100M matches files larger than 100 megabytes. The + prefix means 'greater than'. locate searches a pre-built database by name, not by size."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/find.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-015"
+    difficulty: "medium"
+    tags: ["gnu-commands", "sed", "text-processing"]
+    question: "Which sed command replaces all occurrences of 'foo' with 'bar' in a file and edits it in place?"
+    choices:
+      - "A. sed -i 's/foo/bar/g' file.txt"
+      - "B. sed 's/foo/bar/' file.txt"
+      - "C. sed -e 'replace foo bar' file.txt"
+      - "D. sed --modify 's/foo/bar/g' file.txt"
+    answerIndex: 0
+    explanation: "sed -i edits the file in place. The 's/foo/bar/g' expression substitutes all occurrences (g flag) of 'foo' with 'bar'. Without -i, sed only prints to stdout. Without g, only the first occurrence per line is replaced."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/sed.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-016"
+    difficulty: "medium"
+    tags: ["gnu-commands", "awk", "text-processing"]
+    question: "Which awk command prints the third field of each line in a colon-delimited file?"
+    choices:
+      - "A. awk -F: '{print $3}' file"
+      - "B. awk '{print $3}' file"
+      - "C. awk -d: '{print $3}' file"
+      - "D. awk --field 3 file"
+    answerIndex: 0
+    explanation: "awk -F: sets the field separator to colon. {print $3} prints the third field. Without -F:, awk defaults to whitespace as the delimiter, which would produce incorrect results for colon-delimited files like /etc/passwd."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/gawk.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-017"
+    difficulty: "medium"
+    tags: ["gnu-commands", "pipe", "redirection"]
+    question: "What does the command 'ls -l | wc -l' do?"
+    choices:
+      - "A. Counts the number of lines in the output of ls -l"
+      - "B. Lists files and counts their total size"
+      - "C. Lists files sorted by line count"
+      - "D. Counts the number of words in file names"
+    answerIndex: 0
+    explanation: "The pipe (|) sends the stdout of ls -l to stdin of wc -l, which counts lines. This effectively counts the number of entries listed (plus one header line from ls -l)."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/wc.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-018"
+    difficulty: "hard"
+    tags: ["gnu-commands", "xargs", "pipeline"]
+    question: "What does the command 'find /tmp -name '*.log' -print0 | xargs -0 rm' accomplish?"
+    choices:
+      - "A. Safely deletes all .log files in /tmp, handling filenames with spaces correctly"
+      - "B. Lists all .log files and then removes the xargs command"
+      - "C. Compresses all .log files in /tmp"
+      - "D. Moves all .log files to the trash"
+    answerIndex: 0
+    explanation: "-print0 and -0 use null characters as delimiters instead of newlines, safely handling filenames containing spaces, quotes, or special characters. xargs builds and executes rm commands from the input."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/xargs.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-019"
+    difficulty: "easy"
+    tags: ["gnu-commands", "tar", "archiving"]
+    question: "Which command creates a gzip-compressed tar archive of the /etc directory?"
+    choices:
+      - "A. tar czf etc-backup.tar.gz /etc"
+      - "B. tar xzf etc-backup.tar.gz /etc"
+      - "C. gzip /etc > etc-backup.tar.gz"
+      - "D. tar -list /etc > etc-backup.tar.gz"
+    answerIndex: 0
+    explanation: "tar czf creates (c) a gzip-compressed (z) archive file (f). x extracts instead of creating. The order czf means: create, gzip, filename. The archive contains the directory structure of /etc."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/tar.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-020"
+    difficulty: "medium"
+    tags: ["gnu-commands", "sort-uniq", "text-processing"]
+    question: "Which command pipeline counts the number of unique lines in a file?"
+    choices:
+      - "A. sort file.txt | uniq -c"
+      - "B. uniq -c file.txt"
+      - "C. cat file.txt | count --unique"
+      - "D. wc -u file.txt"
+    answerIndex: 0
+    explanation: "uniq requires sorted input to detect duplicates. sort | uniq -c sorts first, then counts occurrences of each unique line. Running uniq without sort only removes adjacent duplicates."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/uniq.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-021"
+    difficulty: "easy"
+    tags: ["devices-filesystems", "fdisk", "partitions"]
+    question: "Which command is traditionally used to create and manage MBR partition tables on a disk?"
+    choices:
+      - "A. fdisk"
+      - "B. mkfs"
+      - "C. mount"
+      - "D. lsblk"
+    answerIndex: 0
+    explanation: "fdisk is the classic interactive partitioning tool for MBR disks. mkfs creates filesystems on partitions, mount attaches filesystems, and lsblk lists block devices."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/fdisk.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-022"
+    difficulty: "easy"
+    tags: ["devices-filesystems", "mkfs", "filesystem"]
+    question: "Which command creates an ext4 filesystem on /dev/sdb1?"
+    choices:
+      - "A. mkfs.ext4 /dev/sdb1"
+      - "B. format /dev/sdb1 ext4"
+      - "C. fsck.ext4 /dev/sdb1"
+      - "D. mount -t ext4 /dev/sdb1"
+    answerIndex: 0
+    explanation: "mkfs.ext4 (or mkfs -t ext4) creates a new ext4 filesystem on the specified partition. fsck checks/repairs existing filesystems, and mount attaches an existing filesystem to a directory."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/mkfs.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-023"
+    difficulty: "medium"
+    tags: ["devices-filesystems", "mount", "fstab"]
+    question: "In /etc/fstab, what does the 'noatime' mount option do?"
+    choices:
+      - "A. Prevents updating the file access timestamp on reads, improving performance"
+      - "B. Disables all timestamps on the filesystem"
+      - "C. Mounts the filesystem as read-only"
+      - "D. Prevents automatic mounting at boot"
+    answerIndex: 0
+    explanation: "noatime skips updating the access time (atime) metadata on file reads, reducing disk writes and improving performance. The modification time (mtime) is still updated when files are written."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/mount.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-024"
+    difficulty: "medium"
+    tags: ["devices-filesystems", "lvm", "storage"]
+    question: "What is the correct order of LVM components from physical storage to usable filesystem?"
+    choices:
+      - "A. Physical Volume (PV) → Volume Group (VG) → Logical Volume (LV)"
+      - "B. Volume Group (VG) → Physical Volume (PV) → Logical Volume (LV)"
+      - "C. Logical Volume (LV) → Volume Group (VG) → Physical Volume (PV)"
+      - "D. Physical Volume (PV) → Logical Volume (LV) → Volume Group (VG)"
+    answerIndex: 0
+    explanation: "LVM layers are: PVs (physical disks/partitions) are combined into VGs (storage pools), from which LVs (logical partitions) are allocated. Filesystems are then created on LVs."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/lvm.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-025"
+    difficulty: "medium"
+    tags: ["devices-filesystems", "df-du", "disk-usage"]
+    question: "What is the difference between 'df' and 'du' commands?"
+    choices:
+      - "A. df shows filesystem-level disk usage while du shows directory/file-level usage"
+      - "B. df shows directory usage while du shows filesystem usage"
+      - "C. Both commands show identical information"
+      - "D. df works only on ext4 while du works on all filesystems"
+    answerIndex: 0
+    explanation: "df (disk free) reports usage at the filesystem/mount level — total, used, and available space. du (disk usage) calculates the actual space used by files and directories. They can show different values due to deleted-but-open files."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/df.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-026"
+    difficulty: "easy"
+    tags: ["shells-scripting", "bash", "variables"]
+    question: "How do you assign the value 'hello' to a variable named 'greeting' in bash?"
+    choices:
+      - "A. greeting=hello"
+      - "B. set greeting = hello"
+      - "C. $greeting = hello"
+      - "D. var greeting = hello"
+    answerIndex: 0
+    explanation: "In bash, variable assignment uses the format name=value with no spaces around the equals sign. Using spaces causes bash to interpret it as a command. The $ prefix is used for referencing variables, not assigning them."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-027"
+    difficulty: "easy"
+    tags: ["shells-scripting", "bash", "shebang"]
+    question: "What does the first line '#!/bin/bash' in a script indicate?"
+    choices:
+      - "A. It specifies the interpreter that should execute the script"
+      - "B. It is a comment that can be safely removed"
+      - "C. It sets the script's file permissions"
+      - "D. It imports the bash library functions"
+    answerIndex: 0
+    explanation: "The shebang (#!) followed by the path to an interpreter tells the kernel which program should execute the script. Without it, the system uses the current shell, which may not be bash."
+    refs:
+      - "https://man7.org/linux/man-pages/man2/execve.2.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-028"
+    difficulty: "medium"
+    tags: ["shells-scripting", "bash", "exit-codes"]
+    question: "What does an exit code of 0 mean when a command finishes?"
+    choices:
+      - "A. The command executed successfully"
+      - "B. The command encountered a fatal error"
+      - "C. The command was not found"
+      - "D. The command is still running in the background"
+    answerIndex: 0
+    explanation: "By convention, exit code 0 indicates success. Non-zero codes indicate various types of failure (1 for general errors, 2 for misuse, 126 for not executable, 127 for not found, etc.)."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-029"
+    difficulty: "medium"
+    tags: ["shells-scripting", "bash", "conditionals"]
+    question: "In a bash script, which construct tests if a file exists?"
+    choices:
+      - "A. if [ -f /path/to/file ]; then"
+      - "B. if [ -x /path/to/file ]; then"
+      - "C. if [ -d /path/to/file ]; then"
+      - "D. if [ -w /path/to/file ]; then"
+    answerIndex: 0
+    explanation: "-f tests if a path exists and is a regular file. -x tests if a file is executable, -d tests if it is a directory, and -w tests if it is writable. All require the test/[ command."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/test.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-030"
+    difficulty: "medium"
+    tags: ["shells-scripting", "bash", "loops"]
+    question: "Which bash loop iterates over each file in the current directory?"
+    choices:
+      - "A. for f in *; do echo $f; done"
+      - "B. while f in *; do echo $f; done"
+      - "C. foreach f (*) echo $f end"
+      - "D. loop f = *; echo $f; endloop"
+    answerIndex: 0
+    explanation: "The 'for var in list; do commands; done' syntax iterates over items. The glob pattern * expands to all non-hidden files in the current directory. 'while' requires a condition, not a list."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-031"
+    difficulty: "hard"
+    tags: ["shells-scripting", "regex", "text-processing"]
+    question: "In an extended regular expression, what does the pattern '^[0-9]{3}-[0-9]{4}$' match?"
+    choices:
+      - "A. A string consisting of exactly 3 digits, a hyphen, and exactly 4 digits"
+      - "B. Any string containing digits and hyphens"
+      - "C. A string starting with 3 zeros"
+      - "D. A phone number in any format"
+    answerIndex: 0
+    explanation: "^ anchors to the start, [0-9]{3} matches exactly 3 digits, - matches a literal hyphen, [0-9]{4} matches exactly 4 digits, and $ anchors to the end. The entire string must match this exact pattern."
+    refs:
+      - "https://man7.org/linux/man-pages/man7/regex.7.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-032"
+    difficulty: "medium"
+    tags: ["shells-scripting", "bash", "environment"]
+    question: "What is the difference between 'export VAR=value' and 'VAR=value' in bash?"
+    choices:
+      - "A. export makes the variable available to child processes; without export, it is only available in the current shell"
+      - "B. export writes the variable to a configuration file"
+      - "C. export makes the variable read-only"
+      - "D. There is no difference in modern bash"
+    answerIndex: 0
+    explanation: "export marks a variable for export to the environment, making it available to all child processes spawned from the shell. Without export, the variable is a shell variable visible only in the current shell session."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-033"
+    difficulty: "easy"
+    tags: ["ui-desktops", "display-server", "x11"]
+    question: "What is the DISPLAY environment variable used for in X11?"
+    choices:
+      - "A. It specifies which X server and screen to use for graphical output"
+      - "B. It sets the screen resolution"
+      - "C. It controls the desktop wallpaper"
+      - "D. It defines the default terminal emulator"
+    answerIndex: 0
+    explanation: "The DISPLAY variable (format: [host]:display[.screen]) tells X11 clients which display server to connect to. For local displays, it is typically :0. For remote displays, it includes the hostname."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/106/106.1/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-034"
+    difficulty: "medium"
+    tags: ["ui-desktops", "wayland", "display-server"]
+    question: "What is Wayland's primary architectural difference from X11?"
+    choices:
+      - "A. Wayland's compositor acts as the display server directly, removing the need for a separate X server"
+      - "B. Wayland requires a dedicated GPU while X11 does not"
+      - "C. Wayland cannot handle multiple monitors"
+      - "D. Wayland only works with GNOME desktop environment"
+    answerIndex: 0
+    explanation: "In Wayland, the compositor IS the display server — it directly manages windows, input, and rendering. X11 has a separate X server between clients and the compositor, adding complexity and latency."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/106/106.1/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-035"
+    difficulty: "easy"
+    tags: ["admin-tasks", "useradd", "user-management"]
+    question: "Which command creates a new user account named 'developer' with a home directory?"
+    choices:
+      - "A. useradd -m developer"
+      - "B. adduser -create developer"
+      - "C. usercreate developer"
+      - "D. passwd developer"
+    answerIndex: 0
+    explanation: "useradd -m creates the user and their home directory. Without -m, the home directory may not be created on some distributions. passwd sets or changes a password for an existing user."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/useradd.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-036"
+    difficulty: "easy"
+    tags: ["admin-tasks", "crontab", "scheduling"]
+    question: "What does the cron expression '0 3 * * 1' mean?"
+    choices:
+      - "A. Run at 3:00 AM every Monday"
+      - "B. Run every 3 minutes on the first day of the month"
+      - "C. Run at 3:00 AM on January 1st"
+      - "D. Run every Monday at 1:00 AM"
+    answerIndex: 0
+    explanation: "Cron format is: minute hour day-of-month month day-of-week. 0=minute 0, 3=hour 3 (3AM), *=every day, *=every month, 1=Monday. So it runs at 03:00 every Monday."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/crontab.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-037"
+    difficulty: "medium"
+    tags: ["admin-tasks", "chmod", "permissions"]
+    question: "What permission does the octal value 755 represent?"
+    choices:
+      - "A. Owner: rwx, Group: r-x, Others: r-x"
+      - "B. Owner: rwx, Group: rwx, Others: r--"
+      - "C. Owner: rw-, Group: r-x, Others: r-x"
+      - "D. Owner: rwx, Group: rw-, Others: rw-"
+    answerIndex: 0
+    explanation: "7=rwx (4+2+1), 5=r-x (4+0+1). Owner gets full access (read, write, execute), while group and others get read and execute. This is the standard permission for scripts and directories."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/chmod.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-038"
+    difficulty: "medium"
+    tags: ["admin-tasks", "chown", "ownership"]
+    question: "Which command changes the owner of file.txt to user 'alice' and group 'developers'?"
+    choices:
+      - "A. chown alice:developers file.txt"
+      - "B. chmod alice:developers file.txt"
+      - "C. chgrp alice:developers file.txt"
+      - "D. usermod alice:developers file.txt"
+    answerIndex: 0
+    explanation: "chown changes file ownership. The user:group syntax sets both simultaneously. chmod changes permissions (not ownership), chgrp changes only the group, and usermod modifies user accounts."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/chown.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-039"
+    difficulty: "easy"
+    tags: ["gnu-commands", "cat", "files"]
+    question: "Which command displays the contents of a file to standard output?"
+    choices:
+      - "A. cat"
+      - "B. echo"
+      - "C. write"
+      - "D. type"
+    answerIndex: 0
+    explanation: "cat (concatenate) reads files and outputs their contents to stdout. echo outputs its arguments as text, write sends messages to other users, and type is a shell builtin that shows command type."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/cat.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-040"
+    difficulty: "medium"
+    tags: ["gnu-commands", "head-tail", "text-processing"]
+    question: "Which command displays the last 20 lines of a log file and continues to follow new output?"
+    choices:
+      - "A. tail -n 20 -f logfile"
+      - "B. head -n 20 -f logfile"
+      - "C. cat -n 20 -f logfile"
+      - "D. less -f logfile"
+    answerIndex: 0
+    explanation: "tail -n 20 shows the last 20 lines, and -f (follow) keeps the output open, displaying new lines as they are appended. This is invaluable for monitoring log files in real time."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/tail.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-041"
+    difficulty: "hard"
+    tags: ["gnu-commands", "redirection", "file-descriptors"]
+    question: "What does the redirection '2>&1' accomplish in bash?"
+    choices:
+      - "A. Redirects standard error (fd 2) to the same destination as standard output (fd 1)"
+      - "B. Redirects standard output to standard error"
+      - "C. Creates a new file descriptor numbered 2"
+      - "D. Pipes the output of command 2 to command 1"
+    answerIndex: 0
+    explanation: "2>&1 duplicates file descriptor 1 (stdout) onto file descriptor 2 (stderr), causing error output to go to the same place as standard output. This is commonly used to capture all output in a single stream."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-042"
+    difficulty: "medium"
+    tags: ["devices-filesystems", "swap", "memory"]
+    question: "Which commands are used to enable a swap partition?"
+    choices:
+      - "A. mkswap to format it, then swapon to activate it"
+      - "B. fdisk to create it, then mount to activate it"
+      - "C. mkfs.swap to format it, then enable-swap to activate it"
+      - "D. swapon to format and activate in one step"
+    answerIndex: 0
+    explanation: "mkswap formats a partition or file as swap space, and swapon activates it. The swap partition must be formatted before it can be enabled. For persistence, add an entry in /etc/fstab."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/mkswap.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-043"
+    difficulty: "hard"
+    tags: ["devices-filesystems", "fsck", "repair"]
+    question: "Why should fsck NOT be run on a mounted filesystem?"
+    choices:
+      - "A. It may corrupt data because the filesystem state can change while fsck operates"
+      - "B. fsck cannot detect the filesystem type when mounted"
+      - "C. The kernel prevents fsck from running on mounted filesystems entirely"
+      - "D. fsck is slower on mounted filesystems"
+    answerIndex: 0
+    explanation: "Running fsck on a mounted filesystem risks data corruption because active writes can change the filesystem structure while fsck is checking and repairing it. Always unmount first or run on read-only mounted root from initramfs."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/fsck.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-044"
+    difficulty: "easy"
+    tags: ["system-architecture", "runlevels", "systemd"]
+    question: "In systemd, what is the equivalent of the traditional SysVinit runlevel 3 (multi-user, no GUI)?"
+    choices:
+      - "A. multi-user.target"
+      - "B. graphical.target"
+      - "C. rescue.target"
+      - "D. emergency.target"
+    answerIndex: 0
+    explanation: "multi-user.target is the systemd equivalent of runlevel 3 — a fully operational multi-user system without a graphical desktop. graphical.target corresponds to runlevel 5 (with GUI)."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/101/101.3/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-045"
+    difficulty: "medium"
+    tags: ["system-architecture", "systemd", "services"]
+    question: "Which systemctl command enables a service to start automatically at boot?"
+    choices:
+      - "A. systemctl enable <service>"
+      - "B. systemctl start <service>"
+      - "C. systemctl activate <service>"
+      - "D. systemctl autostart <service>"
+    answerIndex: 0
+    explanation: "systemctl enable creates symbolic links so the service is started at boot. systemctl start starts it immediately but does not persist across reboots. Both are often used together."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/systemctl.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-046"
+    difficulty: "medium"
+    tags: ["system-architecture", "journalctl", "logging"]
+    question: "Which command shows only error-level messages from the systemd journal?"
+    choices:
+      - "A. journalctl -p err"
+      - "B. journalctl --level=error"
+      - "C. journalctl -f error"
+      - "D. journalctl --errors-only"
+    answerIndex: 0
+    explanation: "journalctl -p err filters journal entries by priority level 'err' (error) and above. The -p flag accepts priority names (emerg, alert, crit, err, warning, notice, info, debug) or numeric values."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/journalctl.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-047"
+    difficulty: "easy"
+    tags: ["linux-install", "disk-layout", "partitions"]
+    question: "Which directory is required to be on the root (/) partition in a Linux system?"
+    choices:
+      - "A. /etc"
+      - "B. /home"
+      - "C. /var"
+      - "D. /opt"
+    answerIndex: 0
+    explanation: "/etc contains essential system configuration files needed during boot before other filesystems are mounted. /home, /var, and /opt can be on separate partitions because they are not needed until later in the boot process."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/102/102.1/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-048"
+    difficulty: "hard"
+    tags: ["admin-tasks", "sudo", "security"]
+    question: "In /etc/sudoers, what does the line 'alice ALL=(ALL:ALL) NOPASSWD: /usr/bin/systemctl restart nginx' allow?"
+    choices:
+      - "A. User alice can restart nginx via systemctl on any host without entering a password"
+      - "B. User alice has full root access without a password"
+      - "C. User alice can run any systemctl command without a password"
+      - "D. User alice can restart any service without entering a password"
+    answerIndex: 0
+    explanation: "This sudoers entry grants alice passwordless sudo access to only the specific command '/usr/bin/systemctl restart nginx'. The full path restricts it to that exact binary and arguments. It does not grant broader privileges."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/sudoers.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-049"
+    difficulty: "medium"
+    tags: ["admin-tasks", "processes", "signals"]
+    question: "What signal does 'kill -9' send to a process?"
+    choices:
+      - "A. SIGKILL — forces immediate termination that cannot be caught or ignored"
+      - "B. SIGTERM — requests graceful shutdown"
+      - "C. SIGHUP — reloads configuration"
+      - "D. SIGSTOP — pauses the process"
+    answerIndex: 0
+    explanation: "Signal 9 is SIGKILL, which immediately terminates a process. Unlike SIGTERM (15), SIGKILL cannot be caught, blocked, or ignored by the process. It should be used as a last resort after SIGTERM fails."
+    refs:
+      - "https://man7.org/linux/man-pages/man7/signal.7.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-050"
+    difficulty: "medium"
+    tags: ["admin-tasks", "processes", "background"]
+    question: "How do you move a currently running foreground process to the background in bash?"
+    choices:
+      - "A. Press Ctrl+Z to suspend it, then type 'bg' to resume in background"
+      - "B. Press Ctrl+C then restart with '&'"
+      - "C. Type 'background' while the process is running"
+      - "D. Press Ctrl+B to toggle background mode"
+    answerIndex: 0
+    explanation: "Ctrl+Z sends SIGTSTP to suspend the foreground process. The 'bg' command then resumes it in the background. Ctrl+C sends SIGINT which terminates the process rather than suspending it."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-051"
+    difficulty: "hard"
+    tags: ["gnu-commands", "process-substitution", "advanced"]
+    question: "What does the bash syntax 'diff <(sort file1) <(sort file2)' accomplish?"
+    choices:
+      - "A. Compares the sorted contents of file1 and file2 without creating temporary files"
+      - "B. Sorts both files in place and then deletes them"
+      - "C. Creates a diff patch for both files simultaneously"
+      - "D. Merges the sorted output of both files"
+    answerIndex: 0
+    explanation: "Process substitution <(...) creates a temporary file descriptor containing the command's output. diff then compares the sorted versions of both files without needing intermediate temporary files."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-052"
+    difficulty: "easy"
+    tags: ["shells-scripting", "alias", "customization"]
+    question: "Which command creates a temporary alias 'll' for 'ls -la' in the current shell session?"
+    choices:
+      - "A. alias ll='ls -la'"
+      - "B. set ll='ls -la'"
+      - "C. shortcut ll='ls -la'"
+      - "D. define ll='ls -la'"
+    answerIndex: 0
+    explanation: "The alias command creates command shortcuts. alias ll='ls -la' makes 'll' equivalent to 'ls -la' for the current session. To make it permanent, add it to ~/.bashrc or ~/.bash_aliases."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-053"
+    difficulty: "medium"
+    tags: ["admin-tasks", "networking", "ip-command"]
+    question: "Which command displays all network interfaces and their IP addresses using the modern ip utility?"
+    choices:
+      - "A. ip addr show"
+      - "B. ifconfig -a"
+      - "C. netstat -i"
+      - "D. ip route list"
+    answerIndex: 0
+    explanation: "ip addr show (or ip a) displays all network interfaces with their addresses using the modern iproute2 suite. ifconfig is deprecated on many distributions. ip route shows the routing table, not interface addresses."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/ip-address.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-054"
+    difficulty: "medium"
+    tags: ["admin-tasks", "networking", "ss"]
+    question: "Which command lists all listening TCP ports on the system?"
+    choices:
+      - "A. ss -tlnp"
+      - "B. netstat -r"
+      - "C. ip port list"
+      - "D. lsof -p"
+    answerIndex: 0
+    explanation: "ss -tlnp shows TCP (-t) listening (-l) sockets with numeric (-n) port numbers and process (-p) information. ss is the modern replacement for netstat. netstat -r shows routing, not listening ports."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/ss.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-055"
+    difficulty: "hard"
+    tags: ["admin-tasks", "pam", "authentication"]
+    question: "What is the role of PAM (Pluggable Authentication Modules) in Linux?"
+    choices:
+      - "A. It provides a flexible framework for authenticating users across different services"
+      - "B. It manages network packet filtering"
+      - "C. It schedules automated tasks"
+      - "D. It manages disk encryption keys"
+    answerIndex: 0
+    explanation: "PAM provides a modular authentication framework that separates authentication logic from applications. Services like sshd, login, and sudo use PAM configuration files in /etc/pam.d/ to define authentication requirements."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/pam.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-056"
+    difficulty: "easy"
+    tags: ["gnu-commands", "which-whereis", "commands"]
+    question: "Which command shows the full path of an executable command?"
+    choices:
+      - "A. which"
+      - "B. where"
+      - "C. locate"
+      - "D. file"
+    answerIndex: 0
+    explanation: "which searches the PATH environment variable and shows the full path of the command that would be executed. 'file' identifies file types, 'locate' searches a database, and 'where' is not a standard Linux command."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/which.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-057"
+    difficulty: "medium"
+    tags: ["linux-install", "package-management", "yum-dnf"]
+    question: "Which command lists all available updates on a Red Hat-based system using dnf?"
+    choices:
+      - "A. dnf check-update"
+      - "B. dnf list-updates"
+      - "C. dnf show available"
+      - "D. dnf refresh"
+    answerIndex: 0
+    explanation: "dnf check-update checks for available package updates without installing them. It returns exit code 100 if updates are available, making it useful in scripts. dnf update/upgrade actually installs the updates."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/dnf.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-058"
+    difficulty: "hard"
+    tags: ["shells-scripting", "bash", "functions"]
+    question: "In a bash function, how are positional parameters different from the script's positional parameters?"
+    choices:
+      - "A. Inside a function, $1, $2, etc. refer to the function's arguments, not the script's"
+      - "B. Functions cannot access any positional parameters"
+      - "C. Functions share the same positional parameters as the script"
+      - "D. Functions use $arg1, $arg2 instead of $1, $2"
+    answerIndex: 0
+    explanation: "When a function is called, its positional parameters ($1, $2, etc.) are set to the function's arguments, temporarily shadowing the script's parameters. The script's parameters are restored when the function returns."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-059"
+    difficulty: "medium"
+    tags: ["devices-filesystems", "symlinks", "hardlinks"]
+    question: "What is the key difference between a hard link and a symbolic link?"
+    choices:
+      - "A. A hard link shares the same inode as the original; a symbolic link is a separate file pointing to a path"
+      - "B. Hard links work across filesystems; symbolic links do not"
+      - "C. Symbolic links share inodes; hard links use separate inodes"
+      - "D. Hard links can point to directories; symbolic links cannot"
+    answerIndex: 0
+    explanation: "A hard link is another directory entry pointing to the same inode — deleting the original file does not affect the hard link. A symbolic link is a separate file containing the path to the target; if the target is deleted, the symlink breaks."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/ln.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-060"
+    difficulty: "easy"
+    tags: ["admin-tasks", "passwd", "user-management"]
+    question: "Which file stores the encrypted user passwords on most modern Linux systems?"
+    choices:
+      - "A. /etc/shadow"
+      - "B. /etc/passwd"
+      - "C. /etc/security/passwords"
+      - "D. /etc/auth"
+    answerIndex: 0
+    explanation: "/etc/shadow stores encrypted password hashes and password aging information. It is readable only by root. /etc/passwd is world-readable and contains user account info but no longer stores passwords directly."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/shadow.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-061"
+    difficulty: "hard"
+    tags: ["system-architecture", "initramfs", "boot"]
+    question: "What is the purpose of initramfs in the Linux boot process?"
+    choices:
+      - "A. It provides a temporary root filesystem with tools needed to mount the real root filesystem"
+      - "B. It permanently stores the kernel image"
+      - "C. It manages the GRUB bootloader configuration"
+      - "D. It initializes the swap partition"
+    answerIndex: 0
+    explanation: "initramfs (initial RAM filesystem) is loaded by the bootloader alongside the kernel. It contains essential drivers and tools needed to mount the actual root filesystem, especially when the root is on LVM, RAID, or encrypted volumes."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/101/101.2/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-062"
+    difficulty: "medium"
+    tags: ["admin-tasks", "groups", "user-management"]
+    question: "Which command adds an existing user 'bob' to the supplementary group 'docker' without removing existing group memberships?"
+    choices:
+      - "A. usermod -aG docker bob"
+      - "B. usermod -G docker bob"
+      - "C. groupadd docker bob"
+      - "D. addgroup bob docker"
+    answerIndex: 0
+    explanation: "usermod -aG appends (-a) the user to the supplementary group (-G). Without -a, the -G flag replaces all supplementary groups, which would remove bob from his existing groups."
+    refs:
+      - "https://man7.org/linux/man-pages/man8/usermod.8.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-063"
+    difficulty: "hard"
+    tags: ["devices-filesystems", "raid", "storage"]
+    question: "What is the minimum number of disks required for a RAID 5 array?"
+    choices:
+      - "A. 3"
+      - "B. 2"
+      - "C. 4"
+      - "D. 5"
+    answerIndex: 0
+    explanation: "RAID 5 requires a minimum of 3 disks. It stripes data across all disks with distributed parity, allowing the array to survive the loss of any single disk. RAID 1 requires only 2 disks (mirroring)."
+    refs:
+      - "https://learning.lpi.org/en/learning-materials/101-500/104/104.3/"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-064"
+    difficulty: "easy"
+    tags: ["gnu-commands", "man", "documentation"]
+    question: "Which command displays the manual page for the 'ls' command?"
+    choices:
+      - "A. man ls"
+      - "B. help ls"
+      - "C. info ls"
+      - "D. ls --manual"
+    answerIndex: 0
+    explanation: "man ls opens the manual page for the ls command, providing detailed documentation on options, syntax, and usage. help is for bash builtins, and info provides GNU-specific documentation."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/man.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-065"
+    difficulty: "medium"
+    tags: ["admin-tasks", "at", "scheduling"]
+    question: "Which command schedules a one-time task to run at 2:30 PM today?"
+    choices:
+      - "A. at 14:30"
+      - "B. cron 14:30"
+      - "C. schedule 14:30"
+      - "D. batch 14:30"
+    answerIndex: 0
+    explanation: "The 'at' command schedules one-time jobs. After typing 'at 14:30', you enter commands interactively and press Ctrl+D. cron is for recurring jobs, not one-time tasks. batch runs jobs when system load is low."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/at.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-066"
+    difficulty: "hard"
+    tags: ["shells-scripting", "bash", "traps"]
+    question: "What does 'trap cleanup EXIT' do in a bash script?"
+    choices:
+      - "A. Calls the 'cleanup' function whenever the script exits, regardless of how it exits"
+      - "B. Prevents the script from exiting"
+      - "C. Traps only SIGTERM signals"
+      - "D. Creates a log entry on exit"
+    answerIndex: 0
+    explanation: "trap with the EXIT signal runs the specified command or function when the shell exits, whether normally, via exit command, or due to an error. This is commonly used for cleanup tasks like removing temporary files."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/bash.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-067"
+    difficulty: "easy"
+    tags: ["gnu-commands", "touch", "files"]
+    question: "What does the 'touch' command do when the specified file does not exist?"
+    choices:
+      - "A. Creates an empty file with the specified name"
+      - "B. Displays an error message"
+      - "C. Creates a directory with the specified name"
+      - "D. Opens the file in a text editor"
+    answerIndex: 0
+    explanation: "touch creates an empty file if it does not exist. If the file already exists, touch updates its access and modification timestamps without modifying the contents."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/touch.1.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-068"
+    difficulty: "medium"
+    tags: ["admin-tasks", "locale", "internationalization"]
+    question: "Which environment variable sets the default locale for all categories in Linux?"
+    choices:
+      - "A. LANG"
+      - "B. LOCALE"
+      - "C. LC_DEFAULT"
+      - "D. LANGUAGE"
+    answerIndex: 0
+    explanation: "LANG sets the default locale for all LC_* categories that are not explicitly set. Individual categories like LC_TIME or LC_MESSAGES can override LANG. LC_ALL overrides everything including LANG."
+    refs:
+      - "https://man7.org/linux/man-pages/man7/locale.7.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-069"
+    difficulty: "hard"
+    tags: ["system-architecture", "systemd", "timers"]
+    question: "What is the systemd equivalent of a cron job?"
+    choices:
+      - "A. A .timer unit file paired with a .service unit file"
+      - "B. A .cron unit file"
+      - "C. A .schedule unit file"
+      - "D. A .job unit file in /etc/systemd/jobs/"
+    answerIndex: 0
+    explanation: "Systemd timers use a .timer unit that defines when to trigger, paired with a .service unit that defines what to run. Timer units support calendar-based and monotonic schedules, offering more flexibility than cron."
+    refs:
+      - "https://man7.org/linux/man-pages/man5/systemd.timer.5.html"
+    author: "ThanhNguyxn"
+
+  - id: "lpic1-expand-070"
+    difficulty: "medium"
+    tags: ["gnu-commands", "cut", "text-processing"]
+    question: "Which command extracts the first and third fields from a comma-delimited file?"
+    choices:
+      - "A. cut -d, -f1,3 file.csv"
+      - "B. awk '{print $1,$3}' file.csv"
+      - "C. cut -c1,3 file.csv"
+      - "D. split -f1,3 file.csv"
+    answerIndex: 0
+    explanation: "cut -d, sets the delimiter to comma, and -f1,3 selects the first and third fields. -c would select character positions, not fields. awk without -F, uses whitespace as the default delimiter."
+    refs:
+      - "https://man7.org/linux/man-pages/man1/cut.1.html"
+    author: "ThanhNguyxn"

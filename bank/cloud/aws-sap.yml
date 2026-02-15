@@ -785,3 +785,1064 @@ questions:
       - "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cloudwatch-events.html"
       - "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html"
     author: "ThanhNguyxn"
+
+  - id: "sap-expand-001"
+    difficulty: "medium"
+    tags: ["organizations", "scp", "multi-account", "governance"]
+    question: "A company with 300 AWS accounts organized by business unit wants to allow production OUs to use only approved regions (us-east-1 and eu-west-1) while development OUs can use any region. How should the architect implement this using AWS Organizations?"
+    choices:
+      - "A. Attach an SCP to the production OU that denies all actions outside us-east-1 and eu-west-1 using aws:RequestedRegion condition"
+      - "B. Attach an SCP to the root that denies all regions except us-east-1 and eu-west-1"
+      - "C. Create IAM policies in each production account restricting region usage"
+      - "D. Use AWS Config rules to terminate resources in non-approved regions"
+    answerIndex: 0
+    explanation: "SCPs at the OU level provide preventative guardrails that restrict all principals in child accounts to approved regions, without affecting development OUs. Option B is incorrect because applying the SCP at the root would restrict development OUs as well, violating the requirement for development to use any region."
+    refs:
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-002"
+    difficulty: "hard"
+    tags: ["control-tower", "landing-zone", "account-factory", "multi-account"]
+    question: "An enterprise is migrating to AWS and needs automated provisioning of new accounts with baseline guardrails, centralized logging to a dedicated log archive account, and audit capabilities. They have 50 teams requesting accounts and want self-service with pre-approved configurations. Which solution provides the most comprehensive managed approach?"
+    choices:
+      - "A. AWS Control Tower with Account Factory, mandatory guardrails, and customizations for Control Tower (CfCT)"
+      - "B. Custom Lambda functions calling Organizations CreateAccount API with post-setup scripts"
+      - "C. AWS Service Catalog with a custom CloudFormation product for account creation"
+      - "D. Manual account creation through the AWS console with a checklist"
+    answerIndex: 0
+    explanation: "Control Tower provides a managed landing zone with Account Factory for self-service provisioning, mandatory and elective guardrails, centralized logging, and extensibility through CfCT. Option B is incorrect because custom Lambda scripts lack the integrated governance, drift detection, and dashboard capabilities that Control Tower provides out of the box."
+    refs:
+      - "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-003"
+    difficulty: "hard"
+    tags: ["transit-gateway", "direct-connect", "hybrid", "networking"]
+    question: "A financial institution has 40 VPCs across three regions and two on-premises data centers connected via AWS Direct Connect. They need any-to-any connectivity between all VPCs and both data centers with centralized routing and the ability to segment traffic by environment (prod vs dev). Which architecture achieves this?"
+    choices:
+      - "A. Deploy Transit Gateways in each region with inter-region peering, attach VPCs and Direct Connect gateways, and use route table segmentation for prod/dev isolation"
+      - "B. Create VPC peering between all 40 VPCs and individual VPN connections to each data center"
+      - "C. Use a single Transit Gateway in one region and route all traffic through it"
+      - "D. Deploy AWS Cloud WAN and connect all VPCs through a single global segment"
+    answerIndex: 0
+    explanation: "Transit Gateways with inter-region peering provide scalable hub-and-spoke connectivity, Direct Connect gateway integration connects on-premises, and TGW route tables enable environment segmentation. Option B is incorrect because 40 VPCs would require 780 peering connections with no transitive routing, making management impractical."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html"
+      - "https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-gateways.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-004"
+    difficulty: "medium"
+    tags: ["ram", "vpc", "shared-services", "cross-account"]
+    question: "A central networking team manages VPCs for the organization and wants application teams in separate accounts to launch resources into shared subnets without creating their own VPCs. The networking team must retain control over route tables, NACLs, and internet gateways. Which approach enables this?"
+    choices:
+      - "A. Use AWS Resource Access Manager to share subnets with participant accounts via AWS Organizations"
+      - "B. Create VPC peering connections from each application account to the central VPC"
+      - "C. Deploy Transit Gateway attachments for each application VPC"
+      - "D. Use AWS PrivateLink to expose the central VPC to application accounts"
+    answerIndex: 0
+    explanation: "RAM subnet sharing allows participant accounts to launch resources into centrally managed subnets while the owner account retains control over VPC-level resources like route tables and NACLs. Option B is incorrect because VPC peering still requires each application account to create and manage its own VPC."
+    refs:
+      - "https://docs.aws.amazon.com/ram/latest/userguide/what-is.html"
+      - "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-005"
+    difficulty: "hard"
+    tags: ["migration", "6rs", "application-discovery", "strategy"]
+    question: "A company is planning to migrate 500 applications to AWS over 18 months. The portfolio includes legacy mainframe apps, commercial off-the-shelf software, modern containerized microservices, and end-of-life applications. The CTO wants a prioritized migration plan that considers interdependencies. Which combination of tools and strategies should the architect use?"
+    choices:
+      - "A. AWS Application Discovery Service for inventory and dependency mapping, AWS Migration Hub for tracking, and the 7 Rs framework to classify each application's migration strategy"
+      - "B. Lift-and-shift all 500 applications to EC2 using CloudEndure Migration"
+      - "C. Rewrite all applications as serverless microservices before migration"
+      - "D. Use AWS Snowball to ship all application servers to AWS"
+    answerIndex: 0
+    explanation: "Application Discovery Service maps dependencies, Migration Hub centralizes tracking, and applying the 7 Rs (Retire, Retain, Rehost, Relocate, Repurchase, Replatform, Refactor) ensures each application gets the appropriate strategy. Option B is incorrect because a blanket lift-and-shift ignores applications that should be retired, repurchased, or refactored for optimal outcomes."
+    refs:
+      - "https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.html"
+      - "https://docs.aws.amazon.com/migrationhub/latest/ug/what-is-mhub.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-006"
+    difficulty: "hard"
+    tags: ["dms", "sct", "migration", "database"]
+    question: "A company is migrating a 10 TB Oracle Data Warehouse to Amazon Redshift. The warehouse uses Oracle-specific materialized views, PL/SQL procedures, and complex ETL stored procedures. The business requires less than 4 hours of downtime during cutover. Which migration approach is most appropriate?"
+    choices:
+      - "A. Use AWS SCT to convert the schema and PL/SQL to Redshift SQL, then DMS with full load plus CDC for continuous replication, with a cutover window for final sync"
+      - "B. Export the Oracle database to CSV files, upload to S3, and use COPY to load into Redshift"
+      - "C. Use AWS DataSync to replicate Oracle data files to EBS and attach to a Redshift cluster"
+      - "D. Create an Oracle RDS instance as an intermediate step before migrating to Redshift"
+    answerIndex: 0
+    explanation: "SCT converts Oracle-specific SQL constructs to Redshift equivalents, and DMS with CDC continuously replicates changes during migration, minimizing the cutover window to only the final sync. Option B is incorrect because CSV export requires a full outage during export and does not handle schema conversion or ongoing changes during the migration period."
+    refs:
+      - "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
+      - "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-007"
+    difficulty: "medium"
+    tags: ["cloudformation", "stacksets", "multi-account", "deployment"]
+    question: "An enterprise needs to deploy a standard security baseline (AWS Config rules, GuardDuty, CloudTrail) to all existing accounts and automatically to any new account added to the AWS Organization. The solution must use infrastructure as code and require minimal ongoing maintenance. Which approach is best?"
+    choices:
+      - "A. CloudFormation StackSets with service-managed permissions and automatic deployment enabled for the organization"
+      - "B. Deploy CloudFormation stacks individually in each account using a CI/CD pipeline"
+      - "C. Use Terraform with assume-role in each account from a central deployment account"
+      - "D. Manually deploy the baseline through the console in each new account"
+    answerIndex: 0
+    explanation: "StackSets with service-managed permissions automatically create and manage stack instances across all accounts in the organization, including accounts added in the future. Option D is incorrect because manual console deployments do not scale to hundreds of accounts and cannot automatically deploy to new accounts."
+    refs:
+      - "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-008"
+    difficulty: "hard"
+    tags: ["eventbridge", "cross-account", "event-driven", "architecture"]
+    question: "A platform team is building a central event bus for an organization with 50 microservices across 20 accounts. Events from any account must be routable to consumers in any other account based on event type. The team needs schema discovery and versioning for all events. Which architecture provides this?"
+    choices:
+      - "A. A central Amazon EventBridge event bus in a shared services account with resource policies allowing PutEvents from all accounts, EventBridge Schema Registry for discovery, and cross-account rules routing to target account event buses"
+      - "B. Amazon SNS topics in each account with cross-account subscriptions"
+      - "C. Amazon SQS queues in each account with cross-account SendMessage permissions"
+      - "D. Amazon Kinesis Data Streams shared across accounts using RAM"
+    answerIndex: 0
+    explanation: "A central EventBridge bus with resource policies enables cross-account event routing, content-based filtering, and the Schema Registry provides automatic schema discovery and versioning. Option B is incorrect because SNS topic-per-account creates a complex mesh of cross-account subscriptions without content-based filtering or schema management."
+    refs:
+      - "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html"
+      - "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-schema.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-009"
+    difficulty: "hard"
+    tags: ["data-lake", "lake-formation", "glue", "security"]
+    question: "An organization is building a centralized data lake on S3 with data from 30 source accounts. They need fine-grained access control including column-level permissions, cross-account data sharing without copying data, and a central catalog. Which combination of services provides this?"
+    choices:
+      - "A. AWS Lake Formation with cross-account grants, AWS Glue Data Catalog as the central metastore, and Lake Formation tag-based access control for fine-grained permissions"
+      - "B. S3 bucket policies with IAM conditions for column-level access"
+      - "C. Amazon Redshift Spectrum with row-level security from each account"
+      - "D. AWS RAM to share S3 buckets directly with all accounts"
+    answerIndex: 0
+    explanation: "Lake Formation provides centralized governance with column-level and tag-based access control, cross-account sharing via grants, and integrates with Glue Data Catalog for schema management. Option B is incorrect because S3 bucket policies operate at the object level and cannot enforce column-level access control on structured data."
+    refs:
+      - "https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-010"
+    difficulty: "medium"
+    tags: ["service-catalog", "governance", "self-service"]
+    question: "A cloud platform team wants to offer development teams self-service provisioning of pre-approved AWS architectures (VPCs, ECS clusters, RDS instances) while ensuring compliance with organizational standards. Developers should not need CloudFormation expertise. Which service enables this?"
+    choices:
+      - "A. AWS Service Catalog with portfolios containing approved CloudFormation products, shared with development OUs"
+      - "B. AWS CloudFormation console access for all developers"
+      - "C. AWS Marketplace AMIs for all architectures"
+      - "D. IAM policies allowing only specific resource creation APIs"
+    answerIndex: 0
+    explanation: "Service Catalog provides a curated catalog of pre-approved products that developers can launch through a simplified interface without needing CloudFormation knowledge. Option C is incorrect because Marketplace AMIs are individual machine images, not complete architecture stacks, and do not enforce organizational compliance standards."
+    refs:
+      - "https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-011"
+    difficulty: "hard"
+    tags: ["serverless", "step-functions", "saga-pattern", "architecture"]
+    question: "A travel booking platform processes reservations that involve three services: flight booking, hotel reservation, and payment processing. If any step fails after previous steps have succeeded, the completed steps must be compensated (rolled back). The architect wants a serverless approach. Which pattern and service combination is appropriate?"
+    choices:
+      - "A. Saga pattern implemented with AWS Step Functions, where each step has a corresponding compensation Lambda that is invoked via Catch blocks on failure"
+      - "B. Two-phase commit using a distributed transaction coordinator on EC2"
+      - "C. A single Lambda function that calls all three services sequentially with try/catch"
+      - "D. Amazon SQS queues between services with manual retry logic"
+    answerIndex: 0
+    explanation: "The saga pattern with Step Functions provides orchestrated compensating transactions with built-in error handling and visual workflow monitoring, ideal for distributed transactions. Option C is incorrect because a single Lambda risks timeout on long-running bookings, provides no durable state between steps, and has limited error recovery capabilities."
+    refs:
+      - "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-012"
+    difficulty: "medium"
+    tags: ["cost", "savings-plans", "reserved-instances", "optimization"]
+    question: "A company runs a mix of EC2, Fargate, and Lambda workloads with stable baseline usage and periodic spikes. The finance team wants to optimize costs with a single commitment that covers all three compute types and offers flexibility to change instance families and regions. Which purchasing option is most suitable?"
+    choices:
+      - "A. Compute Savings Plans"
+      - "B. EC2 Instance Savings Plans"
+      - "C. Standard Reserved Instances with 3-year term"
+      - "D. Spot Instances for all workloads"
+    answerIndex: 0
+    explanation: "Compute Savings Plans provide discounts across EC2, Fargate, and Lambda regardless of instance family, size, OS, tenancy, or region, offering maximum flexibility. Option B is incorrect because EC2 Instance Savings Plans are locked to a specific instance family in a specific region and do not cover Fargate or Lambda."
+    refs:
+      - "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-013"
+    difficulty: "hard"
+    tags: ["aurora", "global-database", "disaster-recovery", "multi-region"]
+    question: "A global SaaS provider needs their MySQL-compatible database to support local read latency under 20ms in three regions (US, EU, APAC) and achieve an RPO under 1 second with cross-region failover completing within 1 minute. Which database architecture meets all requirements?"
+    choices:
+      - "A. Amazon Aurora Global Database with secondary clusters in EU and APAC regions providing local reads, with managed cross-region failover"
+      - "B. Amazon RDS MySQL Multi-AZ in the US region with cross-region read replicas"
+      - "C. DynamoDB Global Tables"
+      - "D. Amazon Aurora with ProxySQL for cross-region query routing"
+    answerIndex: 0
+    explanation: "Aurora Global Database uses dedicated replication infrastructure achieving sub-second RPO, provides local read endpoints in secondary regions for low latency, and supports managed failover within approximately one minute. Option B is incorrect because RDS cross-region read replicas use asynchronous binlog replication with higher RPO and manual promotion that typically takes much longer than one minute."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-014"
+    difficulty: "medium"
+    tags: ["cloudfront", "origin-failover", "resilience"]
+    question: "A media company serves video content through CloudFront with an S3 origin in us-east-1. They need the CDN to automatically serve content from a replica S3 bucket in us-west-2 if the primary origin returns 5xx errors. Which CloudFront feature provides this?"
+    choices:
+      - "A. CloudFront origin failover with an origin group containing primary and secondary origins"
+      - "B. Route 53 failover routing to two separate CloudFront distributions"
+      - "C. CloudFront cache invalidation when the primary origin fails"
+      - "D. Lambda@Edge to manually check origin health and redirect"
+    answerIndex: 0
+    explanation: "CloudFront origin groups support automatic failover from a primary to a secondary origin based on HTTP status codes, with no additional infrastructure or custom code. Option C is incorrect because cache invalidation removes cached objects but does not redirect requests to a different origin."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-015"
+    difficulty: "hard"
+    tags: ["network-firewall", "inspection", "centralized", "networking"]
+    question: "An organization wants to inspect all internet-bound traffic from 20 VPCs using deep packet inspection with IDS/IPS capabilities. They want a centralized inspection architecture to avoid deploying firewalls in each VPC. Which architecture achieves this?"
+    choices:
+      - "A. A centralized inspection VPC with AWS Network Firewall, Transit Gateway routing all internet-bound traffic through the inspection VPC before reaching the internet"
+      - "B. AWS WAF on every ALB in every VPC"
+      - "C. Security groups and NACLs configured identically across all VPCs"
+      - "D. VPC Flow Logs sent to a central security account for analysis"
+    answerIndex: 0
+    explanation: "A centralized inspection VPC with Network Firewall and TGW routing provides deep packet inspection with IDS/IPS for all VPCs from a single deployment point. Option D is incorrect because Flow Logs capture metadata for analysis but do not inspect or block traffic in real time."
+    refs:
+      - "https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html"
+      - "https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-016"
+    difficulty: "medium"
+    tags: ["iam-identity-center", "saml", "federation", "identity"]
+    question: "A company with 5,000 employees using Okta as their corporate identity provider wants single sign-on to 80 AWS accounts. Employees should not need separate AWS credentials. Permission sets must be centrally managed. Which solution provides this?"
+    choices:
+      - "A. AWS IAM Identity Center integrated with Okta via SAML 2.0 or SCIM, with permission sets mapped to user groups"
+      - "B. Individual IAM users in each of the 80 accounts with Okta password sync"
+      - "C. Amazon Cognito user pools for employee AWS console access"
+      - "D. IAM roles with SAML federation configured individually in each of the 80 accounts"
+    answerIndex: 0
+    explanation: "IAM Identity Center provides centralized SSO and permission set management across all organization accounts with Okta federation via SAML or SCIM for automatic user provisioning. Option D is incorrect because configuring SAML federation individually in 80 accounts creates significant management overhead and lacks centralized permission management."
+    refs:
+      - "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-017"
+    difficulty: "hard"
+    tags: ["eks", "multi-cluster", "service-mesh", "containers"]
+    question: "A platform team manages EKS clusters across three regions for a globally distributed application. They need service-to-service communication across clusters with mutual TLS, traffic management, and observability without modifying application code. Which approach provides this?"
+    choices:
+      - "A. Deploy AWS App Mesh or Istio service mesh across all EKS clusters with cross-cluster service discovery"
+      - "B. Use Kubernetes Ingress controllers in each cluster with public endpoints"
+      - "C. Create VPC peering between regions and use ClusterIP services directly"
+      - "D. Use Amazon SQS for all inter-service communication"
+    answerIndex: 0
+    explanation: "A service mesh provides mTLS, traffic management, and distributed tracing across clusters transparently through sidecar proxies without application code changes. Option C is incorrect because ClusterIP services are internal to a single cluster and cannot be accessed from other clusters, even with VPC peering."
+    refs:
+      - "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-018"
+    difficulty: "easy"
+    tags: ["well-architected", "review", "best-practices"]
+    question: "A startup preparing for rapid growth wants a structured review of their AWS architecture covering reliability, security, performance efficiency, cost optimization, and operational excellence. Which AWS resource provides this framework?"
+    choices:
+      - "A. AWS Well-Architected Framework and the Well-Architected Tool"
+      - "B. AWS Trusted Advisor"
+      - "C. AWS Personal Health Dashboard"
+      - "D. AWS Support Center"
+    answerIndex: 0
+    explanation: "The Well-Architected Framework provides structured guidance across all pillars and the Well-Architected Tool helps conduct formal workload reviews with prioritized improvements. Option B is incorrect because Trusted Advisor provides automated checks for a subset of best practices but not a comprehensive architectural review framework."
+    refs:
+      - "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-019"
+    difficulty: "medium"
+    tags: ["config", "conformance-packs", "compliance", "multi-account"]
+    question: "A regulated company needs to continuously evaluate compliance of AWS resources against PCI-DSS requirements across all accounts in their organization. They want automated remediation for common violations and a centralized compliance dashboard. Which combination provides this?"
+    choices:
+      - "A. AWS Config conformance packs with PCI-DSS template deployed via organization-level rules, with automatic remediation actions using SSM Automation"
+      - "B. Manual monthly audits using the AWS console in each account"
+      - "C. AWS CloudTrail log analysis for compliance violations"
+      - "D. Amazon GuardDuty with PCI-DSS threat detection"
+    answerIndex: 0
+    explanation: "Config conformance packs deploy pre-built compliance rule sets across the organization with automated remediation via SSM, providing continuous evaluation and a centralized view. Option C is incorrect because CloudTrail logs API activity but does not evaluate resource configurations against compliance standards."
+    refs:
+      - "https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-020"
+    difficulty: "hard"
+    tags: ["direct-connect", "vpn", "encryption", "hybrid"]
+    question: "A company has an existing 10 Gbps Direct Connect link to AWS. Their compliance team now requires all traffic over this link to be encrypted in transit. The connection must maintain high throughput. Which approach adds encryption without replacing the Direct Connect connection?"
+    choices:
+      - "A. Create a Site-to-Site VPN over the Direct Connect public VIF using the Direct Connect as the transport layer, achieving MACsec or IPsec encryption"
+      - "B. Enable SSL on all application connections and consider this sufficient"
+      - "C. Replace Direct Connect with a standard internet VPN"
+      - "D. Use S3 Transfer Acceleration instead of Direct Connect"
+    answerIndex: 0
+    explanation: "Running a Site-to-Site VPN tunnel over Direct Connect encrypts traffic at the network layer while maintaining the dedicated bandwidth and low latency of the physical connection. Option C is incorrect because replacing Direct Connect with an internet VPN sacrifices the dedicated bandwidth, consistent latency, and reliability that Direct Connect provides."
+    refs:
+      - "https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-overview.html"
+      - "https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-021"
+    difficulty: "easy"
+    tags: ["cloudwatch", "logs", "monitoring", "centralization"]
+    question: "An operations team needs to centralize CloudWatch Logs from 30 accounts into a single account for analysis and long-term retention. Which approach enables cross-account log aggregation?"
+    choices:
+      - "A. CloudWatch Logs cross-account subscriptions with a Kinesis Data Firehose destination in the central account"
+      - "B. Copy log files manually from each account using the AWS CLI"
+      - "C. Deploy identical CloudWatch dashboards in each account"
+      - "D. Use AWS Config to collect log data"
+    answerIndex: 0
+    explanation: "Cross-account log subscriptions stream log events to a central destination like Kinesis Firehose for aggregation and analysis. Option C is incorrect because identical dashboards in each account duplicate monitoring effort but do not aggregate logs centrally."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CrossAccountSubscriptions.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-022"
+    difficulty: "hard"
+    tags: ["lambda", "provisioned-concurrency", "api-gateway", "performance"]
+    question: "A financial API built with API Gateway and Lambda has strict p99 latency requirements of under 100ms. The API receives steady traffic during market hours but drops to zero overnight. Cold starts add 3-5 seconds of latency for the first request after idle periods. The team needs to eliminate cold starts during market hours while minimizing cost overnight. Which configuration achieves this?"
+    choices:
+      - "A. Lambda provisioned concurrency with Application Auto Scaling scheduled to ramp up before market open and scale to zero after market close"
+      - "B. Keep Lambda warm by invoking it every 5 minutes with a CloudWatch Events rule"
+      - "C. Increase Lambda memory to reduce cold start duration"
+      - "D. Move the API to ECS Fargate with always-on tasks"
+    answerIndex: 0
+    explanation: "Provisioned concurrency with scheduled auto-scaling eliminates cold starts during market hours while scaling to zero overnight to minimize costs. Option B is incorrect because keep-warm invocations only maintain a single warm execution environment and cannot prevent cold starts under concurrent traffic."
+    refs:
+      - "https://docs.aws.amazon.com/lambda/latest/dg/provisioned-concurrency.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-023"
+    difficulty: "medium"
+    tags: ["s3", "replication", "compliance", "multi-region"]
+    question: "A financial institution must maintain identical copies of all S3 objects in two regions for regulatory compliance. Deletions must also be replicated to ensure both copies remain synchronized. The destination bucket is in a separate AWS account for operational isolation. Which configuration meets these requirements?"
+    choices:
+      - "A. S3 Cross-Region Replication with delete marker replication enabled and destination bucket owner override in the separate account"
+      - "B. S3 Same-Region Replication with a Lambda function to copy objects cross-region"
+      - "C. AWS DataSync scheduled every hour between the two buckets"
+      - "D. S3 Batch Operations to periodically copy new objects"
+    answerIndex: 0
+    explanation: "CRR with delete marker replication ensures continuous synchronization including deletions, and owner override transfers ownership to the destination account. Option C is incorrect because hourly DataSync introduces delays of up to one hour and does not provide real-time replication."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-024"
+    difficulty: "hard"
+    tags: ["cdk", "pipeline", "deployment", "iac"]
+    question: "A DevOps team wants to define their AWS infrastructure as TypeScript code with automatic deployments triggered by git pushes. The pipeline should be self-mutating (updating itself when pipeline code changes) and support multi-account, multi-region deployments. Which tool provides this as a first-class capability?"
+    choices:
+      - "A. AWS CDK with CDK Pipelines for self-mutating CI/CD that deploys across accounts and regions"
+      - "B. Terraform with GitHub Actions for multi-account deployments"
+      - "C. AWS CloudFormation with CodePipeline and manual account configuration"
+      - "D. AWS SAM with sam deploy to each account individually"
+    answerIndex: 0
+    explanation: "CDK Pipelines provides a self-mutating deployment pipeline construct that automatically updates itself and supports multi-account, multi-region deployments as TypeScript code. Option D is incorrect because SAM is focused on serverless application deployment and does not provide self-mutating pipeline or multi-account deployment constructs."
+    refs:
+      - "https://docs.aws.amazon.com/cdk/v2/guide/cdk_pipeline.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-025"
+    difficulty: "medium"
+    tags: ["backup", "multi-account", "data-protection"]
+    question: "An enterprise needs centralized backup management across 50 accounts with policies that ensure all RDS databases and EBS volumes are backed up daily with 30-day retention. Backup copies must be stored in a separate account. Which service provides organization-wide backup governance?"
+    choices:
+      - "A. AWS Backup with organization-wide backup policies and cross-account backup vault in a dedicated account"
+      - "B. Individual backup scripts in each account using AWS CLI"
+      - "C. RDS automated backups and EBS snapshots managed separately in each account"
+      - "D. Third-party backup software on EC2 instances"
+    answerIndex: 0
+    explanation: "AWS Backup supports organization-wide policies that automatically protect resources across all accounts with cross-account vault copies for isolation. Option C is incorrect because managing backups individually in 50 accounts creates operational overhead and lacks centralized governance and reporting."
+    refs:
+      - "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-026"
+    difficulty: "hard"
+    tags: ["kinesis", "msk", "streaming", "event-driven"]
+    question: "A company processes 500,000 events per second from IoT sensors and needs real-time stream processing with exactly-once semantics, consumer group management, and the ability for multiple independent consumers to process the same stream. They have existing Kafka expertise. Which AWS service should the architect recommend?"
+    choices:
+      - "A. Amazon Managed Streaming for Apache Kafka (Amazon MSK)"
+      - "B. Amazon Kinesis Data Streams"
+      - "C. Amazon SQS with multiple consumers"
+      - "D. Amazon EventBridge"
+    answerIndex: 0
+    explanation: "MSK provides fully managed Apache Kafka with exactly-once semantics, consumer groups, and compatibility with existing Kafka tooling and expertise. Option B is incorrect because Kinesis Data Streams provides at-least-once delivery and has different consumer group semantics than Kafka, requiring code changes from the existing Kafka-based consumers."
+    refs:
+      - "https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-027"
+    difficulty: "medium"
+    tags: ["route53", "resolver", "hybrid", "dns"]
+    question: "A company has on-premises resources that need to resolve AWS private hosted zone DNS names, and AWS resources that need to resolve on-premises Active Directory DNS names. Direct Connect is already in place. Which service enables bidirectional DNS resolution?"
+    choices:
+      - "A. Route 53 Resolver with inbound and outbound endpoints in the VPC"
+      - "B. A custom BIND DNS server on EC2 forwarding queries both ways"
+      - "C. Route 53 public hosted zones accessible from on-premises"
+      - "D. AWS Directory Service Simple AD for DNS resolution"
+    answerIndex: 0
+    explanation: "Route 53 Resolver inbound endpoints allow on-premises servers to resolve AWS private zones, and outbound endpoints forward queries to on-premises DNS servers. Option C is incorrect because public hosted zones resolve to public IP addresses and do not provide resolution of private DNS names."
+    refs:
+      - "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-028"
+    difficulty: "easy"
+    tags: ["trusted-advisor", "best-practices", "optimization"]
+    question: "A company wants automated checks for unused resources, security group misconfigurations, and service limit warnings across their AWS account. They want actionable recommendations without deploying custom tooling. Which service provides this?"
+    choices:
+      - "A. AWS Trusted Advisor"
+      - "B. AWS Inspector"
+      - "C. AWS Config"
+      - "D. Amazon Detective"
+    answerIndex: 0
+    explanation: "Trusted Advisor provides automated best-practice checks across cost optimization, performance, security, fault tolerance, and service limits. Option B is incorrect because Inspector focuses on vulnerability assessment of EC2 instances and container images, not general AWS account best practices."
+    refs:
+      - "https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-029"
+    difficulty: "hard"
+    tags: ["blue-green", "codedeploy", "deployment", "modernization"]
+    question: "A company is modernizing their deployment process for an ECS Fargate service. They want zero-downtime deployments with automatic rollback if health checks fail, traffic shifting over 15 minutes, and the ability to run integration tests against the new version before routing production traffic. Which deployment strategy and service combination achieves this?"
+    choices:
+      - "A. AWS CodeDeploy with ECS blue/green deployment, a linear traffic shifting configuration, and a test listener on the ALB for pre-production validation"
+      - "B. ECS rolling update with minimum healthy percent set to 100%"
+      - "C. Manual task definition update with immediate traffic cutover"
+      - "D. Creating a new ECS service for each deployment and updating Route 53"
+    answerIndex: 0
+    explanation: "CodeDeploy ECS blue/green deployment supports configurable traffic shifting, automatic rollback on health check failure, and a test listener for pre-production validation of the new task set. Option B is incorrect because rolling updates replace tasks incrementally without the ability to run integration tests against the new version or perform gradual traffic shifting."
+    refs:
+      - "https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html"
+      - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-030"
+    difficulty: "medium"
+    tags: ["security-hub", "aggregation", "multi-account", "compliance"]
+    question: "A security team needs a single-pane-of-glass view of security findings from GuardDuty, Inspector, Macie, and Firewall Manager across all 100 accounts in their organization. They also want to track compliance against CIS AWS Foundations Benchmark. Which service provides this aggregation?"
+    choices:
+      - "A. AWS Security Hub with organization-wide enablement and CIS Foundations security standard"
+      - "B. Amazon CloudWatch dashboards aggregating findings from each service"
+      - "C. AWS Config aggregator for multi-account view"
+      - "D. Amazon Detective for security investigation"
+    answerIndex: 0
+    explanation: "Security Hub aggregates findings from multiple AWS security services and third-party tools across accounts, with built-in compliance standards including CIS. Option D is incorrect because Detective is an investigation tool for analyzing security findings, not an aggregation or compliance dashboard."
+    refs:
+      - "https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-031"
+    difficulty: "hard"
+    tags: ["snowball", "datasync", "migration", "large-data"]
+    question: "A company needs to migrate 500 TB of data from an on-premises NAS to S3 within 6 weeks. Their internet connection is 1 Gbps, and they have just established a Direct Connect link. A 1 Gbps link can transfer approximately 10 TB per day at full utilization. Which migration strategy meets the timeline?"
+    choices:
+      - "A. Use multiple AWS Snowball Edge devices shipped in parallel for the bulk transfer, then AWS DataSync over Direct Connect for incremental delta synchronization"
+      - "B. Use only DataSync over the 1 Gbps Direct Connect link"
+      - "C. Use S3 Transfer Acceleration over the internet"
+      - "D. Compress all data and use AWS CLI S3 sync"
+    answerIndex: 0
+    explanation: "500 TB over 1 Gbps would take approximately 50 days at full utilization, cutting it close on 6 weeks with no margin. Snowball Edge devices transfer data physically in days, and DataSync handles the delta sync for changes made during shipping. Option B is incorrect because even at full 1 Gbps utilization, 500 TB would take approximately 50 days, leaving no margin for retransmits or bandwidth competition."
+    refs:
+      - "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html"
+      - "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-032"
+    difficulty: "medium"
+    tags: ["elasticache", "redis", "global-datastore", "caching"]
+    question: "A global web application caches user session data in ElastiCache for Redis in us-east-1. Users in eu-west-1 experience high latency for session reads due to cross-region calls. The team needs local-read latency in both regions with automatic replication. Which feature provides this?"
+    choices:
+      - "A. ElastiCache Global Datastore for Redis with a secondary cluster in eu-west-1"
+      - "B. Deploy separate independent Redis clusters in each region with application-level sync"
+      - "C. Use DynamoDB Global Tables instead of Redis"
+      - "D. CloudFront caching of Redis responses"
+    answerIndex: 0
+    explanation: "ElastiCache Global Datastore provides automatic cross-region replication with local read latency in secondary regions and automatic failover. Option D is incorrect because CloudFront caches HTTP responses, not Redis protocol connections, and Redis session data is dynamic and not suitable for CDN caching."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-033"
+    difficulty: "easy"
+    tags: ["cloudformation", "drift", "governance"]
+    question: "After deploying infrastructure with CloudFormation, a team member manually modified a security group through the console. The architect needs to detect such out-of-band changes. Which CloudFormation feature provides this?"
+    choices:
+      - "A. CloudFormation drift detection"
+      - "B. CloudFormation change sets"
+      - "C. CloudFormation stack policies"
+      - "D. CloudFormation rollback triggers"
+    answerIndex: 0
+    explanation: "Drift detection compares the actual resource configuration with the template-defined configuration and reports any differences caused by manual changes. Option B is incorrect because change sets preview the impact of template updates but do not detect out-of-band manual modifications."
+    refs:
+      - "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-034"
+    difficulty: "hard"
+    tags: ["cross-account", "iam", "assume-role", "security"]
+    question: "An application in Account A needs to access DynamoDB tables in Account B and S3 buckets in Account C. The application should use temporary credentials and each cross-account access should follow the principle of least privilege. How should this be architected?"
+    choices:
+      - "A. Create IAM roles in Account B and Account C with specific resource policies, and configure the application's role in Account A with permission to assume those roles"
+      - "B. Create IAM users in Account B and Account C and store their access keys in Secrets Manager in Account A"
+      - "C. Make the DynamoDB tables and S3 buckets publicly accessible"
+      - "D. Use a single IAM role in Account A with policies for resources in all three accounts"
+    answerIndex: 0
+    explanation: "Cross-account IAM role assumption provides temporary credentials scoped to specific resources in each target account, following least privilege. Option D is incorrect because IAM policies in Account A cannot directly grant access to resources in other accounts — the target accounts must explicitly trust the source account through role trust policies."
+    refs:
+      - "https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-035"
+    difficulty: "medium"
+    tags: ["appsync", "graphql", "real-time", "api"]
+    question: "A mobile application needs a real-time collaborative feature where changes made by one user are immediately visible to all other users viewing the same document. The backend must support offline data sync and conflict resolution. Which AWS service is designed for this?"
+    choices:
+      - "A. AWS AppSync with GraphQL subscriptions and offline data synchronization"
+      - "B. Amazon API Gateway with WebSocket API"
+      - "C. Amazon SNS push notifications to mobile devices"
+      - "D. Amazon SQS with long polling from the mobile app"
+    answerIndex: 0
+    explanation: "AppSync provides managed GraphQL with real-time subscriptions for live updates, built-in offline support with conflict resolution for mobile clients. Option C is incorrect because SNS push notifications are one-way and do not provide data synchronization, conflict resolution, or the structured query/mutation model needed for collaborative editing."
+    refs:
+      - "https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-036"
+    difficulty: "hard"
+    tags: ["organizations", "delegated-admin", "multi-account", "security"]
+    question: "An enterprise wants the security team to manage GuardDuty, Security Hub, and Macie across the organization without granting them access to the management account. The management account should only handle organizational policies. Which feature enables this delegation?"
+    choices:
+      - "A. Register a dedicated security account as the delegated administrator for each security service"
+      - "B. Give the security team IAM roles in the management account"
+      - "C. Create a separate organization for security services"
+      - "D. Use SCPs to restrict the management account to only security services"
+    answerIndex: 0
+    explanation: "Delegated administrator accounts can manage organization-wide security services without needing access to the management account, maintaining separation of duties. Option B is incorrect because granting management account access to the security team violates the principle of limiting access to the management account."
+    refs:
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-037"
+    difficulty: "medium"
+    tags: ["elasticbeanstalk", "migration", "replatform"]
+    question: "A company running a Java web application on on-premises Tomcat servers wants to migrate to AWS with minimal code changes. They want managed infrastructure, automatic scaling, and the ability to customize the underlying EC2 instances if needed. Which service provides this?"
+    choices:
+      - "A. AWS Elastic Beanstalk with a Tomcat platform"
+      - "B. Amazon ECS with a custom Tomcat container"
+      - "C. AWS Lambda with a custom Java runtime"
+      - "D. Amazon Lightsail for simple web hosting"
+    answerIndex: 0
+    explanation: "Elastic Beanstalk provides a managed platform for Java/Tomcat applications with automatic scaling, load balancing, and the ability to customize EC2 instances through .ebextensions. Option C is incorrect because Lambda has a 15-minute timeout, limited deployment package size, and does not support traditional Tomcat web applications."
+    refs:
+      - "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-038"
+    difficulty: "hard"
+    tags: ["privatelink", "marketplace", "saas", "networking"]
+    question: "A SaaS vendor wants to offer their service to customers in different AWS accounts without requiring customers to have internet gateways or public IP addresses. The vendor runs their service behind a Network Load Balancer. Customer traffic must stay on the AWS network. Which mechanism enables this?"
+    choices:
+      - "A. AWS PrivateLink with a VPC endpoint service backed by the vendor's NLB, allowing customers to create interface VPC endpoints in their accounts"
+      - "B. VPC peering between vendor and customer VPCs"
+      - "C. Transit Gateway shared with customer accounts"
+      - "D. Public API Gateway with IAM authentication"
+    answerIndex: 0
+    explanation: "PrivateLink allows the vendor to expose their NLB-backed service to customers via interface endpoints, keeping traffic on the AWS network without requiring public IP addresses. Option B is incorrect because VPC peering creates bidirectional network access and exposes the vendor's entire VPC network, which is a security concern for a multi-tenant SaaS."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-039"
+    difficulty: "easy"
+    tags: ["systems-manager", "patching", "operations"]
+    question: "An operations team needs to automate OS patching across 500 EC2 instances in multiple accounts with maintenance windows, compliance reporting, and the ability to roll back patches. Which AWS service provides managed patching capabilities?"
+    choices:
+      - "A. AWS Systems Manager Patch Manager with maintenance windows"
+      - "B. Custom user data scripts on each instance"
+      - "C. Amazon Inspector to apply patches"
+      - "D. AWS CodeDeploy for patch deployment"
+    answerIndex: 0
+    explanation: "Systems Manager Patch Manager provides automated patching with configurable baselines, scheduled maintenance windows, and compliance reporting across accounts. Option C is incorrect because Inspector identifies vulnerabilities but does not apply patches."
+    refs:
+      - "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-040"
+    difficulty: "hard"
+    tags: ["multi-region", "active-active", "architecture", "resilience"]
+    question: "A payment processing platform requires active-active deployment across us-east-1 and eu-west-1 with local writes in both regions, automatic conflict resolution for simultaneous updates to the same record, and sub-100ms global request routing. Which architecture supports all requirements?"
+    choices:
+      - "A. DynamoDB Global Tables for multi-region active-active data, Route 53 latency-based routing with health checks, and regional API Gateway deployments"
+      - "B. Aurora Global Database with writes only in the primary region"
+      - "C. RDS Multi-AZ in a single region with CloudFront"
+      - "D. S3 Cross-Region Replication with static website hosting"
+    answerIndex: 0
+    explanation: "DynamoDB Global Tables support multi-region, multi-active writes with last-writer-wins conflict resolution, and Route 53 latency routing directs users to the nearest region. Option B is incorrect because Aurora Global Database forwards writes to the primary region, not providing active-active writes."
+    refs:
+      - "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html"
+      - "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-041"
+    difficulty: "medium"
+    tags: ["transfer-family", "sftp", "migration", "hybrid"]
+    question: "A company's partners upload files via SFTP to an on-premises server. The company wants to migrate this to AWS without requiring partners to change their SFTP clients or workflows. Files should land directly in S3. Which service provides managed SFTP with S3 integration?"
+    choices:
+      - "A. AWS Transfer Family with an SFTP-enabled server backed by S3 storage"
+      - "B. An EC2 instance running OpenSSH with an S3-mounted filesystem"
+      - "C. Amazon WorkDocs with SFTP support"
+      - "D. AWS DataSync with SFTP source"
+    answerIndex: 0
+    explanation: "AWS Transfer Family provides fully managed SFTP, FTPS, and FTP servers with native S3 and EFS integration, requiring no changes to partner workflows. Option B is incorrect because self-managing an EC2 SFTP server requires patching, scaling, and high-availability configuration that Transfer Family handles automatically."
+    refs:
+      - "https://docs.aws.amazon.com/transfer/latest/userguide/what-is-aws-transfer-family.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-042"
+    difficulty: "hard"
+    tags: ["outposts", "hybrid", "local-compute", "latency"]
+    question: "A manufacturing company needs to run ML inference workloads on AWS services but requires single-digit millisecond latency to factory floor IoT devices. The factory has limited internet connectivity. The team wants the same AWS APIs and tools they use in the cloud. Which solution provides AWS infrastructure on-premises?"
+    choices:
+      - "A. AWS Outposts rack deployed in the factory, running ECS or SageMaker inference endpoints locally"
+      - "B. AWS Wavelength Zone at a carrier location"
+      - "C. AWS Local Zone in the nearest metro area"
+      - "D. AWS IoT Greengrass on the factory floor with cloud-based inference"
+    answerIndex: 0
+    explanation: "Outposts extends AWS infrastructure and services to the customer's on-premises facility, providing native AWS APIs with ultra-low latency to local devices. Option B is incorrect because Wavelength Zones are located at carrier data centers for mobile network edge computing, not customer premises."
+    refs:
+      - "https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-043"
+    difficulty: "medium"
+    tags: ["fis", "chaos-engineering", "resilience"]
+    question: "A reliability engineering team wants to validate that their application correctly handles AZ failures by simulating an AZ outage in a controlled manner. They need an AWS-native service that can inject faults into EC2, ECS, and RDS resources with built-in safety controls. Which service provides this?"
+    choices:
+      - "A. AWS Fault Injection Service (FIS) with experiment templates and stop conditions"
+      - "B. Manually terminating instances in the AWS console"
+      - "C. AWS CloudFormation to delete and recreate resources"
+      - "D. Amazon CloudWatch alarms triggering Auto Scaling actions"
+    answerIndex: 0
+    explanation: "FIS provides managed chaos engineering experiments with pre-built actions for common fault types, safety stop conditions, and integration with AWS services for controlled fault injection. Option B is incorrect because manual termination lacks the controlled experiment framework, safety stops, and comprehensive logging that FIS provides."
+    refs:
+      - "https://docs.aws.amazon.com/fis/latest/userguide/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-044"
+    difficulty: "easy"
+    tags: ["resource-groups", "tagging", "management"]
+    question: "A platform team wants to organize AWS resources across multiple services by application, environment, and cost center for operational management. They need a way to view and manage groups of related resources together. Which AWS feature provides this?"
+    choices:
+      - "A. AWS Resource Groups with tag-based queries"
+      - "B. Separate AWS accounts for each application"
+      - "C. AWS CloudFormation stacks"
+      - "D. S3 buckets organized by prefix"
+    answerIndex: 0
+    explanation: "Resource Groups allow organizing resources by tags into logical groups that can be managed, monitored, and automated as a unit across services. Option C is incorrect because CloudFormation stacks organize resources by deployment template, not by dynamic business attributes like application or cost center."
+    refs:
+      - "https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-045"
+    difficulty: "hard"
+    tags: ["guardduty", "detective", "incident-response", "security"]
+    question: "During an incident, GuardDuty detected compromised EC2 instances making unauthorized API calls. The security team needs to investigate the blast radius: which other resources the compromised instances accessed, what data may have been exfiltrated, and the timeline of all related activities. Which service helps with this investigation?"
+    choices:
+      - "A. Amazon Detective to visualize relationships between compromised instances, API calls, and accessed resources over time"
+      - "B. AWS CloudTrail log search using the console"
+      - "C. AWS Config timeline for resource changes"
+      - "D. Amazon Macie to scan for data exfiltration"
+    answerIndex: 0
+    explanation: "Detective automatically correlates GuardDuty findings with CloudTrail logs, VPC Flow Logs, and EKS audit logs to visualize the scope and timeline of security incidents. Option B is incorrect because manual CloudTrail log searching is time-consuming and lacks the automatic correlation and visualization that Detective provides."
+    refs:
+      - "https://docs.aws.amazon.com/detective/latest/userguide/what-is-detective.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-046"
+    difficulty: "medium"
+    tags: ["network-load-balancer", "privatelink", "performance", "networking"]
+    question: "A microservice needs to handle millions of TCP connections per second with ultra-low latency and must support static IP addresses for firewall whitelisting by partner companies. The service also needs to be exposed via PrivateLink. Which load balancer type meets all requirements?"
+    choices:
+      - "A. Network Load Balancer"
+      - "B. Application Load Balancer"
+      - "C. Gateway Load Balancer"
+      - "D. Classic Load Balancer"
+    answerIndex: 0
+    explanation: "NLB operates at layer 4, handles millions of requests per second with ultra-low latency, provides static IP addresses per AZ, and is the only load balancer type that supports PrivateLink endpoint services. Option B is incorrect because ALB operates at layer 7, does not provide static IP addresses natively, and cannot be used as a PrivateLink endpoint service target."
+    refs:
+      - "https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-047"
+    difficulty: "hard"
+    tags: ["cloudwan", "global-networking", "sd-wan"]
+    question: "A multinational corporation with offices in 15 countries, 200 VPCs, and 30 on-premises sites wants a single global network fabric with centralized policy management, automated routing, and the ability to define network segments for compliance. Which AWS service provides this?"
+    choices:
+      - "A. AWS Cloud WAN with network segments and automated route management"
+      - "B. Transit Gateway in each region with manual peering"
+      - "C. Site-to-Site VPN mesh between all locations"
+      - "D. AWS Direct Connect from each office individually"
+    answerIndex: 0
+    explanation: "Cloud WAN provides a centralized dashboard for building and managing a global network with automated segment policies, routing, and connectivity across regions and on-premises sites. Option B is incorrect because Transit Gateway peering requires manual configuration in each region without centralized policy management or automated global routing."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/cloudwan/what-is-cloudwan.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-048"
+    difficulty: "medium"
+    tags: ["athena", "glue", "data-catalog", "analytics"]
+    question: "A data team wants to run SQL queries against semi-structured JSON logs stored in S3 without loading them into a database. They need automatic schema discovery and want to pay only per query. Which combination of services provides this?"
+    choices:
+      - "A. AWS Glue Crawler for schema discovery and Amazon Athena for serverless SQL queries"
+      - "B. Amazon Redshift with data loaded from S3"
+      - "C. Amazon RDS with JSON data imported into JSONB columns"
+      - "D. Amazon EMR with Hive tables"
+    answerIndex: 0
+    explanation: "Glue Crawlers automatically discover and catalog JSON schemas, and Athena provides serverless, pay-per-query SQL directly against S3 data. Option B is incorrect because Redshift requires data loading and provisioned capacity, adding cost and complexity for an ad-hoc query use case."
+    refs:
+      - "https://docs.aws.amazon.com/athena/latest/ug/what-is.html"
+      - "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-049"
+    difficulty: "easy"
+    tags: ["health", "events", "monitoring"]
+    question: "An operations team needs proactive notifications when AWS services experience issues that could affect their resources, such as scheduled EC2 maintenance or regional service disruptions. Which AWS service provides personalized health alerts?"
+    choices:
+      - "A. AWS Health Dashboard (formerly Personal Health Dashboard)"
+      - "B. AWS Service Health Dashboard (public)"
+      - "C. Amazon CloudWatch Alarms"
+      - "D. AWS Trusted Advisor"
+    answerIndex: 0
+    explanation: "AWS Health provides personalized alerts specific to the customer's resources and accounts, including scheduled maintenance and service issues. Option B is incorrect because the public Service Health Dashboard shows broad service status but does not provide personalized alerts for specific resources."
+    refs:
+      - "https://docs.aws.amazon.com/health/latest/ug/what-is-aws-health.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-050"
+    difficulty: "hard"
+    tags: ["redshift", "spectrum", "data-warehouse", "architecture"]
+    question: "A company has 50 TB of historical data in S3 in Parquet format and 5 TB of frequently queried recent data. They need to run complex analytical queries joining both datasets with high performance. The recent data should be in a managed warehouse for fastest query times, while historical data should remain in S3 to minimize storage costs. Which architecture achieves this?"
+    choices:
+      - "A. Amazon Redshift for recent data with Redshift Spectrum to query S3 historical data, enabling transparent joins across both"
+      - "B. All 55 TB loaded into a Redshift cluster"
+      - "C. Amazon Athena for all queries with recent data cached in ElastiCache"
+      - "D. Amazon EMR with Spark SQL for all queries"
+    answerIndex: 0
+    explanation: "Redshift stores hot data locally for fastest performance while Spectrum extends queries to cold data in S3 without loading it, enabling seamless joins across both tiers. Option B is incorrect because loading 55 TB entirely into Redshift significantly increases cluster storage costs for data that is rarely accessed."
+    refs:
+      - "https://docs.aws.amazon.com/redshift/latest/dg/c-using-spectrum.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-051"
+    difficulty: "medium"
+    tags: ["vpn", "accelerated", "hybrid", "networking"]
+    question: "A company's site-to-site VPN connection experiences variable latency because traffic traverses the public internet. They cannot justify the cost of Direct Connect but want more consistent VPN performance. Which feature improves VPN latency?"
+    choices:
+      - "A. Accelerated Site-to-Site VPN using AWS Global Accelerator"
+      - "B. Increasing the VPN bandwidth to 10 Gbps"
+      - "C. Adding a second VPN tunnel for redundancy"
+      - "D. Enabling VPN logging in CloudWatch"
+    answerIndex: 0
+    explanation: "Accelerated VPN routes traffic from the on-premises VPN endpoint to the nearest AWS edge location via the AWS global network, reducing internet traversal and improving latency consistency. Option C is incorrect because a second tunnel provides redundancy but both tunnels still traverse the public internet with the same variable latency."
+    refs:
+      - "https://docs.aws.amazon.com/vpn/latest/s2svpn/accelerated-vpn.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-052"
+    difficulty: "hard"
+    tags: ["secrets-manager", "rotation", "cross-account", "security"]
+    question: "A shared database in a central account is accessed by applications in 20 different accounts. The security team requires that database credentials be rotated every 7 days, stored centrally, and accessible from all 20 accounts without distributing credentials. Which architecture implements this?"
+    choices:
+      - "A. Store credentials in Secrets Manager in the central account with automatic rotation, and use resource policies to grant cross-account access to roles in each consuming account"
+      - "B. Store credentials in Parameter Store in each of the 20 accounts"
+      - "C. Hardcode credentials in application configuration files deployed to each account"
+      - "D. Use IAM database authentication and distribute IAM roles to each account"
+    answerIndex: 0
+    explanation: "Centralized Secrets Manager with auto-rotation provides a single source of truth for credentials with cross-account resource policies enabling secure access without distributing secrets. Option B is incorrect because storing credentials in 20 separate Parameter Stores creates synchronization challenges during rotation and does not provide centralized management."
+    refs:
+      - "https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-053"
+    difficulty: "medium"
+    tags: ["ecs", "service-connect", "microservices", "networking"]
+    question: "A team running 15 microservices on Amazon ECS wants simplified service-to-service communication with automatic service discovery, load balancing, and observability without deploying a full service mesh. Which ECS feature provides this?"
+    choices:
+      - "A. Amazon ECS Service Connect"
+      - "B. Application Load Balancer for each service"
+      - "C. AWS Cloud Map with manual DNS resolution"
+      - "D. Docker overlay networking"
+    answerIndex: 0
+    explanation: "ECS Service Connect provides built-in service discovery, load balancing, and observability for inter-service communication as a native ECS feature without requiring external service mesh infrastructure. Option B is incorrect because deploying 15 ALBs adds significant cost and operational overhead compared to native service-to-service communication."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-054"
+    difficulty: "easy"
+    tags: ["compute-optimizer", "cost", "rightsizing"]
+    question: "An enterprise with 2,000 EC2 instances wants data-driven recommendations to rightsize their fleet based on actual utilization. They need recommendations for instance type, size, and whether to use Graviton processors. Which service provides this?"
+    choices:
+      - "A. AWS Compute Optimizer"
+      - "B. AWS Cost Explorer right-sizing recommendations"
+      - "C. Amazon CloudWatch dashboards"
+      - "D. AWS Trusted Advisor performance checks"
+    answerIndex: 0
+    explanation: "Compute Optimizer uses ML to analyze CloudWatch metrics and provides specific instance type recommendations including Graviton-based alternatives. Option C is incorrect because CloudWatch displays metrics for monitoring but does not generate rightsizing recommendations."
+    refs:
+      - "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-055"
+    difficulty: "hard"
+    tags: ["aurora", "read-scaling", "proxy", "database"]
+    question: "An application experiences connection pooling exhaustion on its Aurora PostgreSQL cluster during traffic spikes, with Lambda functions creating hundreds of concurrent database connections. The DBA needs to manage connection pooling, improve failover handling, and enforce IAM-based database authentication. Which solution addresses all three requirements?"
+    choices:
+      - "A. Amazon RDS Proxy in front of the Aurora cluster"
+      - "B. PgBouncer installed on an EC2 instance"
+      - "C. Increase the max_connections parameter on Aurora"
+      - "D. Use Aurora Serverless v2 to handle more connections"
+    answerIndex: 0
+    explanation: "RDS Proxy provides managed connection pooling, transparent failover handling, and native IAM authentication integration, specifically designed for serverless workloads. Option C is incorrect because increasing max_connections may degrade database performance and does not solve the fundamental issue of Lambda creating new connections per invocation."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-056"
+    difficulty: "medium"
+    tags: ["opensearch", "logging", "observability"]
+    question: "A company needs to aggregate application logs from 100 microservices, index them for full-text search, and create dashboards for operational visibility. They want a managed service that integrates with CloudWatch Logs and Kinesis. Which service provides this?"
+    choices:
+      - "A. Amazon OpenSearch Service with OpenSearch Dashboards"
+      - "B. Amazon Athena querying logs in S3"
+      - "C. Amazon RDS for PostgreSQL with full-text search"
+      - "D. Amazon DynamoDB with a GSI on log message content"
+    answerIndex: 0
+    explanation: "OpenSearch Service provides managed Elasticsearch/OpenSearch for full-text search and analytics with native CloudWatch Logs and Kinesis integration, plus OpenSearch Dashboards for visualization. Option C is incorrect because PostgreSQL full-text search does not scale efficiently to the volume of logs from 100 microservices and lacks the specialized log analytics features of OpenSearch."
+    refs:
+      - "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-057"
+    difficulty: "hard"
+    tags: ["glue", "etl", "data-pipeline", "spark"]
+    question: "A data engineering team processes 10 TB of raw CSV data daily from 50 sources, applying complex transformations including deduplication, schema validation, and enrichment with reference data. They need a serverless ETL service that supports Apache Spark, job bookmarking for incremental processing, and a visual job authoring tool. Which service provides this?"
+    choices:
+      - "A. AWS Glue with Spark ETL jobs, job bookmarks, and Glue Studio"
+      - "B. Amazon EMR with manually managed Spark clusters"
+      - "C. AWS Lambda chained with Step Functions"
+      - "D. Amazon Kinesis Data Firehose with transformation"
+    answerIndex: 0
+    explanation: "AWS Glue provides serverless Spark ETL with job bookmarks for incremental processing, Glue Studio for visual authoring, and automatic scaling without cluster management. Option C is incorrect because Lambda has a 15-minute timeout and memory limits that are insufficient for processing 10 TB of data with complex Spark transformations."
+    refs:
+      - "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-058"
+    difficulty: "medium"
+    tags: ["waf", "rate-limiting", "bot-control", "security"]
+    question: "A public-facing e-commerce API is experiencing automated bot traffic causing inventory scraping and account credential stuffing. The security team needs to block malicious bots while allowing legitimate traffic, with rate-based rules and bot detection. Which service provides these capabilities?"
+    choices:
+      - "A. AWS WAF with Bot Control managed rule group and rate-based rules"
+      - "B. AWS Shield Standard"
+      - "C. Amazon CloudFront with geo-restriction"
+      - "D. VPC Network ACLs blocking known bot IPs"
+    answerIndex: 0
+    explanation: "AWS WAF Bot Control uses ML and browser fingerprinting to detect and manage bot traffic, and rate-based rules limit request rates per IP. Option D is incorrect because NACL IP blocking requires manually maintaining a list of known bot IPs, which changes frequently and cannot detect new bots."
+    refs:
+      - "https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-059"
+    difficulty: "easy"
+    tags: ["cost", "cur", "reporting", "governance"]
+    question: "A finance team needs detailed, line-item billing data showing usage and cost for every AWS resource across all organization accounts. They want to query this data with SQL and build custom cost reports. Which AWS feature provides this granular billing data?"
+    choices:
+      - "A. AWS Cost and Usage Report (CUR) exported to S3 and queried with Athena"
+      - "B. AWS Billing console monthly summary"
+      - "C. AWS Cost Explorer with daily granularity"
+      - "D. AWS Budgets reports"
+    answerIndex: 0
+    explanation: "CUR provides the most detailed billing data with line-item resource-level cost and usage information that can be queried with Athena for custom analysis. Option C is incorrect because Cost Explorer provides aggregated views and limited filtering but not the line-item granularity needed for detailed custom reports."
+    refs:
+      - "https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-060"
+    difficulty: "hard"
+    tags: ["step-functions", "distributed-map", "batch-processing"]
+    question: "A company needs to process 10 million S3 objects through a validation pipeline. Each object must be independently processed by a Lambda function. The pipeline must handle failures gracefully with per-item error handling and provide a completion report. Which orchestration approach handles this scale efficiently?"
+    choices:
+      - "A. AWS Step Functions Distributed Map state with Lambda function processors and configurable error handling"
+      - "B. A single Step Functions Map state iterating over all 10 million items"
+      - "C. Lambda function with S3 event triggers processing each object individually"
+      - "D. AWS Batch with a job array of 10 million jobs"
+    answerIndex: 0
+    explanation: "The Distributed Map state is designed for large-scale parallel processing of S3 objects with up to 10,000 concurrent executions, per-item error handling, and completion reports. Option B is incorrect because a standard Map state has a limit of 40 concurrent iterations and cannot handle 10 million items efficiently."
+    refs:
+      - "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-asl-use-map-state-distributed.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-061"
+    difficulty: "medium"
+    tags: ["macie", "s3", "data-classification", "compliance"]
+    question: "A company stores customer data across 200 S3 buckets and must identify all buckets containing PII for GDPR compliance. They need automated discovery and classification with remediation recommendations. Which service provides this?"
+    choices:
+      - "A. Amazon Macie with automated sensitive data discovery across all S3 buckets"
+      - "B. AWS Config rules checking bucket encryption"
+      - "C. S3 Storage Lens for bucket analytics"
+      - "D. AWS Glue crawlers for data cataloging"
+    answerIndex: 0
+    explanation: "Macie uses ML and pattern matching to automatically discover and classify PII in S3 buckets, providing findings and remediation guidance for GDPR compliance. Option D is incorrect because Glue crawlers discover data schemas but do not classify content for PII or sensitive data."
+    refs:
+      - "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-062"
+    difficulty: "hard"
+    tags: ["vpc", "ipam", "networking", "governance"]
+    question: "An enterprise with 500 VPCs across 100 accounts is experiencing IP address conflicts and CIDR overlap. They need centralized IP address planning, automated CIDR allocation for new VPCs, and visibility into IP usage across the organization. Which AWS service provides this?"
+    choices:
+      - "A. Amazon VPC IP Address Manager (IPAM) with organizational delegation"
+      - "B. A spreadsheet tracking CIDR allocations manually"
+      - "C. AWS Config rules checking for overlapping CIDRs"
+      - "D. Transit Gateway route tables for CIDR management"
+    answerIndex: 0
+    explanation: "IPAM provides centralized IP address planning, automated CIDR allocation from defined pools, and organization-wide visibility into IP utilization with delegation to specific accounts. Option B is incorrect because manual spreadsheet tracking is error-prone, does not prevent conflicts at creation time, and does not scale to hundreds of VPCs."
+    refs:
+      - "https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-063"
+    difficulty: "medium"
+    tags: ["codepipeline", "cicd", "cross-account", "deployment"]
+    question: "A development team wants a CI/CD pipeline that builds in a tooling account, tests in a staging account, and deploys to production in a separate account. All three accounts are in the same AWS Organization. Which service provides native cross-account pipeline orchestration?"
+    choices:
+      - "A. AWS CodePipeline with cross-account actions using IAM roles in each target account"
+      - "B. Jenkins deployed on EC2 with IAM users in each account"
+      - "C. AWS CodeBuild running in the production account"
+      - "D. Manual deployment scripts using AWS CLI with assume-role"
+    answerIndex: 0
+    explanation: "CodePipeline natively supports cross-account actions by assuming IAM roles in target accounts, enabling a centralized pipeline that spans multiple accounts. Option D is incorrect because manual scripts lack the orchestration, state management, approval gates, and audit trail that CodePipeline provides."
+    refs:
+      - "https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create-cross-account.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-064"
+    difficulty: "easy"
+    tags: ["budgets", "alerts", "cost"]
+    question: "A team lead wants to be notified when their department's monthly AWS spending reaches 80% and 100% of a $50,000 budget. They also want automatic action to restrict new resource creation if the budget is exceeded. Which service provides budgets with alerts and automated actions?"
+    choices:
+      - "A. AWS Budgets with threshold alerts and budget actions"
+      - "B. AWS Cost Explorer forecasting"
+      - "C. AWS Billing alarms in CloudWatch"
+      - "D. AWS Organizations tag policies"
+    answerIndex: 0
+    explanation: "AWS Budgets supports custom thresholds with email/SNS alerts and budget actions that can automatically apply SCPs or IAM policies when budgets are exceeded. Option C is incorrect because CloudWatch billing alarms only trigger notifications and cannot automatically restrict resource creation."
+    refs:
+      - "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-065"
+    difficulty: "hard"
+    tags: ["ecs", "fargate", "spot", "cost", "containers"]
+    question: "A batch processing workload running on ECS Fargate processes millions of messages daily. The tasks are idempotent and can be retried. The team wants to reduce compute costs by up to 70% while maintaining throughput. Which ECS configuration enables this cost optimization?"
+    choices:
+      - "A. ECS Fargate Spot capacity provider with a base of on-demand tasks and a weight-based split favoring Spot"
+      - "B. Switching from Fargate to EC2 launch type with On-Demand instances"
+      - "C. Reducing the number of tasks and increasing task CPU/memory"
+      - "D. Moving to Lambda for all batch processing"
+    answerIndex: 0
+    explanation: "Fargate Spot provides up to 70% savings over Fargate On-Demand pricing, and mixing providers ensures a base of reliable capacity with cost-optimized scaling. Option D is incorrect because Lambda has a 15-minute timeout and limited concurrency that may not handle the throughput requirements of millions of messages."
+    refs:
+      - "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-066"
+    difficulty: "medium"
+    tags: ["ssm", "automation", "operations", "remediation"]
+    question: "A compliance rule detects that some EC2 instances have been launched without required tags. The team wants to automatically apply the missing tags within minutes of detection without manual intervention. Which combination of services provides this automated remediation?"
+    choices:
+      - "A. AWS Config rule detecting untagged instances triggering SSM Automation to apply tags"
+      - "B. CloudWatch alarm triggering a Lambda function to stop untagged instances"
+      - "C. AWS Inspector flagging untagged instances as vulnerabilities"
+      - "D. IAM policy preventing instance launch without tags"
+    answerIndex: 0
+    explanation: "AWS Config detects non-compliant resources and its auto-remediation feature can trigger SSM Automation runbooks to apply missing tags automatically. Option D is incorrect because while IAM can enforce tag-on-create policies, it does not remediate existing untagged instances."
+    refs:
+      - "https://docs.aws.amazon.com/config/latest/developerguide/remediation.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-067"
+    difficulty: "hard"
+    tags: ["organizations", "tag-policies", "governance", "compliance"]
+    question: "An enterprise wants to enforce consistent tagging across all accounts: specific tag keys must be present on all resources, tag values must match a predefined list (e.g., Environment must be prod, staging, or dev), and non-compliant tags should be reported. Which Organizations feature provides this?"
+    choices:
+      - "A. AWS Organizations tag policies with enforcement enabled"
+      - "B. IAM policies with tag conditions in each account"
+      - "C. AWS Config rules for tag compliance"
+      - "D. SCP denying all API calls without tags"
+    answerIndex: 0
+    explanation: "Tag policies enforce consistent tagging across the organization by defining required tag keys and allowed values, with compliance reporting through the tag policy console. Option D is incorrect because SCPs denying all untagged API calls would be overly broad, breaking many AWS service interactions that do not support tags."
+    refs:
+      - "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-068"
+    difficulty: "medium"
+    tags: ["kms", "multi-region", "encryption", "security"]
+    question: "A company encrypts data with KMS in us-east-1 and needs to decrypt it in eu-west-1 for disaster recovery purposes. They want to avoid re-encrypting all data after a failover and maintain the same key material in both regions. Which KMS feature provides this?"
+    choices:
+      - "A. KMS multi-Region keys that replicate key material across regions"
+      - "B. KMS key import with the same key material in both regions"
+      - "C. Cross-region KMS key alias pointing to the same key"
+      - "D. S3 Cross-Region Replication with re-encryption"
+    answerIndex: 0
+    explanation: "Multi-Region keys maintain the same key material and key ID across regions, allowing ciphertext encrypted in one region to be decrypted in another without re-encryption. Option B is incorrect because imported key material requires manual management and does not provide the automatic synchronization of multi-Region keys."
+    refs:
+      - "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-069"
+    difficulty: "easy"
+    tags: ["support", "planning", "architecture"]
+    question: "A company is planning a large-scale migration to AWS and wants access to a dedicated Technical Account Manager (TAM) for proactive guidance, Infrastructure Event Management, and programmatic access to Trusted Advisor. Which AWS Support plan is required?"
+    choices:
+      - "A. Enterprise Support"
+      - "B. Business Support"
+      - "C. Developer Support"
+      - "D. Basic Support"
+    answerIndex: 0
+    explanation: "Enterprise Support includes a designated TAM, Infrastructure Event Management, and programmatic Trusted Advisor API access. Option B is incorrect because Business Support provides 24/7 phone access and Trusted Advisor but does not include a dedicated TAM."
+    refs:
+      - "https://aws.amazon.com/premiumsupport/plans/"
+    author: "ThanhNguyxn"
+
+  - id: "sap-expand-070"
+    difficulty: "hard"
+    tags: ["wavelength", "local-zones", "edge", "latency"]
+    question: "A gaming company needs to serve real-time multiplayer game state to mobile users with single-digit millisecond latency by placing compute at the 5G network edge. Users connect via a specific mobile carrier. Which AWS infrastructure option places compute within the carrier's 5G network?"
+    choices:
+      - "A. AWS Wavelength zones deployed within the carrier's 5G network"
+      - "B. AWS Local Zones in the nearest metro area"
+      - "C. AWS Outposts deployed at the carrier's data center"
+      - "D. Amazon CloudFront edge locations"
+    answerIndex: 0
+    explanation: "Wavelength zones are embedded within carrier 5G networks, providing ultra-low latency compute for mobile users without traffic leaving the carrier network. Option B is incorrect because Local Zones are in metro areas but not within the carrier network, so traffic still traverses from the 5G network to the Local Zone."
+    refs:
+      - "https://docs.aws.amazon.com/wavelength/latest/developerguide/what-is-wavelength.html"
+    author: "ThanhNguyxn"

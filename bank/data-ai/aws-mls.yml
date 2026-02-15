@@ -478,3 +478,1054 @@ questions:
       - "https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference.html"
       - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
     author: "ThanhNguyxn"
+
+  - id: "mls-expand-001"
+    difficulty: "easy"
+    tags: ["data-engineering", "s3", "data-lake"]
+    question: "A data engineering team needs a central, scalable repository for raw, semi-structured data that will be consumed by multiple ML training pipelines. Which AWS service is the most appropriate foundation?"
+    choices:
+      - "A. Amazon RDS"
+      - "B. Amazon S3"
+      - "C. Amazon ElastiCache"
+      - "D. Amazon Neptune"
+    answerIndex: 1
+    explanation: "Amazon S3 is the standard choice for data lake storage due to its scalability, durability, and ability to store any data format. RDS is a relational database, not a data lake."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+      - "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-002"
+    difficulty: "easy"
+    tags: ["data-engineering", "glue", "etl"]
+    question: "Which AWS service provides a serverless ETL platform that can crawl data sources, infer schemas, and transform data for ML pipelines?"
+    choices:
+      - "A. AWS Glue"
+      - "B. Amazon Kinesis Data Streams"
+      - "C. Amazon SQS"
+      - "D. AWS Lambda"
+    answerIndex: 0
+    explanation: "AWS Glue is a serverless data integration service with crawlers for schema discovery, a data catalog, and Spark-based ETL jobs. Kinesis is for streaming data ingestion, not ETL."
+    refs:
+      - "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-003"
+    difficulty: "easy"
+    tags: ["data-engineering", "kinesis", "streaming"]
+    question: "A company needs to collect and process real-time clickstream data for an ML recommendation model. Which service ingests streaming data at scale?"
+    choices:
+      - "A. Amazon S3 Glacier"
+      - "B. Amazon Kinesis Data Streams"
+      - "C. AWS Snowball"
+      - "D. Amazon Redshift"
+    answerIndex: 1
+    explanation: "Kinesis Data Streams captures real-time data at scale from hundreds of thousands of sources. S3 Glacier is for archival storage with high retrieval latency."
+    refs:
+      - "https://docs.aws.amazon.com/streams/latest/dev/introduction.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-004"
+    difficulty: "easy"
+    tags: ["data-engineering", "athena", "querying"]
+    question: "A data scientist wants to run ad-hoc SQL queries on CSV files stored in S3 without loading them into a database. Which service should they use?"
+    choices:
+      - "A. Amazon Athena"
+      - "B. Amazon DynamoDB"
+      - "C. Amazon RDS"
+      - "D. AWS Glue DataBrew"
+    answerIndex: 0
+    explanation: "Amazon Athena is a serverless interactive query service that runs SQL directly against data in S3. DynamoDB is a NoSQL database requiring data to be loaded first."
+    refs:
+      - "https://docs.aws.amazon.com/athena/latest/ug/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-005"
+    difficulty: "easy"
+    tags: ["data-engineering", "data-wrangler", "preparation"]
+    question: "A data scientist wants a visual, low-code tool in SageMaker Studio to explore, clean, and transform tabular data before training. Which feature should they use?"
+    choices:
+      - "A. SageMaker Data Wrangler"
+      - "B. SageMaker Debugger"
+      - "C. SageMaker Neo"
+      - "D. SageMaker Pipelines"
+    answerIndex: 0
+    explanation: "Data Wrangler provides a visual interface for data preparation including transformations, joins, and feature engineering, all within SageMaker Studio."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-006"
+    difficulty: "medium"
+    tags: ["data-engineering", "feature-store", "reuse"]
+    question: "Multiple ML teams need to share and reuse curated feature sets across training and real-time inference. Which SageMaker capability provides a centralised feature repository?"
+    choices:
+      - "A. SageMaker Feature Store"
+      - "B. SageMaker Model Registry"
+      - "C. SageMaker Experiments"
+      - "D. SageMaker Canvas"
+    answerIndex: 0
+    explanation: "SageMaker Feature Store provides an online and offline store for features, enabling consistent feature serving for training and inference across teams."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-007"
+    difficulty: "medium"
+    tags: ["data-engineering", "glue-databrew", "profiling"]
+    question: "A team needs to profile and clean a large dataset without writing code, using a visual interface with 250+ built-in transformations. Which service should they use?"
+    choices:
+      - "A. AWS Glue DataBrew"
+      - "B. Amazon EMR"
+      - "C. Amazon Kinesis Data Analytics"
+      - "D. AWS Step Functions"
+    answerIndex: 0
+    explanation: "AWS Glue DataBrew is a visual data preparation tool that provides data profiling and over 250 pre-built transformations without requiring coding. EMR is a managed cluster for big data processing."
+    refs:
+      - "https://docs.aws.amazon.com/databrew/latest/dg/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-008"
+    difficulty: "medium"
+    tags: ["data-engineering", "emr", "spark"]
+    question: "A team processes petabytes of log data using Apache Spark for feature extraction before ML training. Which AWS service provides managed Spark clusters?"
+    choices:
+      - "A. Amazon EMR"
+      - "B. AWS Lambda"
+      - "C. Amazon SQS"
+      - "D. Amazon DynamoDB"
+    answerIndex: 0
+    explanation: "Amazon EMR provides managed clusters for big data frameworks including Apache Spark, Hive, and Presto. Lambda is for short-lived functions, not large-scale data processing."
+    refs:
+      - "https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-009"
+    difficulty: "medium"
+    tags: ["data-engineering", "lake-formation", "governance"]
+    question: "An organisation wants centralised access control and governance over their S3-based data lake, with fine-grained column-level permissions. Which service should they use?"
+    choices:
+      - "A. AWS Lake Formation"
+      - "B. Amazon Macie"
+      - "C. AWS IAM policies on S3"
+      - "D. Amazon Redshift Spectrum"
+    answerIndex: 0
+    explanation: "AWS Lake Formation provides centralised data lake governance with fine-grained access control at table and column level, data catalog integration, and cross-account sharing."
+    refs:
+      - "https://docs.aws.amazon.com/lake-formation/latest/dg/what-is-lake-formation.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-010"
+    difficulty: "hard"
+    tags: ["data-engineering", "kinesis-firehose", "delivery"]
+    question: "Streaming sensor data needs to be automatically batched, optionally transformed, and delivered to S3 in near-real-time without managing consumers. Which service should be used?"
+    choices:
+      - "A. Amazon Kinesis Data Firehose"
+      - "B. Amazon Kinesis Data Streams"
+      - "C. AWS Glue crawlers"
+      - "D. Amazon SQS"
+    answerIndex: 0
+    explanation: "Kinesis Data Firehose is a fully managed delivery stream that automatically batches, compresses, and delivers data to destinations like S3. Kinesis Data Streams requires writing consumer applications."
+    refs:
+      - "https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-011"
+    difficulty: "easy"
+    tags: ["eda", "statistics", "distributions"]
+    question: "During exploratory data analysis, a data scientist discovers that a numerical feature is heavily right-skewed. Which transformation is commonly applied to reduce skewness?"
+    choices:
+      - "A. Log transformation"
+      - "B. One-hot encoding"
+      - "C. Label encoding"
+      - "D. Min-max scaling"
+    answerIndex: 0
+    explanation: "Log transformation compresses the range of right-skewed data, making the distribution more symmetric and often improving model performance. One-hot encoding is for categorical variables."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-012"
+    difficulty: "easy"
+    tags: ["eda", "missing-values", "imputation"]
+    question: "A dataset has 15% missing values in a numeric column. Which approach is a simple first step to handle these before training?"
+    choices:
+      - "A. Drop the entire column"
+      - "B. Impute missing values with the column median"
+      - "C. Replace missing values with the string 'N/A'"
+      - "D. Ignore missing values and train directly"
+    answerIndex: 1
+    explanation: "Median imputation is robust to outliers and preserves the column for training. Dropping the column loses all information, and string replacement introduces type errors in numeric columns."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-013"
+    difficulty: "easy"
+    tags: ["eda", "correlation", "feature-selection"]
+    question: "Two features in a dataset have a Pearson correlation coefficient of 0.98. What does this suggest?"
+    choices:
+      - "A. The features are unrelated"
+      - "B. The features are highly correlated and one may be redundant"
+      - "C. Both features should be removed"
+      - "D. The features have opposite trends"
+    answerIndex: 1
+    explanation: "A correlation of 0.98 indicates strong positive linear correlation, suggesting redundancy. Removing one can reduce multicollinearity without significant information loss."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-014"
+    difficulty: "medium"
+    tags: ["eda", "class-imbalance", "sampling"]
+    question: "A fraud detection dataset has 99% legitimate and 1% fraudulent transactions. Which technique helps address this class imbalance during training?"
+    choices:
+      - "A. Oversample the minority class using SMOTE"
+      - "B. Remove 99% of the majority class randomly"
+      - "C. Increase the learning rate"
+      - "D. Convert to an unsupervised problem"
+    answerIndex: 0
+    explanation: "SMOTE creates synthetic minority class examples to balance the training distribution. Randomly removing 99% of majority data loses valuable information."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-015"
+    difficulty: "medium"
+    tags: ["eda", "outliers", "detection"]
+    question: "A data scientist uses box plots and finds data points beyond 3 standard deviations from the mean. What are these points typically called?"
+    choices:
+      - "A. Null values"
+      - "B. Outliers"
+      - "C. Categorical features"
+      - "D. Labels"
+    answerIndex: 1
+    explanation: "Data points significantly deviating from the mean (e.g., beyond 3 standard deviations) are commonly classified as outliers and may require investigation or special handling."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-016"
+    difficulty: "medium"
+    tags: ["eda", "feature-engineering", "encoding"]
+    question: "A categorical feature has 5 unordered categories (Red, Blue, Green, Yellow, Black). Which encoding method is most appropriate for a tree-based model?"
+    choices:
+      - "A. Ordinal encoding with arbitrary integer assignment"
+      - "B. One-hot encoding"
+      - "C. Normalisation"
+      - "D. Principal Component Analysis"
+    answerIndex: 1
+    explanation: "One-hot encoding creates binary columns for each category, preventing the model from inferring false ordinal relationships. PCA is a dimensionality reduction technique, not an encoding method."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-017"
+    difficulty: "medium"
+    tags: ["eda", "dimensionality-reduction", "pca"]
+    question: "A dataset has 500 features and a data scientist suspects many are redundant. Which technique reduces dimensionality while retaining most variance?"
+    choices:
+      - "A. Principal Component Analysis (PCA)"
+      - "B. K-means clustering"
+      - "C. Random forest classification"
+      - "D. Gradient descent"
+    answerIndex: 0
+    explanation: "PCA projects data onto principal components that capture the most variance, effectively reducing feature dimensionality. K-means is for clustering, not dimensionality reduction."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/pca.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-018"
+    difficulty: "medium"
+    tags: ["eda", "visualization", "sagemaker-studio"]
+    question: "A data scientist wants to create interactive visualisations of feature distributions and correlations within SageMaker Studio notebooks. Which Python library is most commonly used?"
+    choices:
+      - "A. matplotlib and seaborn"
+      - "B. AWS CloudFormation"
+      - "C. boto3"
+      - "D. AWS CDK"
+    answerIndex: 0
+    explanation: "matplotlib and seaborn are standard Python visualisation libraries used in Jupyter notebooks within SageMaker Studio for EDA. boto3 is the AWS SDK, not a visualisation library."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-019"
+    difficulty: "hard"
+    tags: ["eda", "feature-engineering", "time-series"]
+    question: "When preparing time-series data for an ML model, which feature engineering technique extracts useful signals from timestamp columns?"
+    choices:
+      - "A. Creating lag features, rolling averages, and extracting day-of-week, hour, and month components"
+      - "B. Dropping the timestamp column entirely"
+      - "C. Converting timestamps to random integers"
+      - "D. Applying one-hot encoding to the raw timestamp string"
+    answerIndex: 0
+    explanation: "Lag features, rolling statistics, and time component extraction capture temporal patterns and seasonality. Dropping timestamps loses temporal information critical for time-series models."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-020"
+    difficulty: "hard"
+    tags: ["eda", "data-leakage", "validation"]
+    question: "A model achieves 99.9% accuracy on the test set but performs poorly in production. After investigation, the team discovers a feature derived from the target variable was included. What is this problem called?"
+    choices:
+      - "A. Underfitting"
+      - "B. Data leakage"
+      - "C. Regularisation"
+      - "D. Feature scaling"
+    answerIndex: 1
+    explanation: "Data leakage occurs when information from the target or future data inappropriately leaks into the training features, causing unrealistically high evaluation metrics that do not generalise."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-021"
+    difficulty: "easy"
+    tags: ["modeling", "supervised", "classification"]
+    question: "A model predicts whether an email is spam or not spam. What type of ML problem is this?"
+    choices:
+      - "A. Regression"
+      - "B. Binary classification"
+      - "C. Clustering"
+      - "D. Dimensionality reduction"
+    answerIndex: 1
+    explanation: "Predicting one of two discrete classes (spam vs. not spam) is a binary classification problem. Regression predicts continuous numerical values."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-022"
+    difficulty: "easy"
+    tags: ["modeling", "supervised", "regression"]
+    question: "Predicting the price of a house based on features like square footage and location is an example of which type of ML problem?"
+    choices:
+      - "A. Classification"
+      - "B. Regression"
+      - "C. Clustering"
+      - "D. Anomaly detection"
+    answerIndex: 1
+    explanation: "Predicting a continuous numerical value (house price) from input features is a regression problem. Classification predicts discrete categories."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/linear-learner.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-023"
+    difficulty: "easy"
+    tags: ["modeling", "xgboost", "algorithms"]
+    question: "Which SageMaker built-in algorithm is a popular choice for tabular classification and regression tasks due to its handling of missing values and built-in regularisation?"
+    choices:
+      - "A. XGBoost"
+      - "B. Seq2Seq"
+      - "C. DeepAR"
+      - "D. BlazingText"
+    answerIndex: 0
+    explanation: "XGBoost is a gradient-boosted tree algorithm widely used for structured/tabular data. Seq2Seq is for sequence-to-sequence tasks like translation, not tabular data."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-024"
+    difficulty: "easy"
+    tags: ["modeling", "deepar", "time-series"]
+    question: "A company needs to forecast daily sales for 1,000 products simultaneously using an algorithm that learns across all time series. Which SageMaker built-in algorithm should they use?"
+    choices:
+      - "A. DeepAR"
+      - "B. K-means"
+      - "C. Random Cut Forest"
+      - "D. Object Detection"
+    answerIndex: 0
+    explanation: "DeepAR is a supervised forecasting algorithm that trains on many related time series simultaneously, learning global patterns. K-means is for clustering, not time-series forecasting."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/deepar.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-025"
+    difficulty: "medium"
+    tags: ["modeling", "random-cut-forest", "anomaly"]
+    question: "A manufacturing company wants to detect anomalous sensor readings in real-time. Which SageMaker built-in algorithm is designed for anomaly detection?"
+    choices:
+      - "A. Random Cut Forest (RCF)"
+      - "B. Linear Learner"
+      - "C. Factorization Machines"
+      - "D. LDA"
+    answerIndex: 0
+    explanation: "Random Cut Forest is an unsupervised algorithm for detecting anomalous data points. It assigns an anomaly score to each observation. Linear Learner is a supervised algorithm for classification/regression."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/randomcutforest.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-026"
+    difficulty: "medium"
+    tags: ["modeling", "blazingtext", "nlp"]
+    question: "A team needs to train word embeddings on a large text corpus and also perform fast text classification. Which SageMaker built-in algorithm supports both use cases?"
+    choices:
+      - "A. BlazingText"
+      - "B. Image Classification"
+      - "C. K-Nearest Neighbors"
+      - "D. IP Insights"
+    answerIndex: 0
+    explanation: "BlazingText provides optimised implementations of Word2Vec for embeddings and supervised text classification. Image Classification handles images, not text."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/blazingtext.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-027"
+    difficulty: "medium"
+    tags: ["modeling", "object-detection", "computer-vision"]
+    question: "An application needs to identify and locate multiple objects in images with bounding boxes. Which SageMaker built-in algorithm should be used?"
+    choices:
+      - "A. Object Detection"
+      - "B. Semantic Segmentation"
+      - "C. K-means"
+      - "D. LDA"
+    answerIndex: 0
+    explanation: "Object Detection identifies objects in images and provides bounding box coordinates for each. Semantic Segmentation classifies each pixel, not bounding boxes around objects."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/object-detection.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-028"
+    difficulty: "medium"
+    tags: ["modeling", "factorization-machines", "recommendations"]
+    question: "A team builds a recommendation system using sparse user-item interaction data. Which SageMaker algorithm is designed for this type of sparse feature interaction learning?"
+    choices:
+      - "A. Factorization Machines"
+      - "B. XGBoost"
+      - "C. PCA"
+      - "D. Seq2Seq"
+    answerIndex: 0
+    explanation: "Factorization Machines efficiently model pairwise feature interactions in sparse data, making them well-suited for recommendation and click-through prediction tasks."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/fact-machines.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-029"
+    difficulty: "medium"
+    tags: ["modeling", "training", "distributed"]
+    question: "Training a large deep learning model on a single GPU takes 2 weeks. The team wants to speed up training using multiple instances. Which SageMaker feature enables this?"
+    choices:
+      - "A. Distributed training with data parallelism or model parallelism"
+      - "B. Batch Transform"
+      - "C. SageMaker Autopilot"
+      - "D. SageMaker Canvas"
+    answerIndex: 0
+    explanation: "SageMaker supports distributed training across multiple instances using data parallelism (splitting data) or model parallelism (splitting the model), significantly reducing training time."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-030"
+    difficulty: "medium"
+    tags: ["modeling", "metrics", "evaluation"]
+    question: "For a binary classification model, which metric is most appropriate when the cost of false negatives is much higher than false positives?"
+    choices:
+      - "A. Precision"
+      - "B. Recall (Sensitivity)"
+      - "C. Specificity"
+      - "D. Accuracy"
+    answerIndex: 1
+    explanation: "Recall measures the proportion of actual positives correctly identified. When false negatives are costly (e.g., missing a disease), maximising recall is critical."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-031"
+    difficulty: "medium"
+    tags: ["modeling", "metrics", "auc-roc"]
+    question: "What does the Area Under the ROC Curve (AUC-ROC) measure for a binary classifier?"
+    choices:
+      - "A. The model's ability to discriminate between positive and negative classes across all threshold values"
+      - "B. The training speed of the model"
+      - "C. The number of features used"
+      - "D. The size of the training dataset"
+    answerIndex: 0
+    explanation: "AUC-ROC summarises the classifier's ability to separate classes across all possible decision thresholds. A value of 1.0 indicates perfect discrimination; 0.5 indicates random guessing."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-032"
+    difficulty: "medium"
+    tags: ["modeling", "overfitting", "bias-variance"]
+    question: "A model has very low training error but significantly higher validation error. What does this indicate?"
+    choices:
+      - "A. Underfitting"
+      - "B. Overfitting (high variance)"
+      - "C. The model is perfect"
+      - "D. The data has no noise"
+    answerIndex: 1
+    explanation: "A large gap between training and validation error indicates overfitting — the model memorises training data but fails to generalise. This is a high-variance problem."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-033"
+    difficulty: "hard"
+    tags: ["modeling", "ensembles", "boosting"]
+    question: "How does gradient boosting differ from bagging in ensemble learning?"
+    choices:
+      - "A. Boosting trains models sequentially, each correcting errors of the previous; bagging trains models independently in parallel"
+      - "B. Boosting and bagging are identical"
+      - "C. Bagging trains models sequentially; boosting trains in parallel"
+      - "D. Neither uses decision trees"
+    answerIndex: 0
+    explanation: "Gradient boosting builds models sequentially with each new model focusing on the residual errors of the ensemble so far. Bagging (e.g., Random Forest) trains independent models in parallel and aggregates their predictions."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-034"
+    difficulty: "hard"
+    tags: ["modeling", "neural-networks", "activation"]
+    question: "In a deep neural network for classification, which activation function is typically used in the output layer for multi-class problems?"
+    choices:
+      - "A. ReLU"
+      - "B. Sigmoid"
+      - "C. Softmax"
+      - "D. Tanh"
+    answerIndex: 2
+    explanation: "Softmax converts the output layer's raw scores into a probability distribution across all classes, where probabilities sum to 1. Sigmoid is used for binary classification output."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-035"
+    difficulty: "hard"
+    tags: ["modeling", "transfer-learning", "fine-tuning"]
+    question: "A team has a small labelled image dataset and wants to leverage a model pre-trained on ImageNet. Which technique adapts the pre-trained model to the new task?"
+    choices:
+      - "A. Transfer learning via fine-tuning the last few layers on the new dataset"
+      - "B. Training a new model from scratch with random initialisation"
+      - "C. Using K-means on the image pixels"
+      - "D. Applying PCA to reduce image dimensions"
+    answerIndex: 0
+    explanation: "Fine-tuning a pre-trained model replaces or retrains the final layers on the new dataset while retaining learned feature representations from the earlier layers."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-036"
+    difficulty: "hard"
+    tags: ["modeling", "sagemaker-autopilot", "automl"]
+    question: "A business analyst with limited ML experience needs to build a classification model from a CSV file. Which SageMaker feature automatically explores algorithms and hyperparameters?"
+    choices:
+      - "A. SageMaker Autopilot"
+      - "B. SageMaker Debugger"
+      - "C. SageMaker Clarify"
+      - "D. SageMaker Neo"
+    answerIndex: 0
+    explanation: "SageMaker Autopilot is an AutoML capability that automatically explores data, selects algorithms, tunes hyperparameters, and generates candidate models and notebooks."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-037"
+    difficulty: "hard"
+    tags: ["modeling", "loss-functions", "optimization"]
+    question: "For a regression model, which loss function penalises large errors more heavily, making the model sensitive to outliers?"
+    choices:
+      - "A. Mean Squared Error (MSE)"
+      - "B. Mean Absolute Error (MAE)"
+      - "C. Huber loss"
+      - "D. Cross-entropy loss"
+    answerIndex: 0
+    explanation: "MSE squares the errors, so large errors receive disproportionately high penalties. MAE treats all errors linearly, making it less sensitive to outliers. Cross-entropy is for classification."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-038"
+    difficulty: "hard"
+    tags: ["modeling", "sagemaker-debugger", "training"]
+    question: "During training, a team wants to automatically detect vanishing gradients and trigger an early stop. Which SageMaker feature monitors training in real-time?"
+    choices:
+      - "A. SageMaker Debugger"
+      - "B. SageMaker Model Monitor"
+      - "C. CloudWatch Logs"
+      - "D. AWS X-Ray"
+    answerIndex: 0
+    explanation: "SageMaker Debugger monitors training jobs in real-time, capturing tensors and system metrics. It can detect issues like vanishing gradients and trigger rules-based actions."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-how-it-works.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-039"
+    difficulty: "hard"
+    tags: ["modeling", "semantic-segmentation", "computer-vision"]
+    question: "An autonomous driving system needs to classify every pixel in camera images into categories like road, car, pedestrian, and sky. Which ML task is this?"
+    choices:
+      - "A. Object detection"
+      - "B. Image classification"
+      - "C. Semantic segmentation"
+      - "D. Text classification"
+    answerIndex: 2
+    explanation: "Semantic segmentation assigns a class label to every pixel in an image, creating a pixel-level classification map. Object detection identifies objects with bounding boxes, not pixel-level labels."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/semantic-segmentation.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-040"
+    difficulty: "hard"
+    tags: ["modeling", "lda", "topic-modeling"]
+    question: "A news aggregator wants to automatically discover topics from millions of articles without predefined labels. Which SageMaker algorithm performs topic modelling?"
+    choices:
+      - "A. Latent Dirichlet Allocation (LDA)"
+      - "B. XGBoost"
+      - "C. Linear Learner"
+      - "D. Object Detection"
+    answerIndex: 0
+    explanation: "LDA is an unsupervised algorithm that discovers latent topics within a collection of documents by analysing word co-occurrence patterns."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/lda.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-041"
+    difficulty: "easy"
+    tags: ["mlops", "endpoints", "real-time"]
+    question: "Which SageMaker deployment option provides a persistent HTTPS endpoint for low-latency, synchronous predictions?"
+    choices:
+      - "A. Real-time inference endpoint"
+      - "B. Batch Transform"
+      - "C. SageMaker Processing job"
+      - "D. SageMaker Training job"
+    answerIndex: 0
+    explanation: "A real-time inference endpoint provides a persistent HTTPS API for synchronous, low-latency predictions. Batch Transform is for offline bulk inference."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-042"
+    difficulty: "easy"
+    tags: ["mlops", "serverless-inference", "cost"]
+    question: "A model receives sporadic traffic with long idle periods. The team wants to avoid paying for always-on instances. Which endpoint type should they choose?"
+    choices:
+      - "A. SageMaker Serverless Inference endpoint"
+      - "B. Real-time endpoint with a single ml.m5.xlarge instance"
+      - "C. Batch Transform"
+      - "D. SageMaker Processing job"
+    answerIndex: 0
+    explanation: "Serverless Inference endpoints automatically scale to zero during idle periods, eliminating costs when there is no traffic. Real-time endpoints have always-on instances incurring continuous costs."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/serverless-endpoints.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-043"
+    difficulty: "medium"
+    tags: ["mlops", "sagemaker-neo", "edge"]
+    question: "A model needs to run on edge devices with limited compute. Which SageMaker feature compiles and optimises models for target hardware?"
+    choices:
+      - "A. SageMaker Neo"
+      - "B. SageMaker Debugger"
+      - "C. SageMaker Clarify"
+      - "D. SageMaker Ground Truth"
+    answerIndex: 0
+    explanation: "SageMaker Neo compiles trained models for specific hardware targets (cloud instances, edge devices) to optimise performance without sacrificing accuracy."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/neo.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-044"
+    difficulty: "medium"
+    tags: ["mlops", "pipelines", "automation"]
+    question: "A team wants to automate the end-to-end ML workflow — from data processing through training to model deployment — with a DAG-based orchestration. Which SageMaker feature should they use?"
+    choices:
+      - "A. SageMaker Pipelines"
+      - "B. SageMaker Data Wrangler"
+      - "C. SageMaker Canvas"
+      - "D. SageMaker JumpStart"
+    answerIndex: 0
+    explanation: "SageMaker Pipelines provides a purpose-built CI/CD service for ML that orchestrates each step of the ML workflow as a directed acyclic graph (DAG)."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-045"
+    difficulty: "medium"
+    tags: ["mlops", "autoscaling", "endpoint"]
+    question: "A production endpoint experiences variable traffic throughout the day. How should the team ensure the endpoint scales instances based on demand?"
+    choices:
+      - "A. Configure Application Auto Scaling with a target tracking policy on InvocationsPerInstance"
+      - "B. Manually add instances during peak hours"
+      - "C. Use Batch Transform instead"
+      - "D. Deploy a larger instance type and never scale"
+    answerIndex: 0
+    explanation: "Application Auto Scaling with target tracking automatically adjusts the number of instances based on metrics like InvocationsPerInstance, matching capacity to demand."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/endpoint-auto-scaling.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-046"
+    difficulty: "medium"
+    tags: ["mlops", "model-monitor", "bias"]
+    question: "After deployment, a team needs to detect if prediction bias drifts over time compared to training data statistics. Which SageMaker feature provides this?"
+    choices:
+      - "A. SageMaker Model Monitor bias drift monitoring"
+      - "B. SageMaker Autopilot"
+      - "C. SageMaker Ground Truth"
+      - "D. AWS Glue"
+    answerIndex: 0
+    explanation: "Model Monitor can continuously monitor predictions for bias drift by comparing real-time inference data against baseline statistics from training data."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-047"
+    difficulty: "medium"
+    tags: ["mlops", "inference-pipeline", "preprocessing"]
+    question: "A model requires the same feature transformations at inference time as during training. How can you ensure consistency between training preprocessing and real-time inference?"
+    choices:
+      - "A. Deploy an inference pipeline that chains a preprocessing container and the model container in a single endpoint"
+      - "B. Ask users to preprocess data before sending requests"
+      - "C. Store transformation code in a README"
+      - "D. Use a separate Lambda function that duplicates the preprocessing logic"
+    answerIndex: 0
+    explanation: "SageMaker inference pipelines chain multiple containers (e.g., preprocessor + model) into a single endpoint, ensuring identical transformations are applied during training and inference."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipelines.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-048"
+    difficulty: "hard"
+    tags: ["mlops", "shadow-testing", "deployment"]
+    question: "Before replacing the production model, a team wants to send a copy of live traffic to the new model to compare responses without affecting users. Which SageMaker feature supports this?"
+    choices:
+      - "A. Shadow testing with production variants"
+      - "B. Batch Transform"
+      - "C. SageMaker Ground Truth"
+      - "D. SageMaker Data Wrangler"
+    answerIndex: 0
+    explanation: "SageMaker shadow testing routes a copy of production traffic to a shadow variant, allowing comparison of model outputs without impacting the user-facing response."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/model-shadow-testing.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-049"
+    difficulty: "hard"
+    tags: ["mlops", "model-lineage", "governance"]
+    question: "A compliance team needs to trace every deployed model back to its exact training data, code version, and hyperparameters. Which SageMaker capability supports this?"
+    choices:
+      - "A. SageMaker ML Lineage Tracking"
+      - "B. SageMaker Canvas"
+      - "C. Amazon Textract"
+      - "D. Amazon Comprehend"
+    answerIndex: 0
+    explanation: "SageMaker ML Lineage Tracking creates a graph of the relationships between datasets, training jobs, models, and endpoints, enabling full traceability for governance."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/lineage-tracking.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-050"
+    difficulty: "hard"
+    tags: ["mlops", "multi-model-endpoint", "cost"]
+    question: "A SaaS company hosts 10,000 customer-specific models with very low individual traffic. They want to minimise cost. Which SageMaker endpoint strategy is most cost-effective?"
+    choices:
+      - "A. Multi-model endpoints that dynamically load/unload models on shared instances"
+      - "B. 10,000 individual real-time endpoints"
+      - "C. One Batch Transform job per customer request"
+      - "D. Store models in DynamoDB"
+    answerIndex: 0
+    explanation: "Multi-model endpoints host many models on shared infrastructure, dynamically loading the requested model at inference time, dramatically reducing costs for many low-traffic models."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/multi-model-endpoints.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-051"
+    difficulty: "easy"
+    tags: ["ai-services", "rekognition", "vision"]
+    question: "A media company wants to automatically detect faces and recognise celebrities in uploaded photos without training a custom model. Which AWS service provides this?"
+    choices:
+      - "A. Amazon Rekognition"
+      - "B. Amazon SageMaker"
+      - "C. Amazon Polly"
+      - "D. Amazon Lex"
+    answerIndex: 0
+    explanation: "Amazon Rekognition provides pre-trained computer vision APIs for face detection, facial analysis, celebrity recognition, and content moderation without needing to train custom models."
+    refs:
+      - "https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-052"
+    difficulty: "easy"
+    tags: ["ai-services", "comprehend", "nlp"]
+    question: "Which AWS service uses NLP to extract sentiment, entities, and key phrases from text without building custom models?"
+    choices:
+      - "A. Amazon Comprehend"
+      - "B. Amazon Transcribe"
+      - "C. Amazon Translate"
+      - "D. Amazon Polly"
+    answerIndex: 0
+    explanation: "Amazon Comprehend provides pre-trained NLP capabilities including sentiment analysis, entity recognition, and key phrase extraction via APIs."
+    refs:
+      - "https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-053"
+    difficulty: "easy"
+    tags: ["ai-services", "transcribe", "speech"]
+    question: "Which AWS service converts spoken audio into text (speech-to-text)?"
+    choices:
+      - "A. Amazon Polly"
+      - "B. Amazon Transcribe"
+      - "C. Amazon Lex"
+      - "D. Amazon Translate"
+    answerIndex: 1
+    explanation: "Amazon Transcribe is an automatic speech recognition service that converts audio to text. Amazon Polly does the opposite — it converts text to speech."
+    refs:
+      - "https://docs.aws.amazon.com/transcribe/latest/dg/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-054"
+    difficulty: "medium"
+    tags: ["ai-services", "textract", "documents"]
+    question: "An insurance company needs to extract text, forms, and tables from scanned PDF documents. Which AWS service should they use?"
+    choices:
+      - "A. Amazon Textract"
+      - "B. Amazon Comprehend"
+      - "C. Amazon Translate"
+      - "D. Amazon Kendra"
+    answerIndex: 0
+    explanation: "Amazon Textract uses ML to automatically extract text, forms, and tables from scanned documents and PDFs. Comprehend analyses text meaning but does not extract from document images."
+    refs:
+      - "https://docs.aws.amazon.com/textract/latest/dg/what-is.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-055"
+    difficulty: "medium"
+    tags: ["ai-services", "personalize", "recommendations"]
+    question: "An e-commerce platform wants to provide personalised product recommendations to users in real-time. Which AWS service offers managed recommendation models?"
+    choices:
+      - "A. Amazon Personalize"
+      - "B. Amazon Forecast"
+      - "C. Amazon SageMaker"
+      - "D. Amazon Lex"
+    answerIndex: 0
+    explanation: "Amazon Personalize creates individualised recommendation models from user interaction data. It handles data ingestion, model training, and real-time recommendation serving."
+    refs:
+      - "https://docs.aws.amazon.com/personalize/latest/dg/what-is-personalize.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-056"
+    difficulty: "medium"
+    tags: ["ai-services", "forecast", "time-series"]
+    question: "A retail chain wants to forecast demand for inventory planning using historical sales data. Which managed AWS service specialises in time-series forecasting?"
+    choices:
+      - "A. Amazon Forecast"
+      - "B. Amazon Personalize"
+      - "C. Amazon Rekognition"
+      - "D. Amazon Lex"
+    answerIndex: 0
+    explanation: "Amazon Forecast uses ML to generate accurate time-series forecasts from historical data. It automatically selects algorithms and handles data processing."
+    refs:
+      - "https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-057"
+    difficulty: "medium"
+    tags: ["security", "encryption", "kms"]
+    question: "A team needs to encrypt ML training data at rest in S3 using keys they control. Which AWS service manages these encryption keys?"
+    choices:
+      - "A. AWS KMS"
+      - "B. AWS IAM"
+      - "C. AWS Secrets Manager"
+      - "D. AWS Shield"
+    answerIndex: 0
+    explanation: "AWS Key Management Service (KMS) creates and controls encryption keys used to encrypt data across AWS services including S3. IAM manages access policies, not encryption keys."
+    refs:
+      - "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-058"
+    difficulty: "medium"
+    tags: ["security", "vpc", "network-isolation"]
+    question: "A security team requires that SageMaker training jobs cannot access the internet. Which configuration ensures network isolation?"
+    choices:
+      - "A. Enable network isolation mode (internet-free) on the training job"
+      - "B. Deploy the training job in a public subnet"
+      - "C. Use an S3 VPC endpoint and NAT gateway"
+      - "D. Disable CloudWatch logging"
+    answerIndex: 0
+    explanation: "Network isolation mode prevents the training container from making outbound network calls, ensuring data cannot leave the VPC. This is the strongest isolation for compliance."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/mkt-algo-model-internet-free.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-059"
+    difficulty: "hard"
+    tags: ["mlops", "sagemaker-experiments", "tracking"]
+    question: "A research team runs hundreds of training experiments and needs to compare metrics, hyperparameters, and artifacts across runs. Which SageMaker feature organises this?"
+    choices:
+      - "A. SageMaker Experiments"
+      - "B. SageMaker Data Wrangler"
+      - "C. SageMaker Canvas"
+      - "D. Amazon QuickSight"
+    answerIndex: 0
+    explanation: "SageMaker Experiments tracks, organises, and compares ML experiments including parameters, metrics, and artifacts, enabling reproducibility and comparison."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/experiments.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-060"
+    difficulty: "hard"
+    tags: ["modeling", "ground-truth", "labeling"]
+    question: "A team needs to label 100,000 images for object detection. They want a managed labelling service that combines human labelers with automated labelling. Which service should they use?"
+    choices:
+      - "A. SageMaker Ground Truth"
+      - "B. Amazon Mechanical Turk directly"
+      - "C. SageMaker Autopilot"
+      - "D. Amazon Rekognition"
+    answerIndex: 0
+    explanation: "SageMaker Ground Truth provides managed data labelling workflows with human annotators and active learning to automatically label data where the model is confident, reducing cost."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/sms.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-061"
+    difficulty: "hard"
+    tags: ["data-engineering", "redshift", "warehouse"]
+    question: "A data team needs to run complex analytical SQL queries across terabytes of structured data for ML feature extraction. Which AWS service provides a managed data warehouse?"
+    choices:
+      - "A. Amazon Redshift"
+      - "B. Amazon DynamoDB"
+      - "C. Amazon ElastiCache"
+      - "D. Amazon S3 Select"
+    answerIndex: 0
+    explanation: "Amazon Redshift is a managed data warehouse optimised for analytical queries on structured data at scale. DynamoDB is a NoSQL database for transactional workloads."
+    refs:
+      - "https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-062"
+    difficulty: "hard"
+    tags: ["modeling", "ip-insights", "security"]
+    question: "A security team wants to detect anomalous login attempts by identifying when user-IP address associations deviate from learned patterns. Which SageMaker algorithm is purpose-built for this?"
+    choices:
+      - "A. IP Insights"
+      - "B. XGBoost"
+      - "C. Linear Learner"
+      - "D. BlazingText"
+    answerIndex: 0
+    explanation: "IP Insights is a SageMaker algorithm that learns the statistical associations between IP addresses and entities, flagging anomalous pairings that may indicate fraud or security threats."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/ip-insights.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-063"
+    difficulty: "easy"
+    tags: ["modeling", "metrics", "rmse"]
+    question: "Which regression metric measures the average magnitude of prediction errors in the same units as the target variable?"
+    choices:
+      - "A. Root Mean Squared Error (RMSE)"
+      - "B. AUC-ROC"
+      - "C. F1 Score"
+      - "D. Precision"
+    answerIndex: 0
+    explanation: "RMSE computes the square root of the average squared errors, expressing error magnitude in the same units as the target. AUC-ROC and F1 are classification metrics."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-064"
+    difficulty: "easy"
+    tags: ["data-engineering", "s3", "formats"]
+    question: "Which data format is commonly recommended for ML training data on AWS due to its columnar compression and efficient read performance?"
+    choices:
+      - "A. Parquet"
+      - "B. Plain text"
+      - "C. JPEG"
+      - "D. MP4"
+    answerIndex: 0
+    explanation: "Apache Parquet is a columnar storage format that provides efficient compression and encoding, enabling faster reads for analytical and ML workloads on S3."
+    refs:
+      - "https://docs.aws.amazon.com/athena/latest/ug/columnar-storage.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-065"
+    difficulty: "medium"
+    tags: ["modeling", "knn", "algorithms"]
+    question: "Which SageMaker built-in algorithm classifies data points based on the labels of their k nearest neighbors in feature space?"
+    choices:
+      - "A. K-Nearest Neighbors (KNN)"
+      - "B. K-means"
+      - "C. Linear Learner"
+      - "D. DeepAR"
+    answerIndex: 0
+    explanation: "KNN is a supervised algorithm that classifies (or regresses) based on the labels of the k closest training examples. K-means is an unsupervised clustering algorithm."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/k-nearest-neighbors.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-066"
+    difficulty: "medium"
+    tags: ["mlops", "cloudwatch", "monitoring"]
+    question: "Which AWS service is used to set alarms on SageMaker endpoint invocation metrics like Invocations, ModelLatency, and OverheadLatency?"
+    choices:
+      - "A. Amazon CloudWatch"
+      - "B. AWS CloudTrail"
+      - "C. AWS Config"
+      - "D. Amazon Inspector"
+    answerIndex: 0
+    explanation: "Amazon CloudWatch collects and monitors SageMaker endpoint metrics and supports creating alarms that trigger notifications or auto-scaling actions."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/monitoring-cloudwatch.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-067"
+    difficulty: "hard"
+    tags: ["security", "iam", "sagemaker-roles"]
+    question: "Which IAM entity does a SageMaker training job assume to access S3 training data and write model artifacts?"
+    choices:
+      - "A. An IAM execution role with policies granting S3 access"
+      - "B. The root account credentials"
+      - "C. An API key"
+      - "D. A VPC endpoint"
+    answerIndex: 0
+    explanation: "SageMaker training jobs assume an IAM execution role that defines which AWS resources (like S3 buckets) the job can access, following the principle of least privilege."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-068"
+    difficulty: "hard"
+    tags: ["modeling", "clarify", "bias-detection"]
+    question: "Before training, a team wants to detect if there is pre-existing bias in the training dataset related to a protected attribute (e.g., gender). Which SageMaker tool provides pre-training bias metrics?"
+    choices:
+      - "A. SageMaker Clarify pre-training bias analysis"
+      - "B. SageMaker Debugger"
+      - "C. SageMaker Autopilot"
+      - "D. SageMaker Feature Store"
+    answerIndex: 0
+    explanation: "SageMaker Clarify provides pre-training bias metrics (like Class Imbalance and DPL) that detect statistical biases in the dataset before any model is trained."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-measure-data-bias.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-069"
+    difficulty: "hard"
+    tags: ["mlops", "containers", "bring-your-own"]
+    question: "A team has a proprietary ML framework not available as a SageMaker built-in algorithm. How can they train and deploy using this framework in SageMaker?"
+    choices:
+      - "A. Build a custom Docker container with the framework and use it with SageMaker training and hosting"
+      - "B. Convert the framework to XGBoost format"
+      - "C. Use SageMaker Canvas to import the framework"
+      - "D. Only SageMaker built-in algorithms can be used"
+    answerIndex: 0
+    explanation: "SageMaker supports bring-your-own-container (BYOC) — you package your custom framework in a Docker image following SageMaker's container contract for training and inference."
+    refs:
+      - "https://docs.aws.amazon.com/sagemaker/latest/dg/docker-containers.html"
+    author: "ThanhNguyxn"
+
+  - id: "mls-expand-070"
+    difficulty: "hard"
+    tags: ["data-engineering", "step-functions", "orchestration"]
+    question: "A team needs to orchestrate a complex ML pipeline that includes data processing in Glue, training in SageMaker, model evaluation, and conditional deployment. Which AWS service provides visual workflow orchestration with branching logic?"
+    choices:
+      - "A. AWS Step Functions"
+      - "B. Amazon SQS"
+      - "C. Amazon SNS"
+      - "D. AWS CloudFormation"
+    answerIndex: 0
+    explanation: "AWS Step Functions orchestrates multi-step workflows with branching, parallel execution, and error handling. It has native SageMaker and Glue integrations for ML pipelines."
+    refs:
+      - "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html"
+    author: "ThanhNguyxn"

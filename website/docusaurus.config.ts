@@ -65,6 +65,7 @@ const config: Config = {
       logo: {
         alt: 'CertSherpa Logo',
         src: 'img/logo.png',
+        srcDark: 'img/logo-dark.png',
       },
       items: [
         {

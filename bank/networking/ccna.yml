@@ -1054,3 +1054,905 @@ questions:
     refs:
       - "https://datatracker.ietf.org/doc/html/rfc5340"
     author: "ThanhNguyxn"
+
+  # ── CCNA Expansion Questions (ccna-expand-001 to ccna-expand-060) ──
+
+  - id: "ccna-expand-001"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "osi-model"]
+    question: "At which OSI layer does a switch primarily operate when forwarding frames based on MAC addresses?"
+    choices:
+      - "A. Layer 2 — Data Link"
+      - "B. Layer 1 — Physical"
+      - "C. Layer 3 — Network"
+      - "D. Layer 4 — Transport"
+    answerIndex: 0
+    explanation: "Switches forward frames using MAC address tables, which is a Layer 2 (Data Link) function. Layer 1 deals with physical signaling, Layer 3 with IP routing, and Layer 4 with transport protocols like TCP/UDP."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-interVLAN-702.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-002"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "tcp-ip"]
+    question: "Which transport-layer protocol provides reliable, ordered delivery of data between two hosts?"
+    choices:
+      - "A. TCP"
+      - "B. UDP"
+      - "C. ICMP"
+      - "D. ARP"
+    answerIndex: 0
+    explanation: "TCP (Transmission Control Protocol) provides reliable, ordered, and error-checked delivery via sequence numbers and acknowledgments. UDP is connectionless and unreliable. ICMP is a network-layer diagnostic protocol. ARP maps IP to MAC at Layer 2."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc9293"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-003"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "ipv4"]
+    question: "A host is configured with IP 192.168.10.50/24. What is the broadcast address of this subnet?"
+    choices:
+      - "A. 192.168.10.255"
+      - "B. 192.168.10.0"
+      - "C. 192.168.10.1"
+      - "D. 192.168.255.255"
+    answerIndex: 0
+    explanation: "With a /24 mask, the host portion is the last octet. Setting all host bits to 1 gives 192.168.10.255 as the directed broadcast address. 192.168.10.0 is the network address, and 192.168.255.255 would be the broadcast for a /16 network."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc1918"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-004"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "cabling"]
+    question: "Which cable type is required to directly connect two PCs without an intermediate switch when neither NIC supports Auto-MDI/MDIX?"
+    choices:
+      - "A. Crossover cable"
+      - "B. Straight-through cable"
+      - "C. Rollover (console) cable"
+      - "D. Coaxial cable"
+    answerIndex: 0
+    explanation: "A crossover cable swaps transmit and receive pairs so two like devices can communicate directly. A straight-through cable connects unlike devices (PC to switch). A rollover cable is used for console management. Auto-MDI/MDIX eliminates this requirement on modern NICs."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-6500-series-switches/10561-85.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-005"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "dns"]
+    question: "Which protocol and port number does DNS use for standard queries?"
+    choices:
+      - "A. UDP port 53"
+      - "B. TCP port 80"
+      - "C. UDP port 67"
+      - "D. TCP port 443"
+    answerIndex: 0
+    explanation: "DNS standard queries use UDP port 53 for speed. TCP port 53 is used for zone transfers or when responses exceed 512 bytes. Port 80 is HTTP, port 67 is DHCP server, and port 443 is HTTPS."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc1035"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-006"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "ipv4", "subnetting"]
+    question: "How many usable host addresses are available in a /28 IPv4 subnet?"
+    choices:
+      - "A. 14"
+      - "B. 16"
+      - "C. 30"
+      - "D. 12"
+    answerIndex: 0
+    explanation: "A /28 subnet has 4 host bits, giving 2^4 = 16 total addresses. Subtract 2 (network and broadcast) to get 14 usable host addresses."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13790-8.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-007"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "ethernet"]
+    question: "What is the maximum frame size (including header and FCS) for standard Ethernet without jumbo frames?"
+    choices:
+      - "A. 1518 bytes"
+      - "B. 1500 bytes"
+      - "C. 9216 bytes"
+      - "D. 1024 bytes"
+    answerIndex: 0
+    explanation: "Standard Ethernet frames have a maximum of 1518 bytes: 14 bytes header (6 dst + 6 src + 2 EtherType) + 1500 bytes payload + 4 bytes FCS. 1500 bytes is the MTU (payload only). 9216 is a common jumbo frame size."
+    refs:
+      - "https://www.ieee802.org/3/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-008"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "wireless"]
+    question: "Which IEEE standard defines Wi-Fi 6 and operates on both the 2.4 GHz and 5 GHz bands?"
+    choices:
+      - "A. 802.11ax"
+      - "B. 802.11ac"
+      - "C. 802.11n"
+      - "D. 802.11g"
+    answerIndex: 0
+    explanation: "IEEE 802.11ax (Wi-Fi 6) operates on 2.4 GHz and 5 GHz bands with OFDMA and MU-MIMO. 802.11ac (Wi-Fi 5) is 5 GHz only. 802.11n (Wi-Fi 4) supports both bands but at lower speeds. 802.11g is 2.4 GHz only."
+    refs:
+      - "https://www.ieee802.org/11/"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-009"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "duplex"]
+    question: "A technician notices excessive late collisions on a GigabitEthernet interface. What is the most likely cause?"
+    choices:
+      - "A. A duplex mismatch between the switch and the connected device"
+      - "B. The cable exceeds the maximum length for Cat6"
+      - "C. The port is configured as a trunk"
+      - "D. STP has placed the port in blocking state"
+    answerIndex: 0
+    explanation: "Late collisions on gigabit links almost always indicate a duplex mismatch — one side runs full-duplex while the other runs half-duplex. Cable length issues cause CRC errors, trunk configuration doesn't cause collisions, and STP blocking prevents all traffic."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-6500-series-switches/12027-53.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-010"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "ipv6"]
+    question: "What is the correct compressed form of the IPv6 address 2001:0db8:0000:0000:0000:0000:0000:0001?"
+    choices:
+      - "A. 2001:db8::1"
+      - "B. 2001:db8:0:0:0:0:0:1"
+      - "C. 2001:db8:::1"
+      - "D. 2001:0db8::0001"
+    answerIndex: 0
+    explanation: "IPv6 compression rules allow removing leading zeros in each group and replacing the longest consecutive sequence of all-zero groups with ::. The fully compressed form is 2001:db8::1. Only one :: is allowed per address."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5952"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-011"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "arp"]
+    question: "When a host wants to communicate with another host on the same subnet but does not know its MAC address, which protocol does it use to discover the MAC?"
+    choices:
+      - "A. ARP"
+      - "B. DNS"
+      - "C. DHCP"
+      - "D. ICMP"
+    answerIndex: 0
+    explanation: "ARP (Address Resolution Protocol) sends a broadcast to discover the MAC address associated with a known IP address on the local subnet. DNS resolves hostnames to IPs, DHCP assigns IP configuration, and ICMP is used for diagnostics like ping."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc826"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-012"
+    difficulty: "easy"
+    tags: ["network-fundamentals", "nat"]
+    question: "Which type of NAT maps multiple private IP addresses to a single public IP address using port numbers?"
+    choices:
+      - "A. PAT (Port Address Translation)"
+      - "B. Static NAT"
+      - "C. Dynamic NAT"
+      - "D. Twice NAT"
+    answerIndex: 0
+    explanation: "PAT (also called NAT overload) allows many internal hosts to share one public IP by distinguishing sessions with unique source port numbers. Static NAT maps one-to-one. Dynamic NAT maps from a pool without port multiplexing."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/26704-nat-faq-00.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-013"
+    difficulty: "medium"
+    tags: ["network-access", "vlans"]
+    question: "A switch has ports Fa0/1-10 in VLAN 10 and Fa0/11-20 in VLAN 20. A user on Fa0/5 cannot reach a server on Fa0/15. No router or Layer 3 interface is configured. What is needed?"
+    choices:
+      - "A. An inter-VLAN routing device such as a router-on-a-stick or Layer 3 switch"
+      - "B. A crossover cable between the two switches"
+      - "C. Changing the server port to access mode"
+      - "D. Enabling STP on both VLANs"
+    answerIndex: 0
+    explanation: "Devices in different VLANs are in different broadcast domains and cannot communicate without a Layer 3 routing mechanism. A router-on-a-stick (using subinterfaces) or a Layer 3 switch with SVIs enables inter-VLAN routing."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-interVLAN-702.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-014"
+    difficulty: "medium"
+    tags: ["network-access", "trunking"]
+    question: "An administrator configures a trunk between two Cisco switches but only VLAN 1 traffic passes. What is the most likely cause?"
+    choices:
+      - "A. The allowed VLAN list on the trunk only includes VLAN 1"
+      - "B. The trunk encapsulation is set to ISL on one side and 802.1Q on the other"
+      - "C. The native VLAN is mismatched"
+      - "D. DTP is disabled on both ends"
+    answerIndex: 0
+    explanation: "When only VLAN 1 passes across a trunk, it typically means the allowed VLAN list was explicitly limited to VLAN 1. Use 'switchport trunk allowed vlan add' to permit additional VLANs. Encapsulation mismatch would prevent the trunk from forming entirely."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/vlan/b-176-vlan-9300-cg/configuring-vlan-trunks.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-015"
+    difficulty: "medium"
+    tags: ["network-access", "stp"]
+    question: "In a network running PVST+, which switch becomes the root bridge for a particular VLAN?"
+    choices:
+      - "A. The switch with the lowest bridge ID (priority + MAC) for that VLAN"
+      - "B. The switch with the highest IP address"
+      - "C. The switch with the most ports in forwarding state"
+      - "D. The switch that was powered on first"
+    answerIndex: 0
+    explanation: "The root bridge election uses the bridge ID, which is the combination of bridge priority (default 32768) and the MAC address. The lowest bridge ID wins. Boot order, IP address, and port count do not factor into root bridge selection."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/5234-5.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-016"
+    difficulty: "medium"
+    tags: ["network-access", "etherchannel"]
+    question: "Two switches are connected with four physical links configured as an EtherChannel using LACP. One side is set to active and the other to passive. Will the EtherChannel form?"
+    choices:
+      - "A. Yes — active mode initiates LACP negotiation and passive responds"
+      - "B. No — both sides must be active"
+      - "C. No — LACP requires PAgP for negotiation"
+      - "D. Yes — but only two of four links will bundle"
+    answerIndex: 0
+    explanation: "LACP active mode initiates negotiation, and passive mode responds. Active-passive is a valid combination that forms an EtherChannel. Both passive would not form because neither initiates. PAgP is a separate Cisco-proprietary protocol."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/lyr2/b-176-layer2-9300-cg/configuring-etherchannels.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-017"
+    difficulty: "medium"
+    tags: ["network-access", "port-security"]
+    question: "An administrator enables port security with a maximum of 2 MAC addresses and violation mode restrict on a switch port. A third device connects. What happens?"
+    choices:
+      - "A. Frames from the third MAC are dropped and a syslog message is generated, but the port stays up"
+      - "B. The port is shut down immediately"
+      - "C. All traffic on the port is dropped"
+      - "D. The third device's frames are forwarded but logged"
+    answerIndex: 0
+    explanation: "In restrict mode, frames from unauthorized MAC addresses are dropped and a violation counter increments, generating syslog messages. The port remains operational for the two allowed MACs. Shutdown mode (the default) would err-disable the port."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/sec/b-176-sec-9300-cg/configuring-port-security.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-018"
+    difficulty: "medium"
+    tags: ["network-access", "vlans", "voice"]
+    question: "A Cisco IP phone is connected to a switch port, and a PC is daisy-chained through the phone. Which switch port configuration allows the phone to use VLAN 100 for voice and the PC to use VLAN 10 for data?"
+    choices:
+      - "A. Configure the port as an access port in VLAN 10 with switchport voice vlan 100"
+      - "B. Configure the port as a trunk and allow VLANs 10 and 100"
+      - "C. Configure two separate access ports, one per VLAN"
+      - "D. Configure the port in VLAN 10 only; the phone auto-detects VLAN 100"
+    answerIndex: 0
+    explanation: "Cisco switches support a multi-VLAN access port configuration where the data VLAN is set with switchport access vlan and the voice VLAN with switchport voice vlan. The phone tags voice traffic with the voice VLAN ID using CDP/LLDP signaling."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/vlan/b-176-vlan-9300-cg/configuring-voice-vlan.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-019"
+    difficulty: "medium"
+    tags: ["network-access", "stp", "portfast"]
+    question: "What happens if PortFast is enabled on a switch port that is connected to another switch?"
+    choices:
+      - "A. The port transitions to forwarding immediately, potentially creating a temporary loop"
+      - "B. The port remains in blocking state permanently"
+      - "C. STP is disabled on the entire switch"
+      - "D. The trunk negotiation fails"
+    answerIndex: 0
+    explanation: "PortFast causes a port to skip the STP listening and learning states, transitioning directly to forwarding. If connected to another switch, this can create a temporary bridging loop until STP reconverges. PortFast should only be used on access ports connecting to end hosts."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/10588-74.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-020"
+    difficulty: "medium"
+    tags: ["network-access", "dtp"]
+    question: "A switch port is set to 'switchport mode dynamic desirable'. The connected switch port is set to 'switchport mode access'. What is the resulting operational mode of the first port?"
+    choices:
+      - "A. Access"
+      - "B. Trunk"
+      - "C. Error-disabled"
+      - "D. The port does not come up"
+    answerIndex: 0
+    explanation: "When one side is dynamic desirable and the other is explicitly access, DTP negotiation results in both ports operating in access mode. A trunk forms only when both sides agree to trunk (desirable-desirable, desirable-auto, or trunk-desirable/auto)."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/trunking/19068-63.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-021"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "static-routing"]
+    question: "An administrator adds the command 'ip route 10.0.0.0 255.255.255.0 192.168.1.1 5' to a router. What does the trailing '5' specify?"
+    choices:
+      - "A. Administrative distance"
+      - "B. Metric"
+      - "C. TTL"
+      - "D. VLAN ID"
+    answerIndex: 0
+    explanation: "In Cisco IOS, the optional number at the end of a static route command sets the administrative distance. The default AD for a static route is 1. Setting it to 5 makes it a floating static route that is preferred over routes with AD greater than 5."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/ip-routed-protocols/17046-extroutes.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-022"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "ospf"]
+    question: "Two OSPF routers are on the same broadcast segment but fail to form a neighbor adjacency. Both routers show 'Init' state. Which parameter mismatch is the most common cause?"
+    choices:
+      - "A. Mismatched OSPF area IDs"
+      - "B. Different router IDs"
+      - "C. Different hostnames"
+      - "D. Mismatched SNMP community strings"
+    answerIndex: 0
+    explanation: "OSPF neighbors must agree on area ID, hello/dead intervals, authentication, and subnet mask. A mismatch in area IDs prevents adjacency from progressing past Init/2-Way. Router IDs must be unique but do not need to match. Hostnames and SNMP strings are irrelevant to OSPF."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13699-29.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-023"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "ospf", "cost"]
+    question: "A router has two paths to the same destination via OSPF. Path A goes through a 1 Gbps link and Path B through a 100 Mbps link. Assuming default reference bandwidth (100 Mbps), which path does OSPF prefer?"
+    choices:
+      - "A. Both paths are equal-cost because both calculate to cost 1"
+      - "B. Path A because 1 Gbps has a lower cost"
+      - "C. Path B because 100 Mbps is the reference bandwidth"
+      - "D. Neither — OSPF cannot compare different speeds"
+    answerIndex: 0
+    explanation: "With the default reference bandwidth of 100 Mbps, OSPF cost = reference/interface bandwidth. Both 1 Gbps (cost = 100/1000 = 0.1, rounded to 1) and 100 Mbps (cost = 100/100 = 1) yield cost 1. Increasing the reference bandwidth with 'auto-cost reference-bandwidth' resolves this."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-024"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "default-route"]
+    question: "Which command configures a default static route on a Cisco router pointing to next-hop 10.0.0.1?"
+    choices:
+      - "A. ip route 0.0.0.0 0.0.0.0 10.0.0.1"
+      - "B. ip route 0.0.0.0 255.255.255.255 10.0.0.1"
+      - "C. ip default-network 10.0.0.1"
+      - "D. ip route 10.0.0.1 0.0.0.0 0.0.0.0"
+    answerIndex: 0
+    explanation: "A default route matches all destinations using network 0.0.0.0 with mask 0.0.0.0 and forwards traffic to the specified next-hop. This is the gateway of last resort. The mask 255.255.255.255 would match only host 0.0.0.0."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/ip-routed-protocols/17046-extroutes.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-025"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "routing", "ad"]
+    question: "A router learns a route to 10.1.0.0/16 from both OSPF (AD 110) and EIGRP (AD 90). Which route is installed in the routing table?"
+    choices:
+      - "A. EIGRP route because it has a lower administrative distance"
+      - "B. OSPF route because OSPF is a link-state protocol"
+      - "C. Both routes are installed for load balancing"
+      - "D. The route learned first is preferred"
+    answerIndex: 0
+    explanation: "When a router learns the same prefix from multiple routing protocols, it installs the route with the lowest administrative distance. EIGRP's AD of 90 is lower than OSPF's 110, so the EIGRP route is preferred."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/15986-admin-distance.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-026"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "hsrp"]
+    question: "Two routers are configured with HSRP on the same LAN segment. Router A has priority 110 and Router B has priority 100. Which router becomes the HSRP active router?"
+    choices:
+      - "A. Router A because it has the higher HSRP priority"
+      - "B. Router B because it has the lower priority"
+      - "C. The router that booted first"
+      - "D. Both routers share the active role"
+    answerIndex: 0
+    explanation: "HSRP active router election is based on priority — the highest priority wins. Router A with priority 110 becomes active. The default priority is 100. If priorities are equal, the highest IP address wins."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/hot-standby-router-protocol-hsrp/9234-hsrpguidetoc.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-027"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "ipv6", "slaac"]
+    question: "A host uses SLAAC to configure its IPv6 address. Where does it obtain the network prefix?"
+    choices:
+      - "A. From Router Advertisement (RA) messages"
+      - "B. From a DHCPv6 server"
+      - "C. From the DNS server"
+      - "D. From the link-local address of the default gateway"
+    answerIndex: 0
+    explanation: "SLAAC (Stateless Address Autoconfiguration) uses Router Advertisement messages sent by routers to learn the /64 prefix. The host then generates its interface ID (via EUI-64 or random). DHCPv6 provides stateful addressing, not SLAAC prefix information."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc4862"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-028"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "routing", "troubleshooting"]
+    question: "A router can ping 10.1.1.1 from its directly connected interface but hosts behind the router cannot reach 10.1.1.1. The remote router has no route back to the hosts' subnet. What should be configured?"
+    choices:
+      - "A. A return route on the remote router for the hosts' subnet"
+      - "B. NAT on the local router"
+      - "C. A longer subnet mask on the local router"
+      - "D. A DNS entry for the hosts"
+    answerIndex: 0
+    explanation: "Asymmetric routing occurs when the remote device has no return path. The router's directly connected interface works because the remote already has a route to that subnet. Adding a return route (static or via routing protocol) for the hosts' subnet fixes the problem."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/ip-routed-protocols/17046-extroutes.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-029"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "ospf", "passive-interface"]
+    question: "An OSPF router has a LAN interface connected to end-user workstations. The admin wants to advertise this subnet in OSPF but prevent OSPF hellos from being sent on that interface. Which feature should be used?"
+    choices:
+      - "A. passive-interface"
+      - "B. distribute-list in"
+      - "C. route-map deny"
+      - "D. access-list blocking OSPF"
+    answerIndex: 0
+    explanation: "The passive-interface command includes the interface's subnet in OSPF advertisements but suppresses hello packets on that interface. This prevents unnecessary neighbor relationships with end hosts while still advertising the network."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13699-29.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-030"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "subnetting", "vlsm"]
+    question: "A company needs to create 4 subnets from the 172.16.0.0/16 network, with the largest subnet requiring 1000 hosts. What is the most efficient subnet mask for the largest subnet?"
+    choices:
+      - "A. /22 (255.255.252.0)"
+      - "B. /20 (255.255.240.0)"
+      - "C. /24 (255.255.255.0)"
+      - "D. /21 (255.255.248.0)"
+    answerIndex: 0
+    explanation: "A /22 provides 2^10 - 2 = 1022 usable host addresses, which accommodates 1000 hosts with minimal waste. A /24 only supports 254 hosts. A /21 gives 2046 hosts — more than needed. A /20 provides even more waste."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13790-8.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-031"
+    difficulty: "medium"
+    tags: ["ip-services", "dhcp"]
+    question: "Hosts in VLAN 10 on Switch A need DHCP addresses from a server in VLAN 20 on Switch B. The Layer 3 switch has SVIs for both VLANs. What must be configured on the VLAN 10 SVI?"
+    choices:
+      - "A. ip helper-address pointing to the DHCP server's IP"
+      - "B. ip dhcp pool for VLAN 10"
+      - "C. ip dhcp relay enable"
+      - "D. ip forward-protocol tcp"
+    answerIndex: 0
+    explanation: "The ip helper-address command on the VLAN 10 SVI converts DHCP broadcast Discover messages into unicast messages directed to the DHCP server's IP. This allows the DHCP server in a different VLAN/subnet to receive and respond to DHCP requests."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/dynamic-address-allocation-resolution/27470-100.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-032"
+    difficulty: "medium"
+    tags: ["ip-services", "ntp"]
+    question: "A network has three NTP strata: stratum 1, stratum 2, and stratum 3 servers. Which stratum provides the most accurate time?"
+    choices:
+      - "A. Stratum 1"
+      - "B. Stratum 2"
+      - "C. Stratum 3"
+      - "D. All strata provide identical accuracy"
+    answerIndex: 0
+    explanation: "NTP stratum indicates the distance from the reference clock. Stratum 1 is directly connected to a reference clock (GPS, atomic). Each hop adds a stratum level and introduces potential delay/inaccuracy. Stratum 0 is the reference clock itself."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc5905"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-033"
+    difficulty: "medium"
+    tags: ["ip-services", "snmp"]
+    question: "Which version of SNMP provides authentication and encryption for management traffic?"
+    choices:
+      - "A. SNMPv3 with authPriv security level"
+      - "B. SNMPv2c with community strings"
+      - "C. SNMPv1 with read-only communities"
+      - "D. SNMPv3 with noAuthNoPriv security level"
+    answerIndex: 0
+    explanation: "SNMPv3 authPriv provides both authentication (MD5/SHA) and encryption (DES/AES) for SNMP messages. SNMPv1/v2c use community strings in plaintext. SNMPv3 noAuthNoPriv provides neither authentication nor encryption."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-034"
+    difficulty: "medium"
+    tags: ["ip-services", "syslog"]
+    question: "A router is configured with 'logging trap warnings'. Which syslog severity levels will be sent to the syslog server?"
+    choices:
+      - "A. Emergency, Alert, Critical, Error, and Warning (levels 0-4)"
+      - "B. Only Warning (level 4)"
+      - "C. Warning, Notice, Informational, Debug (levels 4-7)"
+      - "D. All levels (0-7)"
+    answerIndex: 0
+    explanation: "The 'logging trap' command sets a severity threshold. All messages at or more severe than the specified level are sent. Warning is level 4, so levels 0 (Emergency) through 4 (Warning) are included. More verbose levels (5-7) are excluded."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/routers/access/800M/software/800MSCG/systemlog.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-035"
+    difficulty: "medium"
+    tags: ["ip-services", "qos"]
+    question: "Which QoS mechanism is used to re-mark and drop packets that exceed a defined traffic rate?"
+    choices:
+      - "A. Policing"
+      - "B. Shaping"
+      - "C. Queuing"
+      - "D. Compression"
+    answerIndex: 0
+    explanation: "Policing monitors traffic rates and can drop or re-mark packets that exceed the configured rate. Shaping buffers excess traffic and transmits it later. Queuing manages how packets are scheduled for transmission. Compression reduces packet size."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/quality-of-service-qos/qos-policing/19645-policevsshape.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-036"
+    difficulty: "medium"
+    tags: ["ip-services", "dhcp", "snooping"]
+    question: "What is the primary purpose of DHCP snooping on a switch?"
+    choices:
+      - "A. To prevent rogue DHCP servers from assigning addresses to clients"
+      - "B. To encrypt DHCP traffic between client and server"
+      - "C. To increase the DHCP lease time"
+      - "D. To convert DHCP broadcasts to multicasts"
+    answerIndex: 0
+    explanation: "DHCP snooping validates DHCP messages by classifying ports as trusted (toward legitimate DHCP server) or untrusted (toward clients). DHCP Offer and Ack messages from untrusted ports are dropped, preventing rogue servers from serving addresses."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/sec/b-176-sec-9300-cg/configuring-dhcp-snooping.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-037"
+    difficulty: "medium"
+    tags: ["ip-services", "nat", "troubleshooting"]
+    question: "A router performs PAT for internal hosts. External users report they cannot initiate connections to an internal web server. What additional NAT configuration is required?"
+    choices:
+      - "A. A static NAT entry mapping the server's private IP to a public IP on port 80"
+      - "B. A second PAT pool for inbound traffic"
+      - "C. A default route pointing to the internal server"
+      - "D. An access list permitting all inbound traffic"
+    answerIndex: 0
+    explanation: "PAT only translates outbound-initiated connections. For inbound access to a server, a static NAT (or static PAT) entry must map the public IP:port to the server's private IP:port so the router knows where to forward incoming requests."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/13772-12.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-038"
+    difficulty: "medium"
+    tags: ["ip-services", "ftp", "tftp"]
+    question: "An administrator needs to back up a router's running configuration to a server. Which command copies the running-config to a TFTP server?"
+    choices:
+      - "A. copy running-config tftp:"
+      - "B. copy tftp: running-config"
+      - "C. write network tftp"
+      - "D. backup running-config tftp"
+    answerIndex: 0
+    explanation: "The 'copy running-config tftp:' command exports the current running configuration to a TFTP server. The router prompts for the server IP and filename. 'copy tftp: running-config' does the reverse — restoring from TFTP."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-121-mainline/46741-backup-config.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-039"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "acl"]
+    question: "A standard ACL numbered 10 is applied inbound on interface GigabitEthernet0/1. It contains: 'permit 192.168.1.0 0.0.0.255'. A packet arrives from source 192.168.2.5 destined for 10.0.0.1. What happens?"
+    choices:
+      - "A. The packet is denied by the implicit deny at the end of the ACL"
+      - "B. The packet is permitted because the ACL only checks destination"
+      - "C. The packet is forwarded because standard ACLs don't filter"
+      - "D. The packet is sent back to the source"
+    answerIndex: 0
+    explanation: "Standard ACLs filter based on source IP only. The source 192.168.2.5 doesn't match 192.168.1.0/24, so it falls through to the implicit 'deny any' at the end of every ACL. No explicit deny statement is needed — it's always present."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-040"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "acl", "extended"]
+    question: "An extended ACL contains: 'permit tcp 10.0.0.0 0.0.0.255 any eq 443'. Which traffic does this entry allow?"
+    choices:
+      - "A. HTTPS traffic from 10.0.0.0/24 to any destination"
+      - "B. HTTP traffic from any source to 10.0.0.0/24"
+      - "C. All TCP traffic from 10.0.0.0/24"
+      - "D. SSH traffic from 10.0.0.0/24 to any destination"
+    answerIndex: 0
+    explanation: "This ACL permits TCP traffic from source 10.0.0.0/24 to any destination on port 443 (HTTPS). Extended ACLs can match source/destination IP, protocol, and port numbers. Port 443 is HTTPS, 80 is HTTP, and 22 is SSH."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-041"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "ssh"]
+    question: "An administrator wants to allow only SSH access to a router's VTY lines and block Telnet. Which set of commands achieves this?"
+    choices:
+      - "A. line vty 0 4 / transport input ssh / login local"
+      - "B. line vty 0 4 / transport output ssh"
+      - "C. line vty 0 4 / no transport input telnet"
+      - "D. line vty 0 4 / service ssh enable"
+    answerIndex: 0
+    explanation: "Setting 'transport input ssh' on VTY lines restricts inbound management access to SSH only. 'login local' requires local username authentication. 'transport output' controls outbound connections. Simply removing telnet without adding ssh may disable all access."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security-vpn/secure-shell-ssh/4145-ssh.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-042"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "aaa"]
+    question: "A company implements AAA with a RADIUS server for user authentication. The RADIUS server becomes unreachable. What happens if the router is configured with 'aaa authentication login default group radius local'?"
+    choices:
+      - "A. The router falls back to the local user database for authentication"
+      - "B. All login attempts are denied"
+      - "C. The router prompts for the enable password"
+      - "D. The router bypasses authentication entirely"
+    answerIndex: 0
+    explanation: "The method list 'group radius local' tries RADIUS first. If the RADIUS server is unreachable (not if credentials are rejected), it falls back to the local database. If the user had wrong credentials at RADIUS, there would be no fallback."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/security-vpn/remote-authentication-dial-user-service-radius/13838-10.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-043"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "dai"]
+    question: "Dynamic ARP Inspection (DAI) is enabled on a VLAN but the DHCP snooping binding table is empty. What effect does this have on hosts in that VLAN?"
+    choices:
+      - "A. All ARP packets on untrusted ports are dropped because there are no valid bindings"
+      - "B. All ARP traffic is permitted by default"
+      - "C. Only gratuitous ARP is blocked"
+      - "D. DAI automatically disables until bindings are populated"
+    answerIndex: 0
+    explanation: "DAI validates ARP packets against the DHCP snooping binding table. Without entries in the table, no ARP packets on untrusted ports match a valid binding, so they are all dropped. Static ARP inspection entries or DHCP snooping bindings must exist first."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/sec/b-176-sec-9300-cg/configuring-dynamic-arp-inspection.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-044"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "wireless", "wpa3"]
+    question: "Which key exchange protocol does WPA3-Personal use to replace WPA2's Pre-Shared Key (PSK) 4-way handshake?"
+    choices:
+      - "A. Simultaneous Authentication of Equals (SAE)"
+      - "B. Extensible Authentication Protocol (EAP)"
+      - "C. Diffie-Hellman key exchange"
+      - "D. Kerberos authentication"
+    answerIndex: 0
+    explanation: "WPA3-Personal replaces PSK with SAE (Simultaneous Authentication of Equals), also known as Dragonfly. SAE provides protection against offline dictionary attacks and forward secrecy, which WPA2-PSK lacks."
+    refs:
+      - "https://www.wi-fi.org/discover-wi-fi/security"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-045"
+    difficulty: "hard"
+    tags: ["security-fundamentals", "802.1x"]
+    question: "In an 802.1X deployment, which device acts as the authenticator?"
+    choices:
+      - "A. The network access switch"
+      - "B. The RADIUS server"
+      - "C. The supplicant (client PC)"
+      - "D. The DHCP server"
+    answerIndex: 0
+    explanation: "In 802.1X, the switch is the authenticator — it controls port access based on authentication results. The RADIUS server is the authentication server. The client software is the supplicant. The authenticator relays EAP messages between supplicant and server."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/sec/b-176-sec-9300-cg/configuring-ieee-802-1x.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-046"
+    difficulty: "hard"
+    tags: ["automation", "json", "api"]
+    question: "A Python script needs to change the description of interface GigabitEthernet1 on a Cisco IOS-XE device via RESTCONF. Which HTTP method should be used?"
+    choices:
+      - "A. PATCH"
+      - "B. GET"
+      - "C. POST"
+      - "D. DELETE"
+    answerIndex: 0
+    explanation: "PATCH is used to modify existing resources partially — changing just the description without replacing the entire interface configuration. GET retrieves data, POST creates new resources, and DELETE removes resources."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc8040"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-047"
+    difficulty: "hard"
+    tags: ["automation", "ansible"]
+    question: "An engineer uses Ansible to manage Cisco switches. Which connection plugin is recommended for IOS devices?"
+    choices:
+      - "A. network_cli"
+      - "B. ssh"
+      - "C. paramiko"
+      - "D. winrm"
+    answerIndex: 0
+    explanation: "The network_cli connection plugin is designed for network devices that use CLI over SSH. It handles the platform-specific prompt detection and privilege escalation. The generic ssh and paramiko plugins lack network-device-specific handling. winrm is for Windows."
+    refs:
+      - "https://docs.ansible.com/ansible/latest/network/user_guide/platform_ios.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-048"
+    difficulty: "hard"
+    tags: ["automation", "puppet", "chef"]
+    question: "Which configuration management paradigm does Puppet follow that describes the desired end state rather than step-by-step commands?"
+    choices:
+      - "A. Declarative"
+      - "B. Imperative"
+      - "C. Procedural"
+      - "D. Object-oriented"
+    answerIndex: 0
+    explanation: "Puppet uses a declarative approach — you define the desired state and Puppet determines how to achieve it. Ansible can be used both ways but is often imperative. Chef uses an imperative (procedural) approach with Ruby-based recipes."
+    refs:
+      - "https://puppet.com/docs/puppet/latest/puppet_overview.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-049"
+    difficulty: "medium"
+    tags: ["ip-connectivity", "ospf", "dr-bdr"]
+    question: "On an OSPF multi-access network, what is the role of the Designated Router (DR)?"
+    choices:
+      - "A. To reduce the number of OSPF adjacencies by acting as a central point for LSA exchange"
+      - "B. To forward all data packets on behalf of other routers"
+      - "C. To authenticate all OSPF neighbors"
+      - "D. To assign IP addresses to OSPF neighbors"
+    answerIndex: 0
+    explanation: "On multi-access networks, the DR reduces OSPF overhead by forming adjacencies with all other routers. Routers send LSAs to the DR, which then floods them to all neighbors. Without a DR, every router would need a full adjacency with every other router."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-050"
+    difficulty: "medium"
+    tags: ["ip-services", "dns", "troubleshooting"]
+    question: "Users report they can access a web server by IP address but not by hostname. All other sites work fine by name. What is the most likely issue?"
+    choices:
+      - "A. The DNS server is missing an A record for that hostname"
+      - "B. The default gateway is misconfigured"
+      - "C. ARP cache is stale on the client"
+      - "D. The web server's SSL certificate has expired"
+    answerIndex: 0
+    explanation: "If access by IP works but not by name for a specific host while other name resolution works, the DNS server likely lacks an A record (or AAAA for IPv6) for that particular hostname. Gateway and ARP issues would affect IP-level connectivity entirely."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc1035"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-051"
+    difficulty: "hard"
+    tags: ["network-access", "stp", "rstp"]
+    question: "In RSTP (802.1w), what is the function of an alternate port?"
+    choices:
+      - "A. It provides a backup path to the root bridge and can rapidly transition to forwarding if the root port fails"
+      - "B. It serves as a backup for designated ports on the same segment"
+      - "C. It always remains in forwarding state"
+      - "D. It connects to the root bridge directly"
+    answerIndex: 0
+    explanation: "An RSTP alternate port receives a superior BPDU from another bridge and serves as a standby for the root port. If the root port fails, the alternate port transitions to forwarding without the traditional STP convergence delay. A backup port is the standby for a designated port."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/lan-switching/spanning-tree-protocol/24062-146.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-052"
+    difficulty: "hard"
+    tags: ["ip-connectivity", "bgp"]
+    question: "An ISP assigns AS 65001 to a customer. The customer's border router establishes eBGP with the ISP router in AS 64500. Pings between loopbacks work but BGP stays in Active state. What is the most likely cause?"
+    choices:
+      - "A. The neighbor statement uses loopback addresses without configuring multihop eBGP"
+      - "B. The AS numbers are in the private range"
+      - "C. BGP requires OSPF to be running first"
+      - "D. The TCP window size is too small"
+    answerIndex: 0
+    explanation: "By default, eBGP expects the peer to be directly connected (TTL=1). Using loopback addresses means packets traverse at least two hops, so 'ebgp-multihop' must be configured. Both AS numbers are in the private range (64512-65534) which is valid for BGP. BGP does not require OSPF."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-053"
+    difficulty: "hard"
+    tags: ["network-access", "vlans", "troubleshooting"]
+    question: "A trunk port between two switches shows 'up/up' but traffic for VLAN 50 doesn't cross. 'show vlan brief' shows VLAN 50 active on both switches. What should the admin check?"
+    choices:
+      - "A. Whether VLAN 50 is in the trunk's allowed VLAN list on both sides"
+      - "B. Whether STP is disabled globally"
+      - "C. Whether the port speed matches"
+      - "D. Whether CDP is enabled"
+    answerIndex: 0
+    explanation: "Even if a trunk is up and VLAN 50 exists on both switches, the trunk's allowed VLAN list may exclude VLAN 50. Use 'show interfaces trunk' to verify the allowed and active VLANs on each side. STP pruning or explicit allowed VLAN configuration could be the cause."
+    refs:
+      - "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9300/software/release/17-6/configuration_guide/vlan/b-176-vlan-9300-cg/configuring-vlan-trunks.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-054"
+    difficulty: "hard"
+    tags: ["ip-connectivity", "ospf", "areas"]
+    question: "A network has OSPF areas 0, 1, and 2. Area 2 is not directly connected to area 0. What must be configured to allow area 2 to participate in OSPF routing?"
+    choices:
+      - "A. A virtual link through area 1 to connect area 2 to area 0"
+      - "B. A static route from area 2 to area 0"
+      - "C. BGP redistribution between areas"
+      - "D. A tunnel interface between area 2 and area 0"
+    answerIndex: 0
+    explanation: "OSPF requires all areas to connect to the backbone area 0. If a non-backbone area cannot directly connect, a virtual link through a transit area creates a logical connection to area 0. The transit area must not be a stub area."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/47866-ospfdb9.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-055"
+    difficulty: "hard"
+    tags: ["automation", "restconf", "yang"]
+    question: "A network engineer retrieves interface configuration from a Cisco device using RESTCONF. The response Content-Type header shows 'application/yang-data+json'. What does this indicate?"
+    choices:
+      - "A. The response body is JSON formatted according to a YANG data model"
+      - "B. The device only supports XML encoding"
+      - "C. The YANG model file itself is being returned"
+      - "D. The response is a NETCONF RPC reply"
+    answerIndex: 0
+    explanation: "The Content-Type 'application/yang-data+json' indicates the payload is JSON-encoded data structured according to YANG models as defined in RESTCONF (RFC 8040). RESTCONF supports both JSON and XML encodings. NETCONF uses XML exclusively."
+    refs:
+      - "https://datatracker.ietf.org/doc/html/rfc8040"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-056"
+    difficulty: "hard"
+    tags: ["automation", "sdwan"]
+    question: "In Cisco SD-WAN architecture, which component is responsible for centralized policy configuration and pushing control policies to the network?"
+    choices:
+      - "A. vSmart controller"
+      - "B. vManage"
+      - "C. vEdge router"
+      - "D. vBond orchestrator"
+    answerIndex: 0
+    explanation: "The vSmart controller establishes OMP (Overlay Management Protocol) sessions with edge devices and pushes centralized control policies. vManage provides the GUI for management. vBond authenticates and orchestrates initial connections. vEdge/cEdge are the data-plane devices."
+    refs:
+      - "https://www.cisco.com/c/en/us/solutions/enterprise-networks/sd-wan/index.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-057"
+    difficulty: "medium"
+    tags: ["network-access", "wireless", "controller"]
+    question: "In a Cisco wireless LAN controller (WLC) deployment, lightweight APs operate in which mode by default?"
+    choices:
+      - "A. Local mode"
+      - "B. FlexConnect mode"
+      - "C. Monitor mode"
+      - "D. Sniffer mode"
+    answerIndex: 0
+    explanation: "Lightweight APs default to local mode, where all client data is tunneled back to the WLC via CAPWAP. FlexConnect allows local switching at the AP. Monitor mode is for intrusion detection. Sniffer mode captures traffic for analysis."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/wireless/5500-series-wireless-controllers/116978-config-wlc-00.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-058"
+    difficulty: "medium"
+    tags: ["ip-services", "acl", "nat"]
+    question: "When configuring PAT, an ACL is referenced in the NAT statement. What does this ACL define?"
+    choices:
+      - "A. Which internal source addresses are eligible for translation"
+      - "B. Which destination addresses receive translated traffic"
+      - "C. Which ports are open on the firewall"
+      - "D. Which VLAN traffic is permitted on trunks"
+    answerIndex: 0
+    explanation: "In a NAT/PAT configuration like 'ip nat inside source list 10 interface Gi0/1 overload', the referenced ACL (list 10) defines which inside source IP addresses should be translated. It does not control firewall rules or VLAN trunking."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/13772-12.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-059"
+    difficulty: "hard"
+    tags: ["automation", "dna-center"]
+    question: "In Cisco DNA Center's intent-based networking model, what does 'assurance' provide?"
+    choices:
+      - "A. Continuous monitoring, analytics, and remediation of network issues using AI/ML"
+      - "B. Automated device provisioning via templates"
+      - "C. Software image management and compliance"
+      - "D. Integration with third-party ITSM tools"
+    answerIndex: 0
+    explanation: "DNA Center Assurance uses AI/ML to continuously monitor network health, detect issues, correlate events, and suggest or apply remediations. Provisioning handles device configuration. Software Image Management (SWIM) handles firmware. ITSM integration is a separate feature."
+    refs:
+      - "https://www.cisco.com/c/en/us/products/cloud-systems-management/dna-center/index.html"
+    author: "ThanhNguyxn"
+
+  - id: "ccna-expand-060"
+    difficulty: "hard"
+    tags: ["automation", "cisco-sdwan", "troubleshooting"]
+    question: "A network engineer notices that two SD-WAN edge devices can form control connections to vSmart but cannot establish data-plane tunnels between each other. IPsec SA negotiation fails. What is the most likely cause?"
+    choices:
+      - "A. A firewall between the sites is blocking UDP port 12346 (IPsec for SD-WAN data plane)"
+      - "B. The vBond orchestrator is down"
+      - "C. The OMP routes are not being redistributed"
+      - "D. The system-ip addresses are identical on both devices"
+    answerIndex: 0
+    explanation: "If control connections work but data-plane tunnels fail, the issue is typically a firewall or NAT blocking the data-plane ports (default UDP 12346 for IPsec). If vBond were down, control connections wouldn't form. Identical system-IPs would prevent OMP sessions from establishing."
+    refs:
+      - "https://www.cisco.com/c/en/us/support/docs/routers/sd-wan/214509-troubleshoot-control-connections.html"
+    author: "ThanhNguyxn"

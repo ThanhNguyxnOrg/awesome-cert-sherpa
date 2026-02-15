@@ -1053,3 +1053,903 @@ questions:
     refs:
       - "https://kubernetes.io/docs/concepts/policy/limit-range/"
     author: "ThanhNguyxn"
+
+  - id: "cka-expand-001"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "control-plane", "components"]
+    question: "Which control-plane component is responsible for persisting all cluster state in a Kubernetes cluster?"
+    choices:
+      - "A. etcd"
+      - "B. kube-scheduler"
+      - "C. kube-controller-manager"
+      - "D. cloud-controller-manager"
+    answerIndex: 0
+    explanation: "etcd is the consistent and highly available key-value store used as Kubernetes' backing store for all cluster data. The scheduler assigns Pods to nodes but does not persist state."
+    refs:
+      - "https://kubernetes.io/docs/concepts/overview/components/#etcd"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-002"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "kubelet", "node"]
+    question: "What is the primary role of the kubelet on a worker node?"
+    choices:
+      - "A. Ensuring containers described in PodSpecs are running and healthy"
+      - "B. Assigning IP addresses to Pods via DHCP"
+      - "C. Scheduling Pods to appropriate nodes"
+      - "D. Storing cluster state in etcd"
+    answerIndex: 0
+    explanation: "The kubelet is an agent running on each node that takes PodSpecs and ensures the described containers are running and healthy. Scheduling is handled by kube-scheduler, not the kubelet."
+    refs:
+      - "https://kubernetes.io/docs/concepts/overview/components/#kubelet"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-003"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "kube-proxy", "networking"]
+    question: "Which component maintains network rules on nodes to implement Kubernetes Service abstractions?"
+    choices:
+      - "A. kube-proxy"
+      - "B. CoreDNS"
+      - "C. kubelet"
+      - "D. kube-scheduler"
+    answerIndex: 0
+    explanation: "kube-proxy maintains network rules on nodes that allow network communication to Pods from inside or outside the cluster. CoreDNS provides DNS-based service discovery but does not manage iptables or IPVS rules."
+    refs:
+      - "https://kubernetes.io/docs/concepts/overview/components/#kube-proxy"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-004"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "api-server", "control-plane"]
+    question: "Which component serves as the front-end for the Kubernetes control plane, exposing the Kubernetes API?"
+    choices:
+      - "A. kube-apiserver"
+      - "B. kube-controller-manager"
+      - "C. kube-scheduler"
+      - "D. etcd"
+    answerIndex: 0
+    explanation: "kube-apiserver is the front-end for the Kubernetes control plane. It validates and processes RESTful requests, serving as the single point of interaction for all cluster management operations."
+    refs:
+      - "https://kubernetes.io/docs/concepts/overview/components/#kube-apiserver"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-005"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "container-runtime", "node"]
+    question: "Which interface must a container runtime implement to be compatible with Kubernetes since v1.24?"
+    choices:
+      - "A. Container Runtime Interface (CRI)"
+      - "B. Container Network Interface (CNI)"
+      - "C. Container Storage Interface (CSI)"
+      - "D. Open Container Initiative (OCI) only"
+    answerIndex: 0
+    explanation: "Since Kubernetes v1.24 removed dockershim, all container runtimes must implement the Container Runtime Interface (CRI). CNI is for networking plugins and CSI is for storage plugins."
+    refs:
+      - "https://kubernetes.io/docs/concepts/architecture/cri/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-006"
+    difficulty: "medium"
+    tags: ["cluster-architecture", "etcd", "backup"]
+    question: "An administrator needs to back up the etcd data store. Which etcdctl command creates a snapshot of etcd?"
+    choices:
+      - "A. etcdctl snapshot save /path/to/backup.db"
+      - "B. etcdctl backup --data-dir /path/to/backup"
+      - "C. etcdctl export --output /path/to/backup.db"
+      - "D. etcdctl dump --file /path/to/backup.db"
+    answerIndex: 0
+    explanation: "etcdctl snapshot save creates a point-in-time snapshot of the etcd database. The backup subcommand is deprecated in etcd v3 API, and export/dump are not valid etcdctl commands for this purpose."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#backing-up-an-etcd-cluster"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-007"
+    difficulty: "medium"
+    tags: ["cluster-architecture", "rbac", "authorization"]
+    question: "A ClusterRole grants get and list permissions on Pods. A RoleBinding in namespace 'dev' binds this ClusterRole to user Alice. What can Alice do?"
+    choices:
+      - "A. Get and list Pods only in the dev namespace"
+      - "B. Get and list Pods in all namespaces"
+      - "C. Get, list, and delete Pods in the dev namespace"
+      - "D. Nothing — ClusterRoles cannot be referenced by RoleBindings"
+    answerIndex: 0
+    explanation: "A RoleBinding can reference a ClusterRole but scopes the permissions to the binding's namespace. Alice can only get and list Pods in the dev namespace. A ClusterRoleBinding would be needed for cluster-wide access."
+    refs:
+      - "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-008"
+    difficulty: "medium"
+    tags: ["cluster-architecture", "kubeadm", "upgrade"]
+    question: "When upgrading a kubeadm-based cluster, which component should be upgraded first?"
+    choices:
+      - "A. The control plane nodes"
+      - "B. The worker nodes"
+      - "C. The CNI plugin"
+      - "D. CoreDNS"
+    answerIndex: 0
+    explanation: "Kubernetes upgrade procedure requires control plane nodes to be upgraded first, then worker nodes. The API server must support the newer version before workers can be upgraded to ensure compatibility with the skew policy."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-009"
+    difficulty: "hard"
+    tags: ["cluster-architecture", "etcd", "restore"]
+    question: "After restoring etcd from a snapshot to a new data directory, which additional step is required before the cluster resumes normal operation?"
+    choices:
+      - "A. Update the etcd manifest to point --data-dir to the new directory and restart etcd"
+      - "B. Restart only kube-apiserver; etcd detects the new directory automatically"
+      - "C. Run kubeadm init to re-bootstrap the control plane"
+      - "D. Delete all existing Pods so they are rescheduled"
+    answerIndex: 0
+    explanation: "After restoring a snapshot with etcdctl snapshot restore, the etcd static pod manifest must be updated to point --data-dir to the restored directory. etcd does not auto-detect new data directories."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/#restoring-an-etcd-cluster"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-010"
+    difficulty: "hard"
+    tags: ["cluster-architecture", "certificates", "security"]
+    question: "A kubeadm cluster's API server certificate will expire in 24 hours. Which command renews all kubeadm-managed certificates?"
+    choices:
+      - "A. kubeadm certs renew all"
+      - "B. kubeadm alpha certs generate"
+      - "C. kubectl certificate approve"
+      - "D. openssl req -new -x509"
+    answerIndex: 0
+    explanation: "kubeadm certs renew all renews all certificates managed by kubeadm. kubectl certificate approve is for approving CSRs, not renewing existing certificates. Manual openssl commands are not the recommended approach for kubeadm clusters."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-011"
+    difficulty: "easy"
+    tags: ["workloads", "deployment", "replicas"]
+    question: "Which kubectl command scales a Deployment named 'web' to 5 replicas?"
+    choices:
+      - "A. kubectl scale deployment web --replicas=5"
+      - "B. kubectl resize deployment web --count=5"
+      - "C. kubectl set replicas deployment web 5"
+      - "D. kubectl update deployment web --replicas=5"
+    answerIndex: 0
+    explanation: "kubectl scale is the standard command to change the replica count of a workload resource. The resize, set replicas, and update commands with these flags do not exist in kubectl."
+    refs:
+      - "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_scale/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-012"
+    difficulty: "easy"
+    tags: ["workloads", "pod", "lifecycle"]
+    question: "What happens when all containers in a Pod exit with exit code 0 and the Pod's restartPolicy is set to Never?"
+    choices:
+      - "A. The Pod enters the Succeeded phase"
+      - "B. The Pod restarts all containers"
+      - "C. The Pod enters the Failed phase"
+      - "D. The Pod is automatically deleted"
+    answerIndex: 0
+    explanation: "When all containers terminate successfully (exit code 0) and restartPolicy is Never, the Pod transitions to the Succeeded phase. It is not deleted automatically and remains visible until garbage collected."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-013"
+    difficulty: "easy"
+    tags: ["workloads", "deployment", "rollout"]
+    question: "Which command shows the rollout history of a Deployment named 'api-server'?"
+    choices:
+      - "A. kubectl rollout history deployment/api-server"
+      - "B. kubectl describe deployment api-server --history"
+      - "C. kubectl get deployment api-server --revisions"
+      - "D. kubectl logs deployment/api-server --rollout"
+    answerIndex: 0
+    explanation: "kubectl rollout history deployment/api-server displays the revision history of the Deployment. The other commands use flags or subcommands that do not exist in kubectl."
+    refs:
+      - "https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_history/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-014"
+    difficulty: "medium"
+    tags: ["workloads", "deployment", "strategy"]
+    question: "A Deployment with RollingUpdate strategy has maxUnavailable set to 0 and maxSurge set to 1 with 4 replicas. During a rolling update, what is the maximum number of Pods that can exist simultaneously?"
+    choices:
+      - "A. 5"
+      - "B. 4"
+      - "C. 6"
+      - "D. 8"
+    answerIndex: 0
+    explanation: "With maxSurge=1, one extra Pod beyond the desired replica count can be created during the update. With 4 desired replicas, the maximum is 4+1=5 Pods. maxUnavailable=0 means no old Pods are terminated until a new one is ready."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-015"
+    difficulty: "medium"
+    tags: ["workloads", "daemonset", "scheduling"]
+    question: "A DaemonSet should run on all nodes except those with the label 'gpu=true'. Which field in the DaemonSet spec achieves this?"
+    choices:
+      - "A. spec.template.spec.affinity with a node anti-affinity rule"
+      - "B. spec.template.spec.tolerations"
+      - "C. spec.selector.matchLabels"
+      - "D. spec.template.spec.priorityClassName"
+    answerIndex: 0
+    explanation: "Node anti-affinity rules in the Pod spec can exclude nodes with specific labels. Tolerations allow scheduling on tainted nodes but do not exclude labeled nodes. The selector field matches Pods, not node labels."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-016"
+    difficulty: "medium"
+    tags: ["workloads", "job", "completions"]
+    question: "A Job specification has completions: 6 and parallelism: 2. How does Kubernetes execute this Job?"
+    choices:
+      - "A. It runs 2 Pods at a time until 6 successful completions are reached"
+      - "B. It runs 6 Pods simultaneously with 2 retries each"
+      - "C. It runs 2 Pods total with 6 restart attempts each"
+      - "D. It creates 6 Pods and limits CPU to 2 cores per Pod"
+    answerIndex: 0
+    explanation: "With completions:6 and parallelism:2, the Job controller runs up to 2 Pods concurrently, starting new ones as previous Pods succeed, until 6 total successful completions are achieved."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/controllers/job/#parallel-jobs"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-017"
+    difficulty: "medium"
+    tags: ["workloads", "cronjob", "schedule"]
+    question: "A CronJob is configured with schedule '*/5 * * * *' and concurrencyPolicy: Forbid. If a job takes 7 minutes, what happens at the next scheduled time?"
+    choices:
+      - "A. The new job is skipped because the previous one is still running"
+      - "B. The new job runs in parallel with the existing one"
+      - "C. The previous job is terminated and the new one starts"
+      - "D. Both jobs are queued and run sequentially"
+    answerIndex: 0
+    explanation: "With concurrencyPolicy: Forbid, if the previous Job is still running when the next schedule triggers, the new Job is skipped entirely. The Allow policy would run them concurrently, and Replace would terminate the old one."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-018"
+    difficulty: "hard"
+    tags: ["workloads", "statefulset", "ordering"]
+    question: "A StatefulSet has 3 replicas (web-0, web-1, web-2) with podManagementPolicy: OrderedReady. If web-1 is in a CrashLoopBackOff, what happens when you scale from 3 to 5?"
+    choices:
+      - "A. Scaling is blocked because web-1 is not Ready"
+      - "B. web-3 and web-4 are created regardless of web-1's state"
+      - "C. web-2 is terminated first and then web-3 is attempted"
+      - "D. All existing Pods are restarted before scaling up"
+    answerIndex: 0
+    explanation: "With OrderedReady policy, the StatefulSet controller requires all Pods at lower ordinals to be Running and Ready before creating the next Pod. Since web-1 is not Ready, web-3 cannot be created."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#deployment-and-scaling-guarantees"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-019"
+    difficulty: "hard"
+    tags: ["workloads", "init-containers", "pod"]
+    question: "A Pod has two init containers. The first init container exits successfully, but the second fails repeatedly. What is the Pod's status?"
+    choices:
+      - "A. Init:1/2 — the Pod stays in initialization and the second init container is retried"
+      - "B. Running — the main containers start while init containers retry"
+      - "C. Failed — the Pod terminates after the first init container failure"
+      - "D. Init:CrashLoopBackOff — all init containers are restarted from the beginning"
+    answerIndex: 0
+    explanation: "Init containers run sequentially. If the second init container fails, it is retried per the Pod's restartPolicy, and the Pod remains in the Init phase showing Init:1/2. Main containers do not start until all init containers succeed."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#understanding-init-containers"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-020"
+    difficulty: "easy"
+    tags: ["workloads", "configmap", "configuration"]
+    question: "Which kubectl command creates a ConfigMap named 'app-config' from a file called 'config.properties'?"
+    choices:
+      - "A. kubectl create configmap app-config --from-file=config.properties"
+      - "B. kubectl apply configmap app-config --file=config.properties"
+      - "C. kubectl generate configmap app-config --source=config.properties"
+      - "D. kubectl new configmap app-config --data-file=config.properties"
+    answerIndex: 0
+    explanation: "kubectl create configmap with --from-file creates a ConfigMap with the file name as the key and file contents as the value. The other command variations do not exist in kubectl."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-files"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-021"
+    difficulty: "easy"
+    tags: ["networking", "service", "clusterip"]
+    question: "What is the default Service type in Kubernetes if no type is specified?"
+    choices:
+      - "A. ClusterIP"
+      - "B. NodePort"
+      - "C. LoadBalancer"
+      - "D. ExternalName"
+    answerIndex: 0
+    explanation: "When no Service type is specified, Kubernetes defaults to ClusterIP, which exposes the Service on an internal IP within the cluster. NodePort and LoadBalancer must be explicitly configured."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/service/#type-clusterip"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-022"
+    difficulty: "easy"
+    tags: ["networking", "service", "nodeport"]
+    question: "What is the default port range for NodePort Services in Kubernetes?"
+    choices:
+      - "A. 30000-32767"
+      - "B. 1024-65535"
+      - "C. 80-443"
+      - "D. 8080-9090"
+    answerIndex: 0
+    explanation: "Kubernetes allocates NodePort Services from the default range 30000-32767. This range can be customized in the API server configuration with the --service-node-port-range flag."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-023"
+    difficulty: "easy"
+    tags: ["networking", "dns", "service-discovery"]
+    question: "What is the DNS name format for a Service named 'my-svc' in namespace 'prod' within a default cluster domain?"
+    choices:
+      - "A. my-svc.prod.svc.cluster.local"
+      - "B. my-svc.prod.cluster.local"
+      - "C. prod.my-svc.svc.cluster.local"
+      - "D. my-svc.svc.prod.cluster.local"
+    answerIndex: 0
+    explanation: "Kubernetes DNS follows the pattern <service-name>.<namespace>.svc.<cluster-domain>. With the default cluster domain of cluster.local, the full DNS name is my-svc.prod.svc.cluster.local."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-024"
+    difficulty: "medium"
+    tags: ["networking", "ingress", "routing"]
+    question: "An Ingress resource defines two rules: host 'api.example.com' routing to service 'api-svc' and host 'web.example.com' routing to service 'web-svc'. A request arrives for 'unknown.example.com'. What happens?"
+    choices:
+      - "A. The request is handled by the defaultBackend if configured, or returns 404"
+      - "B. The request is round-robined between api-svc and web-svc"
+      - "C. The Ingress controller drops the connection silently"
+      - "D. The request is forwarded to the first rule's backend"
+    answerIndex: 0
+    explanation: "When no host rule matches, the Ingress controller uses the defaultBackend specified in the Ingress resource. If no defaultBackend is configured, the controller typically returns a 404 response."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/ingress/#default-backend"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-025"
+    difficulty: "medium"
+    tags: ["networking", "network-policy", "security"]
+    question: "A NetworkPolicy selects Pods with label 'app=db' and allows ingress only from Pods with label 'app=api'. If no other NetworkPolicies exist, can Pods with label 'app=web' reach the 'app=db' Pods?"
+    choices:
+      - "A. No — the NetworkPolicy restricts ingress to only Pods matching app=api"
+      - "B. Yes — NetworkPolicies are additive and do not deny traffic"
+      - "C. Yes — egress from app=web is not restricted"
+      - "D. No — all traffic in the namespace is blocked by default"
+    answerIndex: 0
+    explanation: "Once a NetworkPolicy selects a Pod, only explicitly allowed traffic is permitted. Since the policy only allows ingress from app=api, Pods with app=web are blocked. However, egress from app=db is unaffected since no egress rule is defined."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/network-policies/#the-networkpolicy-resource"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-026"
+    difficulty: "medium"
+    tags: ["networking", "network-policy", "egress"]
+    question: "A NetworkPolicy with an egress rule allows traffic to CIDR 10.0.0.0/16 on port 443. What happens to DNS resolution (port 53) from the selected Pods?"
+    choices:
+      - "A. DNS is blocked because egress to port 53 is not explicitly allowed"
+      - "B. DNS works because kube-dns is always exempt from NetworkPolicies"
+      - "C. DNS works because port 53 is in the well-known ports range"
+      - "D. DNS is blocked only if CoreDNS runs outside the 10.0.0.0/16 range"
+    answerIndex: 0
+    explanation: "NetworkPolicies are strict — if an egress policy is applied and DNS port 53 is not explicitly allowed, DNS resolution fails. There is no automatic exemption for kube-dns. A separate egress rule for UDP/TCP port 53 must be added."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/network-policies/#default-deny-all-egress-traffic"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-027"
+    difficulty: "medium"
+    tags: ["networking", "service", "endpoints"]
+    question: "A Service of type ClusterIP has no matching Pods. What does the Endpoints object for this Service contain?"
+    choices:
+      - "A. An empty subsets list with no IP addresses"
+      - "B. The Service's own ClusterIP address"
+      - "C. The node IP addresses of the cluster"
+      - "D. The Endpoints object is not created until Pods match"
+    answerIndex: 0
+    explanation: "Kubernetes creates an Endpoints object for every Service, but if no Pods match the selector, the subsets list is empty. The Endpoints object still exists — it just has no addresses to route traffic to."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-028"
+    difficulty: "hard"
+    tags: ["networking", "cni", "cluster-architecture"]
+    question: "After installing a new CNI plugin, existing Pods on a node still have IPs from the old CNI. What is the correct approach to migrate?"
+    choices:
+      - "A. Drain the node, delete old CNI config from /etc/cni/net.d/, and uncordon the node"
+      - "B. Restart kube-proxy; it will reassign Pod IPs automatically"
+      - "C. Delete the CNI ConfigMap; kubelet will reconfigure Pods"
+      - "D. Scale all Deployments to 0 and back up to force re-creation"
+    answerIndex: 0
+    explanation: "Pod IPs are assigned at creation time by the CNI plugin. Existing Pods retain their old IPs. Draining the node ensures Pods are recreated elsewhere, removing the old CNI config prevents conflicts, and uncordoning allows new Pods with the new CNI."
+    refs:
+      - "https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-029"
+    difficulty: "hard"
+    tags: ["networking", "ingress", "tls"]
+    question: "An Ingress resource references a TLS Secret for host 'app.example.com'. The Secret contains tls.crt and tls.key. The certificate is issued for '*.example.com'. Which hosts does this TLS configuration cover?"
+    choices:
+      - "A. Any single-level subdomain of example.com including app.example.com"
+      - "B. Only app.example.com exactly"
+      - "C. All subdomains at any depth under example.com"
+      - "D. Only example.com without any subdomains"
+    answerIndex: 0
+    explanation: "A wildcard certificate *.example.com covers any single-level subdomain like app.example.com, api.example.com, etc. It does not cover multi-level subdomains like sub.app.example.com or the bare domain example.com."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/ingress/#tls"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-030"
+    difficulty: "hard"
+    tags: ["networking", "coredns", "troubleshooting"]
+    question: "Pods in a cluster cannot resolve internal Service names. The CoreDNS Pods are running. Which kubectl command helps diagnose if the CoreDNS Service is correctly receiving traffic?"
+    choices:
+      - "A. kubectl get endpoints -n kube-system kube-dns"
+      - "B. kubectl logs -n kube-system deployment/coredns"
+      - "C. kubectl describe configmap -n kube-system coredns"
+      - "D. kubectl get networkpolicies -n kube-system"
+    answerIndex: 0
+    explanation: "Checking the endpoints for the kube-dns Service verifies that CoreDNS Pod IPs are registered as backends. If the endpoints list is empty, traffic cannot reach CoreDNS even though the Pods are running."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-031"
+    difficulty: "easy"
+    tags: ["storage", "pv", "persistent-volume"]
+    question: "Which access mode allows a PersistentVolume to be mounted as read-write by a single node?"
+    choices:
+      - "A. ReadWriteOnce"
+      - "B. ReadOnlyMany"
+      - "C. ReadWriteMany"
+      - "D. ReadWriteOncePod"
+    answerIndex: 0
+    explanation: "ReadWriteOnce (RWO) allows the volume to be mounted as read-write by a single node. ReadWriteOncePod restricts to a single Pod, and ReadWriteMany allows multiple nodes to mount read-write."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-032"
+    difficulty: "easy"
+    tags: ["storage", "pvc", "persistent-volume-claim"]
+    question: "A PVC requests 5Gi of storage but the smallest available PV is 10Gi with a matching StorageClass. What happens?"
+    choices:
+      - "A. The PVC binds to the 10Gi PV"
+      - "B. The PVC remains Pending until a 5Gi PV is created"
+      - "C. The PVC is rejected because sizes must match exactly"
+      - "D. The PV is automatically resized to 5Gi"
+    answerIndex: 0
+    explanation: "Kubernetes PVC binding matches based on minimum capacity, access modes, and StorageClass. A PVC requesting 5Gi will bind to a 10Gi PV if it is the smallest match available. The extra capacity is not reclaimed."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#binding"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-033"
+    difficulty: "medium"
+    tags: ["storage", "storageclass", "provisioning"]
+    question: "A StorageClass has reclaimPolicy set to Delete. What happens to the underlying storage when the PVC bound to a dynamically provisioned PV is deleted?"
+    choices:
+      - "A. The PV and its underlying storage are both deleted"
+      - "B. The PV is released but the storage is retained"
+      - "C. The PV is deleted but the storage is retained for manual cleanup"
+      - "D. The PVC deletion is blocked until the PV is manually released"
+    answerIndex: 0
+    explanation: "With reclaimPolicy: Delete, deleting the PVC causes the PV and the underlying storage asset (e.g., AWS EBS volume, GCE PD) to be deleted. The Retain policy would keep the storage for manual reclamation."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-034"
+    difficulty: "medium"
+    tags: ["storage", "emptydir", "volume"]
+    question: "A Pod with two containers uses an emptyDir volume shared between them. What happens to the emptyDir data when one container crashes and is restarted?"
+    choices:
+      - "A. The data persists because emptyDir lifetime is tied to the Pod, not the container"
+      - "B. The data is lost because emptyDir is cleared on container restart"
+      - "C. The data is moved to the node's /tmp directory"
+      - "D. The data is backed up to etcd before the restart"
+    answerIndex: 0
+    explanation: "An emptyDir volume's lifetime is tied to the Pod, not individual containers. When a container crashes and restarts, the emptyDir data remains intact. The data is only removed when the Pod is removed from the node."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/volumes/#emptydir"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-035"
+    difficulty: "medium"
+    tags: ["storage", "pv", "reclaim-policy"]
+    question: "A PersistentVolume with reclaimPolicy: Retain is released after its PVC is deleted. What is the PV's status?"
+    choices:
+      - "A. Released — it cannot be bound to a new PVC without manual intervention"
+      - "B. Available — it is immediately available for new PVC claims"
+      - "C. Bound — it remains bound to the deleted PVC"
+      - "D. Deleted — the PV object is removed from the cluster"
+    answerIndex: 0
+    explanation: "With reclaimPolicy: Retain, the PV transitions to Released status after the PVC is deleted. An administrator must manually clean up the data and either delete the PV or remove the claimRef to make it Available again."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#retain"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-036"
+    difficulty: "hard"
+    tags: ["storage", "csi", "volume-snapshot"]
+    question: "An administrator wants to create a point-in-time copy of a PVC's data using CSI. Which custom resource must be created?"
+    choices:
+      - "A. VolumeSnapshot"
+      - "B. VolumeClone"
+      - "C. PersistentVolumeBackup"
+      - "D. StorageSnapshot"
+    answerIndex: 0
+    explanation: "VolumeSnapshot is the Kubernetes custom resource for requesting a point-in-time copy of a PVC's data through the CSI driver. It works with VolumeSnapshotClass and VolumeSnapshotContent resources."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/volume-snapshots/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-037"
+    difficulty: "easy"
+    tags: ["troubleshooting", "pod", "status"]
+    question: "A Pod shows status ImagePullBackOff. What is the most likely cause?"
+    choices:
+      - "A. The container image name is incorrect or the registry requires authentication"
+      - "B. The node has insufficient CPU resources"
+      - "C. The Pod's readiness probe is failing"
+      - "D. The PersistentVolumeClaim is not bound"
+    answerIndex: 0
+    explanation: "ImagePullBackOff indicates Kubernetes cannot pull the specified container image. Common causes include typos in the image name, a private registry requiring imagePullSecrets, or the image tag not existing."
+    refs:
+      - "https://kubernetes.io/docs/concepts/containers/images/#imagepullbackoff"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-038"
+    difficulty: "easy"
+    tags: ["troubleshooting", "pod", "pending"]
+    question: "A Pod has been in Pending state for several minutes. Which command helps identify why the scheduler has not placed it?"
+    choices:
+      - "A. kubectl describe pod <pod-name>"
+      - "B. kubectl logs <pod-name>"
+      - "C. kubectl exec <pod-name> -- ps aux"
+      - "D. kubectl top pod <pod-name>"
+    answerIndex: 0
+    explanation: "kubectl describe pod shows Events at the bottom, including scheduler messages explaining why the Pod cannot be placed (e.g., insufficient resources, unmatched node selectors, taints). kubectl logs only works for running containers."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-039"
+    difficulty: "medium"
+    tags: ["troubleshooting", "node", "not-ready"]
+    question: "A worker node shows status NotReady. Which is the first component to investigate on that node?"
+    choices:
+      - "A. kubelet — check if the kubelet service is running and its logs"
+      - "B. kube-proxy — check the iptables rules"
+      - "C. CoreDNS — check DNS resolution on the node"
+      - "D. etcd — check if the data store is accessible from the node"
+    answerIndex: 0
+    explanation: "The kubelet is responsible for reporting node status to the API server. If a node is NotReady, the kubelet is likely not running or unable to communicate with the API server. kube-proxy and CoreDNS issues do not cause NotReady status."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-cluster/#worker-nodes"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-040"
+    difficulty: "medium"
+    tags: ["troubleshooting", "service", "connectivity"]
+    question: "A Service exists and has Endpoints, but clients receive connection timeouts. The Pods are running and healthy. Which area should you investigate next?"
+    choices:
+      - "A. NetworkPolicies that may be blocking ingress to the Pod's port"
+      - "B. The container image version"
+      - "C. The PersistentVolume reclaim policy"
+      - "D. The Deployment's update strategy"
+    answerIndex: 0
+    explanation: "If Pods are healthy and Endpoints exist but connections time out, a NetworkPolicy may be blocking traffic on the required port. Image version and PV reclaim policy do not affect network connectivity."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-application/debug-service/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-041"
+    difficulty: "medium"
+    tags: ["troubleshooting", "pod", "crashloopbackoff"]
+    question: "A Pod is in CrashLoopBackOff. The container starts, runs for 2 seconds, then exits. Which command provides the most useful diagnostic information?"
+    choices:
+      - "A. kubectl logs <pod-name> --previous"
+      - "B. kubectl get pod <pod-name> -o wide"
+      - "C. kubectl describe node <node-name>"
+      - "D. kubectl get events --sort-by=.metadata.creationTimestamp"
+    answerIndex: 0
+    explanation: "kubectl logs --previous shows logs from the previous container instance, which is crucial for diagnosing why a container crashed. Without --previous, the logs may be empty if the new container hasn't produced output yet."
+    refs:
+      - "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/#examining-pod-logs"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-042"
+    difficulty: "hard"
+    tags: ["troubleshooting", "scheduling", "taints"]
+    question: "A Pod cannot be scheduled and kubectl describe shows 'node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }'. How do you allow this Pod to run on a control-plane node?"
+    choices:
+      - "A. Add a toleration for node-role.kubernetes.io/control-plane with effect NoSchedule to the Pod spec"
+      - "B. Remove the label node-role.kubernetes.io/control-plane from the node"
+      - "C. Set the Pod's nodeSelector to node-role.kubernetes.io/control-plane"
+      - "D. Add a PodDisruptionBudget for the Pod"
+    answerIndex: 0
+    explanation: "Control-plane nodes are tainted to prevent workload scheduling. Adding a matching toleration to the Pod spec allows it to be scheduled there. Removing the taint or label would affect all Pods, not just the target one."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-043"
+    difficulty: "hard"
+    tags: ["troubleshooting", "dns", "networking"]
+    question: "A Pod can reach external services by IP address but not by hostname. Internal Service DNS resolution also fails. Which action most likely resolves this?"
+    choices:
+      - "A. Verify the CoreDNS Pods are running and the kube-dns Service has valid Endpoints"
+      - "B. Restart the kube-proxy DaemonSet"
+      - "C. Reconfigure the CNI plugin"
+      - "D. Delete and recreate the Pod's Service account"
+    answerIndex: 0
+    explanation: "If IP connectivity works but DNS fails for both internal and external names, the DNS service (CoreDNS) is likely down or unreachable. Checking CoreDNS Pods and the kube-dns Service Endpoints is the first step."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-044"
+    difficulty: "medium"
+    tags: ["networking", "service", "headless"]
+    question: "A StatefulSet requires stable DNS names for each Pod. Which Service configuration provides this?"
+    choices:
+      - "A. A headless Service with clusterIP set to None"
+      - "B. A LoadBalancer Service with sessionAffinity enabled"
+      - "C. A NodePort Service with externalTrafficPolicy: Local"
+      - "D. A ClusterIP Service with publishNotReadyAddresses: true"
+    answerIndex: 0
+    explanation: "A headless Service (clusterIP: None) creates DNS A records for each Pod in the StatefulSet with the pattern <pod-name>.<service-name>.<namespace>.svc.cluster.local, providing stable, unique DNS identities."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/service/#headless-services"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-045"
+    difficulty: "medium"
+    tags: ["workloads", "probes", "health"]
+    question: "A container's readiness probe fails. What effect does this have on the Pod?"
+    choices:
+      - "A. The Pod's IP is removed from the Service's Endpoints, stopping traffic routing"
+      - "B. The container is restarted by the kubelet"
+      - "C. The Pod is evicted from the node"
+      - "D. The Pod is deleted and a new one is created by the controller"
+    answerIndex: 0
+    explanation: "A failed readiness probe removes the Pod from the Service's Endpoints, so no new traffic is routed to it. Unlike liveness probe failure, the container is NOT restarted. The Pod continues running."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-046"
+    difficulty: "hard"
+    tags: ["workloads", "probes", "startup"]
+    question: "A slow-starting application takes up to 120 seconds to initialize. The liveness probe has a 5-second period and 3-failure threshold. Without a startup probe, the container keeps getting killed. How does adding a startup probe solve this?"
+    choices:
+      - "A. The startup probe disables liveness and readiness checks until it succeeds"
+      - "B. The startup probe increases the liveness probe's timeout automatically"
+      - "C. The startup probe restarts the container faster if it fails"
+      - "D. The startup probe bypasses all health checking permanently"
+    answerIndex: 0
+    explanation: "When a startup probe is configured, the liveness and readiness probes are disabled until the startup probe succeeds. This allows slow-starting containers enough time to initialize without being killed by the liveness probe."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-startup-probes"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-047"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "namespace", "basics"]
+    question: "Which kubectl command lists all namespaces in the cluster?"
+    choices:
+      - "A. kubectl get namespaces"
+      - "B. kubectl list ns"
+      - "C. kubectl show namespaces"
+      - "D. kubectl describe cluster --namespaces"
+    answerIndex: 0
+    explanation: "kubectl get namespaces (or kubectl get ns) lists all namespaces in the cluster with their status and age. The list, show, and describe cluster commands are not valid kubectl commands for this purpose."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/namespaces/#listing-namespaces"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-048"
+    difficulty: "medium"
+    tags: ["cluster-architecture", "rbac", "service-account"]
+    question: "A Pod needs to list Pods in its own namespace using the Kubernetes API. What must be configured?"
+    choices:
+      - "A. A ServiceAccount, a Role with pods list permission, and a RoleBinding linking them"
+      - "B. Only a ClusterRoleBinding to the default ServiceAccount"
+      - "C. A NetworkPolicy allowing egress to the API server"
+      - "D. An environment variable KUBECONFIG set in the container"
+    answerIndex: 0
+    explanation: "For in-cluster API access, the Pod's ServiceAccount needs appropriate RBAC permissions. A Role granting list on Pods and a RoleBinding associating it with the ServiceAccount is the correct least-privilege approach."
+    refs:
+      - "https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-049"
+    difficulty: "medium"
+    tags: ["storage", "projected-volume", "secrets"]
+    question: "Which volume type can combine data from multiple Secrets and ConfigMaps into a single volume mount?"
+    choices:
+      - "A. projected"
+      - "B. emptyDir"
+      - "C. hostPath"
+      - "D. nfs"
+    answerIndex: 0
+    explanation: "A projected volume maps several existing volume sources (Secrets, ConfigMaps, serviceAccountToken, downwardAPI) into a single directory. emptyDir is empty at creation and hostPath mounts a node directory."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/projected-volumes/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-050"
+    difficulty: "hard"
+    tags: ["networking", "ingress", "path-matching"]
+    question: "An Ingress defines pathType: Exact with path '/api'. Which requests match this rule?"
+    choices:
+      - "A. Only requests with path exactly '/api'"
+      - "B. Requests with paths '/api', '/api/', and '/api/v1'"
+      - "C. Requests with paths starting with '/api'"
+      - "D. Requests with path '/api' case-insensitively"
+    answerIndex: 0
+    explanation: "pathType: Exact matches the URL path exactly and is case-sensitive. Only '/api' matches — not '/api/', '/api/v1', or '/API'. Use pathType: Prefix for prefix-based matching."
+    refs:
+      - "https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-051"
+    difficulty: "medium"
+    tags: ["workloads", "pod", "security-context"]
+    question: "You need to ensure a container runs as a non-root user. Which Pod spec field enforces this?"
+    choices:
+      - "A. spec.containers[*].securityContext.runAsNonRoot: true"
+      - "B. spec.containers[*].securityContext.privileged: false"
+      - "C. spec.containers[*].securityContext.readOnlyRootFilesystem: true"
+      - "D. spec.containers[*].resources.limits.user: non-root"
+    answerIndex: 0
+    explanation: "runAsNonRoot: true instructs the kubelet to validate that the container does not run as UID 0 (root). If the container attempts to run as root, it fails. privileged: false restricts capabilities but does not prevent root."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-052"
+    difficulty: "hard"
+    tags: ["cluster-architecture", "scheduling", "affinity"]
+    question: "A Pod spec has requiredDuringSchedulingIgnoredDuringExecution node affinity for label 'zone=us-east-1a'. No nodes have this label. What happens?"
+    choices:
+      - "A. The Pod remains Pending indefinitely until a matching node is available"
+      - "B. The Pod is scheduled to a random node and the affinity is ignored"
+      - "C. The Pod fails with a validation error"
+      - "D. The scheduler removes the affinity rule and schedules normally"
+    answerIndex: 0
+    explanation: "requiredDuringSchedulingIgnoredDuringExecution is a hard requirement. The scheduler will not place the Pod on any node that does not match, so it stays Pending. preferredDuringScheduling would allow fallback."
+    refs:
+      - "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-053"
+    difficulty: "easy"
+    tags: ["workloads", "secret", "configuration"]
+    question: "Which command creates a Secret named 'db-creds' with a key 'password' and value 'S3cret!' imperatively?"
+    choices:
+      - "A. kubectl create secret generic db-creds --from-literal=password=S3cret!"
+      - "B. kubectl create secret tls db-creds --password=S3cret!"
+      - "C. kubectl apply secret db-creds --data password=S3cret!"
+      - "D. kubectl set secret db-creds password S3cret!"
+    answerIndex: 0
+    explanation: "kubectl create secret generic creates an Opaque Secret with key-value pairs provided via --from-literal. The tls type requires cert and key files. The apply and set commands do not support this syntax."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-kubectl/#create-a-secret"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-054"
+    difficulty: "medium"
+    tags: ["troubleshooting", "node", "drain"]
+    question: "You need to perform maintenance on a node. Which command safely evicts all Pods and marks the node unschedulable?"
+    choices:
+      - "A. kubectl drain <node> --ignore-daemonsets --delete-emptydir-data"
+      - "B. kubectl cordon <node>"
+      - "C. kubectl delete node <node>"
+      - "D. kubectl taint node <node> maintenance=true:NoExecute"
+    answerIndex: 0
+    explanation: "kubectl drain evicts all Pods (respecting PDBs), cordons the node, and marks it unschedulable. --ignore-daemonsets is needed because DaemonSet Pods cannot be evicted. kubectl cordon only prevents new Pods without evicting existing ones."
+    refs:
+      - "https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-055"
+    difficulty: "hard"
+    tags: ["cluster-architecture", "pdb", "availability"]
+    question: "A Deployment has 3 replicas and a PodDisruptionBudget with minAvailable: 2. You attempt to drain a node running 2 of these Pods. What happens?"
+    choices:
+      - "A. Only one Pod is evicted; the second eviction is blocked until the first Pod is rescheduled and Ready"
+      - "B. Both Pods are evicted simultaneously"
+      - "C. The drain command fails immediately without evicting any Pods"
+      - "D. Both Pods are evicted and the PDB is violated"
+    answerIndex: 0
+    explanation: "The PDB ensures at least 2 Pods remain available. With 3 total replicas and 2 on the drained node, only 1 can be evicted initially. The drain blocks on the second Pod until the first is rescheduled and Ready, maintaining the PDB constraint."
+    refs:
+      - "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-056"
+    difficulty: "medium"
+    tags: ["workloads", "horizontal-pod-autoscaler", "scaling"]
+    question: "An HPA targets 50% average CPU utilization for a Deployment with current average utilization at 80%. What does the HPA do?"
+    choices:
+      - "A. Increases the replica count to bring the average CPU utilization closer to 50%"
+      - "B. Decreases the replica count to save resources"
+      - "C. Sends an alert but takes no scaling action"
+      - "D. Vertically scales the Pods by increasing CPU limits"
+    answerIndex: 0
+    explanation: "When current utilization (80%) exceeds the target (50%), the HPA calculates the desired replicas using the formula: desiredReplicas = ceil(currentReplicas * (currentUtilization / targetUtilization)) and scales up."
+    refs:
+      - "https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-057"
+    difficulty: "easy"
+    tags: ["cluster-architecture", "label", "selector"]
+    question: "Which kubectl command shows all Pods with the label 'env=production' across all namespaces?"
+    choices:
+      - "A. kubectl get pods -l env=production -A"
+      - "B. kubectl find pods --label env=production"
+      - "C. kubectl search pods env=production --all"
+      - "D. kubectl list pods --selector env=production --global"
+    answerIndex: 0
+    explanation: "kubectl get pods -l env=production -A lists Pods matching the label selector across all namespaces. -l is the label selector flag and -A (or --all-namespaces) searches across all namespaces."
+    refs:
+      - "https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-058"
+    difficulty: "hard"
+    tags: ["networking", "service", "external-traffic"]
+    question: "A NodePort Service has externalTrafficPolicy: Local. What happens when a request arrives at a node that has no matching Pods?"
+    choices:
+      - "A. The request is dropped and the client receives no response"
+      - "B. The request is forwarded to a node that has matching Pods"
+      - "C. The Service returns a 503 error"
+      - "D. kube-proxy load-balances to all Pods in the cluster"
+    answerIndex: 0
+    explanation: "With externalTrafficPolicy: Local, kube-proxy only routes to Pods on the local node. If no local Pods exist, the request is dropped. This preserves the client source IP but requires proper load balancer health checks."
+    refs:
+      - "https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-059"
+    difficulty: "medium"
+    tags: ["storage", "pvc", "volume-expansion"]
+    question: "A StorageClass has allowVolumeExpansion: true. After increasing a PVC's requested storage from 10Gi to 20Gi, the PV size increases but the filesystem inside the Pod still shows 10Gi. What is needed?"
+    choices:
+      - "A. The Pod must be restarted to trigger filesystem resize for some storage drivers"
+      - "B. Run resize2fs manually inside the container"
+      - "C. Delete and recreate the PV with the larger size"
+      - "D. Nothing — the filesystem will resize automatically within seconds"
+    answerIndex: 0
+    explanation: "Some CSI drivers require the Pod to be restarted (or the volume to be re-attached) to trigger filesystem expansion. The PV size increases immediately but the filesystem resize may require a Pod restart depending on the driver."
+    refs:
+      - "https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims"
+    author: "ThanhNguyxn"
+
+  - id: "cka-expand-060"
+    difficulty: "hard"
+    tags: ["troubleshooting", "cluster-architecture", "static-pods"]
+    question: "A static Pod managed by the kubelet has been modified in /etc/kubernetes/manifests/ but the changes are not reflected in the running Pod. What should you check?"
+    choices:
+      - "A. Verify the kubelet's --pod-manifest-path points to the correct directory and check kubelet logs for errors"
+      - "B. Run kubectl apply -f to force-update the static Pod"
+      - "C. Delete the mirror Pod in the API server to trigger re-creation"
+      - "D. Restart the kube-scheduler to re-evaluate the Pod"
+    answerIndex: 0
+    explanation: "The kubelet watches the manifest directory and should detect file changes. If changes are not reflected, verify the staticPodPath configuration and check kubelet logs. kubectl apply does not manage static Pods — they are kubelet-managed."
+    refs:
+      - "https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/"
+    author: "ThanhNguyxn"

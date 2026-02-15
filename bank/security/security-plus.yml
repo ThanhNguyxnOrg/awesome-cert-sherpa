@@ -456,3 +456,1200 @@ questions:
     explanation: "DMARC builds on SPF and DKIM to let domain owners publish policies that help receivers detect and reject spoofed messages. Disabling external email is operationally disruptive and does not address authentication, while weakening MFA reduces account security and can worsen BEC risk."
     refs: ["https://datatracker.ietf.org/doc/html/rfc7489"]
     author: "ThanhNguyxn"
+
+  # ── Security+ Expansion: 70 new questions (sec701-expand-001 → sec701-expand-070) ──
+
+  # Domain 1: Threats, Attacks, and Vulnerabilities (~15 questions)
+  - id: "sec701-expand-001"
+    difficulty: "easy"
+    tags: ["threats", "malware", "ransomware"]
+    question: "A user opens an email attachment and all files on their workstation become encrypted with a demand for cryptocurrency payment. What type of malware is this?"
+    choices:
+      - "A. Ransomware"
+      - "B. Spyware"
+      - "C. Adware"
+      - "D. Rootkit"
+    answerIndex: 0
+    explanation: >-
+      Ransomware encrypts victim files and demands payment for the decryption key. Spyware (B) secretly monitors user activity. Adware (C) displays unwanted advertisements. Rootkits (D) hide malicious processes at a deep system level.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-002"
+    difficulty: "medium"
+    tags: ["threats", "social-engineering", "phishing"]
+    question: "An attacker researches a specific executive on LinkedIn and crafts a personalized email pretending to be from their golf club. What type of attack is this?"
+    choices:
+      - "A. Spear phishing"
+      - "B. Vishing"
+      - "C. Watering hole attack"
+      - "D. Pharming"
+    answerIndex: 0
+    explanation: >-
+      Spear phishing targets specific individuals using personalized information gathered through reconnaissance. Vishing (B) uses voice calls. Watering hole (C) compromises websites the target frequents. Pharming (D) redirects DNS to malicious sites.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-003"
+    difficulty: "hard"
+    tags: ["threats", "attacks", "supply-chain"]
+    question: "An attacker compromises a software vendor's build pipeline and injects malicious code into a legitimate update. Thousands of customers install the tainted update. What type of attack is this?"
+    choices:
+      - "A. Supply chain attack"
+      - "B. On-path (man-in-the-middle) attack"
+      - "C. Brute force attack"
+      - "D. Denial of service attack"
+    answerIndex: 0
+    explanation: >-
+      A supply chain attack compromises a trusted vendor or supplier to distribute malicious code to downstream customers. This differs from MitM (B) which intercepts communications in transit. Brute force (C) systematically guesses credentials. DoS (D) disrupts service availability.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-004"
+    difficulty: "easy"
+    tags: ["threats", "vulnerabilities", "cve"]
+    question: "What does a CVE identifier represent?"
+    choices:
+      - "A. A unique identifier for a publicly known cybersecurity vulnerability"
+      - "B. A rating of how critical a vulnerability is"
+      - "C. A vendor-specific patch number"
+      - "D. An encryption algorithm classification"
+    answerIndex: 0
+    explanation: >-
+      CVE (Common Vulnerabilities and Exposures) provides unique identifiers for publicly disclosed security vulnerabilities. CVSS provides severity ratings (B). Patch numbers (C) are vendor-specific. CVE does not relate to encryption algorithms (D).
+    refs:
+      - "https://cve.mitre.org/"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-005"
+    difficulty: "medium"
+    tags: ["threats", "attacks", "password"]
+    question: "An attacker uses a pre-computed table of hash-to-plaintext mappings to crack stolen password hashes. What is this attack called?"
+    choices:
+      - "A. Rainbow table attack"
+      - "B. Dictionary attack"
+      - "C. Credential stuffing"
+      - "D. Pass-the-hash attack"
+    answerIndex: 0
+    explanation: >-
+      Rainbow tables contain pre-computed hash chains that map hashes back to plaintext passwords. Dictionary attacks (B) try words from a list. Credential stuffing (C) uses breached username/password pairs across multiple sites. Pass-the-hash (D) uses captured hash directly for authentication without cracking it.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-63b/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-006"
+    difficulty: "hard"
+    tags: ["threats", "attacks", "xss"]
+    question: "A web application stores user-submitted comments without sanitization. When other users view the comments, malicious JavaScript executes in their browsers. What type of XSS is this?"
+    choices:
+      - "A. Stored (persistent) XSS"
+      - "B. Reflected XSS"
+      - "C. DOM-based XSS"
+      - "D. Server-side request forgery"
+    answerIndex: 0
+    explanation: >-
+      Stored XSS persists the malicious script on the server (in a database), executing it whenever users view the affected content. Reflected XSS (B) requires the victim to click a crafted link. DOM-based XSS (C) manipulates the client-side DOM without server involvement. SSRF (D) tricks the server into making requests to internal resources.
+    refs:
+      - "https://owasp.org/www-community/attacks/xss/"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-007"
+    difficulty: "easy"
+    tags: ["threats", "threat-actors", "apt"]
+    question: "Which threat actor type is MOST likely to have nation-state funding, advanced capabilities, and long-term strategic objectives?"
+    choices:
+      - "A. Advanced Persistent Threat (APT)"
+      - "B. Script kiddie"
+      - "C. Hacktivist"
+      - "D. Insider threat (disgruntled employee)"
+    answerIndex: 0
+    explanation: >-
+      APTs are typically nation-state sponsored groups with significant resources, sophisticated tools, and long-term espionage or sabotage goals. Script kiddies (B) use pre-made tools with limited skill. Hacktivists (C) are ideologically motivated. Insider threats (D) are individuals within the organization.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://attack.mitre.org/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-008"
+    difficulty: "medium"
+    tags: ["threats", "attacks", "dns"]
+    question: "An attacker modifies the local hosts file on a victim's computer to redirect a banking website to a fake site. What type of attack is this?"
+    choices:
+      - "A. Pharming"
+      - "B. Phishing"
+      - "C. Vishing"
+      - "D. Typosquatting"
+    answerIndex: 0
+    explanation: >-
+      Pharming redirects users to fraudulent websites by manipulating DNS resolution, including modifying local hosts files or poisoning DNS caches. Phishing (B) uses deceptive emails. Vishing (C) uses phone calls. Typosquatting (D) registers misspelled domain names.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-009"
+    difficulty: "hard"
+    tags: ["threats", "attacks", "injection"]
+    question: "A penetration tester discovers that a web application passes unsanitized input to an operating system command. What vulnerability is this?"
+    choices:
+      - "A. Command injection (OS injection)"
+      - "B. SQL injection"
+      - "C. LDAP injection"
+      - "D. XML external entity (XXE) injection"
+    answerIndex: 0
+    explanation: >-
+      Command injection occurs when user input is passed directly to operating system commands, allowing the attacker to execute arbitrary commands. SQL injection (B) targets database queries. LDAP injection (C) targets directory service queries. XXE (D) exploits XML parser features to access files or make server-side requests.
+    refs:
+      - "https://owasp.org/www-community/attacks/Command_Injection"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-010"
+    difficulty: "medium"
+    tags: ["threats", "indicators", "ioc"]
+    question: "A security analyst observes unusual outbound traffic to a foreign IP address at 3 AM from a server that normally has no internet access. What is this an example of?"
+    choices:
+      - "A. An indicator of compromise (IoC)"
+      - "B. A routine backup operation"
+      - "C. A software update check"
+      - "D. Normal network scanning"
+    answerIndex: 0
+    explanation: >-
+      Unexpected outbound traffic from a restricted server to an unknown external IP is a strong indicator of compromise, suggesting possible data exfiltration or command-and-control communication. Backups (B) and updates (C) use known, authorized destinations. Network scanning (D) is typically internal and authorized.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-011"
+    difficulty: "easy"
+    tags: ["threats", "malware", "trojan"]
+    question: "A user downloads what appears to be a free game, but it secretly installs a keylogger. What type of malware is this?"
+    choices:
+      - "A. Trojan horse"
+      - "B. Worm"
+      - "C. Logic bomb"
+      - "D. Fileless malware"
+    answerIndex: 0
+    explanation: >-
+      A Trojan horse disguises itself as legitimate software while carrying a malicious payload. Worms (B) self-replicate across networks. Logic bombs (C) trigger based on specific conditions. Fileless malware (D) operates entirely in memory without writing to disk.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-012"
+    difficulty: "hard"
+    tags: ["threats", "attacks", "privilege-escalation"]
+    question: "An attacker gains initial access as a low-privilege user and exploits a kernel vulnerability to obtain root access. What type of attack is this?"
+    choices:
+      - "A. Vertical privilege escalation"
+      - "B. Horizontal privilege escalation"
+      - "C. Directory traversal"
+      - "D. Session hijacking"
+    answerIndex: 0
+    explanation: >-
+      Vertical privilege escalation involves gaining higher privilege levels (e.g., user to root/admin). Horizontal escalation (B) accesses resources of another user at the same privilege level. Directory traversal (C) accesses files outside intended directories. Session hijacking (D) takes over an authenticated session.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://attack.mitre.org/tactics/TA0004/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-013"
+    difficulty: "medium"
+    tags: ["threats", "attacks", "wireless"]
+    question: "An attacker sets up a rogue access point with the same SSID as the corporate Wi-Fi near the office building. What is this attack called?"
+    choices:
+      - "A. Evil twin attack"
+      - "B. Bluesnarfing"
+      - "C. Deauthentication attack"
+      - "D. War driving"
+    answerIndex: 0
+    explanation: >-
+      An evil twin creates a fake access point mimicking a legitimate network to intercept traffic from connecting users. Bluesnarfing (B) steals data via Bluetooth. Deauthentication (C) forces clients to disconnect from legitimate APs. War driving (D) is passively scanning for wireless networks.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-014"
+    difficulty: "easy"
+    tags: ["threats", "vulnerabilities", "zero-day"]
+    question: "What makes a zero-day vulnerability particularly dangerous?"
+    choices:
+      - "A. No patch or fix is available because the vendor is unaware of the vulnerability"
+      - "B. It only affects systems that are zero days old"
+      - "C. It requires zero user interaction to exploit"
+      - "D. It can only be exploited on the day it is discovered"
+    answerIndex: 0
+    explanation: >-
+      A zero-day vulnerability has no available patch because the vendor has not yet been notified or had time to develop a fix. The name refers to the vendor having 'zero days' to fix the issue. It does not relate to system age (B), user interaction requirements (C), or a specific exploitation window (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://cve.mitre.org/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-015"
+    difficulty: "hard"
+    tags: ["threats", "attacks", "cryptographic"]
+    question: "An attacker intercepts encrypted traffic and stores it, planning to decrypt it later when quantum computers become available. What is this attack strategy called?"
+    choices:
+      - "A. Harvest now, decrypt later"
+      - "B. Replay attack"
+      - "C. Downgrade attack"
+      - "D. Birthday attack"
+    answerIndex: 0
+    explanation: >-
+      Harvest now, decrypt later (also called 'store now, decrypt later') involves capturing encrypted data today with the expectation of breaking the encryption with future quantum computing capabilities. Replay (B) retransmits valid messages. Downgrade (C) forces weaker encryption. Birthday attacks (D) exploit hash collision probability.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/projects/post-quantum-cryptography"
+    author: "ThanhNguyxn"
+
+  # Domain 2: Architecture and Design (~15 questions)
+  - id: "sec701-expand-016"
+    difficulty: "easy"
+    tags: ["architecture", "network", "dmz"]
+    question: "What is the PRIMARY purpose of a DMZ (demilitarized zone) in network architecture?"
+    choices:
+      - "A. To host public-facing services while isolating them from the internal network"
+      - "B. To provide a high-speed connection between two internal networks"
+      - "C. To store backup data offsite"
+      - "D. To connect remote employees via VPN"
+    answerIndex: 0
+    explanation: >-
+      A DMZ is a network segment that sits between the external internet and the internal network, hosting public-facing services (web servers, mail servers) while protecting internal resources. It is not for internal connectivity (B), backup storage (C), or VPN termination (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-41/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-017"
+    difficulty: "medium"
+    tags: ["architecture", "cloud", "models"]
+    question: "In a Platform as a Service (PaaS) model, which layer is the customer PRIMARILY responsible for securing?"
+    choices:
+      - "A. Applications and data deployed on the platform"
+      - "B. The underlying hypervisor and physical servers"
+      - "C. Network infrastructure and routing"
+      - "D. Operating system patches and updates"
+    answerIndex: 0
+    explanation: >-
+      In PaaS, the customer is responsible for their applications and data, while the provider manages the underlying infrastructure, OS, and runtime. The hypervisor (B) and network infrastructure (C) are provider responsibilities. OS patching (D) is typically handled by the PaaS provider.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-145/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-018"
+    difficulty: "hard"
+    tags: ["architecture", "zero-trust", "microsegmentation"]
+    question: "A company implements microsegmentation as part of their Zero Trust strategy. Which benefit does this PRIMARILY provide?"
+    choices:
+      - "A. Limits lateral movement by enforcing per-workload access policies"
+      - "B. Eliminates the need for network firewalls"
+      - "C. Increases network bandwidth by reducing broadcast domains"
+      - "D. Replaces endpoint detection and response (EDR) tools"
+    answerIndex: 0
+    explanation: >-
+      Microsegmentation creates granular security boundaries around individual workloads, preventing compromised systems from reaching other resources. It complements firewalls rather than replacing them (B). Bandwidth (C) is a secondary benefit. EDR (D) serves a different detection purpose.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-207/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-019"
+    difficulty: "easy"
+    tags: ["architecture", "redundancy", "raid"]
+    question: "Which RAID level provides disk mirroring for redundancy?"
+    choices:
+      - "A. RAID 1"
+      - "B. RAID 0"
+      - "C. RAID 5"
+      - "D. RAID 6"
+    answerIndex: 0
+    explanation: >-
+      RAID 1 mirrors data across two or more disks, providing full redundancy. RAID 0 (B) stripes data for performance but offers no redundancy. RAID 5 (C) uses distributed parity. RAID 6 (D) uses double parity for tolerance of two simultaneous disk failures.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-020"
+    difficulty: "medium"
+    tags: ["architecture", "embedded", "iot"]
+    question: "A manufacturer deploys IoT sensors with hard-coded default credentials and no firmware update mechanism. What is the MOST significant security concern?"
+    choices:
+      - "A. The devices cannot be patched and default credentials make them easy targets for botnets"
+      - "B. IoT devices consume too much bandwidth"
+      - "C. The sensors are too small to be physically secured"
+      - "D. IoT protocols are inherently secure"
+    answerIndex: 0
+    explanation: >-
+      Devices with hard-coded credentials and no update mechanism cannot be secured after deployment, making them permanent vulnerabilities and prime botnet targets (e.g., Mirai). Bandwidth (B) and physical size (C) are secondary concerns. IoT protocols (D) vary widely in security.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-183/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-021"
+    difficulty: "hard"
+    tags: ["architecture", "secure-design", "encryption"]
+    question: "An application needs to store sensitive data at rest. The architect proposes full-disk encryption (FDE) as the sole protection. What is the PRIMARY limitation of this approach?"
+    choices:
+      - "A. FDE only protects against offline attacks — data is accessible in plaintext when the system is running and the disk is unlocked"
+      - "B. FDE makes data recovery impossible in case of hardware failure"
+      - "C. FDE significantly slows down all disk operations"
+      - "D. FDE prevents authorized users from reading their own files"
+    answerIndex: 0
+    explanation: >-
+      Full-disk encryption protects data when the system is powered off or the disk is removed. Once the system boots and the disk is unlocked, all data is accessible in plaintext to any running process. Application-level encryption provides additional protection while the system is running. Modern hardware (C) handles FDE with minimal performance impact.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-111/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-022"
+    difficulty: "medium"
+    tags: ["architecture", "infrastructure", "virtualization"]
+    question: "In a Type 1 hypervisor environment, what is the PRIMARY security concern regarding virtual machine (VM) isolation?"
+    choices:
+      - "A. VM escape — a vulnerability allowing an attacker to break out of a guest VM to the host or other VMs"
+      - "B. VMs running too slowly due to resource sharing"
+      - "C. Virtual networks being inherently more secure than physical networks"
+      - "D. The inability to take snapshots of virtual machines"
+    answerIndex: 0
+    explanation: >-
+      VM escape is a critical vulnerability where an attacker in a guest VM exploits the hypervisor to access the host or other VMs, breaking the isolation boundary. Performance (B) is an operational concern, not a security issue. Virtual networks (C) require the same security controls as physical ones. Snapshots (D) are a standard hypervisor feature.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-125/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-023"
+    difficulty: "easy"
+    tags: ["architecture", "concepts", "defense-in-depth"]
+    question: "The principle of defense in depth means implementing which approach?"
+    choices:
+      - "A. Multiple overlapping security layers so that failure of one control does not compromise the entire system"
+      - "B. A single, extremely strong firewall at the network perimeter"
+      - "C. Relying on one security vendor for all products"
+      - "D. Applying the same security control repeatedly at the same layer"
+    answerIndex: 0
+    explanation: >-
+      Defense in depth uses multiple, diverse security layers (network, host, application, data) so that if one layer fails, others still provide protection. A single firewall (B) is a single point of failure. Vendor monoculture (C) creates systemic risk. Repeating the same control (D) does not add diversity.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-024"
+    difficulty: "hard"
+    tags: ["architecture", "infrastructure", "containers"]
+    question: "Compared to virtual machines, what is a PRIMARY security consideration when deploying containerized applications?"
+    choices:
+      - "A. Containers share the host kernel, so a kernel vulnerability could affect all containers on the host"
+      - "B. Containers are completely isolated and need no additional security"
+      - "C. Containers cannot run on cloud infrastructure"
+      - "D. Container images never contain vulnerabilities"
+    answerIndex: 0
+    explanation: >-
+      Unlike VMs with separate OS kernels, containers share the host kernel. A kernel exploit in one container can potentially compromise all containers and the host. Containers need security controls (B) including image scanning, runtime protection, and network policies. Container images frequently contain vulnerabilities (D) from base images and dependencies.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-190/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-025"
+    difficulty: "medium"
+    tags: ["architecture", "concepts", "least-privilege"]
+    question: "A developer is granted full administrator access to production databases for convenience. Which security principle does this violate?"
+    choices:
+      - "A. Least privilege"
+      - "B. Availability"
+      - "C. Non-repudiation"
+      - "D. Obfuscation"
+    answerIndex: 0
+    explanation: >-
+      Least privilege requires users to have only the minimum permissions necessary for their role. A developer should not have full admin access to production databases unless specifically required. Availability (B) concerns uptime. Non-repudiation (C) prevents denial of actions. Obfuscation (D) hides implementation details.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-026"
+    difficulty: "easy"
+    tags: ["architecture", "network", "nat"]
+    question: "What is a security benefit of Network Address Translation (NAT)?"
+    choices:
+      - "A. It hides internal IP addresses from external networks"
+      - "B. It encrypts all network traffic"
+      - "C. It provides authentication for network users"
+      - "D. It replaces the need for firewalls"
+    answerIndex: 0
+    explanation: >-
+      NAT translates private internal IP addresses to public addresses, obscuring the internal network structure from external observers. NAT does not encrypt traffic (B), authenticate users (C), or replace firewalls (D) — it is a complementary network mechanism.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-027"
+    difficulty: "hard"
+    tags: ["architecture", "resilience", "load-balancing"]
+    question: "A company deploys web servers behind a load balancer with active health checks. One server becomes compromised and starts serving malicious content. What additional control would BEST detect this?"
+    choices:
+      - "A. Web application firewall (WAF) inspecting responses for malicious content patterns"
+      - "B. Adding more servers behind the load balancer"
+      - "C. Increasing the health check frequency"
+      - "D. Switching to DNS-based load balancing"
+    answerIndex: 0
+    explanation: >-
+      A WAF can inspect both requests and responses for malicious patterns, detecting when a compromised server serves malicious content. Adding servers (B) does not detect compromise. Health checks (C) verify availability, not content integrity. DNS load balancing (D) offers less control and no content inspection.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-028"
+    difficulty: "medium"
+    tags: ["architecture", "automation", "iac"]
+    question: "An organization manages all server configurations through Infrastructure as Code (IaC) templates. What is the PRIMARY security benefit?"
+    choices:
+      - "A. Consistent, repeatable, and auditable configurations that reduce configuration drift"
+      - "B. Servers never need patching when managed through IaC"
+      - "C. IaC eliminates the need for access controls"
+      - "D. Templates automatically detect and remove malware"
+    answerIndex: 0
+    explanation: >-
+      IaC ensures configurations are version-controlled, consistent, and auditable, reducing drift and unauthorized changes. Servers still need patching (B). Access controls are still required for the IaC repository and deployment pipeline (C). IaC does not detect malware (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-029"
+    difficulty: "easy"
+    tags: ["architecture", "physical", "access-control"]
+    question: "Which physical security control uses two interlocking doors to prevent tailgating?"
+    choices:
+      - "A. Mantrap (airlock/access control vestibule)"
+      - "B. Bollard"
+      - "C. Security camera"
+      - "D. Cable lock"
+    answerIndex: 0
+    explanation: >-
+      A mantrap (access control vestibule) uses two interlocking doors — the second cannot open until the first closes, preventing tailgating. Bollards (B) are vehicle barriers. Cameras (C) are detective controls. Cable locks (D) physically secure equipment.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-030"
+    difficulty: "hard"
+    tags: ["architecture", "cryptography", "post-quantum"]
+    question: "An organization is concerned about quantum computing threats to current encryption. What proactive measure should they take NOW?"
+    choices:
+      - "A. Inventory all cryptographic implementations and begin planning migration to post-quantum algorithms"
+      - "B. Immediately switch all systems to quantum-resistant algorithms today"
+      - "C. Disable all encryption until quantum-safe solutions are finalized"
+      - "D. Quantum computing is not a real threat and can be ignored"
+    answerIndex: 0
+    explanation: >-
+      Organizations should perform cryptographic inventory now and plan migration to NIST-approved post-quantum algorithms (like CRYSTALS-Kyber, CRYSTALS-Dilithium). Immediate migration (B) is premature for most systems as standards are still being finalized. Disabling encryption (C) eliminates current protections. Ignoring the threat (D) is irresponsible given the 'harvest now, decrypt later' risk.
+    refs:
+      - "https://csrc.nist.gov/projects/post-quantum-cryptography"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  # Domain 3: Implementation (~15 questions)
+  - id: "sec701-expand-031"
+    difficulty: "easy"
+    tags: ["implementation", "protocols", "https"]
+    question: "What does HTTPS provide that HTTP does not?"
+    choices:
+      - "A. Encryption of data in transit between the browser and server"
+      - "B. Faster page loading times"
+      - "C. Server-side malware scanning"
+      - "D. Client-side firewall protection"
+    answerIndex: 0
+    explanation: >-
+      HTTPS uses TLS to encrypt data transmitted between the client and server, protecting against eavesdropping and tampering. HTTPS does not inherently improve speed (B), scan for malware (C), or provide firewall functionality (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-032"
+    difficulty: "medium"
+    tags: ["implementation", "wireless", "wpa3"]
+    question: "What improvement does WPA3-Personal provide over WPA2-Personal?"
+    choices:
+      - "A. Simultaneous Authentication of Equals (SAE) replacing the 4-way handshake, providing protection against offline dictionary attacks"
+      - "B. Faster wireless speeds through hardware acceleration"
+      - "C. Support for more connected devices"
+      - "D. Backward compatibility with WEP devices"
+    answerIndex: 0
+    explanation: >-
+      WPA3-Personal uses SAE (Dragonfly handshake) which protects against offline dictionary attacks that WPA2's PSK-based 4-way handshake is vulnerable to. SAE also provides forward secrecy. Speed (B) and device capacity (C) are not security features. WPA3 does not support WEP (D).
+    refs:
+      - "https://www.wi-fi.org/discover-wi-fi/security"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-033"
+    difficulty: "hard"
+    tags: ["implementation", "pki", "certificates"]
+    question: "A web server certificate expires and is not renewed. What impact does this have on users?"
+    choices:
+      - "A. Browsers display security warnings and may block access to the site"
+      - "B. The website automatically switches to HTTP"
+      - "C. Users are redirected to the certificate authority's website"
+      - "D. The server's firewall blocks all incoming connections"
+    answerIndex: 0
+    explanation: >-
+      Expired certificates cause browsers to display prominent security warnings because the identity of the server can no longer be verified as current. The site does not automatically switch to HTTP (B). No redirection to the CA occurs (C). Firewalls are unrelated to certificate expiration (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-034"
+    difficulty: "easy"
+    tags: ["implementation", "authentication", "mfa"]
+    question: "Using a password and a hardware security key together is an example of what?"
+    choices:
+      - "A. Multi-factor authentication (MFA)"
+      - "B. Single sign-on (SSO)"
+      - "C. Role-based access control"
+      - "D. Certificate-based authentication"
+    answerIndex: 0
+    explanation: >-
+      Combining a password (something you know) with a hardware key (something you have) uses two different authentication factors. SSO (B) allows one login for multiple services. RBAC (C) is an authorization model. Certificate-based auth (D) uses digital certificates as a single factor.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-63b/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-035"
+    difficulty: "medium"
+    tags: ["implementation", "endpoint", "edr"]
+    question: "How does EDR (Endpoint Detection and Response) differ from traditional antivirus?"
+    choices:
+      - "A. EDR continuously monitors endpoint activity and provides investigation capabilities, while traditional AV primarily uses signature-based detection"
+      - "B. EDR only runs during business hours"
+      - "C. Traditional AV provides better detection of zero-day threats"
+      - "D. EDR replaces the need for network security controls"
+    answerIndex: 0
+    explanation: >-
+      EDR provides continuous monitoring, behavioral analysis, threat hunting, and forensic investigation capabilities beyond signature-based detection. Traditional AV primarily matches known malware signatures. EDR runs continuously (B). Traditional AV is weaker against zero-days (C). Network controls are still needed alongside EDR (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-036"
+    difficulty: "hard"
+    tags: ["implementation", "network", "firewall-rules"]
+    question: "A firewall ruleset has an explicit deny-all rule at the bottom and specific allow rules above it. A new service is deployed but its port is not in any allow rule. What happens to traffic for this service?"
+    choices:
+      - "A. Traffic is blocked by the deny-all rule"
+      - "B. Traffic is allowed because new services are automatically trusted"
+      - "C. The firewall prompts the administrator to create a rule"
+      - "D. Traffic is logged but allowed through"
+    answerIndex: 0
+    explanation: >-
+      Firewalls process rules top-down. If no allow rule matches, the deny-all rule at the bottom blocks the traffic. This is the implicit/explicit deny principle. Firewalls do not auto-trust new services (B), prompt for rules (C), or default to allow-and-log (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-41/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-037"
+    difficulty: "medium"
+    tags: ["implementation", "vpn", "protocols"]
+    question: "Which VPN protocol operates at the network layer and can secure all IP traffic between two endpoints?"
+    choices:
+      - "A. IPSec"
+      - "B. SSL/TLS VPN"
+      - "C. PPTP"
+      - "D. SSH"
+    answerIndex: 0
+    explanation: >-
+      IPSec operates at the network layer (Layer 3) and can encrypt all IP traffic between endpoints. SSL/TLS VPN (B) operates at the transport/application layer. PPTP (C) is a deprecated tunneling protocol. SSH (D) provides encrypted application-layer tunnels, not full network-layer VPN.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-77/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-038"
+    difficulty: "easy"
+    tags: ["implementation", "hardening", "baseline"]
+    question: "What is the FIRST step when hardening a newly installed operating system?"
+    choices:
+      - "A. Disable unnecessary services and remove default accounts"
+      - "B. Install a web browser"
+      - "C. Connect to the internet to check for updates"
+      - "D. Create user accounts for all employees"
+    answerIndex: 0
+    explanation: >-
+      Hardening starts by reducing the attack surface — disabling unnecessary services, removing default accounts, and applying a secure baseline configuration before connecting to the network. Installing browsers (B) or connecting to the internet (C) before hardening exposes the system to threats. User accounts (D) should be created after the baseline is secure.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-123/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-039"
+    difficulty: "hard"
+    tags: ["implementation", "identity", "oauth"]
+    question: "In an OAuth 2.0 authorization code flow, what does the authorization server return to the client application FIRST?"
+    choices:
+      - "A. An authorization code that must be exchanged for an access token"
+      - "B. An access token directly"
+      - "C. The user's password"
+      - "D. A refresh token only"
+    answerIndex: 0
+    explanation: >-
+      In the authorization code flow, the server first returns an authorization code to the client's redirect URI. The client then exchanges this code (with its client secret) for an access token. Returning tokens directly (B) is the implicit flow (less secure). User passwords (C) are never shared with the client. Refresh tokens (D) are issued alongside access tokens, not alone.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://datatracker.ietf.org/doc/html/rfc6749"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-040"
+    difficulty: "medium"
+    tags: ["implementation", "email", "encryption"]
+    question: "An organization wants to ensure that email content can only be read by the intended recipient, even if intercepted in transit. Which technology provides this?"
+    choices:
+      - "A. S/MIME with end-to-end encryption"
+      - "B. SPF records on the DNS server"
+      - "C. DKIM signing"
+      - "D. TLS on the mail server"
+    answerIndex: 0
+    explanation: >-
+      S/MIME provides end-to-end encryption, ensuring only the intended recipient with the correct private key can decrypt the message. SPF (B) validates sending servers. DKIM (C) ensures message integrity. TLS (D) encrypts the transport channel but not the message content — intermediate servers can read the email.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-177/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-041"
+    difficulty: "easy"
+    tags: ["implementation", "access-control", "acl"]
+    question: "A network administrator creates a list specifying which IP addresses are allowed to access a particular server. What is this called?"
+    choices:
+      - "A. Access control list (ACL)"
+      - "B. Intrusion detection system"
+      - "C. Content delivery network"
+      - "D. Load balancer configuration"
+    answerIndex: 0
+    explanation: >-
+      An ACL is a rule-based list that specifies which subjects (users, IPs) are permitted or denied access to objects (servers, resources). An IDS (B) detects threats. A CDN (C) distributes content. A load balancer (D) distributes traffic across servers.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-042"
+    difficulty: "hard"
+    tags: ["implementation", "cryptography", "key-stretching"]
+    question: "A developer needs to store user passwords securely. Which algorithm is specifically designed for password hashing with built-in salting and configurable work factor?"
+    choices:
+      - "A. bcrypt"
+      - "B. MD5"
+      - "C. SHA-256"
+      - "D. AES-256"
+    answerIndex: 0
+    explanation: >-
+      bcrypt is a password hashing function with a built-in salt and configurable cost factor that makes brute-force attacks computationally expensive. MD5 (B) and SHA-256 (C) are general-purpose hash functions not designed for passwords (too fast). AES-256 (D) is a symmetric encryption algorithm, not a hashing function.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-132/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-043"
+    difficulty: "medium"
+    tags: ["implementation", "network", "nac"]
+    question: "A company requires all devices to pass a health check (updated antivirus, patched OS) before accessing the corporate network. What technology enforces this?"
+    choices:
+      - "A. Network Access Control (NAC)"
+      - "B. Network Address Translation (NAT)"
+      - "C. Content filtering proxy"
+      - "D. DNS sinkhole"
+    answerIndex: 0
+    explanation: >-
+      NAC evaluates endpoint health posture (AV status, patch level, compliance) before granting network access, quarantining non-compliant devices. NAT (B) translates IP addresses. Content filtering (C) controls web access. DNS sinkholes (D) redirect malicious domain queries.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-044"
+    difficulty: "easy"
+    tags: ["implementation", "data", "backup"]
+    question: "Which backup type copies ONLY files that have changed since the last full backup?"
+    choices:
+      - "A. Differential backup"
+      - "B. Full backup"
+      - "C. Incremental backup"
+      - "D. Snapshot"
+    answerIndex: 0
+    explanation: >-
+      Differential backups copy all changes since the last full backup, growing larger each day. Incremental (C) copies only changes since the last backup of any type. Full backups (B) copy everything. Snapshots (D) capture the entire state at a point in time.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-045"
+    difficulty: "hard"
+    tags: ["implementation", "automation", "soar"]
+    question: "A SOC team implements a SOAR platform. What is the PRIMARY benefit?"
+    choices:
+      - "A. Automating repetitive incident response workflows and orchestrating tools to reduce response times"
+      - "B. Replacing all human analysts with artificial intelligence"
+      - "C. Providing antivirus scanning for all endpoints"
+      - "D. Encrypting all network traffic automatically"
+    answerIndex: 0
+    explanation: >-
+      SOAR (Security Orchestration, Automation, and Response) automates repetitive tasks (alert triage, enrichment, containment) and orchestrates multiple security tools through playbooks. It augments analysts rather than replacing them (B). It does not provide AV (C) or encrypt traffic (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  # Domain 4: Operations and Incident Response (~15 questions)
+  - id: "sec701-expand-046"
+    difficulty: "easy"
+    tags: ["operations", "incident-response", "phases"]
+    question: "After containing a security incident, what is the NEXT step in the incident response process?"
+    choices:
+      - "A. Eradication — remove the threat and its artifacts from the environment"
+      - "B. Preparation — update the incident response plan"
+      - "C. Detection — scan for additional indicators"
+      - "D. Notification — inform the media"
+    answerIndex: 0
+    explanation: >-
+      After containment, eradication removes the threat (malware, unauthorized accounts, compromised systems) from the environment. Preparation (B) is the first phase and is revisited during lessons learned. Detection (C) is an earlier phase. Media notification (D) is a communication decision, not a core IR step.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-047"
+    difficulty: "medium"
+    tags: ["operations", "forensics", "chain-of-custody"]
+    question: "During a forensic investigation, why is chain of custody documentation critical?"
+    choices:
+      - "A. It proves that evidence has been handled properly and has not been tampered with, ensuring admissibility"
+      - "B. It speeds up the investigation process"
+      - "C. It replaces the need for forensic imaging"
+      - "D. It is only required for physical evidence, not digital"
+    answerIndex: 0
+    explanation: >-
+      Chain of custody documentation tracks who handled evidence, when, and what was done with it, ensuring its integrity and admissibility in legal proceedings. It does not speed investigations (B) or replace imaging (C). Digital evidence requires the same chain of custody rigor as physical evidence (D).
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-86/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-048"
+    difficulty: "hard"
+    tags: ["operations", "threat-hunting", "proactive"]
+    question: "A security team proactively searches their environment for signs of compromise using MITRE ATT&CK techniques, without being triggered by an alert. What is this activity called?"
+    choices:
+      - "A. Threat hunting"
+      - "B. Vulnerability scanning"
+      - "C. Penetration testing"
+      - "D. Risk assessment"
+    answerIndex: 0
+    explanation: >-
+      Threat hunting is the proactive, hypothesis-driven search for threats that evade existing detection mechanisms. Vulnerability scanning (B) identifies known weaknesses. Penetration testing (C) simulates attacks. Risk assessment (D) evaluates threats and their potential impact from a governance perspective.
+    refs:
+      - "https://attack.mitre.org/"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-049"
+    difficulty: "easy"
+    tags: ["operations", "disaster-recovery", "rpo"]
+    question: "If an organization's RPO (Recovery Point Objective) is 4 hours, what does this mean?"
+    choices:
+      - "A. The organization can tolerate losing up to 4 hours of data"
+      - "B. Systems must be restored within 4 hours"
+      - "C. Backups must be kept for 4 hours only"
+      - "D. The network can be down for 4 hours"
+    answerIndex: 0
+    explanation: >-
+      RPO defines the maximum acceptable data loss measured in time. A 4-hour RPO means backups must occur at least every 4 hours. RTO (B) defines the maximum acceptable downtime. RPO does not set backup retention periods (C) or acceptable downtime (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-050"
+    difficulty: "medium"
+    tags: ["operations", "logging", "siem"]
+    question: "A SIEM generates an alert when a single user account authenticates from two different countries within 30 minutes. What type of detection rule is this?"
+    choices:
+      - "A. Impossible travel detection (behavioral anomaly)"
+      - "B. Signature-based detection"
+      - "C. Static threshold alert"
+      - "D. Scheduled report"
+    answerIndex: 0
+    explanation: >-
+      Impossible travel detection identifies when a user appears to log in from geographically distant locations in a timeframe that makes physical travel impossible, indicating credential compromise. Signature-based detection (B) matches known patterns. Static thresholds (C) trigger on fixed values. Scheduled reports (D) are passive analysis.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-92/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-051"
+    difficulty: "hard"
+    tags: ["operations", "forensics", "imaging"]
+    question: "Before examining a suspect's hard drive, a forensic analyst creates a bit-for-bit copy and generates SHA-256 hashes of both the original and the copy. Why?"
+    choices:
+      - "A. To verify the forensic image is an exact copy and to preserve evidence integrity for legal proceedings"
+      - "B. To compress the data for efficient storage"
+      - "C. To encrypt the evidence so others cannot access it"
+      - "D. To convert the file system to a different format"
+    answerIndex: 0
+    explanation: >-
+      Matching hashes between the original and copy prove the image is an exact duplicate, establishing evidence integrity. Analysis is performed on the copy to preserve the original. Hashing is not compression (B), encryption (C), or file system conversion (D).
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-86/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-052"
+    difficulty: "medium"
+    tags: ["operations", "business-continuity", "testing"]
+    question: "A company conducts a tabletop exercise for their disaster recovery plan. What does this involve?"
+    choices:
+      - "A. Team members walk through a simulated scenario verbally, discussing their roles and responses"
+      - "B. Actually shutting down production systems to test failover"
+      - "C. Running automated scripts to test backup restoration"
+      - "D. Hiring an external team to attack the network"
+    answerIndex: 0
+    explanation: >-
+      Tabletop exercises are discussion-based simulations where participants walk through a scenario, reviewing procedures and decision-making without disrupting operations. Actual failover testing (B) is a full interruption test. Automated testing (C) is a technical validation. External attacks (D) are penetration tests.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-84/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-053"
+    difficulty: "easy"
+    tags: ["operations", "scanning", "vulnerability"]
+    question: "What is the PRIMARY difference between a vulnerability scan and a penetration test?"
+    choices:
+      - "A. Vulnerability scans identify known weaknesses automatically, while penetration tests actively exploit vulnerabilities to assess real-world impact"
+      - "B. Penetration tests are always automated, vulnerability scans are manual"
+      - "C. Vulnerability scans are more expensive than penetration tests"
+      - "D. Penetration tests only check for open ports"
+    answerIndex: 0
+    explanation: >-
+      Vulnerability scans use automated tools to identify known vulnerabilities without exploiting them. Penetration tests go further by attempting exploitation to demonstrate actual risk and impact. Pen tests involve significant manual effort (B). Vulnerability scans are typically less expensive (C). Pen tests assess much more than ports (D).
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-115/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-054"
+    difficulty: "hard"
+    tags: ["operations", "incident-response", "playbook"]
+    question: "A SOC analyst receives an alert about potential data exfiltration. The incident response playbook directs them to first verify the alert, then isolate the affected system. Why is verification before isolation the recommended order?"
+    choices:
+      - "A. Premature isolation of a false positive disrupts business operations unnecessarily, while verification ensures a proportionate response"
+      - "B. Isolation must always be the very last step"
+      - "C. Verification is only needed for low-severity alerts"
+      - "D. The analyst should wait 24 hours before taking any action"
+    answerIndex: 0
+    explanation: >-
+      Verifying the alert prevents unnecessary business disruption from false positives while ensuring genuine threats are handled appropriately. However, for confirmed high-severity threats, isolation may need to be immediate. Isolation (B) is not always last — it follows verification. All severity levels benefit from verification (C). Waiting 24 hours (D) gives attackers more time.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-055"
+    difficulty: "medium"
+    tags: ["operations", "monitoring", "log-types"]
+    question: "Which log source is MOST useful for detecting unauthorized access attempts to a web application?"
+    choices:
+      - "A. Web server access and error logs"
+      - "B. DHCP server logs"
+      - "C. Print server logs"
+      - "D. DNS cache statistics"
+    answerIndex: 0
+    explanation: >-
+      Web server logs record all HTTP requests including failed authentication attempts, suspicious paths, and error codes that indicate attack activity. DHCP logs (B) track IP assignments. Print server logs (C) record print jobs. DNS statistics (D) show resolution patterns but not web application access.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-92/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-056"
+    difficulty: "easy"
+    tags: ["operations", "change-management", "process"]
+    question: "Before deploying a major software update to production, what should happen FIRST according to change management best practices?"
+    choices:
+      - "A. The change should be tested in a staging environment and approved through the change advisory board"
+      - "B. Deploy directly to production during peak hours for maximum user testing"
+      - "C. Skip testing if the vendor certifies the update"
+      - "D. Roll back the previous update first"
+    answerIndex: 0
+    explanation: >-
+      Change management requires testing in a non-production environment and obtaining proper approval before deployment. Deploying to production first (B) risks outages. Vendor certification (C) does not replace local testing. Rolling back (D) is not a prerequisite unless there are known issues.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-057"
+    difficulty: "hard"
+    tags: ["operations", "automation", "scripting"]
+    question: "A security team writes a Python script that automatically blocks IP addresses generating more than 100 failed login attempts per minute. What is the PRIMARY risk of this automation?"
+    choices:
+      - "A. An attacker could trigger the script to block legitimate users' IP addresses as a denial-of-service technique"
+      - "B. Python scripts cannot interact with firewalls"
+      - "C. Automated blocking is always slower than manual blocking"
+      - "D. The script will consume too much memory on the server"
+    answerIndex: 0
+    explanation: >-
+      Automated blocking without safeguards can be weaponized — an attacker can spoof source IPs of legitimate users or business partners to trigger blocks, creating a self-inflicted denial of service. Python can interact with firewall APIs (B). Automation is faster than manual processes (C). Resource usage (D) is typically minimal for such scripts.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-058"
+    difficulty: "medium"
+    tags: ["operations", "data-destruction", "sanitization"]
+    question: "A company is decommissioning SSDs that contained classified data. Why is simple overwriting insufficient for SSDs?"
+    choices:
+      - "A. SSDs use wear-leveling algorithms that may leave data remnants in inaccessible blocks"
+      - "B. SSDs cannot be overwritten at all"
+      - "C. Overwriting SSDs takes longer than HDDs"
+      - "D. SSDs automatically encrypt all data, making overwriting unnecessary"
+    answerIndex: 0
+    explanation: >-
+      SSD wear-leveling distributes writes across cells, meaning overwrite commands may not reach all physical locations where data was stored. NIST recommends cryptographic erase or physical destruction for SSDs. SSDs can be overwritten (B), but it may not reach all cells. Overwriting time varies (C). Not all SSDs use hardware encryption (D).
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-059"
+    difficulty: "easy"
+    tags: ["operations", "awareness", "training"]
+    question: "What is the MOST effective way to train employees to recognize phishing emails?"
+    choices:
+      - "A. Regular simulated phishing campaigns with immediate feedback"
+      - "B. A single annual lecture on email security"
+      - "C. Sending a memo about phishing once when hired"
+      - "D. Blocking all external emails to prevent phishing"
+    answerIndex: 0
+    explanation: >-
+      Simulated phishing with immediate educational feedback creates a continuous learning cycle that measurably reduces click rates. Annual lectures (B) have low retention. A single memo (C) is insufficient for ongoing threats. Blocking all external email (D) is operationally impractical.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-50/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-060"
+    difficulty: "hard"
+    tags: ["operations", "incident-response", "containment"]
+    question: "During an active ransomware incident, the affected server is still connected to the network and encryption is spreading. What is the MOST critical immediate action?"
+    choices:
+      - "A. Isolate the infected system from the network to prevent further lateral spread"
+      - "B. Begin negotiating with the attacker for the decryption key"
+      - "C. Run a full antivirus scan on the infected machine"
+      - "D. Restart the server to clear the malware from memory"
+    answerIndex: 0
+    explanation: >-
+      Network isolation stops the ransomware from spreading to other systems, which is the top priority during active encryption. Negotiation (B) does not stop the spread. Antivirus scanning (C) takes too long during active encryption. Restarting (D) may cause data loss and does not prevent network-based propagation.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  # Domain 5: Governance, Risk, and Compliance (~10 questions)
+  - id: "sec701-expand-061"
+    difficulty: "easy"
+    tags: ["governance", "frameworks", "nist"]
+    question: "Which framework provides a voluntary set of standards and best practices for managing cybersecurity risk?"
+    choices:
+      - "A. NIST Cybersecurity Framework (CSF)"
+      - "B. PCI DSS"
+      - "C. HIPAA"
+      - "D. SOX"
+    answerIndex: 0
+    explanation: >-
+      NIST CSF is a voluntary framework with five core functions (Identify, Protect, Detect, Respond, Recover) for managing cybersecurity risk. PCI DSS (B) is mandatory for payment card handlers. HIPAA (C) is mandatory for healthcare. SOX (D) is mandatory for public companies' financial reporting.
+    refs:
+      - "https://www.nist.gov/cyberframework"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-062"
+    difficulty: "medium"
+    tags: ["governance", "risk", "assessment"]
+    question: "During a risk assessment, the team identifies a threat with high likelihood and high impact but determines that no cost-effective mitigation exists. What is the MOST appropriate risk response?"
+    choices:
+      - "A. Transfer the risk through cyber insurance"
+      - "B. Ignore the risk and hope it does not materialize"
+      - "C. Accept the risk without documentation"
+      - "D. Implement the most expensive control available"
+    answerIndex: 0
+    explanation: >-
+      When mitigation is not cost-effective for a high-likelihood, high-impact risk, transferring it through insurance shifts the financial burden. Ignoring risk (B) is never appropriate. Acceptance requires formal documentation (C). The most expensive control (D) may not be cost-effective either.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-063"
+    difficulty: "hard"
+    tags: ["governance", "compliance", "privacy"]
+    question: "Under GDPR, a data subject requests that an organization delete all their personal data. The organization has a legal obligation to retain some of that data for tax purposes. What should the organization do?"
+    choices:
+      - "A. Delete data not subject to legal retention requirements and retain only what is legally required, informing the data subject of the partial fulfillment"
+      - "B. Delete all data immediately regardless of legal obligations"
+      - "C. Refuse the request entirely because some data must be retained"
+      - "D. Anonymize all data instead of deleting any"
+    answerIndex: 0
+    explanation: >-
+      GDPR's right to erasure has exceptions for legal obligations. The organization must delete what it can while retaining only what law requires, transparently informing the data subject. Deleting everything (B) violates tax law. Refusing entirely (C) violates GDPR. Anonymization (D) may be appropriate in some cases but does not fulfill the specific erasure request where deletion is possible.
+    refs:
+      - "https://gdpr.eu/article-17-right-to-be-forgotten/"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-064"
+    difficulty: "easy"
+    tags: ["governance", "policies", "aup"]
+    question: "What does an Acceptable Use Policy (AUP) define?"
+    choices:
+      - "A. The rules governing how employees may use organizational IT resources"
+      - "B. The technical specifications for network equipment"
+      - "C. The salary structure for IT staff"
+      - "D. The physical layout of the data center"
+    answerIndex: 0
+    explanation: >-
+      An AUP defines acceptable and prohibited uses of organizational IT resources (computers, networks, email, internet) by employees and contractors. Technical specifications (B), salary structures (C), and data center layouts (D) are separate operational documents.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-065"
+    difficulty: "medium"
+    tags: ["governance", "risk", "risk-register"]
+    question: "What information does a risk register typically contain?"
+    choices:
+      - "A. Identified risks, their likelihood, impact, current controls, risk owners, and treatment plans"
+      - "B. Only a list of past security incidents"
+      - "C. Employee names and their access levels"
+      - "D. Network diagrams and IP addresses"
+    answerIndex: 0
+    explanation: >-
+      A risk register is a comprehensive document tracking identified risks with their assessed likelihood, impact, existing controls, assigned owners, and planned responses. It is not limited to past incidents (B). Access levels (C) belong to IAM documentation. Network documentation (D) is a separate asset.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-066"
+    difficulty: "hard"
+    tags: ["governance", "compliance", "audit"]
+    question: "An external auditor finds that the organization's access review process exists in policy but has not been executed in 18 months. What type of finding is this?"
+    choices:
+      - "A. A control deficiency — the control is designed but not operating effectively"
+      - "B. A material weakness that requires immediate public disclosure"
+      - "C. An observation with no remediation required"
+      - "D. A best practice suggestion that can be ignored"
+    answerIndex: 0
+    explanation: >-
+      When a control exists in policy but is not executed, it is a control deficiency — the design exists but operational effectiveness is lacking. Whether it rises to a material weakness (B) depends on its significance to financial reporting. It is more than an observation (C) and cannot be ignored (D) as it represents a gap in the control environment.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-067"
+    difficulty: "easy"
+    tags: ["governance", "concepts", "cia-triad"]
+    question: "Which element of the CIA triad is MOST affected when a DDoS attack makes a website unavailable?"
+    choices:
+      - "A. Availability"
+      - "B. Confidentiality"
+      - "C. Integrity"
+      - "D. Authentication"
+    answerIndex: 0
+    explanation: >-
+      DDoS attacks overwhelm resources to make services unavailable, directly impacting availability. Confidentiality (B) concerns unauthorized data access. Integrity (C) concerns unauthorized data modification. Authentication (D) is not part of the CIA triad.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-068"
+    difficulty: "medium"
+    tags: ["governance", "third-party", "vendor-risk"]
+    question: "Before engaging a new cloud service provider, what document should the security team review to understand the provider's security controls and compliance posture?"
+    choices:
+      - "A. The provider's SOC 2 Type II report"
+      - "B. The provider's marketing brochure"
+      - "C. The provider's employee handbook"
+      - "D. The provider's annual revenue report"
+    answerIndex: 0
+    explanation: >-
+      SOC 2 Type II reports provide independent auditor assessment of a service provider's security, availability, processing integrity, confidentiality, and privacy controls over time. Marketing materials (B) are biased. Employee handbooks (C) are internal HR documents. Revenue reports (D) address financial performance, not security.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://www.aicpa.org/topic/audit-assurance/audit-and-assurance-greater-than-soc-2"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-069"
+    difficulty: "hard"
+    tags: ["governance", "regulations", "data-sovereignty"]
+    question: "A European company stores customer data in US-based cloud servers. Following the invalidation of Privacy Shield, what PRIMARY concern must the company address?"
+    choices:
+      - "A. Ensuring a valid legal mechanism for cross-border data transfers, such as Standard Contractual Clauses (SCCs)"
+      - "B. Moving all data to US servers since Privacy Shield was replaced by a better agreement"
+      - "C. Encrypting data only when it crosses the Atlantic Ocean"
+      - "D. Obtaining US citizenship for all European customers"
+    answerIndex: 0
+    explanation: >-
+      After Privacy Shield invalidation (Schrems II), organizations need valid transfer mechanisms like SCCs with supplementary measures to legally transfer personal data from the EU to the US. Privacy Shield was not seamlessly replaced (B). Encryption is important but geographic-specific encryption (C) is not a legal framework. Citizenship (D) is irrelevant.
+    refs:
+      - "https://gdpr.eu/"
+      - "https://www.comptia.org/certifications/security"
+    author: "ThanhNguyxn"
+
+  - id: "sec701-expand-070"
+    difficulty: "medium"
+    tags: ["governance", "security-program", "metrics"]
+    question: "Which metric BEST measures the effectiveness of a security awareness training program?"
+    choices:
+      - "A. Reduction in phishing simulation click rates over time"
+      - "B. Number of employees who attended the training"
+      - "C. Total cost of the training program"
+      - "D. Number of security policies published"
+    answerIndex: 0
+    explanation: >-
+      Declining phishing click rates demonstrate behavioral change, which is the actual goal of awareness training. Attendance (B) measures participation, not effectiveness. Cost (C) measures investment, not outcome. Policy count (D) measures documentation volume, not employee awareness.
+    refs:
+      - "https://www.comptia.org/certifications/security"
+      - "https://csrc.nist.gov/publications/detail/sp/800-50/final"
+    author: "ThanhNguyxn"

@@ -35,7 +35,7 @@ function HomepageHeader() {
           </Link>
         </div>
         <div className={styles.statsBar}>
-          <div className={styles.statItem}>640+ Questions</div>
+          <div className={styles.statItem}>1,590+ Questions</div>
           <div className={styles.statItem}>•</div>
           <div className={styles.statItem}>440+ Resources</div>
           <div className={styles.statItem}>•</div>

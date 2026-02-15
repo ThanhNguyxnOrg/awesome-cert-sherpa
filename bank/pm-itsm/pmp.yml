@@ -465,3 +465,1053 @@ questions:
       - "https://www.pmi.org/learning/library"
       - "https://www.pmi.org/certifications/project-management-pmp"
     author: "ThanhNguyxn"
+
+  - id: "pmp-expand-001"
+    difficulty: "easy"
+    tags: ["people", "leadership", "team"]
+    question: "A project manager notices a new team member is hesitant to speak up during meetings. What should the PM do first?"
+    choices:
+      - "A. Create a safe environment by asking the team member for input directly and one-on-one"
+      - "B. Ignore the behavior since some people are naturally quiet"
+      - "C. Assign the team member to present at the next stakeholder meeting"
+      - "D. Document the behavior as a performance issue"
+    answerIndex: 0
+    explanation: "Servant leaders create psychologically safe environments where all team members feel comfortable contributing. A private, supportive conversation builds trust without putting the individual on the spot in front of others."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-002"
+    difficulty: "easy"
+    tags: ["people", "motivation", "team"]
+    question: "According to motivational theory, which factor is most likely to improve a team member's long-term engagement on a project?"
+    choices:
+      - "A. Providing meaningful work and opportunities for growth"
+      - "B. Increasing their salary by 5%"
+      - "C. Assigning them to a private office"
+      - "D. Reducing their work hours"
+    answerIndex: 0
+    explanation: "Intrinsic motivators like meaningful work, autonomy, mastery, and growth opportunities drive long-term engagement more effectively than extrinsic factors like salary increases, which provide only temporary motivation boosts."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-003"
+    difficulty: "easy"
+    tags: ["people", "conflict", "team"]
+    question: "Two team members disagree about a technical approach. The PM recognizes this is a healthy technical debate. What conflict resolution technique should the PM encourage?"
+    choices:
+      - "A. Collaborate/Problem Solve — work together to find the best solution"
+      - "B. Force/Direct — the PM decides for them"
+      - "C. Withdraw/Avoid — let them figure it out on their own"
+      - "D. Smooth/Accommodate — tell them to agree to disagree"
+    answerIndex: 0
+    explanation: "Collaboration (problem solving) is the preferred conflict resolution technique when the disagreement is about technical approaches. It produces the best outcome by leveraging both perspectives. Forcing removes autonomy. Avoiding and smoothing don't resolve the underlying issue."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-004"
+    difficulty: "easy"
+    tags: ["people", "communication"]
+    question: "A project has 6 team members. How many communication channels exist?"
+    choices:
+      - "A. 15"
+      - "B. 12"
+      - "C. 30"
+      - "D. 6"
+    answerIndex: 0
+    explanation: "The formula for communication channels is n(n-1)/2, where n is the number of stakeholders. With 6 members: 6(5)/2 = 15 channels. This illustrates why communication becomes exponentially more complex as teams grow."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-005"
+    difficulty: "easy"
+    tags: ["people", "stakeholder", "engagement"]
+    question: "A key stakeholder has not been attending project status meetings. What should the PM do?"
+    choices:
+      - "A. Reach out to understand their preferred communication method and adjust engagement approach"
+      - "B. Escalate to the sponsor immediately"
+      - "C. Remove them from the stakeholder register"
+      - "D. Send more detailed email reports to compensate"
+    answerIndex: 0
+    explanation: "Understanding stakeholder communication preferences is a core element of stakeholder engagement. The PM should adapt their approach rather than assuming one method works for all. Escalation should be a last resort."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-006"
+    difficulty: "easy"
+    tags: ["people", "team-development"]
+    question: "A newly formed project team is polite but cautious, avoiding conflict. According to Tuckman's model, which stage is the team in?"
+    choices:
+      - "A. Forming"
+      - "B. Storming"
+      - "C. Norming"
+      - "D. Performing"
+    answerIndex: 0
+    explanation: "In the Forming stage, team members are polite, cautious, and getting to know each other. They avoid conflict and look to the PM for direction. Storming involves conflict and competition. Norming establishes working agreements. Performing is self-managing."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-007"
+    difficulty: "easy"
+    tags: ["people", "emotional-intelligence"]
+    question: "A PM realizes they are frustrated with a vendor's repeated delays and feels like responding harshly in an email. What emotional intelligence skill should the PM apply?"
+    choices:
+      - "A. Self-regulation — pause, manage the emotion, and respond professionally"
+      - "B. Self-awareness — recognize the emotion but send the email anyway"
+      - "C. Social awareness — forward the email to the team for feedback"
+      - "D. Motivation — channel frustration into working overtime"
+    answerIndex: 0
+    explanation: "Self-regulation is the ability to manage disruptive emotions and respond constructively. Recognizing frustration (self-awareness) is step one, but acting on it by self-regulating the response is the actionable skill needed here."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-008"
+    difficulty: "easy"
+    tags: ["people", "servant-leadership"]
+    question: "As a servant leader, which behavior should a PM prioritize?"
+    choices:
+      - "A. Removing impediments so the team can focus on delivering value"
+      - "B. Making all technical decisions for the team"
+      - "C. Reporting status to management before helping the team"
+      - "D. Ensuring the team strictly follows the plan without deviation"
+    answerIndex: 0
+    explanation: "Servant leadership focuses on serving the team by removing obstacles, providing resources, and facilitating their success. It empowers teams rather than micromanaging their decisions or rigidly enforcing plans."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-009"
+    difficulty: "easy"
+    tags: ["people", "virtual-team"]
+    question: "A PM manages a distributed team across 4 time zones. What is the most effective way to maintain team cohesion?"
+    choices:
+      - "A. Establish overlapping core hours for synchronous meetings and use asynchronous tools for daily collaboration"
+      - "B. Require all team members to work the PM's time zone hours"
+      - "C. Communicate only via email to avoid scheduling conflicts"
+      - "D. Reduce status meetings to once per month"
+    answerIndex: 0
+    explanation: "Effective virtual team management uses a combination of overlapping core hours for essential synchronous communication and asynchronous tools (chat, shared documents) for ongoing collaboration, respecting team members' local working hours."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-010"
+    difficulty: "easy"
+    tags: ["people", "negotiation"]
+    question: "During resource negotiation with a functional manager, the PM learns the requested specialist is only available part-time. What should the PM do?"
+    choices:
+      - "A. Negotiate the critical periods when the specialist is needed most and adjust the schedule accordingly"
+      - "B. Reject the offer and demand full-time allocation"
+      - "C. Accept the constraint without adjusting the plan"
+      - "D. Hire an external consultant immediately"
+    answerIndex: 0
+    explanation: "Effective negotiation involves finding mutually beneficial solutions. Identifying critical periods maximizes the specialist's impact while respecting the functional manager's constraints. Adjusting the schedule reflects realistic planning."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-011"
+    difficulty: "medium"
+    tags: ["process", "schedule", "critical-path"]
+    question: "A project's critical path has a duration of 120 days. Activity F is on the critical path with a duration of 10 days. If Activity F takes 15 days instead, what happens to the project?"
+    choices:
+      - "A. The project end date is delayed by 5 days"
+      - "B. The project end date is unchanged because other paths absorb the delay"
+      - "C. Only Activity F's milestone shifts; the project finishes on time"
+      - "D. The entire critical path needs to be recalculated from scratch"
+    answerIndex: 0
+    explanation: "Activities on the critical path have zero float. Any delay directly extends the project end date. A 5-day overrun on Activity F pushes the project to 125 days. Non-critical path activities might absorb delays using their float, but critical path activities cannot."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-012"
+    difficulty: "medium"
+    tags: ["process", "risk", "qualitative"]
+    question: "During qualitative risk analysis, a risk is assessed as high probability and high impact. What should the PM do next?"
+    choices:
+      - "A. Prioritize this risk for further analysis or immediate response planning"
+      - "B. Accept the risk since qualitative analysis is just an estimate"
+      - "C. Remove the risk from the risk register"
+      - "D. Wait until the risk materializes to respond"
+    answerIndex: 0
+    explanation: "High probability and high impact risks are top priority. They should be escalated for quantitative analysis if needed, and response strategies (mitigate, avoid, transfer, etc.) should be developed promptly. Waiting for materialization increases exposure."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-013"
+    difficulty: "medium"
+    tags: ["process", "earned-value", "cost"]
+    question: "A project has PV = $100,000, EV = $80,000, and AC = $90,000. What is the Cost Performance Index (CPI) and what does it indicate?"
+    choices:
+      - "A. CPI = 0.89, indicating the project is over budget"
+      - "B. CPI = 1.13, indicating the project is under budget"
+      - "C. CPI = 0.80, indicating the project is behind schedule"
+      - "D. CPI = 1.25, indicating the project is ahead of schedule"
+    answerIndex: 0
+    explanation: "CPI = EV/AC = 80,000/90,000 = 0.89. A CPI less than 1.0 means the project is spending more than planned for the work completed (over budget). For every dollar spent, only $0.89 of value is earned."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-014"
+    difficulty: "medium"
+    tags: ["process", "change-control"]
+    question: "A stakeholder requests a significant scope change midway through execution. The PM believes it adds value. What is the correct next step?"
+    choices:
+      - "A. Submit a change request through the integrated change control process for CCB review"
+      - "B. Implement the change immediately since it adds value"
+      - "C. Reject the change because execution has already started"
+      - "D. Ask the team to add it without updating the project plan"
+    answerIndex: 0
+    explanation: "All scope changes must go through the integrated change control process, regardless of perceived value. The Change Control Board (CCB) evaluates impact on scope, schedule, cost, and other constraints before approving or rejecting."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-015"
+    difficulty: "medium"
+    tags: ["process", "quality", "testing"]
+    question: "A PM reviews the project's defect rate and finds it increasing during recent sprints. Root cause analysis reveals unclear acceptance criteria. Which process should be improved?"
+    choices:
+      - "A. Plan Quality Management — ensure acceptance criteria are defined clearly in the quality management plan"
+      - "B. Close Project — document lessons learned"
+      - "C. Manage Communications — send more status reports"
+      - "D. Control Procurements — renegotiate vendor contracts"
+    answerIndex: 0
+    explanation: "Unclear acceptance criteria is a planning issue. Improving the Plan Quality Management process ensures that quality metrics, acceptance criteria, and testing standards are clearly defined before work begins, reducing defects."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-016"
+    difficulty: "medium"
+    tags: ["process", "procurement"]
+    question: "A project requires specialized hardware from an external vendor. The PM needs the vendor to deliver to exact specifications with minimal flexibility. Which contract type is most appropriate?"
+    choices:
+      - "A. Firm Fixed Price (FFP)"
+      - "B. Cost Plus Incentive Fee (CPIF)"
+      - "C. Time and Materials (T&M)"
+      - "D. Cost Plus Fixed Fee (CPFF)"
+    answerIndex: 0
+    explanation: "FFP contracts set a fixed price for well-defined deliverables, placing cost risk on the seller. This is ideal when requirements are clear and the buyer wants price certainty. T&M and cost-plus contracts are better when scope is uncertain."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-017"
+    difficulty: "medium"
+    tags: ["process", "wbs"]
+    question: "A PM creates a WBS and the lowest level contains work packages. What characteristic defines a good work package?"
+    choices:
+      - "A. It can be estimated, scheduled, monitored, and assigned to a single responsible owner"
+      - "B. It represents an entire phase of the project"
+      - "C. It cannot be decomposed further under any circumstances"
+      - "D. It must be completed within one calendar day"
+    answerIndex: 0
+    explanation: "A work package is the lowest level of the WBS that can be meaningfully estimated (cost and duration), scheduled, monitored for progress, and controlled. It can be further decomposed into activities for scheduling purposes."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-018"
+    difficulty: "medium"
+    tags: ["process", "risk", "response"]
+    question: "A project faces a risk of a key vendor going bankrupt. The PM decides to identify a backup vendor and include switching costs in the budget. Which risk response strategy is being used?"
+    choices:
+      - "A. Mitigate"
+      - "B. Avoid"
+      - "C. Transfer"
+      - "D. Accept"
+    answerIndex: 0
+    explanation: "Mitigation reduces the probability or impact of a risk. Having a backup vendor reduces the impact if the primary vendor fails. Avoidance eliminates the threat entirely. Transfer shifts the impact (e.g., insurance). Acceptance takes no proactive action."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-019"
+    difficulty: "medium"
+    tags: ["process", "schedule", "estimation"]
+    question: "A PM uses three-point estimation for a task: Optimistic = 4 days, Most Likely = 7 days, Pessimistic = 16 days. Using the PERT formula, what is the expected duration?"
+    choices:
+      - "A. 8 days"
+      - "B. 7 days"
+      - "C. 9 days"
+      - "D. 10 days"
+    answerIndex: 0
+    explanation: "PERT expected duration = (O + 4M + P) / 6 = (4 + 28 + 16) / 6 = 48 / 6 = 8 days. The PERT formula weights the most likely estimate most heavily (4x) to account for the typical skew in task duration distributions."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-020"
+    difficulty: "medium"
+    tags: ["process", "integration", "lessons-learned"]
+    question: "During a sprint retrospective, the team identifies that their estimation accuracy has improved but deployment automation is still causing delays. What should the PM prioritize?"
+    choices:
+      - "A. Document both findings in the lessons learned register and create action items for deployment automation improvement"
+      - "B. Only celebrate the estimation improvement"
+      - "C. Delay addressing deployment until the next project"
+      - "D. Assign blame to the DevOps team"
+    answerIndex: 0
+    explanation: "Lessons learned should capture both successes and areas for improvement. Creating actionable items for the deployment issue ensures continuous improvement. Delaying fixes wastes the retrospective's value. Blame undermines team trust."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-021"
+    difficulty: "medium"
+    tags: ["business", "benefits", "value"]
+    question: "A project sponsor asks the PM to calculate the project's Return on Investment (ROI). The project costs $500,000 and is expected to generate $750,000 in benefits. What is the ROI?"
+    choices:
+      - "A. 50%"
+      - "B. 33%"
+      - "C. 150%"
+      - "D. 25%"
+    answerIndex: 0
+    explanation: "ROI = (Benefits - Costs) / Costs × 100 = ($750,000 - $500,000) / $500,000 × 100 = 50%. This means for every dollar invested, the project returns $1.50 ($1.00 original + $0.50 profit)."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-022"
+    difficulty: "medium"
+    tags: ["business", "compliance", "governance"]
+    question: "During execution, the PM discovers that a regulatory requirement was missed during planning. The requirement could delay the project by 3 weeks if implemented now. What should the PM do?"
+    choices:
+      - "A. Submit a change request immediately, assess the full impact, and inform the sponsor"
+      - "B. Ignore it if no one has noticed"
+      - "C. Add it to the lessons learned for the next project"
+      - "D. Cut other scope to fit the regulatory requirement without informing stakeholders"
+    answerIndex: 0
+    explanation: "Regulatory compliance is non-negotiable. The PM must immediately submit a change request, assess schedule/cost impact, and inform the sponsor. Ignoring compliance risks legal consequences. Cutting scope without stakeholder awareness violates change control."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-023"
+    difficulty: "medium"
+    tags: ["business", "strategy", "alignment"]
+    question: "A portfolio manager is selecting projects for the next fiscal year. Which criterion should be weighted most heavily?"
+    choices:
+      - "A. Strategic alignment with organizational objectives"
+      - "B. The project manager's availability"
+      - "C. The size of the project team"
+      - "D. The project's technical complexity"
+    answerIndex: 0
+    explanation: "Portfolio selection prioritizes strategic alignment — projects should support the organization's strategic goals and deliver maximum value. PM availability and team size are execution concerns, not selection criteria."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-024"
+    difficulty: "medium"
+    tags: ["business", "stakeholder", "power"]
+    question: "A stakeholder has high interest but low power in the project. According to the power/interest grid, what is the recommended engagement strategy?"
+    choices:
+      - "A. Keep informed"
+      - "B. Manage closely"
+      - "C. Monitor with minimum effort"
+      - "D. Keep satisfied"
+    answerIndex: 0
+    explanation: "The power/interest grid recommends: high power/high interest = manage closely, high power/low interest = keep satisfied, low power/high interest = keep informed, low power/low interest = monitor. This stakeholder should be kept informed."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-025"
+    difficulty: "medium"
+    tags: ["business", "business-case"]
+    question: "At which point should a project's business case be reviewed to determine if the project should continue?"
+    choices:
+      - "A. At phase gates/stage gates throughout the project lifecycle"
+      - "B. Only at project initiation"
+      - "C. Only at project closure"
+      - "D. The business case is never revisited once approved"
+    answerIndex: 0
+    explanation: "The business case is a living document that should be reviewed at phase gates to verify the project still delivers expected value. Market conditions, costs, or strategic priorities may change, requiring reassessment of the project's viability."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-026"
+    difficulty: "medium"
+    tags: ["process", "scope", "requirements"]
+    question: "A PM is collecting requirements for a new system. Multiple stakeholders have conflicting needs. What technique is most effective for resolving these conflicts?"
+    choices:
+      - "A. Facilitated workshops with key stakeholders to negotiate and prioritize requirements"
+      - "B. Accept all requirements and extend the timeline"
+      - "C. Let the sponsor decide all requirements unilaterally"
+      - "D. Use the requirements from the last similar project"
+    answerIndex: 0
+    explanation: "Facilitated workshops bring stakeholders together to discuss, negotiate, and reach consensus on conflicting requirements. This collaborative approach builds buy-in and produces better-prioritized requirements than unilateral decisions."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-027"
+    difficulty: "medium"
+    tags: ["process", "earned-value", "schedule"]
+    question: "A project shows SPI = 0.85 and CPI = 1.10. What does this indicate?"
+    choices:
+      - "A. The project is behind schedule but under budget"
+      - "B. The project is ahead of schedule and over budget"
+      - "C. The project is behind schedule and over budget"
+      - "D. The project is ahead of schedule and under budget"
+    answerIndex: 0
+    explanation: "SPI (Schedule Performance Index) < 1.0 means behind schedule. CPI (Cost Performance Index) > 1.0 means under budget. The project is delivering less work than planned but spending less per unit of work than budgeted."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-028"
+    difficulty: "medium"
+    tags: ["process", "resource", "matrix"]
+    question: "A project team member reports to both a functional manager and the PM. The PM has limited authority over the team member's performance reviews. What type of organizational structure is this?"
+    choices:
+      - "A. Weak matrix"
+      - "B. Strong matrix"
+      - "C. Projectized"
+      - "D. Functional"
+    answerIndex: 0
+    explanation: "In a weak matrix, the functional manager retains primary authority, including performance reviews. The PM has limited authority and acts more as a coordinator. In a strong matrix, the PM has more authority. In projectized, the PM has full authority."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-029"
+    difficulty: "hard"
+    tags: ["predictive", "schedule", "crashing"]
+    question: "A project is 3 weeks behind schedule. The PM considers crashing the schedule by adding resources to critical path activities. What is a key risk of this approach?"
+    choices:
+      - "A. Increased costs and potential diminishing returns as communication overhead grows"
+      - "B. The project will automatically finish early"
+      - "C. Crashing always reduces quality"
+      - "D. New resources will immediately be as productive as existing ones"
+    answerIndex: 0
+    explanation: "Crashing adds resources to compress the schedule but increases costs. Adding people to a late project can also increase communication overhead (Brooks's Law), reduce per-person productivity, and may not compress the schedule proportionally."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-030"
+    difficulty: "hard"
+    tags: ["predictive", "scope", "gold-plating"]
+    question: "A developer adds an extra feature to the deliverable that was not in the approved scope, believing it will delight the customer. What is this practice called and why is it problematic?"
+    choices:
+      - "A. Gold plating — it adds unapproved scope, introduces risk, and consumes resources without authorization"
+      - "B. Value engineering — it improves the product"
+      - "C. Scope creep — the customer requested it informally"
+      - "D. Progressive elaboration — it refines the scope"
+    answerIndex: 0
+    explanation: "Gold plating is adding unapproved extras. It's problematic because it consumes time/budget, introduces untested functionality, and was not evaluated for impact. Scope creep involves uncontrolled changes. Progressive elaboration is planned refinement."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-031"
+    difficulty: "hard"
+    tags: ["predictive", "risk", "quantitative"]
+    question: "A PM uses Monte Carlo simulation to analyze project schedule risk. What does the simulation output provide?"
+    choices:
+      - "A. A probability distribution of possible project completion dates"
+      - "B. A single deterministic end date"
+      - "C. A list of all risks in the risk register"
+      - "D. The exact critical path activities that will be delayed"
+    answerIndex: 0
+    explanation: "Monte Carlo simulation runs thousands of iterations with varying task durations to produce a probability distribution of outcomes. It shows the likelihood of completing by various dates (e.g., 80% chance by March 15). It does not produce a single deterministic answer."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-032"
+    difficulty: "hard"
+    tags: ["predictive", "cost", "eac"]
+    question: "A project has BAC = $200,000, EV = $80,000, AC = $100,000, and the PM expects remaining work to be performed at the current CPI. What is the Estimate at Completion (EAC)?"
+    choices:
+      - "A. $250,000"
+      - "B. $220,000"
+      - "C. $200,000"
+      - "D. $280,000"
+    answerIndex: 0
+    explanation: "When using the CPI-based formula: EAC = BAC/CPI. CPI = EV/AC = 80,000/100,000 = 0.80. EAC = 200,000/0.80 = $250,000. The project is expected to cost $50,000 more than originally budgeted."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-033"
+    difficulty: "hard"
+    tags: ["agile", "scrum", "sprint"]
+    question: "During a sprint, a stakeholder requests an urgent change to a user story already in progress. What should the Scrum team do?"
+    choices:
+      - "A. The Product Owner evaluates the request and may add it to the backlog for the next sprint, or negotiate removing equivalent work from the current sprint"
+      - "B. The developer immediately implements the change"
+      - "C. The Scrum Master cancels the current sprint"
+      - "D. The team votes to extend the sprint by one week"
+    answerIndex: 0
+    explanation: "Sprint scope is protected. The Product Owner evaluates the urgency and can negotiate scope changes within the sprint or prioritize it for the next sprint. Only the Product Owner can cancel a sprint if the sprint goal becomes obsolete."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-034"
+    difficulty: "hard"
+    tags: ["agile", "kanban", "flow"]
+    question: "A Kanban team notices that work items frequently get stuck in the 'Code Review' column, causing a bottleneck. What should the team do?"
+    choices:
+      - "A. Analyze the bottleneck, reduce WIP limits upstream, and increase review capacity or pair programming"
+      - "B. Remove the Code Review column from the board"
+      - "C. Increase the WIP limit for Code Review to allow more items"
+      - "D. Skip code reviews for low-priority items"
+    answerIndex: 0
+    explanation: "Kanban principles focus on flow optimization. Addressing bottlenecks involves analyzing root causes, possibly reducing upstream WIP to prevent queue buildup, and increasing capacity at the constraint (more reviewers, pair programming). Increasing WIP worsens the bottleneck."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-035"
+    difficulty: "hard"
+    tags: ["agile", "user-story", "estimation"]
+    question: "An agile team uses story points for estimation. What do story points measure?"
+    choices:
+      - "A. Relative effort considering complexity, uncertainty, and volume of work"
+      - "B. The exact number of hours to complete the story"
+      - "C. The number of team members required"
+      - "D. The monetary cost of implementation"
+    answerIndex: 0
+    explanation: "Story points measure relative effort — they account for complexity, uncertainty, and the amount of work compared to a reference story. They are intentionally abstract to avoid the false precision of hour-based estimates."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-036"
+    difficulty: "hard"
+    tags: ["agile", "velocity"]
+    question: "An agile team's velocity for the last four sprints was 20, 24, 18, and 22 story points. A stakeholder asks when 120 remaining story points will be completed. What is the best estimate?"
+    choices:
+      - "A. Approximately 5-6 sprints based on an average velocity of 21 story points per sprint"
+      - "B. Exactly 5 sprints"
+      - "C. 4 sprints because the team is improving"
+      - "D. It cannot be estimated without detailed task breakdowns"
+    answerIndex: 0
+    explanation: "Average velocity = (20+24+18+22)/4 = 21 story points/sprint. 120/21 ≈ 5.7 sprints. The range accounts for velocity variance. Providing a range (5-6 sprints) is more honest than a precise number given the inherent uncertainty."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-037"
+    difficulty: "hard"
+    tags: ["people", "ethics", "pmi-code"]
+    question: "A PM discovers that a team member has been inflating progress reports to make the project look on track. What should the PM do?"
+    choices:
+      - "A. Address the issue privately with the team member, correct the reports, and report accurate status to stakeholders"
+      - "B. Ignore it since the project will eventually catch up"
+      - "C. Cover it up and gradually correct the reports over time"
+      - "D. Immediately terminate the team member"
+    answerIndex: 0
+    explanation: "The PMI Code of Ethics requires honesty, transparency, and responsible behavior. The PM must address the behavior, ensure accurate reporting, and communicate truthful status. Covering it up or ignoring it violates ethical standards."
+    refs:
+      - "https://www.pmi.org/about/ethics/code"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-038"
+    difficulty: "hard"
+    tags: ["process", "integration", "close"]
+    question: "During project closure, which activity ensures organizational learning and process improvement?"
+    choices:
+      - "A. Conducting a comprehensive lessons learned session and updating the organizational process assets"
+      - "B. Archiving all project documents without review"
+      - "C. Disbanding the team immediately"
+      - "D. Sending a project completion email to stakeholders"
+    answerIndex: 0
+    explanation: "Lessons learned capture what worked, what didn't, and recommendations for future projects. Updating organizational process assets (templates, checklists, historical data) enables continuous improvement across the organization."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-039"
+    difficulty: "hard"
+    tags: ["business", "npv", "selection"]
+    question: "A company must choose between two projects. Project A has an NPV of $200,000 and Project B has an NPV of $150,000. All other factors are equal. Which project should be selected and why?"
+    choices:
+      - "A. Project A because higher NPV indicates greater expected value in today's dollars"
+      - "B. Project B because lower NPV means less risk"
+      - "C. The project with the shorter duration"
+      - "D. The project with fewer resources required"
+    answerIndex: 0
+    explanation: "NPV (Net Present Value) discounts future cash flows to present value. A higher NPV indicates the project delivers more value after accounting for the time value of money. When other factors are equal, the higher NPV project is preferred."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-040"
+    difficulty: "hard"
+    tags: ["agile", "scaling", "safe"]
+    question: "An organization has 12 agile teams working on a single product. What is the primary challenge of scaling agile?"
+    choices:
+      - "A. Coordinating dependencies and maintaining alignment across teams"
+      - "B. Finding enough Scrum Masters"
+      - "C. Choosing between Kanban and Scrum"
+      - "D. Maintaining identical velocity across all teams"
+    answerIndex: 0
+    explanation: "At scale, the biggest challenge is managing inter-team dependencies, ensuring architectural alignment, and maintaining a coherent product vision. Frameworks like SAFe, LeSS, and Nexus address coordination at scale. Velocity naturally varies between teams."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-041"
+    difficulty: "medium"
+    tags: ["people", "delegation"]
+    question: "A PM has a highly experienced team. Which leadership style is most appropriate according to situational leadership theory?"
+    choices:
+      - "A. Delegating — provide autonomy and trust the team's expertise"
+      - "B. Directing — give detailed instructions for every task"
+      - "C. Coaching — closely supervise while providing support"
+      - "D. Supporting — make all decisions collaboratively regardless of expertise"
+    answerIndex: 0
+    explanation: "Situational leadership theory suggests matching leadership style to team maturity. Highly experienced teams (high competence, high commitment) perform best with a delegating style that provides autonomy. Directing is for low-maturity teams."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-042"
+    difficulty: "medium"
+    tags: ["process", "quality", "control-chart"]
+    question: "A control chart for a manufacturing process shows seven consecutive data points above the mean. No points are outside the control limits. What should the PM conclude?"
+    choices:
+      - "A. The process is out of control due to the Rule of Seven, indicating a non-random pattern"
+      - "B. The process is performing perfectly"
+      - "C. The control limits need to be widened"
+      - "D. No action is needed since all points are within limits"
+    answerIndex: 0
+    explanation: "The Rule of Seven states that seven or more consecutive points on one side of the mean indicate a non-random pattern (assignable cause), even if within control limits. The process should be investigated for a systematic shift."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-043"
+    difficulty: "medium"
+    tags: ["process", "risk", "register"]
+    question: "What information should a risk register contain for each identified risk?"
+    choices:
+      - "A. Risk ID, description, probability, impact, risk owner, response strategy, and triggers"
+      - "B. Only the risk description and probability"
+      - "C. Risk description and the name of who reported it"
+      - "D. Risk category and a generic response plan"
+    answerIndex: 0
+    explanation: "A comprehensive risk register includes unique ID, description, category, probability, impact, priority score, risk owner, response strategy, triggers (early warning signs), and current status. This enables effective risk monitoring and response."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-044"
+    difficulty: "medium"
+    tags: ["process", "stakeholder", "analysis"]
+    question: "During stakeholder analysis, the PM identifies that the CFO is resistant to the project but has high influence. What approach should the PM take?"
+    choices:
+      - "A. Develop a targeted engagement plan to address the CFO's specific concerns and demonstrate financial value"
+      - "B. Avoid the CFO and work around their resistance"
+      - "C. Escalate to the CEO to override the CFO"
+      - "D. Remove the CFO from stakeholder communications"
+    answerIndex: 0
+    explanation: "High-influence resistant stakeholders require proactive engagement. Understanding their specific concerns (cost, ROI, risk) and addressing them with data and targeted communication can shift resistance to support."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-045"
+    difficulty: "medium"
+    tags: ["agile", "retrospective"]
+    question: "After several sprints, the team's retrospectives have become routine and unproductive. Team members repeat the same comments. What should the Scrum Master do?"
+    choices:
+      - "A. Introduce new retrospective formats and focus on actionable outcomes from previous retros"
+      - "B. Cancel retrospectives since they're not adding value"
+      - "C. Let the team run the retro without facilitation"
+      - "D. Replace retrospectives with individual performance reviews"
+    answerIndex: 0
+    explanation: "Retrospective fatigue is common. Using varied formats (sailboat, 4Ls, timeline, etc.) re-energizes the team. Following up on action items from previous retros demonstrates that feedback leads to real change, motivating participation."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-046"
+    difficulty: "easy"
+    tags: ["process", "charter"]
+    question: "What is the primary purpose of a project charter?"
+    choices:
+      - "A. To formally authorize the project and give the PM authority to apply organizational resources"
+      - "B. To list all project tasks and their durations"
+      - "C. To define the detailed project budget"
+      - "D. To serve as the project's final report"
+    answerIndex: 0
+    explanation: "The project charter formally authorizes the project's existence, names the PM, and grants authority to allocate resources. It is a high-level document, not a detailed plan. Detailed schedules and budgets come during planning."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-047"
+    difficulty: "easy"
+    tags: ["process", "scope", "deliverable"]
+    question: "What is the difference between a project scope statement and a product scope statement?"
+    choices:
+      - "A. Project scope defines the work to be done; product scope defines the features and functions of the deliverable"
+      - "B. They are the same thing"
+      - "C. Project scope is for agile; product scope is for predictive"
+      - "D. Product scope defines the work; project scope defines the features"
+    answerIndex: 0
+    explanation: "Project scope covers all work required to deliver the project (activities, deliverables, milestones). Product scope describes the features, functions, and characteristics of the product itself. Both are needed for comprehensive scope management."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-048"
+    difficulty: "easy"
+    tags: ["people", "raci"]
+    question: "In a RACI matrix, what does the 'A' stand for?"
+    choices:
+      - "A. Accountable — the person ultimately answerable for the deliverable"
+      - "B. Approver — the person who approves the budget"
+      - "C. Active — the person actively working on the task"
+      - "D. Aware — the person who needs to be aware of progress"
+    answerIndex: 0
+    explanation: "In RACI: R = Responsible (does the work), A = Accountable (ultimately answerable, one per task), C = Consulted (provides input), I = Informed (kept up to date). There should be only one Accountable person per deliverable."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-049"
+    difficulty: "easy"
+    tags: ["process", "dependencies"]
+    question: "In a project schedule, Task B cannot start until Task A is completed. What type of dependency is this?"
+    choices:
+      - "A. Finish-to-Start (FS)"
+      - "B. Start-to-Start (SS)"
+      - "C. Finish-to-Finish (FF)"
+      - "D. Start-to-Finish (SF)"
+    answerIndex: 0
+    explanation: "Finish-to-Start is the most common dependency type: the successor (B) cannot start until the predecessor (A) finishes. SS means both start together. FF means both finish together. SF is rare — the successor finishes when the predecessor starts."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-050"
+    difficulty: "easy"
+    tags: ["business", "project-vs-operations"]
+    question: "What is the key characteristic that distinguishes a project from ongoing operations?"
+    choices:
+      - "A. A project is temporary with a defined beginning and end; operations are ongoing and repetitive"
+      - "B. Projects always cost more than operations"
+      - "C. Operations are always managed by a PM"
+      - "D. Projects never involve routine activities"
+    answerIndex: 0
+    explanation: "Projects are temporary endeavors creating unique deliverables. Operations are ongoing, repetitive activities maintaining the organization. A project may transition to operations (e.g., building a factory → running the factory)."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-051"
+    difficulty: "hard"
+    tags: ["predictive", "fast-tracking"]
+    question: "A PM decides to fast-track the schedule by overlapping activities that were originally planned sequentially. What is the primary risk?"
+    choices:
+      - "A. Rework — overlapped activities may need to be redone if the predecessor's output changes"
+      - "B. Reduced team morale"
+      - "C. The project will exceed its budget by exactly 50%"
+      - "D. Fast-tracking always reduces quality"
+    answerIndex: 0
+    explanation: "Fast-tracking overlaps sequential activities, which risks rework if earlier activities produce output that changes what was assumed by the overlapped activities. It can only be applied to activities that can logically overlap and increases risk but not necessarily cost."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-052"
+    difficulty: "hard"
+    tags: ["process", "integration", "knowledge"]
+    question: "A project transitions from one PM to another mid-execution. Critical project knowledge resides only in the departing PM's head. What should have been done to prevent this?"
+    choices:
+      - "A. Maintained a comprehensive knowledge management system with documented decisions, assumptions, and rationale"
+      - "B. Assigned two PMs from the start"
+      - "C. Required the PM to work until the project ended"
+      - "D. Used only written communication with no verbal meetings"
+    answerIndex: 0
+    explanation: "The Manage Project Knowledge process ensures that both explicit (documents, plans) and tacit (experience, context) knowledge are captured and accessible. Regular documentation of decisions, assumptions, and context prevents knowledge loss during transitions."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-053"
+    difficulty: "hard"
+    tags: ["agile", "definition-of-done"]
+    question: "An agile team frequently has stories marked as 'done' that later require additional work. What is the root cause?"
+    choices:
+      - "A. The Definition of Done (DoD) is unclear, incomplete, or not consistently applied"
+      - "B. The Product Owner is too demanding"
+      - "C. The sprint is too short"
+      - "D. The team has too many members"
+    answerIndex: 0
+    explanation: "When completed stories require rework, the Definition of Done typically lacks clarity or completeness (e.g., missing testing, documentation, or deployment criteria). A clear DoD shared by the entire team ensures consistent quality standards."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-054"
+    difficulty: "hard"
+    tags: ["business", "benefits", "realization"]
+    question: "A project successfully delivers all scope items on time and within budget. Six months later, the expected benefits have not materialized. Whose responsibility is benefits realization?"
+    choices:
+      - "A. The project sponsor or a dedicated benefits owner, not the PM"
+      - "B. The PM who delivered the project"
+      - "C. The QA team"
+      - "D. The end users"
+    answerIndex: 0
+    explanation: "Benefits realization typically extends beyond project closure and is the responsibility of the sponsor or a designated benefits owner. The PM delivers the outputs (deliverables); the organization must manage the transition to achieve outcomes (benefits)."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-055"
+    difficulty: "hard"
+    tags: ["process", "risk", "contingency"]
+    question: "A PM sets aside $50,000 in contingency reserves for identified risks and $20,000 in management reserves for unknown unknowns. Who has authority to use the management reserve?"
+    choices:
+      - "A. Management/sponsor — the PM must request authorization to use management reserves"
+      - "B. The PM can use it at their discretion"
+      - "C. The Scrum Master allocates it during sprints"
+      - "D. Management reserves are never actually spent"
+    answerIndex: 0
+    explanation: "Contingency reserves are controlled by the PM for identified risks. Management reserves cover unknown unknowns and require management/sponsor approval to access. Using management reserve typically requires a formal change request and baseline adjustment."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-056"
+    difficulty: "medium"
+    tags: ["process", "communication", "plan"]
+    question: "A PM needs to determine the frequency, format, and distribution of project status reports. In which document should this be defined?"
+    choices:
+      - "A. Communications management plan"
+      - "B. Risk register"
+      - "C. Project charter"
+      - "D. Work breakdown structure"
+    answerIndex: 0
+    explanation: "The communications management plan specifies who needs what information, when, in what format, and through which channels. It tailors communication to stakeholder needs and ensures consistent, timely information flow."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-057"
+    difficulty: "medium"
+    tags: ["agile", "product-backlog"]
+    question: "Who is responsible for ordering and prioritizing the product backlog in Scrum?"
+    choices:
+      - "A. The Product Owner"
+      - "B. The Scrum Master"
+      - "C. The development team"
+      - "D. The project sponsor"
+    answerIndex: 0
+    explanation: "The Product Owner is solely responsible for managing the product backlog, including ordering items to maximize value. The development team estimates effort. The Scrum Master facilitates the process. The sponsor provides funding and strategic direction."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-058"
+    difficulty: "medium"
+    tags: ["process", "quality", "pareto"]
+    question: "A PM uses a Pareto chart to analyze project defects. The chart shows that 3 of 15 defect categories account for 78% of all defects. What action should the PM take?"
+    choices:
+      - "A. Focus improvement efforts on the top 3 defect categories for maximum impact"
+      - "B. Address all 15 categories equally"
+      - "C. Ignore the data since some defects are inevitable"
+      - "D. Eliminate only the least common defects first"
+    answerIndex: 0
+    explanation: "The Pareto principle (80/20 rule) suggests focusing on the vital few causes that produce the majority of effects. Addressing the top 3 categories (78% of defects) provides the most efficient quality improvement."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-059"
+    difficulty: "hard"
+    tags: ["people", "cultural", "diversity"]
+    question: "A PM leads a global team with members from 5 countries. During a meeting, some team members rarely speak while others dominate. What should the PM do?"
+    choices:
+      - "A. Adapt facilitation techniques to account for cultural communication styles and create inclusive participation mechanisms"
+      - "B. Force equal speaking time for all members"
+      - "C. Remove quiet members from the team"
+      - "D. Conduct meetings only in the PM's native language"
+    answerIndex: 0
+    explanation: "Cultural differences affect communication styles. Some cultures value listening and deference to seniority. The PM should use inclusive techniques like round-robin, pre-meeting input gathering, and anonymous polling to ensure all voices are heard."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-060"
+    difficulty: "hard"
+    tags: ["agile", "hybrid"]
+    question: "An organization uses a hybrid approach: predictive planning for hardware procurement and agile iterations for software development. What is critical for success?"
+    choices:
+      - "A. Clear integration points between the predictive and agile work streams with synchronized milestones"
+      - "B. Running both approaches completely independently"
+      - "C. Forcing all work into sprints regardless of nature"
+      - "D. Using waterfall for everything since hardware requires it"
+    answerIndex: 0
+    explanation: "Hybrid approaches require deliberate integration points where predictive and agile work streams synchronize. Hardware milestones (delivery dates) must align with software sprint schedules. Running them independently creates integration failures."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-061"
+    difficulty: "easy"
+    tags: ["people", "power"]
+    question: "A PM influences the team by sharing their deep technical expertise. What type of power is the PM using?"
+    choices:
+      - "A. Expert power"
+      - "B. Legitimate (formal) power"
+      - "C. Reward power"
+      - "D. Referent power"
+    answerIndex: 0
+    explanation: "Expert power comes from specialized knowledge or skills that others respect. Legitimate power comes from formal position. Reward power comes from the ability to give rewards. Referent power comes from personal charisma and respect."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-062"
+    difficulty: "easy"
+    tags: ["process", "milestone"]
+    question: "In a project schedule, a milestone has what duration?"
+    choices:
+      - "A. Zero duration — it represents a significant point or event"
+      - "B. One day"
+      - "C. The same duration as the preceding activity"
+      - "D. One week"
+    answerIndex: 0
+    explanation: "Milestones are zero-duration events marking significant points in the project (phase completion, deliverable acceptance, key decisions). They don't consume time or resources but serve as progress checkpoints."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-063"
+    difficulty: "medium"
+    tags: ["process", "risk", "positive"]
+    question: "The PM identifies a risk that a new technology could be released early, reducing development effort by 30%. What type of risk response should be planned?"
+    choices:
+      - "A. Exploit — take actions to ensure the opportunity is realized"
+      - "B. Mitigate — reduce the probability of the technology releasing early"
+      - "C. Avoid — change the plan to eliminate exposure to the technology"
+      - "D. Accept — do nothing about the opportunity"
+    answerIndex: 0
+    explanation: "This is a positive risk (opportunity). Exploit means taking actions to ensure it happens (e.g., partnering with the technology vendor). Mitigate, avoid, and transfer are threat responses. Enhance and share are also opportunity responses."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-064"
+    difficulty: "medium"
+    tags: ["process", "resource", "leveling"]
+    question: "A project schedule has two critical activities requiring the same resource at the same time. What technique should the PM apply?"
+    choices:
+      - "A. Resource leveling — adjust the schedule to resolve the over-allocation, which may extend the project"
+      - "B. Resource smoothing — adjust within float only"
+      - "C. Fast-tracking — overlap the activities further"
+      - "D. Crashing — add more resources to both activities"
+    answerIndex: 0
+    explanation: "Resource leveling resolves over-allocation by delaying activities until the resource is available. Since both activities are critical (zero float), resource smoothing won't work. Leveling may extend the project duration, requiring sponsor approval."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-065"
+    difficulty: "medium"
+    tags: ["business", "okr", "alignment"]
+    question: "A PM is asked to align project deliverables with the organization's OKRs (Objectives and Key Results). What does this ensure?"
+    choices:
+      - "A. The project outcomes directly contribute to measurable organizational goals"
+      - "B. The project budget is reduced"
+      - "C. The team works fewer hours"
+      - "D. The project scope is frozen permanently"
+    answerIndex: 0
+    explanation: "Aligning with OKRs ensures project deliverables contribute to strategic objectives with measurable results. This connection between project outputs and organizational outcomes demonstrates value and supports ongoing project justification."
+    refs:
+      - "https://www.pmi.org/learning/library"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-066"
+    difficulty: "hard"
+    tags: ["predictive", "earned-value", "tcpi"]
+    question: "A project has BAC = $300,000, EV = $150,000, AC = $180,000. The To-Complete Performance Index (TCPI) based on BAC is 1.25. What does this mean?"
+    choices:
+      - "A. For every dollar spent on remaining work, $1.25 of value must be earned to finish on budget"
+      - "B. The project is 25% ahead of schedule"
+      - "C. The remaining work will cost 25% less than planned"
+      - "D. The project needs 25% more budget"
+    answerIndex: 0
+    explanation: "TCPI = (BAC - EV) / (BAC - AC) = (300K - 150K) / (300K - 180K) = 150K/120K = 1.25. This means the team must achieve a CPI of 1.25 for all remaining work to finish on the original budget — a significant performance improvement requirement."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-067"
+    difficulty: "hard"
+    tags: ["agile", "technical-debt"]
+    question: "During sprint planning, the team wants to allocate 20% of their capacity to addressing technical debt. The Product Owner pushes back, wanting all capacity for new features. What should happen?"
+    choices:
+      - "A. The team should explain the long-term cost of ignoring technical debt and negotiate a sustainable balance"
+      - "B. The PO's decision is final — deliver only new features"
+      - "C. The team ignores the PO and works on technical debt secretly"
+      - "D. Technical debt should never be worked on during sprints"
+    answerIndex: 0
+    explanation: "Technical debt reduces velocity over time and increases defect risk. The team should transparently explain the consequences (slower delivery, more bugs) and negotiate a sustainable allocation. The PO prioritizes features, but the team owns quality and sustainability."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-068"
+    difficulty: "hard"
+    tags: ["process", "procurement", "sow"]
+    question: "A vendor delivers a system that meets all requirements in the Statement of Work but performs poorly under production load. The SOW did not specify performance benchmarks. Who is responsible?"
+    choices:
+      - "A. The buying organization — the SOW should have included specific performance requirements and acceptance criteria"
+      - "B. The vendor — they should have anticipated performance needs"
+      - "C. The PM — they should have tested it before signing the SOW"
+      - "D. Neither — performance is always separate from contractual obligations"
+    answerIndex: 0
+    explanation: "The SOW is the buying organization's responsibility to define completely. If performance requirements were omitted, the vendor met their contractual obligation. This highlights the importance of including non-functional requirements (performance, scalability) in procurement documents."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-069"
+    difficulty: "medium"
+    tags: ["agile", "daily-standup"]
+    question: "During a daily standup, a team member consistently goes into lengthy technical details. What should the Scrum Master do?"
+    choices:
+      - "A. Remind the team of the standup's purpose and suggest taking detailed discussions offline"
+      - "B. Let them finish to avoid conflict"
+      - "C. Cancel the daily standup"
+      - "D. Limit each person to exactly 30 seconds"
+    answerIndex: 0
+    explanation: "The daily standup is a brief synchronization event focused on three questions: what did I do, what will I do, and what's blocking me. Detailed technical discussions should be taken offline ('parking lot') to respect everyone's time."
+    refs:
+      - "https://www.pmi.org/disciplined-agile"
+    author: "ThanhNguyxn"
+
+  - id: "pmp-expand-070"
+    difficulty: "hard"
+    tags: ["business", "complexity", "adaptive"]
+    question: "A project operates in a highly uncertain environment where requirements change weekly based on market feedback. Which project management approach is most appropriate?"
+    choices:
+      - "A. An adaptive (agile) approach with short iterations and frequent stakeholder feedback loops"
+      - "B. A fully predictive approach with detailed upfront planning"
+      - "C. No formal approach — let the team self-organize without any framework"
+      - "D. A sequential waterfall approach with sign-offs at each phase gate"
+    answerIndex: 0
+    explanation: "High uncertainty and frequent requirement changes call for adaptive approaches. Short iterations allow rapid feedback incorporation, reducing the cost of change. Predictive approaches assume stable requirements and struggle with frequent changes."
+    refs:
+      - "https://www.pmi.org/pmbok-guide-standards"
+    author: "ThanhNguyxn"

@@ -16,7 +16,7 @@ IT certifications are expensive, and the study landscape is fragmented. Free res
 **CertSherpa takes a different approach:**
 
 - 📚 **440+ curated resources** across 7 certification categories — hand-picked, organized, and maintained by the community.
-- 🧠 **640+ original practice questions** across 14 certification tracks — written to test the same *objectives* as real exams, never copied from them.
+- 🧠 **1,590+ original practice questions** across 14 certification tracks — written to test the same *objectives* as real exams, never copied from them.
 - 🌐 **Vendor-neutral** — we cover AWS, Azure, GCP, CompTIA, Cisco, Kubernetes, Linux, and more.
 - 🔓 **100% free and open-source** — no paywalls, no ads, no tracking.
 
@@ -32,7 +32,7 @@ Every practice question in our bank is original — written to align with publis
 |---------|--------|
 | 📚 Curated resource library (7 categories) | ✅ Live |
 | 🧠 Interactive practice engine | ✅ Live |
-| 📝 640+ original questions (14 cert tracks) | ✅ Live |
+| 📝 1,590+ original questions (14 cert tracks) | ✅ Live |
 | 🔍 JSON Schema validation for all content | ✅ Live |
 | 🚀 GitHub Pages deployment | ✅ Live |
 

@@ -1,6 +1,6 @@
 # Awesome CertSherpa
 
-> A community-driven certification exam prep hub — curated study resources, structured learning paths, and (soon) an interactive practice engine. Open-source, vendor-neutral, and built by people who actually sit these exams.
+> A community-driven certification exam prep hub — curated study resources, structured learning paths, and an interactive practice engine with 1,590+ original questions. Open-source, vendor-neutral, and built by people who actually sit these exams.
 
 IT certifications are expensive and the study landscape is fragmented. CertSherpa collects the best free and paid resources in one place, organised by domain and difficulty, so you can **study smarter, not harder**. Think [awesome-list](https://github.com/sindresorhus/awesome) meets structured exam prep.
 
@@ -34,7 +34,7 @@ pnpm serve
 awesome-cert-sherpa/
 ├── website/          # Docusaurus docs portal (TypeScript + pnpm)
 ├── content/          # Curated resource YAML files and source registry
-├── bank/             # Question bank YAML data (640+ questions, 14 certs)
+├── bank/             # Question bank YAML data (1,590+ questions, 14 certs)
 ├── tools/            # CLI utilities — bank validator, build pipeline
 ├── .github/          # CI/CD workflows, issue/PR templates
 ├── package.json      # Root workspace scripts
@@ -46,7 +46,7 @@ awesome-cert-sherpa/
 | Phase | Status | Description |
 |-------|--------|-------------|
 | **1 — Scaffold** | ✅ Done | Docusaurus portal, GitHub Pages config, category structure, OSS docs |
-| **2 — Content** | ✅ Done | 640+ practice questions across 14 certs, 440+ curated resources across 7 categories |
+| **2 — Content** | ✅ Done | 1,590+ practice questions across 14 certs, 440+ curated resources across 7 categories |
 | **3 — Community** | ✅ Done | GitHub Discussions, contribution workflows, issue templates |
 | **4 — Practice Engine** | ✅ Done | Interactive quiz runner with 14 certification question banks |
 | **5 — Grow** | 🔜 Next | Community voting, "verified resource" badges, multilingual support, CI/CD |

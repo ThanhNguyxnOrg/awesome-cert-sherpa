@@ -514,3 +514,1203 @@ questions:
       - "https://owasp.org/"
       - "https://www.iso.org/standard/27001"
     author: "ThanhNguyxn"
+
+  # ── CISSP Expansion: 70 new questions (cissp-expand-001 → cissp-expand-070) ──
+
+  # Domain 1: Security and Risk Management (~10 questions)
+  - id: "cissp-expand-001"
+    difficulty: "easy"
+    tags: ["domain1", "governance", "security-policy"]
+    question: "An organization's board of directors asks who bears ULTIMATE accountability for information security. Who is it?"
+    choices:
+      - "A. Senior management / executive leadership"
+      - "B. The Chief Information Security Officer (CISO)"
+      - "C. The internal audit department"
+      - "D. The IT operations team"
+    answerIndex: 0
+    explanation: >-
+      Senior management holds ultimate accountability for information security because they set organizational direction, approve budgets, and accept residual risk. The CISO (B) is responsible for execution but reports to senior leadership. Audit (C) provides assurance but does not own security outcomes.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-002"
+    difficulty: "medium"
+    tags: ["domain1", "risk-management", "quantitative"]
+    question: "An asset valued at $500,000 has a 25% exposure factor for fire and an annualized rate of occurrence (ARO) of 0.1. What is the annualized loss expectancy (ALE)?"
+    choices:
+      - "A. $12,500"
+      - "B. $50,000"
+      - "C. $125,000"
+      - "D. $500,000"
+    answerIndex: 0
+    explanation: >-
+      SLE = Asset Value × EF = $500,000 × 0.25 = $125,000. ALE = SLE × ARO = $125,000 × 0.1 = $12,500. Option B incorrectly multiplies AV by ARO without applying EF. Option C is the SLE, not the ALE.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-003"
+    difficulty: "hard"
+    tags: ["domain1", "risk-management", "risk-treatment"]
+    question: "After a risk assessment, management decides the cost of mitigating a specific risk exceeds the potential loss. They document this decision and proceed without additional controls. What risk treatment strategy is this?"
+    choices:
+      - "A. Risk acceptance"
+      - "B. Risk avoidance"
+      - "C. Risk transference"
+      - "D. Risk mitigation"
+    answerIndex: 0
+    explanation: >-
+      When management formally acknowledges a risk and decides not to implement controls because the cost outweighs the benefit, this is risk acceptance. Risk avoidance (B) would eliminate the activity entirely. Risk transference (C) shifts impact to a third party such as insurance.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-39/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-004"
+    difficulty: "medium"
+    tags: ["domain1", "legal", "compliance", "privacy"]
+    question: "Under GDPR, a company collects user data in Germany and processes it using a cloud provider in the US. Who is the data controller?"
+    choices:
+      - "A. The company that determines the purposes and means of processing"
+      - "B. The US cloud provider hosting the data"
+      - "C. The German data protection authority"
+      - "D. The end users whose data is collected"
+    answerIndex: 0
+    explanation: >-
+      The data controller is the entity that determines the purposes and means of processing personal data. The cloud provider (B) is the data processor. The supervisory authority (C) enforces compliance but does not control data. Data subjects (D) are the individuals whose data is processed.
+    refs:
+      - "https://gdpr.eu/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-005"
+    difficulty: "easy"
+    tags: ["domain1", "ethics", "isc2-code"]
+    question: "An ISC2 member discovers a colleague is fabricating compliance reports. According to the ISC2 Code of Ethics, what should the member do FIRST?"
+    choices:
+      - "A. Report the behavior through appropriate channels"
+      - "B. Confront the colleague privately and ask them to stop"
+      - "C. Ignore it since it is not the member's direct responsibility"
+      - "D. Post about it on social media to raise awareness"
+    answerIndex: 0
+    explanation: >-
+      The ISC2 Code of Ethics requires members to act honorably and report unethical behavior through proper channels. Private confrontation (B) does not ensure accountability. Ignoring it (C) violates the duty to protect society and the profession.
+    refs:
+      - "https://www.isc2.org/ethics"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-006"
+    difficulty: "hard"
+    tags: ["domain1", "bcp", "business-impact-analysis"]
+    question: "During a business impact analysis, the finance department states their ERP system has a maximum tolerable downtime (MTD) of 24 hours, and recovery takes 8 hours. What is the Recovery Time Objective (RTO)?"
+    choices:
+      - "A. Must be less than or equal to 24 hours, and the current 8-hour recovery meets it"
+      - "B. Exactly 24 hours"
+      - "C. 32 hours (MTD plus recovery time)"
+      - "D. Cannot be determined without the Recovery Point Objective"
+    answerIndex: 0
+    explanation: >-
+      RTO must be less than or equal to MTD to ensure the system is recovered before the maximum tolerable downtime is exceeded. Since recovery takes 8 hours and MTD is 24 hours, the RTO is met. Option C incorrectly adds the two values. RPO (D) is a separate metric for data loss tolerance.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-007"
+    difficulty: "medium"
+    tags: ["domain1", "security-awareness", "training"]
+    question: "Which security awareness approach is MOST effective at reducing phishing susceptibility across an organization?"
+    choices:
+      - "A. Simulated phishing campaigns with immediate feedback and targeted training for those who fail"
+      - "B. Annual compliance-focused presentations to all employees"
+      - "C. Distributing security policy documents via email"
+      - "D. Posting security tips on the company intranet"
+    answerIndex: 0
+    explanation: >-
+      Simulated phishing with immediate feedback creates a measurable, behavior-changing learning loop. Annual presentations (B) typically have low retention and do not address individual weaknesses. Passive methods like email distribution (C) and intranet posts (D) lack engagement and accountability.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-50/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-008"
+    difficulty: "easy"
+    tags: ["domain1", "governance", "security-roles"]
+    question: "Who is typically responsible for classifying data in an organization?"
+    choices:
+      - "A. The data owner (usually a business manager)"
+      - "B. The database administrator"
+      - "C. The security operations center analyst"
+      - "D. The help desk technician"
+    answerIndex: 0
+    explanation: >-
+      Data owners, typically business managers or executives, classify data based on its value, sensitivity, and regulatory requirements. Database administrators (B) are custodians who implement technical controls. SOC analysts (C) monitor for threats but do not determine classification levels.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-60/vol-1-rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-009"
+    difficulty: "hard"
+    tags: ["domain1", "risk-management", "frameworks"]
+    question: "An organization operating in both the US financial and healthcare sectors needs a unified risk management framework. Which approach BEST addresses both regulatory environments?"
+    choices:
+      - "A. Map controls from NIST CSF to both GLBA and HIPAA requirements using a common control framework"
+      - "B. Implement HIPAA controls only, since they are the most restrictive"
+      - "C. Use PCI DSS as the sole framework since it covers financial data"
+      - "D. Create entirely separate security programs for each business unit"
+    answerIndex: 0
+    explanation: >-
+      NIST CSF provides a flexible, industry-agnostic framework that can map to multiple regulatory requirements including GLBA and HIPAA. Using only HIPAA (B) ignores financial-specific requirements. PCI DSS (C) addresses payment card data, not all financial or health regulations. Separate programs (D) create inefficiency and inconsistency.
+    refs:
+      - "https://www.nist.gov/cyberframework"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-010"
+    difficulty: "medium"
+    tags: ["domain1", "legal", "investigation"]
+    question: "During a forensic investigation, which type of evidence is MOST likely to be challenged as unreliable in court?"
+    choices:
+      - "A. Oral testimony from a witness recalling events from memory"
+      - "B. Original hard drive with documented chain of custody"
+      - "C. Forensic image with cryptographic hash verification"
+      - "D. Server logs collected and preserved per standard procedures"
+    answerIndex: 0
+    explanation: >-
+      Oral testimony based on memory is considered the least reliable because human recall is subjective and prone to error. Original evidence with chain of custody (B) and forensically verified images (C) provide the strongest evidentiary support. Properly preserved logs (D) are considered reliable documentary evidence.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-86/final"
+    author: "ThanhNguyxn"
+
+  # Domain 2: Asset Security (~8 questions)
+  - id: "cissp-expand-011"
+    difficulty: "easy"
+    tags: ["domain2", "data-classification", "labeling"]
+    question: "A government agency classifies a document as 'Secret.' What does this classification level typically indicate?"
+    choices:
+      - "A. Unauthorized disclosure could cause serious damage to national security"
+      - "B. The document is available to the general public"
+      - "C. The document contains routine internal communications"
+      - "D. Unauthorized disclosure could cause exceptionally grave damage"
+    answerIndex: 0
+    explanation: >-
+      In government classification, 'Secret' means unauthorized disclosure could cause serious damage to national security. 'Top Secret' (D) indicates exceptionally grave damage. 'Unclassified' or public documents (B) have no expected damage from disclosure.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://www.archives.gov/isoo"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-012"
+    difficulty: "medium"
+    tags: ["domain2", "data-lifecycle", "retention"]
+    question: "A company's legal department requires retaining email records for 7 years. The IT team proposes deleting emails after 3 years to save storage costs. What is the BEST course of action?"
+    choices:
+      - "A. Retain emails for 7 years to meet legal and regulatory requirements"
+      - "B. Delete after 3 years and accept the storage savings"
+      - "C. Archive emails to tape and delete from primary storage after 1 year"
+      - "D. Let individual users decide how long to keep their emails"
+    answerIndex: 0
+    explanation: >-
+      Legal and regulatory retention requirements take precedence over cost considerations. Failing to retain records for the required period (B) exposes the organization to legal liability and compliance penalties. Archiving to tape (C) could work if it satisfies the 7-year requirement, but the question specifies deletion after a shorter period.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-013"
+    difficulty: "hard"
+    tags: ["domain2", "data-protection", "encryption", "cloud"]
+    question: "A healthcare organization stores PHI in a public cloud. Which encryption strategy BEST protects data while maintaining operational flexibility?"
+    choices:
+      - "A. Client-side encryption with customer-managed keys (BYOK) before uploading to the cloud"
+      - "B. Rely solely on the cloud provider's default server-side encryption"
+      - "C. Encrypt only data in transit and leave data at rest unencrypted"
+      - "D. Use the cloud provider's key management with provider-managed keys exclusively"
+    answerIndex: 0
+    explanation: >-
+      Client-side encryption with customer-managed keys ensures the cloud provider cannot access plaintext data, providing the strongest protection for PHI. Default server-side encryption (B) means the provider holds the keys. Encrypting only in transit (C) leaves stored data exposed to insider threats or breaches at the provider.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-144/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-014"
+    difficulty: "easy"
+    tags: ["domain2", "data-handling", "sanitization"]
+    question: "Before donating old company laptops to a charity, what is the MINIMUM data sanitization method that should be used?"
+    choices:
+      - "A. Overwriting the entire disk with a secure erase utility"
+      - "B. Deleting files and emptying the recycle bin"
+      - "C. Formatting the hard drive with a quick format"
+      - "D. Removing the operating system and reinstalling a fresh copy"
+    answerIndex: 0
+    explanation: >-
+      Secure erase/overwriting ensures data cannot be recovered using standard forensic tools. Simply deleting files (B) or quick formatting (C) only removes file system references while the actual data remains recoverable. Reinstalling the OS (D) does not address previously written data sectors.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-88/rev-1/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-015"
+    difficulty: "medium"
+    tags: ["domain2", "data-states", "dlp"]
+    question: "A DLP solution is configured to monitor email attachments but employees are uploading sensitive files to personal cloud storage via web browsers. What additional DLP capability is needed?"
+    choices:
+      - "A. Endpoint DLP that monitors and controls file transfers at the workstation level"
+      - "B. Stronger email gateway rules"
+      - "C. Network DLP on the mail server only"
+      - "D. A policy reminder sent quarterly to all employees"
+    answerIndex: 0
+    explanation: >-
+      Endpoint DLP monitors all data egress points on the workstation including web uploads, USB transfers, and cloud sync clients. Strengthening email rules (B) or mail server DLP (C) only addresses email channels. Policy reminders (D) are a compensating awareness control but do not technically prevent unauthorized transfers.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-016"
+    difficulty: "hard"
+    tags: ["domain2", "privacy", "data-minimization"]
+    question: "A marketing team wants to collect customers' social security numbers during online registration for a loyalty program. As the security advisor, what principle should you emphasize?"
+    choices:
+      - "A. Data minimization — collect only what is necessary for the stated purpose"
+      - "B. Collect everything and restrict access through role-based controls"
+      - "C. Collect the SSNs but store them in a separate encrypted database"
+      - "D. Allow collection only if users explicitly consent"
+    answerIndex: 0
+    explanation: >-
+      Data minimization dictates that only data necessary for the specific purpose should be collected. SSNs are not needed for a loyalty program. While consent (D) is important, collecting unnecessary sensitive data creates risk regardless of consent. Encrypting unnecessary data (C) still creates a liability if breached.
+    refs:
+      - "https://gdpr.eu/article-5-how-to-process-personal-data/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-017"
+    difficulty: "medium"
+    tags: ["domain2", "asset-management", "scoping"]
+    question: "During an asset inventory, the security team discovers 200 unmanaged IoT devices on the corporate network. What is the FIRST priority?"
+    choices:
+      - "A. Identify and classify the devices, then segment them from critical network resources"
+      - "B. Immediately disconnect all 200 devices"
+      - "C. Install endpoint protection software on each IoT device"
+      - "D. Add them to the existing VLAN without further assessment"
+    answerIndex: 0
+    explanation: >-
+      Identification and classification are prerequisites to applying appropriate controls. Immediate disconnection (B) may disrupt legitimate business operations. Most IoT devices cannot run endpoint protection (C). Adding them to existing VLANs (D) without assessment could expose critical systems to unmanaged risk.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-183/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-018"
+    difficulty: "easy"
+    tags: ["domain2", "data-roles", "custodian"]
+    question: "What is the PRIMARY responsibility of a data custodian?"
+    choices:
+      - "A. Implementing and maintaining the technical controls that protect data"
+      - "B. Determining data classification levels"
+      - "C. Approving data access requests from business units"
+      - "D. Defining data retention policies"
+    answerIndex: 0
+    explanation: >-
+      Data custodians are responsible for the day-to-day technical protection of data, including backups, access control implementation, and encryption. Classification (B) and access approval (C) are data owner responsibilities. Retention policies (D) are set by management with legal input.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-18/rev-1/final"
+    author: "ThanhNguyxn"
+
+  # Domain 3: Security Architecture and Engineering (~10 questions)
+  - id: "cissp-expand-019"
+    difficulty: "medium"
+    tags: ["domain3", "security-models", "bell-lapadula"]
+    question: "The Bell-LaPadula model enforces which security property?"
+    choices:
+      - "A. Confidentiality — no read up, no write down"
+      - "B. Integrity — no write up, no read down"
+      - "C. Availability — ensuring systems remain operational"
+      - "D. Non-repudiation — proving the origin of data"
+    answerIndex: 0
+    explanation: >-
+      Bell-LaPadula focuses on confidentiality with 'no read up' (Simple Security Property) and 'no write down' (Star Property) rules. The Biba model (B) addresses integrity. Availability (C) and non-repudiation (D) are separate security objectives not addressed by Bell-LaPadula.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-020"
+    difficulty: "hard"
+    tags: ["domain3", "cryptography", "pki"]
+    question: "A certificate authority's root private key is compromised. What is the MOST critical immediate action?"
+    choices:
+      - "A. Revoke the root certificate and all subordinate certificates, then reissue from a new root"
+      - "B. Rotate only the certificates that are about to expire"
+      - "C. Notify affected users and wait for the certificates to expire naturally"
+      - "D. Issue a new CRL but keep the existing root certificate active"
+    answerIndex: 0
+    explanation: >-
+      A compromised root key means all certificates in the hierarchy are untrustworthy. Complete revocation and reissuance from a new root is required. Waiting for natural expiry (C) leaves all communications vulnerable. Issuing a CRL (D) while keeping the compromised root active provides no real security since the attacker can sign new certificates.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-57/part-1/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-021"
+    difficulty: "easy"
+    tags: ["domain3", "cryptography", "symmetric"]
+    question: "Which is a characteristic of symmetric encryption?"
+    choices:
+      - "A. The same key is used for both encryption and decryption"
+      - "B. Different keys are used for encryption and decryption"
+      - "C. It is primarily used for digital signatures"
+      - "D. It does not require key management"
+    answerIndex: 0
+    explanation: >-
+      Symmetric encryption uses a single shared key for both encryption and decryption, making it fast but requiring secure key distribution. Asymmetric encryption (B) uses key pairs. Digital signatures (C) typically use asymmetric cryptography. All encryption requires key management (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-175b/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-022"
+    difficulty: "medium"
+    tags: ["domain3", "secure-design", "defense-in-depth"]
+    question: "An architect proposes a single next-generation firewall as the sole security control for the data center perimeter. What is the PRIMARY concern?"
+    choices:
+      - "A. It creates a single point of failure with no defense in depth"
+      - "B. Next-generation firewalls are too expensive for data centers"
+      - "C. Firewalls cannot inspect encrypted traffic"
+      - "D. The firewall will slow down all network traffic"
+    answerIndex: 0
+    explanation: >-
+      Relying on a single control violates defense in depth. If that firewall is bypassed or misconfigured, there are no additional layers to detect or prevent threats. Cost (B) is not the primary security concern. Modern NGFWs can inspect encrypted traffic with TLS inspection (C). Performance impact (D) is a consideration but not the primary security issue.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-41/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-023"
+    difficulty: "hard"
+    tags: ["domain3", "cryptography", "hashing"]
+    question: "A developer stores user passwords using MD5 without salt. What is the PRIMARY vulnerability?"
+    choices:
+      - "A. Pre-computed rainbow table attacks can quickly reverse the hashes"
+      - "B. MD5 produces hashes that are too short to store"
+      - "C. MD5 encryption can be decrypted with the right key"
+      - "D. Unsalted MD5 hashes consume too much storage space"
+    answerIndex: 0
+    explanation: >-
+      MD5 without salt is vulnerable to rainbow table attacks where pre-computed hash-to-plaintext mappings enable rapid password recovery. MD5 is a hash function not encryption, so it cannot be 'decrypted' (C). The hash length (B) and storage (D) are not the primary security concerns — the lack of collision resistance and salting are.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-132/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-024"
+    difficulty: "medium"
+    tags: ["domain3", "security-models", "zero-trust"]
+    question: "Which principle is MOST central to a Zero Trust architecture?"
+    choices:
+      - "A. Never trust, always verify — authenticate and authorize every access request regardless of network location"
+      - "B. Trust internal users by default and verify external users"
+      - "C. Use VPN tunnels to extend the trusted network perimeter"
+      - "D. Implement firewalls at the network boundary only"
+    answerIndex: 0
+    explanation: >-
+      Zero Trust eliminates implicit trust based on network location. Every access request must be authenticated, authorized, and continuously validated. Trusting internal users (B) is the traditional perimeter model that Zero Trust replaces. VPNs (C) and boundary firewalls (D) are perimeter-based controls.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-207/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-025"
+    difficulty: "easy"
+    tags: ["domain3", "physical-security", "controls"]
+    question: "Which physical security control is classified as a DETERRENT?"
+    choices:
+      - "A. Security cameras in visible locations with warning signs"
+      - "B. A mantrap at the building entrance"
+      - "C. A motion-activated alarm system"
+      - "D. A backup power generator"
+    answerIndex: 0
+    explanation: >-
+      Visible cameras and warning signs deter potential intruders by making them aware they will be observed. A mantrap (B) is a preventive control. Alarms (C) are detective controls. Backup generators (D) are compensating/recovery controls for availability.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-116/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-026"
+    difficulty: "hard"
+    tags: ["domain3", "secure-design", "trusted-computing"]
+    question: "What is the PRIMARY function of a Trusted Platform Module (TPM) in endpoint security?"
+    choices:
+      - "A. Provide hardware-based secure storage for cryptographic keys and platform integrity measurements"
+      - "B. Serve as a hardware firewall for network traffic filtering"
+      - "C. Replace software-based antivirus with hardware-based malware detection"
+      - "D. Encrypt all network communications automatically"
+    answerIndex: 0
+    explanation: >-
+      A TPM is a hardware security module that securely stores cryptographic keys, certificates, and platform configuration registers (PCRs) for integrity measurement. It does not filter network traffic (B), replace antivirus (C), or automatically encrypt network communications (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-155/draft"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-027"
+    difficulty: "medium"
+    tags: ["domain3", "site-planning", "facility"]
+    question: "When selecting a site for a new data center, which factor is MOST important from a security perspective?"
+    choices:
+      - "A. Proximity to natural hazards, crime rates, and utility redundancy"
+      - "B. Proximity to the CEO's office for convenience"
+      - "C. Having the largest possible parking lot"
+      - "D. Being located in the most expensive real estate area"
+    answerIndex: 0
+    explanation: >-
+      Site selection must consider natural disaster risk (flood zones, earthquake faults), local crime statistics, and availability of redundant utilities (power, connectivity). Executive convenience (B), parking (C), and real estate cost (D) are not primary security considerations.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-028"
+    difficulty: "hard"
+    tags: ["domain3", "cryptography", "key-management"]
+    question: "An organization uses AES-256 for data encryption. The encryption keys are stored in plaintext on the same server as the encrypted data. What is the PRIMARY risk?"
+    choices:
+      - "A. An attacker who compromises the server gains access to both encrypted data and the decryption keys"
+      - "B. AES-256 is too slow for the server hardware"
+      - "C. The keys will expire and data will become permanently inaccessible"
+      - "D. AES-256 has known vulnerabilities that make key storage irrelevant"
+    answerIndex: 0
+    explanation: >-
+      Storing encryption keys alongside encrypted data eliminates the protection encryption provides. If the server is compromised, the attacker has everything needed to decrypt the data. AES-256 is computationally efficient (B) and has no known practical vulnerabilities (D). Key expiration (C) is a management issue, not the primary risk here.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-57/part-1/rev-5/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  # Domain 4: Communication and Network Security (~10 questions)
+  - id: "cissp-expand-029"
+    difficulty: "easy"
+    tags: ["domain4", "network", "osi-model"]
+    question: "At which OSI layer do routers primarily operate?"
+    choices:
+      - "A. Layer 3 — Network"
+      - "B. Layer 2 — Data Link"
+      - "C. Layer 4 — Transport"
+      - "D. Layer 7 — Application"
+    answerIndex: 0
+    explanation: >-
+      Routers operate at Layer 3 (Network) of the OSI model, making forwarding decisions based on IP addresses. Switches operate at Layer 2 (B). Transport layer (C) deals with TCP/UDP segments. Application layer (D) handles protocols like HTTP and SMTP.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-030"
+    difficulty: "medium"
+    tags: ["domain4", "network-attacks", "mitm"]
+    question: "An attacker on the same network segment sends forged ARP replies to associate their MAC address with the default gateway's IP. What attack is this?"
+    choices:
+      - "A. ARP spoofing / ARP poisoning"
+      - "B. DNS cache poisoning"
+      - "C. SYN flood attack"
+      - "D. VLAN hopping"
+    answerIndex: 0
+    explanation: >-
+      ARP spoofing sends fake ARP messages to link the attacker's MAC address with a legitimate IP, enabling man-in-the-middle interception. DNS poisoning (B) corrupts DNS cache entries. SYN flooding (C) is a DoS attack. VLAN hopping (D) exploits trunk port configurations to access other VLANs.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-54/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-031"
+    difficulty: "hard"
+    tags: ["domain4", "network-security", "tls"]
+    question: "During a TLS 1.3 handshake, which improvement over TLS 1.2 MOST significantly reduces connection establishment time?"
+    choices:
+      - "A. 1-RTT handshake (and 0-RTT for resumed sessions) by combining key exchange and parameters in fewer messages"
+      - "B. Using longer encryption keys by default"
+      - "C. Requiring client certificates for all connections"
+      - "D. Removing support for all cipher suites except AES"
+    answerIndex: 0
+    explanation: >-
+      TLS 1.3 reduces the handshake to one round trip (1-RTT) and supports 0-RTT for session resumption, significantly improving performance. TLS 1.2 requires 2-RTT. Key length (B) affects security, not speed. Client certificates (C) are optional. TLS 1.3 removes weak ciphers but still supports multiple strong suites (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://www.rfc-editor.org/rfc/rfc8446"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-032"
+    difficulty: "medium"
+    tags: ["domain4", "network-security", "vpn"]
+    question: "What is the PRIMARY difference between a site-to-site VPN and a remote access VPN?"
+    choices:
+      - "A. Site-to-site connects entire networks together, while remote access connects individual users to a network"
+      - "B. Site-to-site uses encryption but remote access does not"
+      - "C. Remote access VPNs are always faster than site-to-site"
+      - "D. Site-to-site VPNs cannot traverse the internet"
+    answerIndex: 0
+    explanation: >-
+      Site-to-site VPNs establish encrypted tunnels between network gateways, connecting entire networks. Remote access VPNs connect individual endpoints (laptops, phones) to a corporate network. Both use encryption (B). Performance depends on configuration, not type (C). Both commonly traverse the internet (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-77/rev-1/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-033"
+    difficulty: "easy"
+    tags: ["domain4", "network", "dns"]
+    question: "What is the PRIMARY purpose of DNSSEC?"
+    choices:
+      - "A. To authenticate DNS responses and ensure they have not been tampered with"
+      - "B. To encrypt all DNS queries and responses"
+      - "C. To speed up DNS resolution times"
+      - "D. To replace DNS with a more modern protocol"
+    answerIndex: 0
+    explanation: >-
+      DNSSEC adds digital signatures to DNS records, allowing resolvers to verify that responses are authentic and unmodified. DNSSEC does not encrypt queries (B) — DNS over HTTPS (DoH) or DNS over TLS (DoT) provide encryption. It does not improve speed (C) and is an extension to DNS, not a replacement (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-81/rev-2/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-034"
+    difficulty: "hard"
+    tags: ["domain4", "network-security", "microsegmentation"]
+    question: "An organization implements microsegmentation in their data center. What is the PRIMARY security benefit?"
+    choices:
+      - "A. Limiting lateral movement by enforcing granular access policies between individual workloads"
+      - "B. Eliminating the need for network firewalls entirely"
+      - "C. Improving network bandwidth by reducing broadcast traffic"
+      - "D. Simplifying network management by reducing the number of VLANs"
+    answerIndex: 0
+    explanation: >-
+      Microsegmentation creates fine-grained security zones around individual workloads or applications, preventing attackers from moving laterally after initial compromise. Firewalls (B) are still needed for perimeter and macro-level controls. Bandwidth improvement (C) is a side effect, not the primary purpose. Microsegmentation often increases complexity (D), not simplicity.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-207/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-035"
+    difficulty: "medium"
+    tags: ["domain4", "wireless", "security"]
+    question: "Which wireless security protocol provides the STRONGEST protection for enterprise Wi-Fi networks?"
+    choices:
+      - "A. WPA3-Enterprise with 192-bit security mode"
+      - "B. WPA2-Personal with a strong passphrase"
+      - "C. WEP with 128-bit key"
+      - "D. Open network with a captive portal"
+    answerIndex: 0
+    explanation: >-
+      WPA3-Enterprise with 192-bit mode provides the strongest wireless security using CNSA-approved algorithms and individualized data encryption. WPA2-Personal (B) uses a shared key vulnerable to offline attacks. WEP (C) has been broken for years. Open networks (D) provide no encryption regardless of captive portal use.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://www.wi-fi.org/discover-wi-fi/security"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-036"
+    difficulty: "easy"
+    tags: ["domain4", "network", "protocols"]
+    question: "Which protocol provides reliable, connection-oriented data delivery at the transport layer?"
+    choices:
+      - "A. TCP (Transmission Control Protocol)"
+      - "B. UDP (User Datagram Protocol)"
+      - "C. ICMP (Internet Control Message Protocol)"
+      - "D. ARP (Address Resolution Protocol)"
+    answerIndex: 0
+    explanation: >-
+      TCP provides reliable, ordered, connection-oriented delivery with error checking and retransmission. UDP (B) is connectionless and does not guarantee delivery. ICMP (C) is used for diagnostics and error reporting at the network layer. ARP (D) resolves IP addresses to MAC addresses at the data link layer.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-037"
+    difficulty: "hard"
+    tags: ["domain4", "network-security", "ids-ips"]
+    question: "A network IDS generates excessive false positives, causing analysts to ignore alerts. What is this phenomenon called, and what is the BEST remediation?"
+    choices:
+      - "A. Alert fatigue — tune detection rules, create baselines, and implement alert prioritization"
+      - "B. False negative overload — increase the sensitivity of all detection rules"
+      - "C. Signature staleness — update signatures and increase logging verbosity"
+      - "D. Analyst burnout — hire more SOC analysts to review all alerts"
+    answerIndex: 0
+    explanation: >-
+      Excessive false positives cause alert fatigue where analysts become desensitized and miss real threats. The solution is tuning rules to the environment, establishing baselines, and prioritizing alerts by risk. Increasing sensitivity (B) would worsen the problem. Adding analysts (D) addresses staffing but not the root cause of poor signal-to-noise ratio.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-94/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-038"
+    difficulty: "medium"
+    tags: ["domain4", "network", "email-security"]
+    question: "Which combination of email security protocols BEST prevents spoofing and ensures message integrity?"
+    choices:
+      - "A. SPF, DKIM, and DMARC working together"
+      - "B. TLS encryption on the mail server only"
+      - "C. S/MIME for all internal emails"
+      - "D. POP3 with SSL/TLS"
+    answerIndex: 0
+    explanation: >-
+      SPF validates sending servers, DKIM provides cryptographic message signing, and DMARC enforces alignment policies between the two. Together they provide comprehensive anti-spoofing protection. TLS (B) encrypts transport but doesn't prevent spoofing. S/MIME (C) provides end-to-end encryption and signing but is not typically deployed organization-wide. POP3S (D) secures mailbox access but not message authenticity.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-177/rev-1/final"
+    author: "ThanhNguyxn"
+
+  # Domain 5: Identity and Access Management (~8 questions)
+  - id: "cissp-expand-039"
+    difficulty: "easy"
+    tags: ["domain5", "iam", "authentication"]
+    question: "Which authentication factor category does a fingerprint scan belong to?"
+    choices:
+      - "A. Something you are (biometric)"
+      - "B. Something you have (possession)"
+      - "C. Something you know (knowledge)"
+      - "D. Somewhere you are (location)"
+    answerIndex: 0
+    explanation: >-
+      Fingerprint scans are biometric authentication, categorized as 'something you are.' Smart cards and tokens (B) are 'something you have.' Passwords and PINs (C) are 'something you know.' GPS-based authentication (D) is 'somewhere you are.'
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-63/3/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-040"
+    difficulty: "medium"
+    tags: ["domain5", "iam", "access-control-models"]
+    question: "A hospital needs to ensure that doctors can only access patient records in their own department during their scheduled shifts. Which access control model BEST supports this?"
+    choices:
+      - "A. Attribute-based access control (ABAC) using department, role, and time attributes"
+      - "B. Discretionary access control (DAC) where each doctor sets their own permissions"
+      - "C. Mandatory access control (MAC) with security labels"
+      - "D. Role-based access control (RBAC) with static role assignments"
+    answerIndex: 0
+    explanation: >-
+      ABAC evaluates multiple attributes (department, role, time of day) dynamically to make access decisions. DAC (B) allows users to control access to their own resources, which is inappropriate for regulated health data. MAC (C) uses fixed security labels. Static RBAC (D) cannot enforce time-based constraints without additional policy layers.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-162/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-041"
+    difficulty: "hard"
+    tags: ["domain5", "iam", "federation"]
+    question: "An organization implements SAML-based SSO with a cloud provider. The cloud provider acts as the Service Provider (SP). Where does the user authenticate?"
+    choices:
+      - "A. At the organization's Identity Provider (IdP)"
+      - "B. At the cloud provider's login page"
+      - "C. At a shared authentication server managed by both parties"
+      - "D. Authentication is not needed with SAML federation"
+    answerIndex: 0
+    explanation: >-
+      In SAML federation, the Identity Provider (IdP) authenticates users and issues assertions to the Service Provider (SP). The SP relies on the IdP's assertion rather than authenticating users directly. There is no shared authentication server (C). SAML still requires authentication — it just centralizes where it happens (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-63c/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-042"
+    difficulty: "medium"
+    tags: ["domain5", "iam", "privileged-access"]
+    question: "What is the PRIMARY purpose of a Privileged Access Management (PAM) solution?"
+    choices:
+      - "A. Control, monitor, and audit the use of privileged accounts and credentials"
+      - "B. Provide password reset capabilities for all users"
+      - "C. Replace multi-factor authentication for administrators"
+      - "D. Manage employee onboarding and offboarding workflows"
+    answerIndex: 0
+    explanation: >-
+      PAM solutions secure privileged credentials in vaults, enforce just-in-time access, record sessions, and provide audit trails for administrative actions. Password resets (B) are a help desk function. PAM complements MFA rather than replacing it (C). Onboarding/offboarding (D) is handled by identity governance solutions.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-043"
+    difficulty: "easy"
+    tags: ["domain5", "iam", "accountability"]
+    question: "Which practice BEST ensures individual accountability for actions taken on a shared system?"
+    choices:
+      - "A. Assigning unique user accounts with individual credentials to each person"
+      - "B. Using a single shared admin account with a strong password"
+      - "C. Implementing role-based access without individual logins"
+      - "D. Allowing anonymous access with activity logging"
+    answerIndex: 0
+    explanation: >-
+      Individual accountability requires unique, identifiable user accounts so that every action can be traced to a specific person. Shared accounts (B) prevent attribution of specific actions. Role-based access without individual logins (C) and anonymous access (D) both undermine accountability.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-044"
+    difficulty: "hard"
+    tags: ["domain5", "iam", "kerberos"]
+    question: "In a Kerberos authentication environment, what does the Ticket Granting Ticket (TGT) allow a user to do?"
+    choices:
+      - "A. Request service tickets from the Ticket Granting Service without re-entering credentials"
+      - "B. Directly access any service on the network without additional tickets"
+      - "C. Bypass the Key Distribution Center for faster authentication"
+      - "D. Encrypt all network traffic between the client and server"
+    answerIndex: 0
+    explanation: >-
+      The TGT is obtained after initial authentication and allows the user to request service-specific tickets from the TGS without re-authenticating. The TGT does not grant direct access to services (B) — a service ticket is still needed. The KDC cannot be bypassed (C). Kerberos authenticates users but does not encrypt all traffic (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-045"
+    difficulty: "medium"
+    tags: ["domain5", "iam", "mfa"]
+    question: "A user logs in with a password and then receives a push notification on their registered smartphone to approve. How many authentication factors are used?"
+    choices:
+      - "A. Two factors — something you know (password) and something you have (smartphone)"
+      - "B. One factor — only the password matters"
+      - "C. Three factors — password, phone, and push notification"
+      - "D. Two factors — something you know and something you are"
+    answerIndex: 0
+    explanation: >-
+      The password is 'something you know' and the smartphone receiving the push notification is 'something you have,' making this two-factor authentication. The push notification is the mechanism for the possession factor, not a separate factor. Biometrics (D) would require a fingerprint or face scan, which is not described here.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-63b/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-046"
+    difficulty: "easy"
+    tags: ["domain5", "iam", "authorization"]
+    question: "What is the principle of least privilege?"
+    choices:
+      - "A. Users should be granted only the minimum permissions necessary to perform their job functions"
+      - "B. Users should have administrator access to troubleshoot their own issues"
+      - "C. All users should have equal access to prevent discrimination"
+      - "D. Permissions should be granted permanently to avoid repeated access requests"
+    answerIndex: 0
+    explanation: >-
+      Least privilege limits user permissions to the absolute minimum needed for their role, reducing the blast radius of compromised accounts. Admin access for troubleshooting (B) violates least privilege. Equal access (C) ignores separation of duties and need-to-know. Permanent grants (D) prevent timely revocation when roles change.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  # Domain 6: Security Assessment and Testing (~8 questions)
+  - id: "cissp-expand-047"
+    difficulty: "medium"
+    tags: ["domain6", "assessment", "vulnerability-scanning"]
+    question: "A vulnerability scan reports a critical CVE on a production server, but the security team confirms the vulnerable software version is not actually installed. What type of result is this?"
+    choices:
+      - "A. False positive"
+      - "B. False negative"
+      - "C. True positive"
+      - "D. True negative"
+    answerIndex: 0
+    explanation: >-
+      A false positive occurs when a scanner incorrectly identifies a vulnerability that does not actually exist. A false negative (B) is when a real vulnerability is missed. A true positive (C) correctly identifies a real vulnerability. A true negative (D) correctly reports no vulnerability.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-115/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-048"
+    difficulty: "hard"
+    tags: ["domain6", "assessment", "penetration-testing"]
+    question: "During a penetration test, the tester gains initial access and then moves from a workstation to a domain controller by exploiting trust relationships. What technique is this?"
+    choices:
+      - "A. Lateral movement / pivoting"
+      - "B. Social engineering"
+      - "C. Denial of service"
+      - "D. Passive reconnaissance"
+    answerIndex: 0
+    explanation: >-
+      Lateral movement involves using initial access to traverse the network and reach higher-value targets like domain controllers. Social engineering (B) targets humans, not systems. DoS (C) disrupts availability rather than gaining access. Passive reconnaissance (D) is information gathering without direct interaction.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://attack.mitre.org/tactics/TA0008/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-049"
+    difficulty: "easy"
+    tags: ["domain6", "assessment", "audit"]
+    question: "What is the PRIMARY purpose of a SOC 2 Type II report?"
+    choices:
+      - "A. To evaluate the operating effectiveness of controls over a specified period of time"
+      - "B. To certify that an organization is compliant with all regulations"
+      - "C. To test for specific technical vulnerabilities in software"
+      - "D. To evaluate controls at a single point in time only"
+    answerIndex: 0
+    explanation: >-
+      SOC 2 Type II evaluates the design and operating effectiveness of controls over a period (typically 6-12 months). Type I (D) evaluates at a point in time. SOC reports provide assurance but are not compliance certifications (B). Vulnerability testing (C) is a separate activity.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://www.aicpa.org/topic/audit-assurance/audit-and-assurance-greater-than-soc-2"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-050"
+    difficulty: "medium"
+    tags: ["domain6", "testing", "code-review"]
+    question: "Which software testing approach examines source code without executing the program?"
+    choices:
+      - "A. Static Application Security Testing (SAST)"
+      - "B. Dynamic Application Security Testing (DAST)"
+      - "C. Penetration testing"
+      - "D. Fuzz testing"
+    answerIndex: 0
+    explanation: >-
+      SAST analyzes source code, bytecode, or binary code without execution, finding vulnerabilities like SQL injection patterns and buffer overflows. DAST (B) tests running applications. Penetration testing (C) tests deployed systems. Fuzz testing (D) sends random inputs to running applications.
+    refs:
+      - "https://owasp.org/www-community/Source_Code_Analysis_Tools"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-051"
+    difficulty: "hard"
+    tags: ["domain6", "assessment", "metrics"]
+    question: "An organization measures its Mean Time to Detect (MTTD) at 200 days. What does this metric indicate and what should be the priority?"
+    choices:
+      - "A. Threats take an average of 200 days to discover — improving detection capabilities is critical"
+      - "B. The organization resolves incidents in 200 days on average"
+      - "C. Systems are unavailable for 200 days per year"
+      - "D. Patches are applied within 200 days of release"
+    answerIndex: 0
+    explanation: >-
+      MTTD measures the average time between a threat occurring and its detection. 200 days is extremely high, indicating poor detection capabilities. Mean Time to Respond (B) measures resolution time. System availability (C) is measured by uptime/downtime metrics. Patch cadence (D) is a separate vulnerability management metric.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-052"
+    difficulty: "medium"
+    tags: ["domain6", "testing", "coverage"]
+    question: "A security team performs vulnerability scans quarterly but only on internet-facing systems. What is the MOST significant gap in their assessment program?"
+    choices:
+      - "A. Internal systems and lateral movement paths are not assessed"
+      - "B. Quarterly scanning is too frequent for most organizations"
+      - "C. Internet-facing systems do not need scanning since they have firewalls"
+      - "D. Vulnerability scanning provides too many results to be useful"
+    answerIndex: 0
+    explanation: >-
+      Only scanning internet-facing systems ignores internal threats, insider risks, and lateral movement paths that attackers use after initial compromise. Quarterly scanning (B) is often considered the minimum, not too frequent. Firewalls (C) do not eliminate the need for scanning. Scan results (D) are manageable with proper prioritization.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-115/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-053"
+    difficulty: "easy"
+    tags: ["domain6", "assessment", "log-review"]
+    question: "What is the PRIMARY purpose of reviewing system logs as part of security assessment?"
+    choices:
+      - "A. To detect anomalies, policy violations, and indicators of compromise"
+      - "B. To measure application performance and response times"
+      - "C. To verify that backups completed successfully"
+      - "D. To generate compliance reports for auditors only"
+    answerIndex: 0
+    explanation: >-
+      Security log review identifies anomalous behavior, unauthorized access attempts, policy violations, and signs of active compromise. Performance monitoring (B) and backup verification (C) are operational functions. While logs support compliance (D), their primary security purpose is threat detection and investigation.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-92/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-054"
+    difficulty: "hard"
+    tags: ["domain6", "assessment", "bug-bounty"]
+    question: "An organization launches a public bug bounty program. What is the MOST important prerequisite?"
+    choices:
+      - "A. Having a mature vulnerability management process to triage, prioritize, and remediate reported findings efficiently"
+      - "B. Ensuring all systems are fully patched before the program starts"
+      - "C. Limiting the program to internal employees only"
+      - "D. Offering the highest bounties in the industry to attract researchers"
+    answerIndex: 0
+    explanation: >-
+      A bug bounty program generates findings that must be triaged and remediated. Without a mature vulnerability management process, reports pile up and researchers lose trust. Systems can never be 'fully patched' (B). Internal-only programs (C) are not public bug bounties. Bounty amounts (D) matter less than organizational readiness to act on findings.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  # Domain 7: Security Operations (~8 questions)
+  - id: "cissp-expand-055"
+    difficulty: "easy"
+    tags: ["domain7", "operations", "incident-response"]
+    question: "What is the correct order of the NIST incident response lifecycle phases?"
+    choices:
+      - "A. Preparation → Detection & Analysis → Containment, Eradication & Recovery → Post-Incident Activity"
+      - "B. Detection → Containment → Preparation → Recovery"
+      - "C. Eradication → Detection → Recovery → Preparation"
+      - "D. Containment → Analysis → Preparation → Post-Incident Activity"
+    answerIndex: 0
+    explanation: >-
+      NIST SP 800-61 defines four phases: Preparation, Detection & Analysis, Containment/Eradication/Recovery, and Post-Incident Activity (lessons learned). Preparation always comes first to establish capabilities. Detection must precede containment. Post-incident review comes last.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-056"
+    difficulty: "medium"
+    tags: ["domain7", "operations", "forensics"]
+    question: "An investigator needs to collect evidence from a running server suspected of compromise. In what order should volatile evidence be collected?"
+    choices:
+      - "A. Memory (RAM) first, then network connections, running processes, and finally disk"
+      - "B. Disk first, then memory, since disk data is more important"
+      - "C. Network logs first, then shut down the server and image the disk"
+      - "D. Take a screenshot and then reboot the server to collect clean-state data"
+    answerIndex: 0
+    explanation: >-
+      The order of volatility dictates collecting the most volatile evidence first. RAM contents disappear when power is lost, so memory must be captured before anything else. Network state and running processes are also volatile. Disk data (B) is non-volatile and should be collected last. Rebooting (D) destroys volatile evidence.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-86/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-057"
+    difficulty: "hard"
+    tags: ["domain7", "operations", "disaster-recovery"]
+    question: "An organization maintains a warm site for disaster recovery. A catastrophic event destroys the primary data center. What should the team expect regarding recovery at the warm site?"
+    choices:
+      - "A. The warm site has hardware and connectivity but requires data restoration and system configuration before becoming operational"
+      - "B. The warm site is immediately operational with current data and applications"
+      - "C. The warm site only provides office space and desks, with no IT equipment"
+      - "D. The warm site requires 6+ months to procure and set up equipment"
+    answerIndex: 0
+    explanation: >-
+      A warm site has pre-installed hardware and network connectivity but typically needs current data to be restored from backups and systems to be configured. A hot site (B) is immediately operational. A cold site (C) has basic facilities but no equipment. Equipment procurement delays (D) describe a cold site scenario.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-058"
+    difficulty: "medium"
+    tags: ["domain7", "operations", "change-management"]
+    question: "A developer pushes an urgent patch to production without following the change management process, and it causes a service outage. What type of change was this?"
+    choices:
+      - "A. An unauthorized change that bypassed required approvals and testing"
+      - "B. A standard change with pre-approved procedures"
+      - "C. An emergency change with proper authorization"
+      - "D. A routine maintenance window change"
+    answerIndex: 0
+    explanation: >-
+      A change deployed without following the change management process, regardless of urgency, is unauthorized. Even emergency changes (C) require expedited approval through defined procedures. Standard changes (B) have pre-approved, low-risk procedures. Routine maintenance (D) follows scheduled processes.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-059"
+    difficulty: "easy"
+    tags: ["domain7", "operations", "patch-management"]
+    question: "What is the FIRST step in an effective patch management process?"
+    choices:
+      - "A. Inventory all systems and identify which need patching"
+      - "B. Apply all available patches immediately to all systems"
+      - "C. Wait for vendors to automatically push patches"
+      - "D. Test patches in production to see if they cause issues"
+    answerIndex: 0
+    explanation: >-
+      Effective patch management starts with a complete asset inventory to identify what needs patching. Applying all patches immediately (B) without testing risks service disruption. Waiting for automatic updates (C) is passive and unreliable. Testing in production (D) risks outages — patches should be tested in a staging environment first.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-40/rev-4/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-060"
+    difficulty: "hard"
+    tags: ["domain7", "operations", "siem"]
+    question: "An organization's SIEM correlates events from firewalls, IDS, and endpoint agents. What BEST describes the value of this correlation?"
+    choices:
+      - "A. Combining events from multiple sources reveals attack patterns that individual sources cannot detect alone"
+      - "B. SIEM eliminates the need for individual security tools"
+      - "C. Correlation reduces the total number of log events stored"
+      - "D. SIEM replaces the need for human security analysts"
+    answerIndex: 0
+    explanation: >-
+      SIEM correlation connects related events across sources to detect complex attack chains. A firewall block + IDS alert + endpoint file modification together tell a story that no single source reveals. SIEM does not replace individual tools (B) or analysts (D). Correlation adds context but does not reduce stored events (C).
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-92/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-061"
+    difficulty: "medium"
+    tags: ["domain7", "operations", "backup"]
+    question: "An organization performs a full backup on Sunday, and incremental backups Monday through Saturday. On Thursday, the system fails. How many backup sets are needed for full restoration?"
+    choices:
+      - "A. Four — Sunday's full backup plus Monday, Tuesday, and Wednesday incrementals"
+      - "B. One — only Sunday's full backup"
+      - "C. Two — Sunday's full and Wednesday's incremental only"
+      - "D. Seven — all backups for the entire week"
+    answerIndex: 0
+    explanation: >-
+      Incremental backups capture only changes since the last backup. To restore, you need the last full backup (Sunday) plus all subsequent incrementals (Monday, Tuesday, Wednesday). Differential backups would only need the last full plus the most recent differential (C), but incrementals require all in sequence.
+    refs:
+      - "https://csrc.nist.gov/publications/detail/sp/800-34/rev-1/final"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-062"
+    difficulty: "easy"
+    tags: ["domain7", "operations", "separation-of-duties"]
+    question: "Why should the person who requests a new user account NOT be the same person who approves and creates it?"
+    choices:
+      - "A. Separation of duties prevents any single individual from having unchecked control over a critical process"
+      - "B. It ensures faster account creation through parallelism"
+      - "C. It is required only by HIPAA and no other regulation"
+      - "D. It reduces the number of accounts that need to be created"
+    answerIndex: 0
+    explanation: >-
+      Separation of duties ensures no single person can initiate and complete a critical action, reducing the risk of fraud, errors, and abuse. It does not necessarily speed up processes (B). It is a general security principle in many frameworks, not just HIPAA (C). It does not reduce account volume (D).
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final"
+    author: "ThanhNguyxn"
+
+  # Domain 8: Software Development Security (~8 questions)
+  - id: "cissp-expand-063"
+    difficulty: "medium"
+    tags: ["domain8", "sdlc", "secure-coding"]
+    question: "A web application directly concatenates user input into SQL queries. What vulnerability does this create?"
+    choices:
+      - "A. SQL injection"
+      - "B. Cross-site scripting (XSS)"
+      - "C. Cross-site request forgery (CSRF)"
+      - "D. Buffer overflow"
+    answerIndex: 0
+    explanation: >-
+      Directly concatenating user input into SQL queries allows attackers to inject malicious SQL commands. XSS (B) involves injecting scripts into web pages. CSRF (C) tricks authenticated users into making unintended requests. Buffer overflows (D) occur when data exceeds allocated memory bounds.
+    refs:
+      - "https://owasp.org/www-community/attacks/SQL_Injection"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-064"
+    difficulty: "hard"
+    tags: ["domain8", "sdlc", "threat-modeling"]
+    question: "A development team uses STRIDE to perform threat modeling on a new microservices application. Which threat category addresses the risk of a user denying they performed a transaction?"
+    choices:
+      - "A. Repudiation"
+      - "B. Spoofing"
+      - "C. Tampering"
+      - "D. Information Disclosure"
+    answerIndex: 0
+    explanation: >-
+      In STRIDE, Repudiation is the threat of a user denying they performed an action, countered by logging and digital signatures. Spoofing (B) involves impersonating another entity. Tampering (C) is unauthorized modification of data. Information Disclosure (D) is unauthorized access to data.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://owasp.org/www-community/Threat_Modeling"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-065"
+    difficulty: "easy"
+    tags: ["domain8", "sdlc", "testing"]
+    question: "A tester is given the application's source code and full documentation before testing. What type of testing is this?"
+    choices:
+      - "A. White-box testing (full knowledge)"
+      - "B. Black-box testing (zero knowledge)"
+      - "C. Gray-box testing (partial knowledge)"
+      - "D. Regression testing"
+    answerIndex: 0
+    explanation: >-
+      White-box testing provides the tester with complete access to source code, architecture, and documentation. Black-box (B) provides no internal knowledge. Gray-box (C) provides partial information. Regression testing (D) verifies that changes have not broken existing functionality, regardless of knowledge level.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-115/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-066"
+    difficulty: "medium"
+    tags: ["domain8", "sdlc", "api-security"]
+    question: "A REST API returns detailed error messages including stack traces and database schema information in production. What security principle does this violate?"
+    choices:
+      - "A. Fail securely — errors should not reveal internal implementation details"
+      - "B. Defense in depth — multiple layers of API gateways are needed"
+      - "C. Least privilege — the API has too many permissions"
+      - "D. Separation of duties — developers should not deploy to production"
+    answerIndex: 0
+    explanation: >-
+      Detailed error messages in production reveal internal architecture, enabling reconnaissance for targeted attacks. Applications should fail securely by returning generic error messages to users while logging details internally. This is an information disclosure issue, not a privilege (C) or deployment process (D) problem.
+    refs:
+      - "https://owasp.org/www-project-web-security-testing-guide/"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-067"
+    difficulty: "hard"
+    tags: ["domain8", "sdlc", "supply-chain"]
+    question: "A software company discovers that a widely-used open-source library included in their product has a known backdoor. What supply chain security practice would have BEST mitigated this risk?"
+    choices:
+      - "A. Software composition analysis (SCA) with continuous monitoring of dependencies for known vulnerabilities"
+      - "B. Only using proprietary software with no open-source components"
+      - "C. Trusting all packages from major package registries without verification"
+      - "D. Manually reviewing every line of code in all open-source dependencies"
+    answerIndex: 0
+    explanation: >-
+      SCA tools automatically inventory dependencies and cross-reference them against vulnerability databases, providing continuous monitoring. Avoiding all open source (B) is impractical and does not eliminate supply chain risk from proprietary vendors. Blind trust (C) is the opposite of secure supply chain practice. Manual review of all code (D) is impractical at scale.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-218/final"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-068"
+    difficulty: "medium"
+    tags: ["domain8", "database-security", "injection"]
+    question: "What is the MOST effective defense against SQL injection attacks?"
+    choices:
+      - "A. Use parameterized queries (prepared statements) for all database interactions"
+      - "B. Validate input by checking for SQL keywords and blocking them"
+      - "C. Use stored procedures without parameterization"
+      - "D. Implement a web application firewall as the sole defense"
+    answerIndex: 0
+    explanation: >-
+      Parameterized queries separate SQL logic from user input, making injection structurally impossible. Keyword filtering (B) can be bypassed with encoding and alternative syntax. Unparameterized stored procedures (C) can still be vulnerable. WAFs (D) provide a defense layer but should not be the sole protection.
+    refs:
+      - "https://owasp.org/www-community/attacks/SQL_Injection"
+      - "https://www.isc2.org/certifications/cissp"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-069"
+    difficulty: "easy"
+    tags: ["domain8", "sdlc", "maturity"]
+    question: "In the Capability Maturity Model Integration (CMMI), at which level are processes documented, standardized, and integrated across the organization?"
+    choices:
+      - "A. Level 3 — Defined"
+      - "B. Level 1 — Initial"
+      - "C. Level 2 — Managed"
+      - "D. Level 5 — Optimizing"
+    answerIndex: 0
+    explanation: >-
+      CMMI Level 3 (Defined) means processes are documented, standardized, and consistent across the organization. Level 1 (B) is ad hoc and unpredictable. Level 2 (C) has managed processes at the project level but not standardized. Level 5 (D) focuses on continuous process optimization.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://cmmiinstitute.com/"
+    author: "ThanhNguyxn"
+
+  - id: "cissp-expand-070"
+    difficulty: "hard"
+    tags: ["domain8", "sdlc", "ai-security"]
+    question: "A company deploys a machine learning model that makes loan approval decisions. An adversary subtly modifies training data to bias the model against certain demographics. What type of attack is this?"
+    choices:
+      - "A. Data poisoning attack"
+      - "B. Model inversion attack"
+      - "C. Denial of service attack"
+      - "D. Brute force attack"
+    answerIndex: 0
+    explanation: >-
+      Data poisoning involves manipulating training data to corrupt the model's behavior, introducing biased or incorrect outputs. Model inversion (B) extracts sensitive training data from a deployed model. DoS (C) disrupts availability. Brute force (D) systematically tries all possible inputs to find valid credentials or keys.
+    refs:
+      - "https://www.isc2.org/certifications/cissp"
+      - "https://csrc.nist.gov/publications/detail/sp/800-218/final"
+    author: "ThanhNguyxn"
