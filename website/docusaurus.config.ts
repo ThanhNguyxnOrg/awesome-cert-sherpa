@@ -1,4 +1,4 @@
-import {themes as prismThemes} from 'prism-react-renderer';
+﻿import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import yamlLoaderPlugin from './plugins/yaml-loader-plugin';
@@ -34,7 +34,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/ThanhNguyxn/awesome-cert-sherpa/tree/main/website/',
+            'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/tree/main/website/',
         },
         blog: {
           showReadingTime: true,
@@ -43,7 +43,7 @@ const config: Config = {
             xslt: true,
           },
           editUrl:
-            'https://github.com/ThanhNguyxn/awesome-cert-sherpa/tree/main/website/',
+            'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/tree/main/website/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -77,7 +77,7 @@ const config: Config = {
         {to: '/practice', label: 'Practice', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa',
+          href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa',
           label: 'GitHub',
           position: 'right',
         },
@@ -133,15 +133,15 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa',
+              href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa',
             },
             {
               label: 'Discussions',
-              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/discussions',
+              href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/discussions',
             },
             {
               label: 'Contributing',
-              href: 'https://github.com/ThanhNguyxn/awesome-cert-sherpa/blob/main/CONTRIBUTING.md',
+              href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/blob/main/CONTRIBUTING.md',
             },
           ],
         },

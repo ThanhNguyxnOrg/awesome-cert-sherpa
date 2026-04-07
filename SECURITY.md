@@ -1,4 +1,4 @@
-# Security Policy
+﻿# Security Policy
 
 ## 🔐 Reporting a Vulnerability
 
@@ -8,7 +8,7 @@ If you discover a vulnerability, report it responsibly.
 
 Use GitHub Security Advisories:
 
-- [Report a vulnerability privately](https://github.com/ThanhNguyxn/awesome-cert-sherpa/security/advisories/new)
+- [Report a vulnerability privately](https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/security/advisories/new)
 
 ## 🧾 What to Include
 
@@ -31,4 +31,4 @@ This policy covers:
 - Scripts/tools in this repository
 - GitHub Actions workflows and CI/CD pipelines
 
-For content-only issues (for example a malicious external link), open a regular [GitHub issue](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues).
+For content-only issues (for example a malicious external link), open a regular [GitHub issue](https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/issues).

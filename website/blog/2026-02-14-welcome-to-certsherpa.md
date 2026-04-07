@@ -1,4 +1,4 @@
----
+﻿---
 slug: welcome-to-certsherpa
 title: "Welcome to CertSherpa — Your Open-Source Certification Guide 🏔️"
 authors: [thanhnguyxn]
@@ -24,7 +24,7 @@ IT certifications are expensive, and the study landscape is fragmented. Free res
 
 This is non-negotiable: **CertSherpa will never contain, host, or link to exam dumps.**
 
-Every practice question in our bank is original — written to align with published exam objectives, not ripped from live exams. If you spot anything that looks like a dump, [report it immediately](https://github.com/ThanhNguyxn/awesome-cert-sherpa/issues) and we'll act within 48 hours.
+Every practice question in our bank is original — written to align with published exam objectives, not ripped from live exams. If you spot anything that looks like a dump, [report it immediately](https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/issues) and we'll act within 48 hours.
 
 ## What's Live Right Now
 
