@@ -1,4 +1,4 @@
-﻿---
+---
 slug: practice-engine-launch
 title: "Practice Engine is Live — 1,590+ Questions Across 14 Certifications 🧠"
 authors: [thanhnguyxn]
@@ -69,4 +69,4 @@ This means the entire system is forkable, self-hostable, and auditable.
 
 👉 **[Launch the Practice Engine](/practice)**
 
-Found a mistake? Want to contribute questions? [Open an issue](https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/issues) or submit a PR. Every contribution makes CertSherpa better for everyone.
+Found a mistake? Want to contribute questions? [Open an issue](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/issues) or submit a PR. Every contribution makes CertSherpa better for everyone.

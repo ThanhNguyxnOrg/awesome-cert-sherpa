@@ -1,0 +1,10 @@
+# Default owner — every change requires a review from the maintainer.
+*                       @RealThanhNguyxn
+
+# Critical infrastructure
+/.github/workflows/     @RealThanhNguyxn
+/bank/schema.json       @RealThanhNguyxn
+/tools/                 @RealThanhNguyxn
+
+# Site code
+/website/               @RealThanhNguyxn

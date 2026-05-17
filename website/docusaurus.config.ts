@@ -2,30 +2,42 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import yamlLoaderPlugin from './plugins/yaml-loader-plugin';
+import tailwindPlugin from './plugins/tailwind-plugin';
+
+const ORG = 'ThanhNguyxnOrg';
+const REPO = 'awesome-cert-sherpa';
+const REPO_URL = `https://github.com/${ORG}/${REPO}`;
+const SITE_URL = `https://${ORG.toLowerCase()}.github.io`;
 
 const config: Config = {
   title: 'Awesome CertSherpa',
-  tagline: 'Community-driven certification exam prep hub',
+  tagline: 'Study smarter, summit higher.',
   favicon: 'img/favicon.png',
 
   future: {
     v4: true,
   },
 
-  url: 'https://ThanhNguyxn.github.io',
-  baseUrl: '/awesome-cert-sherpa/',
+  url: SITE_URL,
+  baseUrl: `/${REPO}/`,
 
-  organizationName: 'ThanhNguyxn',
-  projectName: 'awesome-cert-sherpa',
+  organizationName: ORG,
+  projectName: REPO,
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
 
-  plugins: [yamlLoaderPlugin],
+  plugins: [yamlLoaderPlugin, tailwindPlugin],
 
   presets: [
     [
@@ -33,8 +45,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/tree/main/website/',
+          editUrl: `${REPO_URL}/tree/main/website/`,
         },
         blog: {
           showReadingTime: true,
@@ -42,14 +53,18 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl:
-            'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/tree/main/website/',
+          editUrl: `${REPO_URL}/tree/main/website/`,
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'weekly',
+          priority: 0.5,
         },
       } satisfies Preset.Options,
     ],
@@ -60,6 +75,18 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    metadata: [
+      {
+        name: 'description',
+        content:
+          'Community-driven IT certification prep — curated study resources and 1,590+ original practice questions for AWS, Azure, GCP, CISSP, CCNA, CKA, and more.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'certification, IT certification, AWS, Azure, GCP, CISSP, CCNA, CKA, Terraform, Security+, practice questions, exam prep, study guide',
+      },
+    ],
     navbar: {
       title: 'CertSherpa',
       logo: {
@@ -75,9 +102,9 @@ const config: Config = {
           label: 'Resources',
         },
         {to: '/practice', label: 'Practice', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'Field journal', position: 'left'},
         {
-          href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa',
+          href: REPO_URL,
           label: 'GitHub',
           position: 'right',
         },
@@ -89,68 +116,40 @@ const config: Config = {
         {
           title: 'Study',
           items: [
-            {
-              label: 'Getting Started',
-              to: '/docs',
-            },
-            {
-              label: 'Cloud Certs',
-              to: '/docs/categories/cloud',
-            },
-            {
-              label: 'Security Certs',
-              to: '/docs/categories/security',
-            },
-            {
-              label: 'DevOps Certs',
-              to: '/docs/categories/devops',
-            },
+            {label: 'Getting Started', to: '/docs'},
+            {label: 'Cloud', to: '/docs/categories/cloud'},
+            {label: 'Security', to: '/docs/categories/security'},
+            {label: 'DevOps', to: '/docs/categories/devops'},
           ],
         },
         {
           title: 'Practice',
           items: [
-            {
-              label: 'Practice Engine',
-              to: '/practice',
-            },
-            {
-              label: 'Networking Certs',
-              to: '/docs/categories/networking',
-            },
-            {
-              label: 'Linux Certs',
-              to: '/docs/categories/linux',
-            },
+            {label: 'Practice Lab', to: '/practice'},
+            {label: 'Networking', to: '/docs/categories/networking'},
+            {label: 'Linux', to: '/docs/categories/linux'},
+            {label: 'Data & AI', to: '/docs/categories/data-ai'},
           ],
         },
         {
           title: 'Community',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa',
-            },
-            {
-              label: 'Discussions',
-              href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/discussions',
-            },
+            {label: 'Field journal', to: '/blog'},
+            {label: 'GitHub', href: REPO_URL},
+            {label: 'Discussions', href: `${REPO_URL}/discussions`},
             {
               label: 'Contributing',
-              href: 'https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/blob/main/CONTRIBUTING.md',
+              href: `${REPO_URL}/blob/main/CONTRIBUTING.md`,
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Awesome CertSherpa contributors. MIT License.`,
+      copyright: `© ${new Date().getFullYear()} Awesome CertSherpa contributors. MIT License. Built in the open at github.com/${ORG}.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'yaml', 'json', 'hcl'],
     },
   } satisfies Preset.ThemeConfig,
 };

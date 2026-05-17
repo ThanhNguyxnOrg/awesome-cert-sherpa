@@ -1,8 +1,8 @@
-﻿{
+{
   "name": "awesome-cert-sherpa",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Community-driven certification exam prep hub (awesome-style + practice engine).",
+  "description": "Community-driven IT certification prep hub — curated study resources and an original-questions practice engine.",
   "scripts": {
     "dev": "pnpm --filter website start",
     "build": "pnpm build:bank && pnpm --filter website build",
@@ -17,10 +17,28 @@
   },
   "packageManager": "pnpm@10.28.0",
   "license": "MIT",
+  "homepage": "https://thanhnguyxnorg.github.io/awesome-cert-sherpa/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa.git"
+    "url": "https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa.git"
   },
+  "bugs": {
+    "url": "https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/issues"
+  },
+  "keywords": [
+    "certification",
+    "exam-prep",
+    "aws",
+    "azure",
+    "gcp",
+    "cissp",
+    "ccna",
+    "kubernetes",
+    "terraform",
+    "security-plus",
+    "awesome-list",
+    "open-source"
+  ],
   "devDependencies": {
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",

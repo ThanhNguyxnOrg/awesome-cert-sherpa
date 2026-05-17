@@ -6,25 +6,36 @@ on:
     paths:
       - "bank/**"
       - "tools/validate-bank.ts"
+      - "tools/build-bank.ts"
+      - ".github/workflows/validate-bank.yml"
   pull_request:
     branches: [main]
     paths:
       - "bank/**"
       - "tools/validate-bank.ts"
+      - "tools/build-bank.ts"
+      - ".github/workflows/validate-bank.yml"
 
 jobs:
   validate:
+    name: Validate bank YAML
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm validate:bank
+      - name: Validate bank schema and IDs
+        run: pnpm validate:bank

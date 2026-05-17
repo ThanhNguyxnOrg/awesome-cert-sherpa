@@ -1,45 +1,74 @@
 /**
- * CertSherpa brand theme
- * Primary: sky-blue / teal
- * Accent: amber for highlights
+ * CertSherpa global stylesheet.
+ *
+ *   1. Brand fonts via Google Fonts (must come first per CSS spec).
+ *   2. Tailwind v4 — utility classes used by the expedition components.
+ *   3. Token bridge to Docusaurus' Infima theme.
+ *   4. Small global polish (smooth scroll, code radius, etc).
  */
 
-:root {
-  --ifm-color-primary: #0284c7;
-  --ifm-color-primary-dark: #0270a8;
-  --ifm-color-primary-darker: #026a9f;
-  --ifm-color-primary-darkest: #015782;
-  --ifm-color-primary-light: #0298e6;
-  --ifm-color-primary-lighter: #039fef;
-  --ifm-color-primary-lightest: #1eb1fc;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --ifm-heading-font-weight: 700;
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@import "tailwindcss" source(none);
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+
+@import "./tokens.css";
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-foothills: var(--foothills);
+  --color-alpine: var(--alpine);
+  --color-deathzone: var(--deathzone);
+  --color-contour: var(--contour);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
-[data-theme='dark'] {
-  --ifm-color-primary: #38bdf8;
-  --ifm-color-primary-dark: #19b3f7;
-  --ifm-color-primary-darker: #0aadf6;
-  --ifm-color-primary-darkest: #058ec9;
-  --ifm-color-primary-light: #57c7f9;
-  --ifm-color-primary-lighter: #66ccfa;
-  --ifm-color-primary-lightest: #94dbfb;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
-
-/* Smoother transitions for theme toggle */
 html {
   scroll-behavior: smooth;
 }
 
-/* Better code block styling */
-code {
-  border-radius: 4px;
+body {
+  font-family: var(--font-body);
 }
 
-/* Admonition enhancements */
+code {
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
 .theme-admonition {
   border-radius: 8px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-cs {
+  font-family: var(--font-mono);
+}
+
+/* Respect users that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

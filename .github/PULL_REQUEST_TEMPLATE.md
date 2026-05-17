@@ -1,35 +1,28 @@
-## Summary
+# Summary
 
-<!-- Brief description of what this PR does -->
+<!-- One short paragraph: what does this PR change and why? -->
 
-## Type of Change
+## Type of change
 
-- [ ] New resource(s) added
-- [ ] Resource update (fix link, update metadata)
-- [ ] Practice question bank update
-- [ ] Documentation improvement
-- [ ] Site feature / component
-- [ ] Bug fix
-- [ ] CI/CD or tooling
+- [ ] 📚 Resource(s) added or updated
+- [ ] 🧠 Practice question bank update
+- [ ] 🎨 Website / component change
+- [ ] 📝 Documentation
+- [ ] 🐛 Bug fix
+- [ ] ⚙️ Tooling / CI
 
-## Checklist
+## Anti-dump pledge
 
-- [ ] I have read the [Contributing Guide](../CONTRIBUTING.md)
-- [ ] Resources follow the [YAML schema](../CONTRIBUTING.md) (title, type, url, vendor, certs, tags, difficulty, language, notes, last_verified)
-- [ ] Question bank changes (if any) pass `pnpm validate:bank`
-- [ ] No exam dumps, leaked questions, or NDA-violating material
-- [ ] All resource links are working and freely accessible
-- [ ] Notes are original 1-2 sentence summaries (not copied text)
-- [ ] `pnpm build` passes locally (if applicable)
+- [ ] No exam dumps, leaked questions, or NDA-violating material.
+- [ ] Every new question is original and aligned with published exam objectives.
 
-## Resources Added/Changed
+## Verification
 
-<!-- If adding resources, list them here -->
+- [ ] `pnpm validate:bank` passes (if bank changed)
+- [ ] `pnpm typecheck` passes
+- [ ] `pnpm build` passes locally
+- [ ] Links open and load correctly
 
-| Title | Category | Type |
-|-------|----------|------|
-|       |          |      |
+## Screenshots / Notes
 
-## Additional Context
-
-<!-- Any other context about this PR -->
+<!-- Attach screenshots for UI work, or any extra context maintainers should see. -->

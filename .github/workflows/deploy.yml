@@ -16,26 +16,45 @@ concurrency:
 
 jobs:
   build:
+    name: Build site
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm build
+      - name: Validate question bank
+        run: pnpm validate:bank
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Typecheck website
+        run: pnpm typecheck
+
+      - name: Build site
+        run: pnpm build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: website/build
 
   deploy:
+    name: Deploy to Pages
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -43,4 +62,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
+        name: Deploy
         uses: actions/deploy-pages@v4

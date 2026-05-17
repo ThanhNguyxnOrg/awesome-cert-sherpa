@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
-import clsx from "clsx";
-import styles from "./styles.module.css";
+import type {ReactNode} from 'react';
+import {FieldJournalCard} from '@site/src/components/expedition/FieldJournalCard';
+import type {Difficulty} from '@site/src/components/expedition/AltimeterChip';
 
 export type Resource = {
   title: string;
@@ -9,117 +9,118 @@ export type Resource = {
   vendor: string;
   certs: string[];
   tags: string[];
-  difficulty: "beginner" | "intermediate" | "advanced";
+  difficulty: Difficulty;
   language: string[];
   notes: string;
   last_verified: string;
 };
 
 const TYPE_LABELS: Record<string, string> = {
-  "official-doc": "Official Docs",
-  "exam-guide": "Exam Guide",
-  "study-guide": "Study Guide",
-  lab: "Hands-on Lab",
-  workshop: "Workshop",
-  tutorial: "Tutorial",
-  reference: "Reference",
-  cheatsheet: "Cheat Sheet",
-  video: "Video",
-  repo: "Repository",
+  'official-doc': 'Official Docs',
+  'exam-guide': 'Exam Guide',
+  'study-guide': 'Study Guide',
+  lab: 'Hands-on Lab',
+  workshop: 'Workshop',
+  tutorial: 'Tutorial',
+  reference: 'Reference',
+  cheatsheet: 'Cheat Sheet',
+  video: 'Video',
+  repo: 'Repository',
 };
 
-const DIFFICULTY_COLORS: Record<string, string> = {
-  beginner: "badge--success",
-  intermediate: "badge--warning",
-  advanced: "badge--danger",
-};
-
-function ResourceCard({ resource }: { resource: Resource }): ReactNode {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardHeader}>
-        <a
-          href={resource.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.cardTitle}
-        >
-          {resource.title}
-          <span className={styles.externalIcon}> ↗</span>
-        </a>
-        <div className={styles.badges}>
-          <span className={clsx("badge", "badge--primary", styles.badge)}>
-            {TYPE_LABELS[resource.type] ?? resource.type}
-          </span>
-          <span
-            className={clsx(
-              "badge",
-              DIFFICULTY_COLORS[resource.difficulty],
-              styles.badge,
-            )}
-          >
-            {resource.difficulty}
-          </span>
-          {resource.vendor && (
-            <span className={clsx("badge", "badge--info", styles.badge)}>
-              {resource.vendor}
-            </span>
-          )}
-        </div>
-      </div>
-      {resource.notes && <p className={styles.notes}>{resource.notes}</p>}
-      <div className={styles.meta}>
-        {resource.certs.length > 0 && (
-          <span className={styles.certs}>
-            {resource.certs.join(" · ")}
-          </span>
-        )}
-        {resource.tags.length > 0 && (
-          <span className={styles.tags}>
-            {resource.tags.map((tag) => (
-              <code key={tag} className={styles.tag}>
-                {tag}
-              </code>
-            ))}
-          </span>
-        )}
-      </div>
-    </div>
-  );
+function formatVerified(raw: string): string {
+  if (!raw) return '';
+  const date = new Date(raw);
+  if (Number.isNaN(date.valueOf())) return raw.toUpperCase();
+  return date
+    .toLocaleDateString('en-US', {month: 'short', year: 'numeric'})
+    .toUpperCase();
 }
 
-type ResourceListProps = {
+type Props = {
   resources: Resource[];
 };
 
-export default function ResourceList({
-  resources,
-}: ResourceListProps): ReactNode {
+/**
+ * Resource list rendered as a stack of stitched field-journal cards,
+ * grouped by vendor so climbers can scan a brand at a time.
+ */
+export default function ResourceList({resources}: Props): ReactNode {
   if (!resources || resources.length === 0) {
-    return <p>No resources available yet. Want to contribute? Check the repo!</p>;
+    return (
+      <p className="font-mono-cs" style={{color: 'var(--muted-foreground)'}}>
+        No resources here yet — open an issue and we&apos;ll add some!
+      </p>
+    );
   }
 
   const grouped = new Map<string, Resource[]>();
   for (const r of resources) {
-    const key = r.vendor || "Other";
-    if (!grouped.has(key)) {
-      grouped.set(key, []);
-    }
+    const key = r.vendor || 'Other';
+    if (!grouped.has(key)) grouped.set(key, []);
     grouped.get(key)!.push(r);
   }
 
   return (
-    <div className={styles.resourceList}>
-      <p className={styles.count}>
-        <strong>{resources.length}</strong> curated resources
+    <div className="not-prose">
+      <p
+        className="font-mono-cs"
+        style={{
+          fontSize: 12,
+          letterSpacing: '0.08em',
+          color: 'var(--muted-foreground)',
+          marginBottom: 24,
+        }}>
+        ▲ {resources.length} CURATED RESOURCES
       </p>
       {[...grouped.entries()].map(([vendor, items]) => (
-        <div key={vendor} className={styles.vendorSection}>
-          <h3 className={styles.vendorHeading}>{vendor}</h3>
-          {items.map((resource, idx) => (
-            <ResourceCard key={`${resource.url}-${idx}`} resource={resource} />
-          ))}
-        </div>
+        <section key={vendor} className="mb-10">
+          <h3
+            className="font-display"
+            style={{
+              fontSize: 22,
+              fontStyle: 'italic',
+              fontWeight: 600,
+              borderBottom: '1px solid var(--ink)',
+              paddingBottom: 6,
+              margin: '0 0 16px',
+              color: 'var(--ink)',
+            }}>
+            {vendor}
+          </h3>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {items.map((r) => (
+              <FieldJournalCard
+                key={`${r.url}-${r.title}`}
+                title={r.title}
+                vendor={r.vendor || 'Independent'}
+                type={TYPE_LABELS[r.type] ?? r.type}
+                difficulty={r.difficulty}
+                summary={r.notes}
+                lastVerified={formatVerified(r.last_verified)}
+                href={r.url}>
+                {r.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {r.tags.slice(0, 6).map((t) => (
+                      <code
+                        key={t}
+                        className="font-mono-cs"
+                        style={{
+                          fontSize: 11,
+                          padding: '2px 6px',
+                          background: 'var(--muted)',
+                          color: 'var(--ink)',
+                          borderRadius: 3,
+                        }}>
+                        {t}
+                      </code>
+                    ))}
+                  </div>
+                )}
+              </FieldJournalCard>
+            ))}
+          </div>
+        </section>
       ))}
     </div>
   );

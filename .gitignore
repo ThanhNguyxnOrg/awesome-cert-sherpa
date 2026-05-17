@@ -30,3 +30,6 @@ website/static/bank/
 
 # Logs
 *.log
+
+# Author rewrite helper used during May 2026 migration
+.git-author-rewrite.txt

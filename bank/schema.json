@@ -1,6 +1,6 @@
-﻿{
+{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/blob/main/bank/schema.json",
+  "$id": "https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/blob/main/bank/schema.json",
   "title": "CertSherpa Question Bank",
   "description": "Schema for original practice-question YAML files in /bank.",
   "type": "object",

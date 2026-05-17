@@ -1,34 +1,40 @@
-﻿# Security Policy
+# Security Policy
 
-## 🔐 Reporting a Vulnerability
+## 🛡️ Supported Versions
 
-If you discover a vulnerability, report it responsibly.
+We support the latest deployment of `main`. Older builds are unsupported.
 
-**Do not open a public issue for security vulnerabilities.**
+## 📬 Reporting a Vulnerability
+
+We take security seriously. Please **do not** open a public issue for security matters.
 
 Use GitHub Security Advisories:
 
-- [Report a vulnerability privately](https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/security/advisories/new)
+- [Report a vulnerability privately](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/security/advisories/new)
 
 ## 🧾 What to Include
 
-- Vulnerability description and potential impact
-- Reproduction steps (if available)
-- Affected files/components
-- Suggested mitigation (if known)
+- A clear description of the issue
+- Steps to reproduce
+- Affected URL, file, or component
+- Impact assessment if known
+- Optional: a suggested fix or mitigation
 
-## ⏱️ Response Timeline
+## ⏱️ Response
 
-- **Acknowledgement**: within 72 hours
-- **Initial assessment**: within 7 days
-- **Fix/mitigation**: as soon as practical based on severity
+We aim to acknowledge reports within 48 hours and provide a remediation plan within 7 days. Coordinated disclosure is welcome — we'll credit reporters who want it.
 
-## 📦 Scope
+## 🎯 Scope
 
-This policy covers:
-
-- Docusaurus website and configuration
-- Scripts/tools in this repository
+- This GitHub repository and its contents
+- The deployed Docusaurus site (GitHub Pages)
 - GitHub Actions workflows and CI/CD pipelines
+- Build and validation tooling under `tools/`
 
-For content-only issues (for example a malicious external link), open a regular [GitHub issue](https://github.com/ThanhNguyxn-Org/awesome-cert-sherpa/issues).
+For content-only issues (e.g. a malicious external link), please open a regular [GitHub issue](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/issues).
+
+## 🚫 Out of Scope
+
+- Third-party services we link to but do not control
+- Vulnerabilities that require physical access to a maintainer machine
+- Denial of service through resource exhaustion against GitHub itself
