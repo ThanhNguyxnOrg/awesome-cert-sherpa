@@ -6,21 +6,21 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 5
     labels:
       - "dependencies"
     commit-message:
       prefix: "chore(deps)"
       include: "scope"
     groups:
-      docusaurus:
-        patterns:
-          - "@docusaurus/*"
-          - "@mdx-js/*"
+      # ── Production deps — group to reduce PR count ───────────────
       react:
         patterns:
           - "react"
           - "react-dom"
+          - "react-router-dom"
+          - "@types/react"
+          - "@types/react-dom"
       ui:
         patterns:
           - "lucide-react"
@@ -30,6 +30,7 @@ updates:
         patterns:
           - "tailwindcss"
           - "@tailwindcss/*"
+      # ── Dev deps — safe to auto-merge even if major ──────────────
       dev-tooling:
         patterns:
           - "ajv"
@@ -37,6 +38,10 @@ updates:
           - "fast-glob"
           - "tsx"
           - "yaml"
+          - "typescript"
+          - "vite"
+          - "@vitejs/*"
+          - "@types/node"
 
   # ── GitHub Actions ───────────────────────────────────────────────
   - package-ecosystem: "github-actions"
