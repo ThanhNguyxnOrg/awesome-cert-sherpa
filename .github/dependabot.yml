@@ -1,38 +1,14 @@
 version: 2
 updates:
+  # ── npm packages (monorepo root manages all workspaces) ──────────
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     labels:
       - "dependencies"
-      - "root-workspace"
-    commit-message:
-      prefix: "chore(deps)"
-      include: "scope"
-    groups:
-      docusaurus:
-        patterns:
-          - "@docusaurus/*"
-      dev-tooling:
-        patterns:
-          - "ajv"
-          - "ajv-formats"
-          - "fast-glob"
-          - "tsx"
-          - "yaml"
-
-  - package-ecosystem: "npm"
-    directory: "/website"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "website"
     commit-message:
       prefix: "chore(deps)"
       include: "scope"
@@ -41,6 +17,10 @@ updates:
         patterns:
           - "@docusaurus/*"
           - "@mdx-js/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
       ui:
         patterns:
           - "lucide-react"
@@ -50,7 +30,15 @@ updates:
         patterns:
           - "tailwindcss"
           - "@tailwindcss/*"
+      dev-tooling:
+        patterns:
+          - "ajv"
+          - "ajv-formats"
+          - "fast-glob"
+          - "tsx"
+          - "yaml"
 
+  # ── GitHub Actions ───────────────────────────────────────────────
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
