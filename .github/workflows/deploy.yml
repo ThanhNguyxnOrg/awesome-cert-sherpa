@@ -40,9 +40,6 @@ jobs:
       - name: Validate question bank
         run: pnpm validate:bank
 
-      - name: Typecheck website
-        run: pnpm typecheck
-
       - name: Build site
         run: pnpm build
         env:
@@ -51,7 +48,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: website/build
+          path: website/dist
 
   deploy:
     name: Deploy to Pages

@@ -15,13 +15,11 @@ node_modules/
 # pnpm
 .pnpm-store/
 
-# Docusaurus
-website/build/
-website/.docusaurus/
-website/.cache-loader/
+# Vite
+website/dist/
 
 # Generated bank JSON (built from YAML at build time)
-website/static/bank/
+website/public/bank/
 
 # Environment
 .env

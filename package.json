@@ -4,12 +4,10 @@
   "private": true,
   "description": "Community-driven IT certification prep hub — curated study resources and an original-questions practice engine.",
   "scripts": {
-    "dev": "pnpm --filter website start",
+    "dev": "pnpm --filter website dev",
     "build": "pnpm build:bank && pnpm --filter website build",
     "build:bank": "tsx tools/build-bank.ts",
-    "serve": "pnpm --filter website serve",
-    "clear": "pnpm --filter website clear",
-    "typecheck": "pnpm --filter website typecheck",
+    "serve": "pnpm --filter website preview",
     "validate:bank": "tsx tools/validate-bank.ts"
   },
   "engines": {

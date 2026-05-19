@@ -8,7 +8,7 @@ import { resolve, relative, basename, dirname } from "path";
 
 const ROOT = resolve(__dirname, "..");
 const BANK_DIR = resolve(ROOT, "bank");
-const OUT_DIR = resolve(ROOT, "website", "static", "bank");
+const OUT_DIR = resolve(ROOT, "website", "public", "bank");
 const SETS_DIR = resolve(OUT_DIR, "sets");
 
 // ── Schema validation (shared with validate-bank.ts) ─────────────────────────
@@ -146,4 +146,4 @@ for (const s of sets) {
   );
 }
 
-console.log(`\n✅ Generated ${sets.length} set(s) → website/static/bank/\n`);
+console.log(`\n✅ Generated ${sets.length} set(s) → website/public/bank/\n`);

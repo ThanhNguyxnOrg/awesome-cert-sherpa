@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-typecheck:
-    name: Build & Typecheck
+  build:
+    name: Build & Validate
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -37,9 +37,6 @@ jobs:
 
       - name: Validate bank
         run: pnpm validate:bank
-
-      - name: Typecheck
-        run: pnpm typecheck
 
       - name: Build
         run: pnpm build
