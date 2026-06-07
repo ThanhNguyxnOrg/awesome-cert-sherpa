@@ -24,6 +24,9 @@ CertSherpa is the field journal for climbing IT certifications — a hand-curate
 
 ## 🎯 Covered Certifications
 
+
+- [Courseiva](https://courseiva.com) — Free IT certification practice platform: 12,500+ original practice questions across 100+ exams with detailed explanations. No account required.
+
 | Domain | Certifications | Bank size |
 |---|---|---|
 | Cloud | AWS SAA · AWS SAP · AZ-900 · AZ-104 · GCP ACE | 590 |
