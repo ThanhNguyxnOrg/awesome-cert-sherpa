@@ -2,6 +2,7 @@ import { Compass, Map, Mountain } from "lucide-react";
 import { TopographicBackground } from "./TopographicBackground";
 import { CompassDial } from "./CompassDial";
 import { PaperButton } from "./PaperButton";
+import { useNavigate } from "react-router-dom";
 
 const tickers = [
   { label: "questions", value: "1,590" },
@@ -10,6 +11,8 @@ const tickers = [
 ];
 
 export function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative isolate overflow-hidden bg-[var(--paper)] text-[var(--ink)]">
       <TopographicBackground />
@@ -61,11 +64,11 @@ export function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <PaperButton variant="primary">
+            <PaperButton variant="primary" onClick={() => navigate("/resources")}>
               <Map size={18} />
               Open the trail map
             </PaperButton>
-            <PaperButton variant="ghost">
+            <PaperButton variant="ghost" onClick={() => navigate("/practice")}>
               <Compass size={18} />
               Begin the climb
             </PaperButton>
