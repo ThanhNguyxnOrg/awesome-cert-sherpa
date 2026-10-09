@@ -1,15 +1,27 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Flag, Lock, LogOut, MapPin, Mountain, RotateCcw, Search, X } from "lucide-react";
+import { Check, Flag, LayoutGrid, Lock, LogOut, MapPin, Mountain, Pause, Play, RotateCcw, Search, SkipForward, Timer, X } from "lucide-react";
 import { TopographicBackground } from "../components/TopographicBackground";
 import { PaperButton } from "../components/PaperButton";
+import {
+  MIN_DRILL_QUESTIONS,
+  PASS_SCORE,
+  SECONDS_PER_QUESTION,
+  formatCountdown,
+  isPass,
+  recordAttempt,
+  scoreByDomain,
+  useCountdown,
+  type AttemptStats,
+  type ExamMode,
+} from "../exam/engine";
 
 type SetSummary = { setId: string; meta: { category: string; cert: string; vendor: string; version: number; description: string }; questionCount: number; tags: string[] };
 type QuestionDifficulty = "easy" | "medium" | "hard";
 type Question = { id: string; difficulty: QuestionDifficulty; tags: string[]; question: string; choices: string[]; answerIndex: number; explanation: string; refs: string[]; author?: string };
 type QuestionSet = { setId: string; meta: SetSummary["meta"]; questions: Question[] };
-type AttemptStats = { attempts: number; bestScore: number; lastAttempt: string };
 type Answer = { choice: number; correct: boolean };
+type Mark = { flagged: boolean; skipped: boolean };
 type View = "picker" | "config" | "quiz" | "results";
 
 const BASE = import.meta.env.BASE_URL;
@@ -18,6 +30,12 @@ const DIFF: Record<QuestionDifficulty, { label: string; reading: string }> = {
   medium: { label: "ALPINE", reading: "4,000 m" },
   hard: { label: "DEATH ZONE", reading: "8,000 m" },
 };
+
+const MODES: { id: ExamMode; label: string; hint: string }[] = [
+  { id: "practice", label: "Practice", hint: "Untimed" },
+  { id: "timed", label: "Timed mock", hint: "90s / Q" },
+  { id: "drill", label: "Domain drill", hint: "By tag" },
+];
 
 function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 function readStats(id: string): AttemptStats | null { try { const r = localStorage.getItem(`certsherpa_${id}`); return r ? JSON.parse(r) : null; } catch { return null; } }
@@ -30,9 +48,12 @@ export function PracticePage() {
   const [error, setError] = useState<string | null>(null);
   const [view, setView] = useState<View>("picker");
   const [pendingSet, setPendingSet] = useState<SetSummary | null>(null);
+  const [pool, setPool] = useState<Question[]>([]);
+  const [poolLoading, setPoolLoading] = useState(false);
   const [activeSet, setActiveSet] = useState<QuestionSet | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const [marks, setMarks] = useState<Record<string, Mark>>({});
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -40,6 +61,11 @@ export function PracticePage() {
   const [submitted, setSubmitted] = useState(false);
   const [count, setCount] = useState(10);
   const [setLoading2, setSetLoading2] = useState(false);
+  const [mode, setMode] = useState<ExamMode>("practice");
+  const [drillTag, setDrillTag] = useState<string | null>(null);
+  const [paused, setPaused] = useState(false);
+  const [runId, setRunId] = useState(0);
+  const [autoSubmitted, setAutoSubmitted] = useState(false);
 
   useEffect(() => {
     fetch(`${BASE}bank/index.json`).then(r => r.json()).then((data: SetSummary[]) => {
@@ -53,36 +79,123 @@ export function PracticePage() {
   const categories = useMemo(() => { const c = new Set<string>(); sets.forEach(s => c.add(s.meta.category)); return ["all", ...[...c].sort()]; }, [sets]);
   const filtered = useMemo(() => { const q = search.trim().toLowerCase(); return sets.filter(s => { if (category !== "all" && s.meta.category !== category) return false; if (!q) return true; return s.meta.cert.toLowerCase().includes(q) || s.meta.vendor.toLowerCase().includes(q) || (s.meta.description ?? "").toLowerCase().includes(q); }); }, [sets, search, category]);
 
+  const tagCounts = useMemo(() => {
+    const m = new Map<string, number>();
+    pool.forEach(q => q.tags.forEach(t => m.set(t, (m.get(t) ?? 0) + 1)));
+    return [...m.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  }, [pool]);
+
+  const openConfig = async (set: SetSummary) => {
+    setPendingSet(set);
+    setCount(Math.min(10, set.questionCount));
+    setMode("practice");
+    setDrillTag(null);
+    setPool([]);
+    setView("config");
+    setPoolLoading(true);
+    try {
+      const resp = await fetch(`${BASE}bank/sets/${set.setId}.json`);
+      const data: QuestionSet = await resp.json();
+      setPool(data.questions);
+    } catch { setPool([]); } finally { setPoolLoading(false); }
+  };
+
   const startQuiz = async (n: number) => {
     if (!pendingSet) return;
+    if (mode === "drill" && !drillTag) return;
     setSetLoading2(true);
     try {
-      const resp = await fetch(`${BASE}bank/sets/${pendingSet.setId}.json`);
-      const data: QuestionSet = await resp.json();
+      let data: QuestionSet | null = null;
+      if (pool.length > 0) {
+        data = { setId: pendingSet.setId, meta: pendingSet.meta, questions: pool };
+      } else {
+        const resp = await fetch(`${BASE}bank/sets/${pendingSet.setId}.json`);
+        data = (await resp.json()) as QuestionSet;
+      }
+      const source = mode === "drill" && drillTag ? data.questions.filter(q => q.tags.includes(drillTag)) : data.questions;
       setActiveSet(data);
-      setQuestions(shuffle(data.questions).slice(0, Math.min(n, data.questions.length)));
-      setAnswers({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
+      setQuestions(shuffle(source).slice(0, Math.min(n, source.length)));
+      setAnswers({}); setMarks({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
+      setPaused(false); setAutoSubmitted(false); setRunId(r => r + 1);
       setView("quiz");
     } catch (e: any) { setError(e.message); } finally { setSetLoading2(false); }
   };
 
-  const submitAnswer = () => { if (selected === null || !questions[currentIdx]) return; setSubmitted(true); setAnswers(p => ({ ...p, [questions[currentIdx].id]: { choice: selected, correct: selected === questions[currentIdx].answerIndex } })); };
-  const nextQuestion = () => { if (currentIdx < questions.length - 1) { setCurrentIdx(i => i + 1); setSelected(null); setSubmitted(false); } else { finishQuiz(); } };
+  const submitAnswer = () => {
+    if (selected === null || !questions[currentIdx] || paused) return;
+    const id = questions[currentIdx].id;
+    setSubmitted(true);
+    setAnswers(p => ({ ...p, [id]: { choice: selected, correct: selected === questions[currentIdx].answerIndex } }));
+    setMarks(p => ({ ...p, [id]: { flagged: p[id]?.flagged ?? false, skipped: false } }));
+  };
 
-  const finishQuiz = () => {
-    if (activeSet) {
+  const goTo = (i: number) => {
+    if (paused) return;
+    const qq = questions[i];
+    if (!qq) return;
+    setCurrentIdx(i);
+    const a = answers[qq.id];
+    if (a) { setSelected(a.choice); setSubmitted(true); }
+    else {
+      setSelected(null); setSubmitted(false);
+      if (marks[qq.id]?.skipped) setMarks(p => ({ ...p, [qq.id]: { flagged: p[qq.id]?.flagged ?? false, skipped: false } }));
+    }
+  };
+
+  const nextQuestion = () => { if (currentIdx < questions.length - 1) { goTo(currentIdx + 1); } else { finishQuiz(false); } };
+
+  const skipQuestion = () => {
+    if (paused || !questions[currentIdx]) return;
+    const id = questions[currentIdx].id;
+    if (!answers[id]) setMarks(p => ({ ...p, [id]: { flagged: p[id]?.flagged ?? false, skipped: true } }));
+    if (currentIdx < questions.length - 1) { setCurrentIdx(i => i + 1); setSelected(null); setSubmitted(false); }
+    else finishQuiz(false);
+  };
+
+  const toggleFlag = () => {
+    if (!questions[currentIdx]) return;
+    const id = questions[currentIdx].id;
+    setMarks(p => ({ ...p, [id]: { flagged: !(p[id]?.flagged ?? false), skipped: p[id]?.skipped ?? false } }));
+  };
+
+  const finishQuiz = (auto: boolean) => {
+    if (activeSet && questions.length > 0) {
       const correct = Object.values(answers).filter(a => a.correct).length;
       const score = Math.round((correct / questions.length) * 100);
-      const prev = readStats(activeSet.setId) ?? { attempts: 0, bestScore: 0, lastAttempt: "" };
-      const next = { attempts: prev.attempts + 1, bestScore: Math.max(prev.bestScore, score), lastAttempt: new Date().toISOString() };
+      const next = recordAttempt(readStats(activeSet.setId), score, mode, questions.length);
       writeStats(activeSet.setId, next);
       setStats(s => ({ ...s, [activeSet.setId]: next }));
     }
+    setAutoSubmitted(auto);
+    setPaused(false);
     setView("results");
   };
 
-  const goPicker = () => { setPendingSet(null); setActiveSet(null); setQuestions([]); setAnswers({}); setView("picker"); };
-  const restart = () => { if (activeSet) { setQuestions(shuffle(activeSet.questions).slice(0, questions.length)); setAnswers({}); setCurrentIdx(0); setSelected(null); setSubmitted(false); setView("quiz"); } };
+  const goPicker = () => { setPendingSet(null); setPool([]); setActiveSet(null); setQuestions([]); setAnswers({}); setMarks({}); setPaused(false); setAutoSubmitted(false); setView("picker"); };
+  const restart = () => {
+    if (!activeSet) return;
+    const source = mode === "drill" && drillTag ? activeSet.questions.filter(q => q.tags.includes(drillTag)) : activeSet.questions;
+    // pool may be empty on direct restart; fall back to current questions reshuffled
+    const base = source.length > 0 ? source : questions;
+    setQuestions(shuffle(base).slice(0, questions.length));
+    setAnswers({}); setMarks({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
+    setPaused(false); setAutoSubmitted(false); setRunId(r => r + 1);
+    setView("quiz");
+  };
+
+  // Timed countdown (hook always runs; idle unless timed quiz is showing)
+  const timerTotal = mode === "timed" ? questions.length * SECONDS_PER_QUESTION : 0;
+  const finishRef = useRef(finishQuiz);
+  finishRef.current = finishQuiz;
+  const remaining = useCountdown(timerTotal, paused || view !== "quiz" || mode !== "timed", runId, () => { if (view === "quiz") finishRef.current(true); });
+
+  // Warn before discarding a live exam on reload/close
+  useEffect(() => {
+    if (view !== "quiz") return;
+    const h = (e: BeforeUnloadEvent) => e.preventDefault();
+    window.addEventListener("beforeunload", h);
+    return () => window.removeEventListener("beforeunload", h);
+  }, [view]);
 
   if (loading) return <div className="grid min-h-[60vh] place-items-center"><span className="font-mono-cs" style={{ fontSize: 12, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>LOADING ROUTES…</span></div>;
 
@@ -115,14 +228,14 @@ export function PracticePage() {
             {filtered.map(set => {
               const stat = stats[set.setId];
               return (
-                <button key={set.setId} onClick={() => { setPendingSet(set); setCount(Math.min(10, set.questionCount)); setView("config"); }} className="group relative overflow-hidden rounded-md border border-[var(--ink)]/10 bg-[var(--card)] p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_44px_-20px_rgba(15,27,45,0.35)]" style={{ boxShadow: "0 1px 0 rgba(15,27,45,0.06), 0 12px 28px -22px rgba(15,27,45,0.3)" }}>
+                <button key={set.setId} onClick={() => openConfig(set)} className="group relative overflow-hidden rounded-md border border-[var(--ink)]/10 bg-[var(--card)] p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_44px_-20px_rgba(15,27,45,0.35)]" style={{ boxShadow: "0 1px 0 rgba(15,27,45,0.06), 0 12px 28px -22px rgba(15,27,45,0.3)" }}>
                   <div className="absolute inset-x-0 top-0 h-px" style={{ background: "var(--primary)" }} />
                   <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.08em", color: "var(--muted-foreground)" }}>{set.meta.vendor.toUpperCase()} · {set.meta.category.toUpperCase()}</span>
                   <h3 className="font-display mt-2" style={{ fontSize: 22, fontWeight: 600, lineHeight: 1.15 }}>{set.meta.cert}</h3>
                   <p className="mt-3" style={{ fontSize: 13.5, lineHeight: 1.55, color: "var(--muted-foreground)" }}>{set.meta.description}</p>
                   <div className="mt-5 flex items-center gap-3 border-t border-[var(--ink)]/8 pt-4">
                     <span className="font-mono-cs" style={{ fontSize: 12 }}>▲ {set.questionCount} questions</span>
-                    {stat ? <span className="font-mono-cs" style={{ fontSize: 12, color: "var(--accent)" }}>Best {stat.bestScore}%</span> : <span className="font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>Unclimbed</span>}
+                    {stat ? <span className="font-mono-cs" style={{ fontSize: 12, color: "var(--accent)" }}>Best {stat.bestScore}% · {stat.attempts} attempts</span> : <span className="font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>Unclimbed</span>}
                   </div>
                 </button>
               );
@@ -142,8 +255,48 @@ export function PracticePage() {
           <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>STAGE 02 · GEAR CHECK</span>
           <h2 className="font-display mt-2" style={{ fontSize: 36, fontStyle: "italic", fontWeight: 600, lineHeight: 1.1 }}>{pendingSet.meta.cert}</h2>
           <p className="mt-2" style={{ fontSize: 15, color: "var(--muted-foreground)" }}>{pendingSet.meta.description}</p>
+
+          <div className="mt-8">
+            <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>MODE</span>
+            <div className="mt-2 grid grid-cols-3 gap-2" role="group" aria-label="Exam mode">
+              {MODES.map(m => (
+                <button key={m.id} onClick={() => { setMode(m.id); setDrillTag(null); }} aria-pressed={mode === m.id} className={`min-h-[44px] rounded-md border px-3 py-2 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${mode === m.id ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]" : "border-[var(--ink)]/20 hover:bg-[var(--muted)]"}`}>
+                  <span className="font-mono-cs block" style={{ fontSize: 12, fontWeight: 700 }}>{m.label.toUpperCase()}</span>
+                  <span className="font-mono-cs block" style={{ fontSize: 10, opacity: 0.75 }}>{m.hint}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {mode === "timed" && (
+            <p className="mt-4 flex items-center gap-2 rounded-md border border-[var(--ink)]/10 bg-[var(--muted)]/50 px-3 py-2.5" style={{ fontSize: 13.5, color: "var(--muted-foreground)" }}>
+              <Timer size={16} className="shrink-0" aria-hidden /> {count} questions × {SECONDS_PER_QUESTION}s = {formatCountdown(count * SECONDS_PER_QUESTION)}. Pause stops the clock; 0:00 auto-submits. The clock runs in background tabs.
+            </p>
+          )}
+
+          {mode === "drill" && (
+            <div className="mt-4">
+              <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>DOMAIN · MIN {MIN_DRILL_QUESTIONS} QUESTIONS</span>
+              {poolLoading ? (
+                <p className="mt-2 font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>SURVEYING DOMAINS…</p>
+              ) : (
+                <div className="mt-2 flex flex-wrap gap-1.5" role="group" aria-label="Drill domain">
+                  {tagCounts.map(([t, n]) => {
+                    const ok = n >= MIN_DRILL_QUESTIONS;
+                    const on = drillTag === t;
+                    return (
+                      <button key={t} disabled={!ok} title={ok ? `${n} questions` : `Only ${n} — need ${MIN_DRILL_QUESTIONS}`} onClick={() => setDrillTag(on ? null : t)} aria-pressed={on} className={`min-h-[44px] rounded-full border px-3 py-1.5 font-mono-cs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] disabled:cursor-not-allowed disabled:opacity-40 ${on ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]" : "border-[var(--ink)]/20 hover:bg-[var(--muted)]"}`} style={{ fontSize: 11 }}>
+                        {t} · {n}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
           <label className="mt-8 block">
-            <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>QUESTIONS · MAX {pendingSet.questionCount}</span>
+            <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>QUESTIONS · MAX {mode === "drill" && drillTag ? Math.min(pendingSet.questionCount, tagCounts.find(([t]) => t === drillTag)?.[1] ?? pendingSet.questionCount) : pendingSet.questionCount}</span>
             <div className="mt-2 flex items-center gap-3">
               <input type="range" min={1} max={pendingSet.questionCount} value={count} onChange={e => setCount(+e.target.value)} className="flex-1 accent-[var(--primary)]" />
               <input type="number" min={1} max={pendingSet.questionCount} value={count} onChange={e => setCount(Math.max(1, Math.min(pendingSet.questionCount, +e.target.value || 1)))} className="w-20 rounded-md border border-[var(--ink)]/15 bg-[var(--paper)] px-2 py-1 font-mono-cs text-center" style={{ fontSize: 14 }} />
@@ -154,7 +307,7 @@ export function PracticePage() {
           </label>
           <div className="mt-8 flex flex-wrap justify-end gap-3">
             <PaperButton variant="ghost" onClick={goPicker}>Cancel</PaperButton>
-            <PaperButton variant="primary" onClick={() => startQuiz(count)} disabled={setLoading2}><Mountain size={16} />{setLoading2 ? "Loading…" : "Begin ascent"}</PaperButton>
+            <PaperButton variant="primary" onClick={() => startQuiz(count)} disabled={setLoading2 || (mode === "drill" && !drillTag)}><Mountain size={16} />{setLoading2 ? "Loading…" : mode === "timed" ? "Start timed mock" : mode === "drill" ? "Drill domain" : "Begin ascent"}</PaperButton>
           </div>
         </div>
       </div>
@@ -168,17 +321,29 @@ export function PracticePage() {
     const progress = ((currentIdx + 1) / total) * 100;
     const alt = DIFF[q.difficulty];
     const isCorrect = selected === q.answerIndex;
+    const flagged = marks[q.id]?.flagged ?? false;
+    const urgent = mode === "timed" && remaining <= 60;
 
     return (
       <section className="relative min-h-screen">
         <TopographicBackground />
         <div className="sticky top-[60px] z-20 border-b border-[var(--ink)]/10 bg-[var(--paper)]/85 backdrop-blur-md">
-          <div className="mx-auto flex max-w-[1280px] items-center gap-4 px-6 py-4">
+          <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-4 px-6 py-4">
             <div className="flex items-center gap-2">
               <Flag size={16} className="text-[var(--secondary)]" />
-              <span className="font-display italic" style={{ fontSize: 18 }}>The Ascent</span>
+              <span className="font-display italic" style={{ fontSize: 18 }}>{mode === "timed" ? "Timed mock" : mode === "drill" ? "Domain drill" : "The Ascent"}</span>
               <span className="ml-2 font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.08em", color: "var(--muted-foreground)" }}>{activeSet.meta.vendor.toUpperCase()} · {activeSet.meta.cert.toUpperCase()}</span>
             </div>
+            {mode === "timed" && (
+              <div className="flex items-center gap-2" role="timer" aria-label={`Time remaining ${formatCountdown(remaining)}`}>
+                <span className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border px-3 py-1.5 font-mono-cs" style={{ fontSize: 14, fontWeight: 700, fontVariantNumeric: "tabular-nums", borderColor: urgent ? "var(--destructive)" : "rgba(15,27,45,0.15)", color: urgent ? "var(--destructive)" : "var(--ink)" }} aria-live={urgent ? "assertive" : "off"}>
+                  <Timer size={14} aria-hidden /> {formatCountdown(remaining)}
+                </span>
+                <button onClick={() => setPaused(p => !p)} aria-pressed={paused} aria-label={paused ? "Resume clock" : "Pause clock"} className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md border border-[var(--ink)]/15 hover:bg-[var(--muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]">
+                  {paused ? <Play size={16} /> : <Pause size={16} />}
+                </button>
+              </div>
+            )}
             <div className="relative min-w-[200px] flex-1">
               <div className="h-2.5 w-full rounded-full" style={{ background: "repeating-linear-gradient(90deg,rgba(15,27,45,0.08) 0 6px,rgba(15,27,45,0.04) 6px 12px)" }} />
               <motion.div className="absolute inset-y-0 left-0 rounded-full" initial={{ width: 0 }} animate={{ width: `${progress}%` }} transition={{ duration: 0.6 }} style={{ background: "repeating-linear-gradient(45deg,var(--secondary) 0 4px,#c2641f 4px 8px)", boxShadow: "0 0 0 1px rgba(15,27,45,0.15)" }} />
@@ -192,33 +357,45 @@ export function PracticePage() {
           <div>
             <article className="relative rounded-md border border-[var(--ink)]/10 bg-[var(--card)] p-8" style={{ boxShadow: "0 1px 0 rgba(15,27,45,0.06),0 18px 40px -28px rgba(15,27,45,0.3)" }}>
               <div className="absolute inset-x-0 top-0 h-px" style={{ background: "var(--primary)" }} />
-              <div className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.08em", color: "var(--muted-foreground)" }}>QUESTION {currentIdx + 1} · <span style={{ color: alt.label === "FOOTHILLS" ? "var(--foothills)" : alt.label === "ALPINE" ? "var(--alpine)" : "var(--deathzone)" }}>▲ {alt.label}</span></div>
+              <div className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.08em", color: "var(--muted-foreground)" }}>QUESTION {currentIdx + 1} · <span style={{ color: alt.label === "FOOTHILLS" ? "var(--foothills)" : alt.label === "ALPINE" ? "var(--alpine)" : "var(--deathzone)" }}>▲ {alt.label}</span>{flagged && <span className="ml-2" style={{ color: "var(--secondary)" }}>· FLAGGED</span>}{marks[q.id]?.skipped && <span className="ml-2">· SKIPPED</span>}</div>
               <h2 className="font-display mt-4" style={{ fontSize: 24, lineHeight: 1.3, fontWeight: 600 }}>{q.question}</h2>
-              <ul className="mt-7 grid gap-3 list-none p-0">
-                {q.choices.map((c, i) => {
-                  const isSel = selected === i;
-                  const isRight = submitted && i === q.answerIndex;
-                  const isWrong = submitted && isSel && i !== q.answerIndex;
-                  return (
-                    <li key={i}>
-                      <button onClick={() => !submitted && setSelected(i)} disabled={submitted} className={`flex w-full items-center gap-4 rounded-md border bg-[var(--card)] px-4 py-3.5 text-left transition-all duration-200 ${isRight ? "!border-[var(--accent)] bg-[var(--accent)]/10" : isWrong ? "!border-[var(--destructive)] bg-[var(--destructive)]/10" : isSel ? "border-[var(--primary)]" : "border-[var(--ink)]/15 hover:-translate-y-[1px]"}`}>
-                        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border font-mono-cs" style={{ fontSize: 12, fontWeight: 600, borderColor: isSel ? "var(--primary)" : "rgba(15,27,45,0.18)", background: isSel ? "var(--primary)" : "transparent", color: isSel ? "var(--primary-foreground)" : "var(--ink)" }}>{String.fromCharCode(65 + i)}</span>
-                        <span style={{ fontSize: 15 }}>{c}</span>
-                        {isRight && <Check size={18} className="ml-auto text-[var(--accent)]" />}
-                        {isWrong && <X size={18} className="ml-auto text-[var(--destructive)]" />}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
+              {paused ? (
+                <div className="mt-7 rounded-md border border-dashed border-[var(--ink)]/20 bg-[var(--muted)]/50 p-10 text-center" role="status">
+                  <Pause size={28} className="mx-auto mb-3 text-[var(--muted-foreground)]" aria-hidden />
+                  <p className="font-display italic" style={{ fontSize: 20, fontWeight: 600 }}>Paused — clock stopped.</p>
+                  <p className="mt-1" style={{ fontSize: 14, color: "var(--muted-foreground)" }}>Resume when ready. Answers are locked while paused.</p>
+                </div>
+              ) : (
+                <ul className="mt-7 grid gap-3 list-none p-0">
+                  {q.choices.map((c, i) => {
+                    const isSel = selected === i;
+                    const isRight = submitted && i === q.answerIndex;
+                    const isWrong = submitted && isSel && i !== q.answerIndex;
+                    return (
+                      <li key={i}>
+                        <button onClick={() => !submitted && setSelected(i)} disabled={submitted} className={`flex w-full items-center gap-4 rounded-md border bg-[var(--card)] px-4 py-3.5 text-left transition-all duration-200 ${isRight ? "!border-[var(--accent)] bg-[var(--accent)]/10" : isWrong ? "!border-[var(--destructive)] bg-[var(--destructive)]/10" : isSel ? "border-[var(--primary)]" : "border-[var(--ink)]/15 hover:-translate-y-[1px]"}`}>
+                          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border font-mono-cs" style={{ fontSize: 12, fontWeight: 600, borderColor: isSel ? "var(--primary)" : "rgba(15,27,45,0.18)", background: isSel ? "var(--primary)" : "transparent", color: isSel ? "var(--primary-foreground)" : "var(--ink)" }}>{String.fromCharCode(65 + i)}</span>
+                          <span style={{ fontSize: 15 }}>{c}</span>
+                          {isRight && <Check size={18} className="ml-auto text-[var(--accent)]" />}
+                          {isWrong && <X size={18} className="ml-auto text-[var(--destructive)]" />}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </article>
 
-            <div className="mt-6 flex items-center justify-between gap-4 rounded-md border border-[var(--ink)]/10 bg-[var(--card)]/70 p-4 backdrop-blur">
-              <button onClick={goPicker} className="inline-flex items-center gap-2 rounded-md border border-[var(--ink)]/15 px-4 py-2 font-mono-cs hover:bg-[var(--muted)]" style={{ fontSize: 12, letterSpacing: "0.08em" }}><LogOut size={14} /> BAIL OUT</button>
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-md border border-[var(--ink)]/10 bg-[var(--card)]/70 p-4 backdrop-blur">
+              <div className="flex flex-wrap items-center gap-2">
+                <button onClick={goPicker} className="inline-flex min-h-[44px] items-center gap-2 rounded-md border border-[var(--ink)]/15 px-4 py-2 font-mono-cs hover:bg-[var(--muted)]" style={{ fontSize: 12, letterSpacing: "0.08em" }}><LogOut size={14} /> BAIL OUT</button>
+                <button onClick={toggleFlag} aria-pressed={flagged} className={`inline-flex min-h-[44px] items-center gap-2 rounded-md border px-4 py-2 font-mono-cs ${flagged ? "border-[var(--secondary)] bg-[var(--secondary)]/15" : "border-[var(--ink)]/15 hover:bg-[var(--muted)]"}`} style={{ fontSize: 12, letterSpacing: "0.08em" }}><Flag size={14} /> {flagged ? "FLAGGED" : "FLAG"}</button>
+                {!submitted && <button onClick={skipQuestion} className="inline-flex min-h-[44px] items-center gap-2 rounded-md border border-[var(--ink)]/15 px-4 py-2 font-mono-cs hover:bg-[var(--muted)]" style={{ fontSize: 12, letterSpacing: "0.08em" }}><SkipForward size={14} /> SKIP</button>}
+              </div>
               {!submitted ? (
-                <button disabled={selected === null} onClick={submitAnswer} className="inline-flex items-center gap-2 rounded-md bg-[var(--ink)] px-6 py-2.5 font-mono-cs text-[var(--paper)] disabled:opacity-40" style={{ fontSize: 12, letterSpacing: "0.08em" }}><Lock size={14} /> LOCK ANSWER</button>
+                <button disabled={selected === null || paused} onClick={submitAnswer} className="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-[var(--ink)] px-6 py-2.5 font-mono-cs text-[var(--paper)] disabled:opacity-40" style={{ fontSize: 12, letterSpacing: "0.08em" }}><Lock size={14} /> LOCK ANSWER</button>
               ) : (
-                <button onClick={nextQuestion} className="inline-flex items-center gap-2 rounded-md bg-[var(--ink)] px-6 py-2.5 font-mono-cs text-[var(--paper)]" style={{ fontSize: 12, letterSpacing: "0.08em" }}>{currentIdx < total - 1 ? "NEXT QUESTION" : "VIEW SUMMIT LOG"}</button>
+                <button onClick={nextQuestion} className="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-[var(--ink)] px-6 py-2.5 font-mono-cs text-[var(--paper)]" style={{ fontSize: 12, letterSpacing: "0.08em" }}>{currentIdx < total - 1 ? "NEXT QUESTION" : "VIEW SUMMIT LOG"}</button>
               )}
             </div>
 
@@ -245,6 +422,25 @@ export function PracticePage() {
                 ); })}
               </ol>
             </div>
+
+            <div className="mt-4 rounded-md border border-[var(--ink)]/10 bg-[var(--card)] p-4">
+              <div className="flex items-center gap-2"><LayoutGrid size={14} className="text-[var(--muted-foreground)]" aria-hidden /><h3 className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.08em", color: "var(--muted-foreground)" }}>SUMMIT GRID · TAP TO REVISIT</h3></div>
+              <div className="mt-3 grid grid-cols-4 gap-1.5">
+                {questions.map((qq, i) => {
+                  const a = answers[qq.id];
+                  const m = marks[qq.id];
+                  const st = a ? (a.correct ? "done" : "done-wrong") : m?.skipped ? "skipped" : i === currentIdx ? "current" : "unseen";
+                  const label = a ? (a.correct ? `Q${i + 1} correct` : `Q${i + 1} wrong`) : m?.skipped ? `Q${i + 1} skipped` : i === currentIdx ? `Q${i + 1} current` : `Q${i + 1} unanswered`;
+                  return (
+                    <button key={qq.id} onClick={() => goTo(i)} aria-label={`${label}${m?.flagged ? ", flagged" : ""}`} className="relative grid min-h-[44px] min-w-[44px] place-items-center rounded-sm border font-mono-cs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]" style={{ fontSize: 12, fontWeight: 600, borderColor: st === "done" ? "var(--accent)" : st === "done-wrong" ? "var(--destructive)" : st === "current" ? "var(--primary)" : "rgba(15,27,45,0.2)", background: st === "done" ? "var(--accent)" : st === "done-wrong" ? "var(--destructive)" : st === "current" ? "var(--primary)" : "transparent", color: st === "unseen" || st === "skipped" ? "var(--muted-foreground)" : st === "current" ? "var(--primary-foreground)" : "var(--card)" }}>
+                      {st === "done" ? "✓" : st === "done-wrong" ? "✗" : st === "skipped" ? "–" : i + 1}
+                      {m?.flagged && <span className="absolute right-1 top-1 h-1.5 w-1.5 rounded-full" style={{ background: "var(--secondary)" }} aria-hidden />}
+                    </button>
+                  );
+                })}
+              </div>
+              <button onClick={() => finishQuiz(false)} className="mt-3 inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-md border border-[var(--ink)]/15 px-4 py-2 font-mono-cs hover:bg-[var(--muted)]" style={{ fontSize: 12, letterSpacing: "0.08em" }}>FINISH & SCORE</button>
+            </div>
           </aside>
         </div>
       </section>
@@ -255,35 +451,55 @@ export function PracticePage() {
   if (view === "results" && activeSet) {
     const correct = Object.values(answers).filter(a => a.correct).length;
     const total = questions.length;
-    const score = Math.round((correct / total) * 100);
-    const verdict = score >= 80 ? "Summit reached." : score >= 60 ? "On the ridge." : "Keep climbing.";
-    const verdictColor = score >= 80 ? "var(--accent)" : score >= 60 ? "var(--secondary)" : "var(--destructive)";
+    const score = total === 0 ? 0 : Math.round((correct / total) * 100);
+    const pass = isPass(score);
+    const verdict = pass ? "Summit reached." : score >= 60 ? "On the ridge." : "Keep climbing.";
+    const verdictColor = pass ? "var(--accent)" : score >= 60 ? "var(--secondary)" : "var(--destructive)";
+    const domains = scoreByDomain(questions, answers);
+    const stat = stats[activeSet.setId];
 
     return (
       <section className="relative min-h-screen">
         <TopographicBackground />
         <div className="relative mx-auto max-w-[1100px] px-6 py-16">
-          <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>STAGE 03 · SUMMIT LOG</span>
+          <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>STAGE 03 · SUMMIT LOG{mode === "timed" ? " · TIMED MOCK" : mode === "drill" ? " · DOMAIN DRILL" : ""}</span>
           <h1 className="font-display" style={{ fontSize: "clamp(40px,6vw,72px)", fontStyle: "italic", fontWeight: 600, lineHeight: 1 }}>{verdict}</h1>
+          {autoSubmitted && <p className="mt-3 inline-flex items-center gap-2 rounded-md border border-[var(--secondary)]/40 bg-[var(--secondary)]/10 px-3 py-2" style={{ fontSize: 14 }}><Timer size={14} aria-hidden /> Time ran out — auto-submitted.</p>}
           <div className="mt-10 rounded-lg border border-[var(--ink)]/10 bg-[var(--card)] p-8">
             <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>{activeSet.meta.vendor.toUpperCase()} · {activeSet.meta.cert.toUpperCase()}</span>
             <div className="mt-2 flex items-baseline gap-2">
               <span className="font-display" style={{ fontSize: 96, fontStyle: "italic", fontWeight: 600, lineHeight: 1, color: verdictColor }}>{score}</span>
               <span className="font-display italic" style={{ fontSize: 24, color: "var(--muted-foreground)" }}>%</span>
             </div>
-            <p className="mt-2" style={{ fontSize: 16, color: "var(--muted-foreground)" }}>{correct} of {total} correct.</p>
+            <p className="mt-2" style={{ fontSize: 16, color: "var(--muted-foreground)" }}>{correct} of {total} correct · pass line {PASS_SCORE}% · {pass ? "EXAM-READY" : "NOT YET"}.</p>
+            {stat && <p className="mt-1 font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>ATTEMPT {stat.attempts} · BEST {stat.bestScore}%</p>}
             <div className="mt-6 flex flex-wrap gap-3">
               <PaperButton variant="primary" onClick={restart}><RotateCcw size={16} /> Climb again</PaperButton>
               <PaperButton variant="ghost" onClick={goPicker}>Pick another peak</PaperButton>
             </div>
           </div>
 
+          {domains.length > 0 && (
+            <>
+              <h2 className="font-display italic mt-12" style={{ fontSize: 28, fontWeight: 600 }}>Weak ground first.</h2>
+              <ol className="mt-4 grid list-none gap-2 p-0">
+                {domains.map(d => (
+                  <li key={d.tag} className="flex items-center gap-3 rounded-md border border-[var(--ink)]/10 bg-[var(--card)] px-4 py-3">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono-cs" style={{ fontSize: 12, fontWeight: 700, background: d.pct >= PASS_SCORE ? "var(--accent)" : "var(--destructive)", color: "var(--card)" }}>{d.pct}</span>
+                    <span className="font-mono-cs" style={{ fontSize: 13 }}>{d.tag}</span>
+                    <span className="ml-auto font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>{d.correct}/{d.total}</span>
+                  </li>
+                ))}
+              </ol>
+            </>
+          )}
+
           <h2 className="font-display italic mt-12" style={{ fontSize: 28, fontWeight: 600 }}>Review the route.</h2>
           <ol className="mt-4 grid list-none gap-3 p-0">
-            {questions.map((qq, i) => { const a = answers[qq.id]; const ok = a?.correct; return (
+            {questions.map((qq, i) => { const a = answers[qq.id]; const ok = a?.correct; const skipped = !a; return (
               <li key={qq.id} className="flex gap-4 rounded-md border border-[var(--ink)]/10 bg-[var(--card)] p-4">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono-cs" style={{ fontSize: 12, fontWeight: 700, background: ok ? "var(--accent)" : "var(--destructive)", color: "var(--card)" }}>{ok ? "✓" : "✗"}</span>
-                <div><div className="font-display" style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.4 }}>{i + 1}. {qq.question}</div><div className="mt-1 font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>Correct: {qq.choices[qq.answerIndex]}</div><p className="mt-2" style={{ fontSize: 13.5, lineHeight: 1.6, color: "var(--muted-foreground)" }}>{qq.explanation}</p></div>
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono-cs" style={{ fontSize: 12, fontWeight: 700, background: ok ? "var(--accent)" : skipped ? "var(--muted)" : "var(--destructive)", color: ok ? "var(--card)" : skipped ? "var(--muted-foreground)" : "var(--card)" }}>{ok ? "✓" : skipped ? "–" : "✗"}</span>
+                <div><div className="font-display" style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.4 }}>{i + 1}. {qq.question}</div><div className="mt-1 font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>{skipped ? "Skipped" : `Correct: ${qq.choices[qq.answerIndex]}`}{marks[qq.id]?.flagged ? " · flagged" : ""}</div><p className="mt-2" style={{ fontSize: 13.5, lineHeight: 1.6, color: "var(--muted-foreground)" }}>{qq.explanation}</p></div>
               </li>
             ); })}
           </ol>
