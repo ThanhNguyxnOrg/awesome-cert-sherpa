@@ -3,7 +3,7 @@ meta:
   cert: "Terraform-Associate"
   vendor: "HashiCorp"
   version: 1
-  description: "Original practice questions for HashiCorp Terraform Associate (003)"
+  description: "Original practice questions for HashiCorp Terraform Associate (004)"
 questions:
   - id: "tf-v1-d1-001"
     difficulty: "easy"
@@ -1819,4 +1819,233 @@ questions:
     explanation: "Preconditions validate assumptions that must be true before creating or updating a resource (checked during plan). Postconditions verify guarantees about the result after the action completes (checked after apply)."
     refs:
       - "https://developer.hashicorp.com/terraform/language/expressions/custom-conditions#preconditions-and-postconditions"
+    author: "ThanhNguyxn"
+
+  # ──────────────────────────────────────────────
+  # Terraform Associate 004 — New objective deltas
+  # 4f lifecycle rules · 4g custom conditions · 4h ephemeral/write-only · 8c HCP workspaces
+  # ──────────────────────────────────────────────
+  - id: "tf-004-001"
+    difficulty: "easy"
+    tags: ["dependencies", "depends-on", "provisioners"]
+    question: "A null_resource runs a local script that configures an application after an aws_instance is created, but the script references no attributes of the instance. How do you guarantee the instance exists before the script runs?"
+    choices:
+      - "A. Place both resources in the same module so Terraform orders them alphabetically"
+      - "B. Add an explicit depends_on argument pointing at the aws_instance in the null_resource"
+      - "C. Add a provisioner block inside the aws_instance that calls the script"
+      - "D. Run terraform apply twice so the second run picks up the instance"
+    answerIndex: 1
+    explanation: "Terraform orders resources automatically only when one references another's attributes. With no reference, the dependency is hidden, so you declare it explicitly with depends_on. Provisioners and repeated applies do not create ordering guarantees."
+    refs:
+      - "https://developer.hashicorp.com/terraform/tutorials/configuration-language/dependencies"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-002"
+    difficulty: "medium"
+    tags: ["lifecycle", "create-before-destroy", "zero-downtime"]
+    question: "An aws_launch_template feeds an Auto Scaling group serving production traffic. Replacing the template destroys the old one first, briefly leaving the group without a valid template. Which lifecycle rule avoids this outage?"
+    choices:
+      - "A. create_before_destroy = true so the replacement is created before the old template is deleted"
+      - "B. prevent_destroy = true so the old template can never be deleted"
+      - "C. ignore_changes on the template so replacements never happen"
+      - "D. replace_triggered_by on the Auto Scaling group pointing at the template"
+    answerIndex: 0
+    explanation: "create_before_destroy reverses the default order: Terraform creates the replacement first, then destroys the old resource. This keeps a valid template attached throughout. prevent_destroy would block the update entirely, and the other options do not change replacement ordering."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#create_before_destroy"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-003"
+    difficulty: "medium"
+    tags: ["lifecycle", "create-before-destroy", "naming"]
+    question: "A team enables create_before_destroy on an aws_s3_bucket, but every replacement fails because the bucket name is already taken. What is the correct fix?"
+    choices:
+      - "A. Remove create_before_destroy since S3 buckets cannot be replaced"
+      - "B. Use ignore_changes on the bucket name instead"
+      - "C. Generate a unique name per replacement, for example with name_prefix or a random_pet suffix"
+      - "D. Add depends_on pointing the bucket at itself to force serial replacement"
+    answerIndex: 2
+    explanation: "With create_before_destroy, old and new resources briefly coexist, so any globally unique name collides. name_prefix or a random suffix gives each replacement a distinct name. S3 buckets replace fine; self-referencing depends_on is invalid."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#create_before_destroy"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-004"
+    difficulty: "easy"
+    tags: ["check-blocks", "validation", "post-apply"]
+    question: "After each apply, the team wants Terraform to continuously verify that a deployed application endpoint still returns HTTP 200, without blocking future applies when the check fails. Which block fits?"
+    choices:
+      - "A. A variable validation block on the endpoint URL"
+      - "B. A precondition in the application resource lifecycle"
+      - "C. A resource with prevent_destroy enabled"
+      - "D. A check block with an http data source asserting the status code"
+    answerIndex: 3
+    explanation: "Check blocks validate infrastructure after apply and keep re-evaluating on every plan and apply. A failing check reports a warning status instead of failing the operation, which matches the requirement. Variable validations and preconditions run before the action, not continuously after it."
+    refs:
+      - "https://developer.hashicorp.com/terraform/tutorials/configuration-language/checks"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-005"
+    difficulty: "medium"
+    tags: ["check-blocks", "apply-behavior", "warnings"]
+    question: "A check block asserting database connectivity starts failing in production. What happens to the next terraform apply, and where does the failure appear?"
+    choices:
+      - "A. The apply is blocked until the check passes, and the error appears before the plan"
+      - "B. The apply proceeds, and the failed check is reported as a warning status after the operation"
+      - "C. Terraform automatically rolls back the infrastructure to the last healthy state"
+      - "D. The check is skipped on subsequent runs until someone runs terraform refresh"
+    answerIndex: 1
+    explanation: "Check results never block Terraform operations. A failing check is reported as a warning status alongside the plan or apply output, so the team sees degraded health without losing the ability to apply fixes. There is no automatic rollback tied to checks."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/checks"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-006"
+    difficulty: "medium"
+    tags: ["custom-conditions", "postcondition", "self-reference"]
+    question: "A module must guarantee that every aws_instance it creates uses an approved instance family, failing the apply otherwise. Which custom condition expresses this inside the resource?"
+    choices:
+      - "A. A postcondition with condition = contains([\"t3\", \"m6i\"], split(\".\", self.instance_type)[0]) that fails when the family is unapproved"
+      - "B. A precondition on the provider configuration checking the instance family"
+      - "C. A check block inside the module outputs asserting the family"
+      - "D. A variable validation block on instance_type in the root module"
+    answerIndex: 0
+    explanation: "Postconditions run after the action and can reference self, the resulting resource object — ideal for guarantees about what was created. Provider-level preconditions cannot see resource attributes, check blocks only warn, and root variable validation cannot enforce what a nested module provisions."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/expressions/custom-conditions#preconditions-and-postconditions"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-007"
+    difficulty: "easy"
+    tags: ["ephemeral", "sensitive-data", "state"]
+    question: "A configuration handles short-lived API tokens that must never appear in state files or saved plan files. Which Terraform construct is designed for values that are never persisted?"
+    choices:
+      - "A. A sensitive output block, which encrypts values in state"
+      - "B. An ephemeral resource or ephemeral input variable, available since Terraform 1.10"
+      - "C. A local value marked with sensitive = true"
+      - "D. A data source with depends_on pointing at the token generator"
+    answerIndex: 1
+    explanation: "Ephemeral resources and ephemeral input variables hold values only in memory during the run — Terraform never writes them to state or plan files. sensitive only redacts display output; the values are still stored. Data source timing does not affect persistence."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/block/ephemeral"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-008"
+    difficulty: "medium"
+    tags: ["write-only", "secrets", "rds"]
+    question: "The team rotates an RDS master password with Terraform 1.12 but the password must not be stored in state. The AWS provider supports write-only arguments. Which pattern rotates the password safely?"
+    choices:
+      - "A. Set password_wo to the new password and bump password_wo_version so the provider applies the change"
+      - "B. Set password to the new password and mark the variable sensitive"
+      - "C. Store the password in an ephemeral output and reference it from the DB instance"
+      - "D. Use a null_resource provisioner to call the RDS API outside of Terraform"
+    answerIndex: 0
+    explanation: "Write-only arguments (TF 1.11+, provider-supported) accept a value without persisting it; Terraform detects the rotation through the companion version argument, so bumping password_wo_version triggers the update. Plain password plus sensitive still lands in state, and provisioners bypass state tracking entirely."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/manage-sensitive-data/write-only"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-009"
+    difficulty: "medium"
+    tags: ["ephemeral", "reference-rules", "providers"]
+    question: "An ephemeral value holding a Vault token needs to authenticate the AWS provider for the rest of the run. Is this allowed, and where else may ephemeral values be referenced?"
+    choices:
+      - "A. Not allowed anywhere — ephemeral values can only be passed between ephemeral resources"
+      - "B. Allowed only inside provisioner blocks, nowhere else"
+      - "C. Allowed in provider blocks, and more broadly in write-only arguments, other ephemeral values, locals, and connection blocks — but never in regular resource arguments"
+      - "D. Allowed everywhere including regular resource arguments, since references are resolved at plan time"
+    answerIndex: 2
+    explanation: "Ephemeral values have a restricted reference graph so Terraform can prove they never persist: provider, provisioner, and connection blocks, write-only arguments, other ephemerals, locals, and ephemeral variables/outputs are valid. Regular resource arguments and outputs are forbidden because they would leak the value into state."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/block/ephemeral"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-010"
+    difficulty: "hard"
+    tags: ["sensitive-data", "state-security", "misconception"]
+    question: "A security review flags that database passwords marked sensitive = true in variables and outputs still appear in the state file. Which statement correctly explains the finding and the remediation?"
+    choices:
+      - "A. sensitive encrypts values in state, so the finding is a false positive from the scanner"
+      - "B. sensitive only redacts console output; state still contains the values, so the team should use remote state with encryption plus ephemeral or write-only patterns for the secrets"
+      - "C. sensitive is broken in Terraform 1.12 and HashiCorp recommends downgrading to 1.9"
+      - "D. Outputs are the leak — moving the password to a resource argument removes it from state"
+    answerIndex: 1
+    explanation: "sensitive is display redaction, not encryption: values remain in state in plaintext. The remediation layers defenses — encrypted remote state backend plus keeping secrets out of state entirely with ephemeral values or write-only arguments. Resource arguments are equally persisted, so moving the value changes nothing."
+    refs:
+      - "https://developer.hashicorp.com/terraform/language/manage-sensitive-data"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-011"
+    difficulty: "easy"
+    tags: ["hcp-terraform", "projects", "workspaces"]
+    question: "An organization runs forty HCP Terraform workspaces across networking, platform, and application teams, and shared credentials are duplicated in every workspace. Which HCP structure fixes the organization?"
+    choices:
+      - "A. Convert every workspace to the CLI workflow so variables live in tfvars files"
+      - "B. Group workspaces into projects per team and attach shared variable sets at the project level"
+      - "C. Merge all forty workspaces into one workspace with forty state files"
+      - "D. Disable remote execution so each workspace manages its own credentials locally"
+    answerIndex: 1
+    explanation: "Projects group related workspaces so teams, access, and variable sets apply at the project level instead of being duplicated per workspace. A single workspace cannot hold forty state files, and CLI-local variables lose HCP's centralized secret management."
+    refs:
+      - "https://developer.hashicorp.com/terraform/tutorials/cloud/projects"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-012"
+    difficulty: "medium"
+    tags: ["hcp-terraform", "run-triggers", "dependencies"]
+    question: "The platform team keeps a network workspace and an application workspace separate, but every VPC change must automatically re-plan the application workspace. Which HCP feature implements this ordering?"
+    choices:
+      - "A. A variable set shared between both workspaces"
+      - "B. A run trigger from the application workspace sourcing the network workspace"
+      - "C. A Sentinel policy that blocks application runs during network applies"
+      - "D. A workspace tag matching rule that merges their state files"
+    answerIndex: 1
+    explanation: "Run triggers connect workspaces: a successful apply in the source (network) workspace automatically queues a run in the downstream (application) workspace. Variable sets share values but trigger nothing, Sentinel gates rather than orders, and state files are never merged."
+    refs:
+      - "https://developer.hashicorp.com/terraform/tutorials/cloud/cloud-run-triggers"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-013"
+    difficulty: "medium"
+    tags: ["hcp-terraform", "variable-sets", "credentials"]
+    question: "Cloud credentials must be identical across twelve HCP Terraform workspaces and rotated in one place. Where should the team store them?"
+    choices:
+      - "A. In a single variable set attached to all twelve workspaces, marked sensitive"
+      - "B. In terraform.tfvars committed next to each workspace configuration"
+      - "C. In twelve separate workspace variables with the same values copied manually"
+      - "D. In a check block that asserts the credentials match across workspaces"
+    answerIndex: 0
+    explanation: "Variable sets are the single place for values shared across workspaces: attach one sensitive set to all twelve and rotation means editing one value. Committed tfvars leak secrets to version control, manual copies drift, and check blocks observe rather than store."
+    refs:
+      - "https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables#variable-sets"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-014"
+    difficulty: "easy"
+    tags: ["hcp-terraform", "cloud-block", "remote-execution"]
+    question: "A team using local Terraform runs wants HCP Terraform remote execution with minimal configuration change. What are the two required steps?"
+    choices:
+      - "A. Add a backend \"s3\" block and run terraform init -reconfigure"
+      - "B. Install the HCP CLI plugin and run hcp auth login"
+      - "C. Add a cloud block naming the organization and workspace, then run terraform login followed by terraform init"
+      - "D. Convert all modules to the registry and set TF_CLOUD_TOKEN in every shell"
+    answerIndex: 2
+    explanation: "The cloud block declares the target organization and workspace, terraform login stores the API token, and terraform init migrates operations to remote execution. S3 backends and registry conversion are unrelated, and tokens should come from login rather than scattered environment variables."
+    refs:
+      - "https://developer.hashicorp.com/terraform/tutorials/cloud/cloud-migrate"
+    author: "ThanhNguyxn"
+
+  - id: "tf-004-015"
+    difficulty: "medium"
+    tags: ["hcp-terraform", "state-migration", "cloud-block"]
+    question: "After adding a cloud block to a project with years of local state history, the first terraform init asks how to handle the existing state. Which action preserves history in HCP Terraform?"
+    choices:
+      - "A. Answer no and keep state local while running operations remotely"
+      - "B. Delete the local state first so HCP starts from a clean slate"
+      - "C. Confirm the migration so init copies the existing state into the HCP workspace"
+      - "D. Run terraform refresh first, which uploads state automatically"
+    answerIndex: 2
+    explanation: "Confirming the migration prompt makes init upload the local state lineage into the HCP Terraform workspace, preserving full history. Remote operations require remote state, deleting history loses auditability, and refresh never uploads anything."
+    refs:
+      - "https://developer.hashicorp.com/terraform/tutorials/cloud/cloud-migrate"
     author: "ThanhNguyxn"
