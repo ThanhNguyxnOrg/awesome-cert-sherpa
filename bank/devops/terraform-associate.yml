@@ -1905,7 +1905,7 @@ questions:
     tags: ["custom-conditions", "postcondition", "self-reference"]
     question: "A module must guarantee that every aws_instance it creates uses an approved instance family, failing the apply otherwise. Which custom condition expresses this inside the resource?"
     choices:
-      - "A. A postcondition with condition = contains([\"t3.\", \"m6i.\"], regex(\"/^[^.]+/\", self.instance_type)) that fails when the family is unapproved"
+      - "A. A postcondition with condition = contains([\"t3\", \"m6i\"], split(\".\", self.instance_type)[0]) that fails when the family is unapproved"
       - "B. A precondition on the provider configuration checking the instance family"
       - "C. A check block inside the module outputs asserting the family"
       - "D. A variable validation block on instance_type in the root module"
@@ -1927,7 +1927,7 @@ questions:
     answerIndex: 1
     explanation: "Ephemeral resources and ephemeral input variables hold values only in memory during the run — Terraform never writes them to state or plan files. sensitive only redacts display output; the values are still stored. Data source timing does not affect persistence."
     refs:
-      - "https://developer.hashicorp.com/terraform/language/ephemeral"
+      - "https://developer.hashicorp.com/terraform/language/block/ephemeral"
     author: "ThanhNguyxn"
 
   - id: "tf-004-008"
@@ -1972,7 +1972,7 @@ questions:
     answerIndex: 1
     explanation: "sensitive is display redaction, not encryption: values remain in state in plaintext. The remediation layers defenses — encrypted remote state backend plus keeping secrets out of state entirely with ephemeral values or write-only arguments. Resource arguments are equally persisted, so moving the value changes nothing."
     refs:
-      - "https://developer.hashicorp.com/terraform/language/v1.12.x/manage-sensitive-data"
+      - "https://developer.hashicorp.com/terraform/language/manage-sensitive-data"
     author: "ThanhNguyxn"
 
   - id: "tf-004-011"
