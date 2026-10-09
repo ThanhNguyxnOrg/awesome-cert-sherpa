@@ -66,6 +66,8 @@ export function PracticePage() {
   const [paused, setPaused] = useState(false);
   const [runId, setRunId] = useState(0);
   const [autoSubmitted, setAutoSubmitted] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
+  const announcedRef = useRef({ five: false, one: false });
 
   useEffect(() => {
     fetch(`${BASE}bank/index.json`).then(r => r.json()).then((data: SetSummary[]) => {
@@ -117,6 +119,7 @@ export function PracticePage() {
       setQuestions(shuffle(source).slice(0, Math.min(n, source.length)));
       setAnswers({}); setMarks({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
       setPaused(false); setAutoSubmitted(false); setRunId(r => r + 1);
+      setAnnouncement(""); announcedRef.current = { five: false, one: false };
       setView("quiz");
     } catch (e: any) { setError(e.message); } finally { setSetLoading2(false); }
   };
@@ -180,6 +183,7 @@ export function PracticePage() {
     setQuestions(shuffle(base).slice(0, questions.length));
     setAnswers({}); setMarks({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
     setPaused(false); setAutoSubmitted(false); setRunId(r => r + 1);
+    setAnnouncement(""); announcedRef.current = { five: false, one: false };
     setView("quiz");
   };
 
@@ -192,10 +196,22 @@ export function PracticePage() {
   // Warn before discarding a live exam on reload/close
   useEffect(() => {
     if (view !== "quiz") return;
-    const h = (e: BeforeUnloadEvent) => e.preventDefault();
+    const h = (e: BeforeUnloadEvent) => { e.preventDefault(); e.returnValue = ""; };
     window.addEventListener("beforeunload", h);
     return () => window.removeEventListener("beforeunload", h);
   }, [view]);
+
+  // One atomic status announcement per threshold (no per-second live spam)
+  useEffect(() => {
+    if (mode !== "timed" || view !== "quiz") return;
+    if (remaining <= 60 && remaining > 0 && !announcedRef.current.one) {
+      announcedRef.current.one = true;
+      setAnnouncement("1 minute left. Answers auto-submit at zero.");
+    } else if (remaining <= 300 && remaining > 60 && !announcedRef.current.five) {
+      announcedRef.current.five = true;
+      setAnnouncement("5 minutes left.");
+    }
+  }, [remaining, mode, view]);
 
   if (loading) return <div className="grid min-h-[60vh] place-items-center"><span className="font-mono-cs" style={{ fontSize: 12, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>LOADING ROUTES…</span></div>;
 
@@ -336,9 +352,10 @@ export function PracticePage() {
             </div>
             {mode === "timed" && (
               <div className="flex items-center gap-2" role="timer" aria-label={`Time remaining ${formatCountdown(remaining)}`}>
-                <span className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border px-3 py-1.5 font-mono-cs" style={{ fontSize: 14, fontWeight: 700, fontVariantNumeric: "tabular-nums", borderColor: urgent ? "var(--destructive)" : "rgba(15,27,45,0.15)", color: urgent ? "var(--destructive)" : "var(--ink)" }} aria-live={urgent ? "assertive" : "off"}>
+                <span className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md border px-3 py-1.5 font-mono-cs" style={{ fontSize: 14, fontWeight: 700, fontVariantNumeric: "tabular-nums", borderColor: urgent ? "var(--destructive)" : "rgba(15,27,45,0.15)", color: urgent ? "var(--destructive)" : "var(--ink)" }} aria-live="off">
                   <Timer size={14} aria-hidden /> {formatCountdown(remaining)}
                 </span>
+                <span className="sr-only" role="status" aria-live="polite">{announcement}</span>
                 <button onClick={() => setPaused(p => !p)} aria-pressed={paused} aria-label={paused ? "Resume clock" : "Pause clock"} className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md border border-[var(--ink)]/15 hover:bg-[var(--muted)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]">
                   {paused ? <Play size={16} /> : <Pause size={16} />}
                 </button>
