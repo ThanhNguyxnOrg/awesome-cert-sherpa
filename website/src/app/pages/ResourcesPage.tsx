@@ -114,19 +114,24 @@ export function ResourcesPage() {
     if (draft === q) return;
     const t = setTimeout(() => setParam("q", draft, ""), 150);
     return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [draft]);
+  }, [draft, q]);
   const deferredQ = useDeferredValue(q);
 
   const setParam = (key: string, value: string, def = "all") => {
-    const next = new URLSearchParams(params);
-    if (value === def || (key === "q" && value === "") || (key === "sort" && value === "vendor")) {
-      next.delete(key);
-    } else {
-      next.set(key, value);
-    }
-    // replace: typing/filtering must not push a history entry per keystroke (back-button trap)
-    setParams(next, { replace: true, preventScrollReset: true });
+    // Functional update: the debounced timeout may fire after other filter
+    // changes, so always derive from the latest params (no stale closure).
+    setParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        if (value === def || (key === "q" && value === "") || (key === "sort" && value === "vendor")) {
+          next.delete(key);
+        } else {
+          next.set(key, value);
+        }
+        return next;
+      },
+      { replace: true, preventScrollReset: true },
+    );
   };
 
   const counts = useMemo(() => {
@@ -145,6 +150,15 @@ export function ResourcesPage() {
   // A type carried over from another category (via preserved params) that has
   // no items here behaves as "all" instead of a confusing 0-result state.
   const activeType = typeFilter !== "all" && !types.includes(typeFilter) ? "all" : typeFilter;
+
+  // Keep the URL truthful for share: drop a carried type the new category
+  // doesn't have, instead of filtering by a value the UI doesn't show.
+  useEffect(() => {
+    if (typeFilter !== "all" && types.length > 0 && !types.includes(typeFilter)) {
+      setParam("type", "all");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoryId, types]);
 
   // Derived during render — no effect (react guidance: you-might-not-need-an-effect).
   const scope: Resource[] = useMemo(() => {
@@ -346,7 +360,7 @@ export function ResourcesPage() {
             <Mountain size={32} className="mx-auto mb-3 text-[var(--muted-foreground)]" aria-hidden />
             <h3 className="font-display" style={{ fontSize: 22, fontWeight: 600 }}>No such trail.</h3>
             <p className="mt-2" style={{ fontSize: 14, color: "var(--muted-foreground)" }}>Unknown category “{categoryId}”. Pick a trail below.</p>
-            <Link to="/resources" className="mt-4 inline-block min-h-[44px] rounded-md bg-[var(--ink)] px-5 py-2.5 font-mono-cs text-[var(--paper)] no-underline" style={{ fontSize: 12, letterSpacing: "0.08em" }}>
+            <Link to={{ pathname: "/resources", search: params.toString() }} className="mt-4 inline-block min-h-[44px] rounded-md bg-[var(--ink)] px-5 py-2.5 font-mono-cs text-[var(--paper)] no-underline" style={{ fontSize: 12, letterSpacing: "0.08em" }}>
               ALL RESOURCES
             </Link>
           </div>
