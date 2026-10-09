@@ -418,7 +418,7 @@ resources:
     url: https://www.oreilly.com/library/view/linux-pocket-guide/9781098157951/
     vendor: Neutral
     certs: [LPIC-1, Linux+]
-    tags: [book, reference, concise]
+    tags: [book, reference, concise, paid]
     difficulty: beginner-intermediate
     language: [en]
     notes: "Quick reference for essential Linux commands and concepts. Paid."
@@ -429,7 +429,7 @@ resources:
     url: https://vim-adventures.com/
     vendor: Neutral
     certs: [LPIC-1, LFCS]
-    tags: [vim, gamified, interactive]
+    tags: [vim, gamified, interactive, paid]
     difficulty: beginner
     language: [en]
     notes: "Learn Vim through a game — first 3 levels free, full game is paid."
@@ -462,7 +462,7 @@ resources:
     url: https://www.wiley.com/en-us/LPIC+1+Linux+Professional+Institute+Certification+Study+Guide%2C+5th+Edition-p-9781119582823
     vendor: Neutral
     certs: [LPIC-1]
-    tags: [book, comprehensive, exam-prep]
+    tags: [book, comprehensive, exam-prep, paid]
     difficulty: beginner-intermediate
     language: [en]
     notes: "Comprehensive LPIC-1 study guide covering both 101 and 102 exams. Paid."

@@ -302,7 +302,7 @@ resources:
     url: https://www.wiley.com/en-us/CompTIA+Security%2B+Study+Guide%3A+Exam+SY0+701%2C+9th+Edition-p-9781394211418
     vendor: CompTIA
     certs: [Security+]
-    tags: [book, official, comprehensive]
+    tags: [book, official, comprehensive, paid]
     difficulty: beginner-intermediate
     language: [en]
     notes: "Official Sybex study guide for SY0-701 — comprehensive coverage of all domains. Paid."
@@ -324,7 +324,7 @@ resources:
     url: https://www.mhprofessional.com/cissp-all-in-one-exam-guide-ninth-edition-9781264773855-usa
     vendor: Neutral
     certs: [CISSP]
-    tags: [book, comprehensive, reference]
+    tags: [book, comprehensive, reference, paid]
     difficulty: advanced
     language: [en]
     notes: "The definitive CISSP reference — 1400+ pages covering all 8 domains. Paid."
@@ -566,7 +566,7 @@ resources:
     url: https://www.comptia.org/training/certmaster-learn/cysa
     vendor: "CompTIA"
     certs: [CySA+]
-    tags: [official, training, self-paced]
+    tags: [official, training, self-paced, paid]
     difficulty: intermediate
     language: [en]
     notes: "Official CompTIA eLearning courseware aligned to CySA+ objectives (paid)."

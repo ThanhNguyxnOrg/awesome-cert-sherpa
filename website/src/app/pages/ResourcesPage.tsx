@@ -104,6 +104,18 @@ export function ResourcesPage() {
   const typeFilter = params.get("type") ?? "all";
   const costFilter = params.get("cost") ?? "all";
   const sort = params.get("sort") ?? "vendor";
+
+  // Debounced search draft: input stays instant, URL (and filtering) follows after 150ms idle.
+  const [draft, setDraft] = useState(q);
+  useEffect(() => {
+    setDraft(q);
+  }, [q]);
+  useEffect(() => {
+    if (draft === q) return;
+    const t = setTimeout(() => setParam("q", draft, ""), 150);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [draft]);
   const deferredQ = useDeferredValue(q);
 
   const setParam = (key: string, value: string, def = "all") => {
@@ -123,6 +135,17 @@ export function ResourcesPage() {
     return m;
   }, [doc]);
 
+  const types = useMemo(() => {
+    const base = categoryId
+      ? doc?.resources.filter((r) => r.category === categoryId) ?? []
+      : doc?.resources ?? [];
+    return [...new Set(base.map((r) => r.type))].sort();
+  }, [doc, categoryId]);
+
+  // A type carried over from another category (via preserved params) that has
+  // no items here behaves as "all" instead of a confusing 0-result state.
+  const activeType = typeFilter !== "all" && !types.includes(typeFilter) ? "all" : typeFilter;
+
   // Derived during render — no effect (react guidance: you-might-not-need-an-effect).
   const scope: Resource[] = useMemo(() => {
     if (!doc) return [];
@@ -130,7 +153,7 @@ export function ResourcesPage() {
     const inScope = categoryId ? doc.resources.filter((r) => r.category === categoryId) : doc.resources;
     const needle = deferredQ.trim().toLowerCase();
     const filtered = inScope.filter((r) => {
-      if (typeFilter !== "all" && r.type !== typeFilter) return false;
+      if (activeType !== "all" && r.type !== activeType) return false;
       if (costFilter === "free" && isPaid(r)) return false;
       if (costFilter === "paid" && !isPaid(r)) return false;
       if (!needle) return true;
@@ -153,14 +176,7 @@ export function ResourcesPage() {
       );
     }
     return sorted;
-  }, [doc, categoryId, deferredQ, typeFilter, costFilter, sort]);
-
-  const types = useMemo(() => {
-    const base = categoryId
-      ? doc?.resources.filter((r) => r.category === categoryId) ?? []
-      : doc?.resources ?? [];
-    return [...new Set(base.map((r) => r.type))].sort();
-  }, [doc, categoryId]);
+  }, [doc, categoryId, deferredQ, activeType, costFilter, sort]);
 
   const activeMeta = categoryId && Object.hasOwn(CATEGORY_META, categoryId) ? CATEGORY_META[categoryId] : null;
   const invalidCategory = !!categoryId && !activeMeta;
@@ -188,7 +204,7 @@ export function ResourcesPage() {
             return (
               <Link
                 key={id}
-                to={`/resources/${id}`}
+                to={{ pathname: `/resources/${id}`, search: params.toString() }}
                 aria-current={active ? "page" : undefined}
                 className="group relative overflow-hidden rounded-md border bg-[var(--card)] p-6 no-underline transition-all duration-300 motion-reduce:transition-none hover:-translate-y-1 motion-reduce:hover:translate-y-0 hover:shadow-[0_24px_44px_-20px_rgba(15,27,45,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]"
                 style={{
@@ -218,7 +234,7 @@ export function ResourcesPage() {
           </h2>
           {categoryId && (
             <Link
-              to="/resources"
+              to={{ pathname: "/resources", search: params.toString() }}
               className="font-mono-cs no-underline text-[var(--muted-foreground)] hover:text-[var(--ink)]"
               style={{ fontSize: 11, letterSpacing: "0.08em" }}
             >
@@ -234,8 +250,8 @@ export function ResourcesPage() {
             <span className="sr-only">Search resources</span>
             <input
               type="search"
-              value={q}
-              onChange={(e) => setParam("q", e.target.value, "")}
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
               placeholder="Search title, vendor, cert, tag…"
               className="w-full bg-transparent outline-none"
               style={{ fontSize: 14, color: "var(--ink)" }}
@@ -274,8 +290,8 @@ export function ResourcesPage() {
           <div className="mt-3 flex flex-wrap gap-1.5" role="group" aria-label="Type filter">
             <button
               onClick={() => setParam("type", "all")}
-              aria-pressed={typeFilter === "all"}
-              className={`min-h-[44px] rounded-full border px-3 py-1.5 font-mono-cs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${typeFilter === "all" ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]" : "border-[var(--ink)]/20 hover:bg-[var(--muted)]"}`}
+              aria-pressed={activeType === "all"}
+              className={`min-h-[44px] rounded-full border px-3 py-1.5 font-mono-cs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${activeType === "all" ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]" : "border-[var(--ink)]/20 hover:bg-[var(--muted)]"}`}
               style={{ fontSize: 11 }}
             >
               ALL TYPES
@@ -283,9 +299,9 @@ export function ResourcesPage() {
             {types.map((t) => (
               <button
                 key={t}
-                onClick={() => setParam("type", typeFilter === t ? "all" : t)}
-                aria-pressed={typeFilter === t}
-                className={`min-h-[44px] rounded-full border px-3 py-1.5 font-mono-cs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${typeFilter === t ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]" : "border-[var(--ink)]/20 hover:bg-[var(--muted)]"}`}
+                onClick={() => setParam("type", activeType === t ? "all" : t)}
+                aria-pressed={activeType === t}
+                className={`min-h-[44px] rounded-full border px-3 py-1.5 font-mono-cs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] ${activeType === t ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]" : "border-[var(--ink)]/20 hover:bg-[var(--muted)]"}`}
                 style={{ fontSize: 11 }}
               >
                 {t}

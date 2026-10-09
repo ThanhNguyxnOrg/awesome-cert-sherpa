@@ -504,7 +504,7 @@ resources:
     url: https://www.wiley.com/en-us/AWS+Certified+Solutions+Architect+Study+Guide%3A+Associate+SAA+C03+Exam%2C+4th+Edition-p-9781119982623
     vendor: AWS
     certs: [AWS-SAA]
-    tags: [book, official, comprehensive]
+    tags: [book, official, comprehensive, paid]
     difficulty: intermediate
     language: [en]
     notes: "Official Sybex study guide covering all SAA-C03 domains. Paid resource."

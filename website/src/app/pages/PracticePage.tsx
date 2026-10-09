@@ -51,7 +51,7 @@ export function PracticePage() {
   }, []);
 
   const categories = useMemo(() => { const c = new Set<string>(); sets.forEach(s => c.add(s.meta.category)); return ["all", ...[...c].sort()]; }, [sets]);
-  const filtered = useMemo(() => { const q = search.trim().toLowerCase(); return sets.filter(s => { if (category !== "all" && s.meta.category !== category) return false; if (!q) return true; return s.meta.cert.toLowerCase().includes(q) || s.meta.vendor.toLowerCase().includes(q) || s.meta.description.toLowerCase().includes(q); }); }, [sets, search, category]);
+  const filtered = useMemo(() => { const q = search.trim().toLowerCase(); return sets.filter(s => { if (category !== "all" && s.meta.category !== category) return false; if (!q) return true; return s.meta.cert.toLowerCase().includes(q) || s.meta.vendor.toLowerCase().includes(q) || (s.meta.description ?? "").toLowerCase().includes(q); }); }, [sets, search, category]);
 
   const startQuiz = async (n: number) => {
     if (!pendingSet) return;
@@ -283,7 +283,7 @@ export function PracticePage() {
             {questions.map((qq, i) => { const a = answers[qq.id]; const ok = a?.correct; return (
               <li key={qq.id} className="flex gap-4 rounded-md border border-[var(--ink)]/10 bg-[var(--card)] p-4">
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono-cs" style={{ fontSize: 12, fontWeight: 700, background: ok ? "var(--accent)" : "var(--destructive)", color: "var(--card)" }}>{ok ? "✓" : "✗"}</span>
-                <div><div className="font-display" style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.4 }}>{i + 1}. {qq.question}</div><div className="mt-1 font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>Correct: {qq.choices[qq.answerIndex]}</div></div>
+                <div><div className="font-display" style={{ fontSize: 15, fontWeight: 600, lineHeight: 1.4 }}>{i + 1}. {qq.question}</div><div className="mt-1 font-mono-cs" style={{ fontSize: 12, color: "var(--muted-foreground)" }}>Correct: {qq.choices[qq.answerIndex]}</div><p className="mt-2" style={{ fontSize: 13.5, lineHeight: 1.6, color: "var(--muted-foreground)" }}>{qq.explanation}</p></div>
               </li>
             ); })}
           </ol>

@@ -391,7 +391,7 @@ resources:
     url: "https://networklessons.com/"
     vendor: "NetworkLessons"
     certs: [CCNA-200-301, CCNP]
-    tags: [lessons, diagrams, configurations, reference]
+    tags: [lessons, diagrams, configurations, reference, paid]
     difficulty: beginner-intermediate
     language: [en]
     notes: "In-depth networking lessons with configuration examples. Some free content; full access requires subscription."

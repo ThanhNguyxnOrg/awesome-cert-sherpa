@@ -27,12 +27,12 @@ CertSherpa is the field journal for climbing IT certifications — a hand-curate
 | Domain | Certifications | Bank size |
 |---|---|---|
 | Cloud | AWS SAA · AWS SAP · AZ-900 · AZ-104 · GCP ACE | 590 |
-| Security | CompTIA Security+ (SY0-701) · CISSP | 200 |
-| Networking | CCNA · Network+ | 220 |
+| Security | CompTIA Security+ (SY0-701) · CISSP | 220 |
+| Networking | CCNA · Network+ | 230 |
 | DevOps | CKA · Terraform Associate | 250 |
 | Linux | LPIC-1 | 100 |
 | Data & AI | AWS MLS-C01 | 100 |
-| PM & ITSM | PMP | 130 |
+| PM & ITSM | PMP | 100 |
 
 ## ⚡ Quickstart
 
@@ -60,10 +60,9 @@ Site URL: <https://thanhnguyxnorg.github.io/awesome-cert-sherpa/>
 
 ```text
 awesome-cert-sherpa/
-├── website/          # Docusaurus 3 portal — pages, components, styles
-│   ├── src/components/expedition/   # The visual system (compass, peaks, paper buttons)
-│   ├── src/pages/                   # Home, Practice
-│   └── plugins/                     # YAML loader + Tailwind PostCSS bridge
+├── website/          # Vite SPA — pages, components, styles
+│   ├── src/app/components/   # The visual system (compass, peaks, paper buttons)
+│   ├── src/app/pages/        # Basecamp, Practice, Resources, Field Journal
 ├── content/          # Curated resource YAML + source registry
 ├── bank/             # Question bank YAML (schema-validated)
 ├── tools/            # Validator + bank build pipeline (TypeScript)
@@ -75,7 +74,7 @@ awesome-cert-sherpa/
 
 - Node.js 20+ · pnpm workspaces
 - TypeScript end-to-end
-- Docusaurus 3.9 · React 19
+- Vite 8 · React 19 · React Router 7
 - Tailwind CSS v4 (PostCSS, scoped to the website workspace)
 - Framer Motion (`motion`) for choreographed transitions
 - YAML + JSON Schema (Ajv validation)
