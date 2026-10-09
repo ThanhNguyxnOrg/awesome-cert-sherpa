@@ -39,10 +39,10 @@ resources:
     notes: "121 free videos covering all SY0-701 objectives, plus monthly study groups."
     last_verified: "2026-02-14"
 
-  - title: "CrushCert – Security+ Adaptive Practice & Labs"
+  - title: "CrushCert - Security+ Adaptive Practice & Labs"
     type: practice-tool
     url: https://crushcert.com/security-plus-practice-test
-    vendor: Neutral
+    vendor: "CrushCert"
     certs: [Security+]
     tags: [practice-exam, labs, adaptive, paid]
     difficulty: intermediate
