@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesome CertSherpa — Summit any IT certification</title>
     <meta name="description" content="A field journal for climbers of AWS, Azure, GCP, CISSP, CCNA, and eleven more peaks. Curated routes, sharpened practice ascents, and an anti-dump pledge." />
+    <script>
+      // Restore SPA deep-links redirected by 404.html (?/path → /path) for GitHub Pages
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) { return s.replace(/~and~/g, "&"); })
+            .join("?");
+          window.history.replaceState(null, "", l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>

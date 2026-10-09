@@ -146,7 +146,7 @@ resources:
     url: https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-review-004
     vendor: HashiCorp
     certs: [Terraform-Associate]
-    tags: [terraform, exam-objectives, 004]
+    tags: [terraform, exam-objectives, "004"]
     difficulty: intermediate
     language: [en]
     notes: "Exam content checklist for the current 004 version of the Terraform Associate exam."
@@ -157,7 +157,7 @@ resources:
     url: https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-study-004
     vendor: HashiCorp
     certs: [Terraform-Associate]
-    tags: [terraform, study-path, 004, learning-path]
+    tags: [terraform, study-path, "004", learning-path]
     difficulty: intermediate
     language: [en]
     notes: "Official structured study path for the 004 exam with hands-on tutorials."

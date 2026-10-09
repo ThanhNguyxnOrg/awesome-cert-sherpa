@@ -568,7 +568,7 @@ resources:
     url: "https://standards.ieee.org/featured/802/"
     vendor: IEEE
     certs: [CCNA, Network+, all-networking]
-    tags: [802.11, 802.3, ethernet, wireless, standards]
+    tags: ["802.11", "802.3", ethernet, wireless, standards]
     difficulty: intermediate-advanced
     language: [en]
     notes: "Official IEEE 802 LAN/MAN standards including Ethernet (802.3) and Wi-Fi (802.11)."
