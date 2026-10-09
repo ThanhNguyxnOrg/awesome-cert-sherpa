@@ -21,6 +21,9 @@ website/dist/
 # Generated bank JSON (built from YAML at build time)
 website/public/bank/
 
+# Generated resources JSON (built from YAML at build time)
+website/public/resources/
+
 # Environment
 .env
 .env.*
