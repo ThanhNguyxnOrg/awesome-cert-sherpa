@@ -39,6 +39,17 @@ resources:
     notes: "121 free videos covering all SY0-701 objectives, plus monthly study groups."
     last_verified: "2026-02-14"
 
+  - title: "CrushCert – Security+ Adaptive Practice & Labs"
+    type: practice-tool
+    url: https://crushcert.com/security-plus-practice-test
+    vendor: Neutral
+    certs: [Security+]
+    tags: [practice-exam, labs, adaptive, paid]
+    difficulty: intermediate
+    language: [en]
+    notes: "Original, objective-aligned adaptive practice questions, hands-on labs and timed mock exams for SY0-701. Paid subscription; 7-day free trial."
+    last_verified: "2026-10-08"
+
   # ──────────────────────────────────────────────
   # ISC2 — CC & CISSP
   # ──────────────────────────────────────────────

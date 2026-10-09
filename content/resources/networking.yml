@@ -134,6 +134,28 @@ resources:
     notes: "Timed subnetting practice game. 5-minute challenge to answer as many questions as possible."
     last_verified: "2026-02-14"
 
+  - title: "CrushCert - Free Subnet Calculator"
+    type: practice-tool
+    url: "https://crushcert.com/subnet-calculator/"
+    vendor: "CrushCert"
+    certs: [CCNA, Network+]
+    tags: [subnetting, calculator, free, cidr]
+    difficulty: beginner-intermediate
+    language: [en]
+    notes: "Free browser-based IPv4/CIDR calculator: network and broadcast address, usable host range, wildcard mask, and binary breakdown. No signup."
+    last_verified: "2026-10-08"
+
+  - title: "CrushCert - CCNA Adaptive Practice & Labs"
+    type: practice-tool
+    url: "https://crushcert.com/ccna-practice-test"
+    vendor: "CrushCert"
+    certs: [CCNA]
+    tags: [practice-exam, labs, cli-sim, adaptive, paid]
+    difficulty: intermediate
+    language: [en]
+    notes: "Original, objective-aligned adaptive practice questions, hands-on CLI labs and timed mock exams for CCNA 200-301. Paid subscription; 7-day free trial."
+    last_verified: "2026-10-08"
+
   # ──────────────────────────────────────────────
   # COMPTIA NETWORK+ (N10-009) — Official
   # ──────────────────────────────────────────────
