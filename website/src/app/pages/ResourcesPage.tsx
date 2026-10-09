@@ -149,16 +149,17 @@ export function ResourcesPage() {
 
   // A type carried over from another category (via preserved params) that has
   // no items here behaves as "all" instead of a confusing 0-result state.
-  const activeType = typeFilter !== "all" && !types.includes(typeFilter) ? "all" : typeFilter;
+  const isStaleType = typeFilter !== "all" && types.length > 0 && !types.includes(typeFilter);
+  const activeType = isStaleType ? "all" : typeFilter;
 
-  // Keep the URL truthful for share: drop a carried type the new category
-  // doesn't have, instead of filtering by a value the UI doesn't show.
+  // Keep the URL truthful for share: drop a carried or hand-typed type the
+  // current scope doesn't have, instead of filtering by a value the UI doesn't show.
   useEffect(() => {
-    if (typeFilter !== "all" && types.length > 0 && !types.includes(typeFilter)) {
+    if (isStaleType) {
       setParam("type", "all");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryId, types]);
+  }, [categoryId, types, isStaleType]);
 
   // Derived during render — no effect (react guidance: you-might-not-need-an-effect).
   const scope: Resource[] = useMemo(() => {
@@ -289,7 +290,7 @@ export function ResourcesPage() {
             <select
               value={sort}
               onChange={(e) => setParam("sort", e.target.value, "vendor")}
-              className="min-h-[36px] rounded-md border border-[var(--ink)]/15 bg-[var(--card)] px-2 py-1.5"
+              className="min-h-[44px] rounded-md border border-[var(--ink)]/15 bg-[var(--card)] px-2 py-1.5"
               style={{ fontSize: 12, color: "var(--ink)" }}
             >
               <option value="vendor">Vendor A–Z</option>
