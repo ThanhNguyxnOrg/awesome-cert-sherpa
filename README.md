@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="website/public/img/logo.png" alt="CertSherpa logo" width="120" />
+</p>
+
 # Awesome CertSherpa
 
 > Community-driven IT certification prep — curated resources, original practice questions, and an anti-dump pledge stitched into every card.
