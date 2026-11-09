@@ -9,7 +9,7 @@
 [![Deploy to GitHub Pages](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/deploy.yml/badge.svg)](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/deploy.yml)
 [![Validate Question Bank](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/validate-bank.yml/badge.svg)](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/validate-bank.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Questions](https://img.shields.io/badge/Questions-1%2C635%2B-0e5a8a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
+[![Questions](https://img.shields.io/badge/Questions-1%2C632%2B-0e5a8a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
 [![Certifications](https://img.shields.io/badge/Certifications-16-2b6e5a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
 [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-e07a2f)](CODE_OF_CONDUCT.md)
 
@@ -19,7 +19,7 @@ CertSherpa is the field journal for climbing IT certifications — a hand-curate
 
 ## ✨ Highlights
 
-- **1,635+ original practice questions** across 16 certifications
+- **1,632+ original practice questions** across 16 certifications
 - **460+ curated resources** across 7 categories
 - **Strict anti-dump policy** — no leaked or NDA-violating material, ever
 - **Vendor-neutral coverage** — AWS, Azure, GCP, CompTIA, Cisco, Kubernetes, Linux, HashiCorp, ISC2, PMI
@@ -101,7 +101,7 @@ All tokens live in [`website/src/css/tokens.css`](website/src/css/tokens.css) as
 | Phase | Status | Description |
 |---|---|---|
 | 1 — Scaffold | ✅ | Docusaurus portal, Pages config, category structure |
-| 2 — Content | ✅ | 1,635+ practice questions, 460+ curated resources |
+| 2 — Content | ✅ | 1,632+ practice questions, 460+ curated resources |
 | 3 — Community | ✅ | Issue/PR templates, Discussions, contribution workflow |
 | 4 — Practice Engine | ✅ | Picker → Quiz → Summit log with localStorage stats |
 | 5 — Visual rebuild | ✅ | Topographic Expedition design system |
