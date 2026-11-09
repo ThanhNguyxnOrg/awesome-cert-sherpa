@@ -17,7 +17,7 @@ questions:
     answerIndex: 0
     explanation: "Revenue is a continuous numeric target, so supervised regression is an appropriate starting point."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
     author: "CertSherpa contributors"
   - id: "aif-found-002"
     difficulty: "easy"
@@ -31,7 +31,7 @@ questions:
     answerIndex: 1
     explanation: "Clustering discovers groups in unlabeled data based on similarity; it does not require a predefined target label."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
     author: "CertSherpa contributors"
   - id: "aif-gen-003"
     difficulty: "easy"
@@ -45,7 +45,7 @@ questions:
     answerIndex: 0
     explanation: "Attention computes relationships between tokens and is a central mechanism in transformer-based language models."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
     author: "CertSherpa contributors"
   - id: "aif-gen-004"
@@ -60,7 +60,7 @@ questions:
     answerIndex: 0
     explanation: "The context window limits the tokens processed in one request, including the supplied conversation and space reserved for output."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
     author: "CertSherpa contributors"
   - id: "aif-gen-005"
     difficulty: "medium"
@@ -74,7 +74,7 @@ questions:
     answerIndex: 0
     explanation: "Retrieval-grounded answers and an explicit abstention behavior reduce unsupported claims when the source material has no answer."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
     author: "CertSherpa contributors"
   - id: "aif-app-006"
@@ -89,7 +89,7 @@ questions:
     answerIndex: 0
     explanation: "Amazon Bedrock provides managed access to foundation models and capabilities for building generative AI applications."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
     author: "CertSherpa contributors"
   - id: "aif-app-007"
@@ -104,7 +104,7 @@ questions:
     answerIndex: 0
     explanation: "Bedrock Knowledge Bases connect data sources to a retrieval workflow and provide relevant context to a model."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
     author: "CertSherpa contributors"
   - id: "aif-app-008"
@@ -119,7 +119,7 @@ questions:
     answerIndex: 0
     explanation: "A controlled tool call retrieves current inventory from the system of record; a static prompt cannot reliably provide live stock information."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html"
     author: "CertSherpa contributors"
   - id: "aif-resp-009"
@@ -134,7 +134,7 @@ questions:
     answerIndex: 0
     explanation: "The team should measure disparate performance and investigate possible data or system bias before selecting an appropriate mitigation."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
     author: "CertSherpa contributors"
   - id: "aif-resp-010"
     difficulty: "hard"
@@ -148,7 +148,7 @@ questions:
     answerIndex: 0
     explanation: "Human oversight is an important safeguard for high-impact decisions where an incorrect prediction can materially affect a person."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
     author: "CertSherpa contributors"
   - id: "aif-sec-011"
     difficulty: "easy"
@@ -162,7 +162,7 @@ questions:
     answerIndex: 0
     explanation: "Least privilege limits the application role to the actions and resources it needs, reducing the impact of credential misuse."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
     author: "CertSherpa contributors"
   - id: "aif-sec-012"
@@ -177,6 +177,6 @@ questions:
     answerIndex: 0
     explanation: "Data minimization and redaction reduce exposure of personal or confidential information before it reaches a model service."
     refs:
-      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html"
       - "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html"
     author: "CertSherpa contributors"
