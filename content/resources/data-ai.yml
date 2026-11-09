@@ -874,7 +874,7 @@ resources:
 
   - title: "AWS Certified AI Practitioner (AIF-C01) Exam Guide"
     type: exam-guide
-    url: https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html
+    url: https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html
     vendor: AWS
     certs: [AWS-AIF]
     tags: [official, exam-guide, aif-c01, generative-ai]
@@ -931,7 +931,7 @@ resources:
     type: practice-tool
     url: https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
     vendor: Microsoft
-    certs: [AB-100, AB-730, AB-731, AB-900, AI-103, AI-300]
+    certs: [AB-100, AB-210, AB-250, AB-400, AB-410, AB-620, AB-730, AB-731, AB-900, AI-103, AI-300]
     tags: [official, free, practice-assessment, agentic-ai, generative-ai]
     difficulty: intermediate
     language: [en]
