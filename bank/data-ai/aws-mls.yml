@@ -3,7 +3,7 @@ meta:
   cert: "AWS-MLS"
   vendor: "AWS"
   version: 1
-  description: "Original practice questions for AWS Certified Machine Learning – Specialty (MLS-C01)"
+  description: "Historical practice questions for AWS Certified Machine Learning – Specialty (MLS-C01; exam retired 2026-03-31)."
 questions:
   - id: "mls-data-001"
     difficulty: "easy"
