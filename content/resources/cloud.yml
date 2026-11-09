@@ -949,3 +949,14 @@ resources:
     language: [en]
     notes: "Guidance for cloud strategy, governance, and landing zone architecture used in many Azure solutions architect scenarios."
     last_verified: "2026-02-14"
+
+  - title: "CloudCertPrep – Free AWS Cloud Practitioner Practice Exams"
+    type: practice-tool
+    url: https://github.com/nastaso/cloudcertprep
+    vendor: CloudCertPrep
+    certs: [AWS-CLF]
+    tags: [community, practice-exam, original-questions, free, open-source]
+    difficulty: beginner
+    language: [en]
+    notes: "Independent MIT-licensed question bank with 1,050+ CLF-C02 practice questions, explanations, timed mocks, and domain practice. Community resource, not an AWS publication."
+    last_verified: "2026-11-09"
