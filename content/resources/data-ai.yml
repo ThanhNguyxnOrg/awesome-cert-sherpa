@@ -871,3 +871,91 @@ resources:
     language: [en]
     notes: "Official study guide PDF mapping learning resources and topics to the dbt Analytics Engineering exam."
     last_verified: "2026-02-14"
+
+  - title: "AWS Certified AI Practitioner (AIF-C01) Exam Guide"
+    type: exam-guide
+    url: https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html
+    vendor: AWS
+    certs: [AWS-AIF]
+    tags: [official, exam-guide, aif-c01, generative-ai]
+    difficulty: beginner
+    language: [en]
+    notes: "Official AIF-C01 exam guide with five scored domains, task statements, and in-scope AWS services."
+    last_verified: "2026-11-09"
+
+  - title: "AWS Skill Builder – Official Practice Question Sets"
+    type: practice-tool
+    url: https://aws.amazon.com/certification/certification-prep/
+    vendor: AWS
+    certs: [AWS-AIF]
+    tags: [official, free, practice-questions, skill-builder]
+    difficulty: beginner
+    language: [en]
+    notes: "Free official 20-question sets developed by AWS include feedback and recommended resources. Full-length official practice exams are a separate subscription offering."
+    last_verified: "2026-11-09"
+
+  - title: "CloudCertPrep – AWS AI Practitioner Practice Exams"
+    type: practice-tool
+    url: https://github.com/nastaso/cloudcertprep
+    vendor: CloudCertPrep
+    certs: [AWS-AIF]
+    tags: [community, practice-exam, original-questions, free, open-source]
+    difficulty: beginner
+    language: [en]
+    notes: "Independent MIT-licensed bank with 419+ AIF-C01 practice questions, explanations, timed mocks, and domain practice. Not affiliated with AWS; verify alignment against the current exam guide."
+    last_verified: "2026-11-09"
+
+  - title: "Oracle Agentic AI Foundations Associate – Free Learning Path and Practice Exam"
+    type: practice-tool
+    url: https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239
+    vendor: Oracle
+    certs: [Oracle-Agentic-AI-Foundations]
+    tags: [official, free, practice-exam, agentic-ai, mcp]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official Oracle learning path includes lessons, skill checks, exam preparation, a practice exam, and access to the free 1Z0-1157-26 certification exam."
+    last_verified: "2026-11-09"
+
+  - title: "Google Cloud Generative AI Leader – Exam Guide and Sample Questions"
+    type: practice-tool
+    url: https://cloud.google.com/learn/certification/generative-ai-leader/
+    vendor: Google Cloud
+    certs: [GCP-GENAI-LEADER]
+    tags: [official, sample-questions, exam-guide, generative-ai]
+    difficulty: beginner
+    language: [en]
+    notes: "Official certification page links the exam guide, learning path, and repeatable untimed sample questions. Google notes the sample does not represent the full exam scope or difficulty."
+    last_verified: "2026-11-09"
+
+  - title: "Microsoft Learn – Free Certification Practice Assessments"
+    type: practice-tool
+    url: https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
+    vendor: Microsoft
+    certs: [AB-100, AB-210, AB-250, AB-400, AB-410, AB-620, AB-730, AB-731, AB-900, AI-103, AI-300]
+    tags: [official, free, practice-assessment, agentic-ai, generative-ai]
+    difficulty: intermediate
+    language: [en]
+    notes: "Free repeatable assessments with answers, rationales, and further-reading links. Availability varies by exam; the catalog currently lists AB-100, AB-730, AB-731, AB-900, AI-103, and AI-300. These are samples, not live exam questions."
+    last_verified: "2026-11-09"
+
+  - title: "NVIDIA NCA Generative AI LLM Associate – Exam Guide"
+    type: exam-guide
+    url: https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/
+    vendor: NVIDIA
+    certs: [NVIDIA-NCA-GENL]
+    tags: [official, exam-guide, llm, generative-ai]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official NCA-GENL certification page includes exam preparation, study guide, blueprint, and topic coverage for LLM application development and deployment."
+    last_verified: "2026-11-09"
+
+  - title: "NVIDIA NCA Generative AI Multimodal Associate – Exam Guide"
+    type: exam-guide
+    url: https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/
+    vendor: NVIDIA
+    certs: [NVIDIA-NCA-GENM]
+    tags: [official, exam-guide, multimodal, generative-ai]
+    difficulty: intermediate
+    language: [en]
+    notes: "Official NCA-GENM certification page covers foundational multimodal generative AI across text, image, and audio."
+    last_verified: "2026-11-09"

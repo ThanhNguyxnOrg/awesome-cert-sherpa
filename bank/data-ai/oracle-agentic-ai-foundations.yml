@@ -1,0 +1,229 @@
+meta:
+  category: "data-ai"
+  cert: "Oracle-Agentic-AI-Foundations"
+  vendor: "Oracle"
+  version: 1
+  description: "Original practice questions for Oracle Agentic AI Foundations Associate (1Z0-1157-26)."
+questions:
+  - id: "oai-core-001"
+    difficulty: "easy"
+    tags: ["agent-architecture", "agent-loop"]
+    question: "A workflow interprets a request, chooses a tool, observes the result, and repeats until its goal is met. Which pattern describes it?"
+    choices:
+      - "A. An agent loop"
+      - "B. A static export"
+      - "C. A DNS lookup"
+      - "D. A database backup"
+    answerIndex: 0
+    explanation: "An agent loop combines model reasoning, action selection, tool execution, and observations until a stopping condition is reached."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+    author: "CertSherpa contributors"
+  - id: "oai-core-002"
+    difficulty: "medium"
+    tags: ["agentic-ai", "tool-security"]
+    question: "An assistant needs to look up a shipment status in a logistics system. What is the safest way to provide this capability?"
+    choices:
+      - "A. Expose a constrained tool with a defined schema and authorization"
+      - "B. Paste yesterday's shipment list in the prompt"
+      - "C. Store an API password in the model prompt"
+      - "D. Grant unrestricted access to every endpoint"
+    answerIndex: 0
+    explanation: "A tool provides a bounded interface to an external operation; its schema, authorization, and execution policy should be controlled by the application."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+    author: "CertSherpa contributors"
+  - id: "oai-core-003"
+    difficulty: "medium"
+    tags: ["agentic-ai", "planning", "approval"]
+    question: "An agent must compare travel options and request approval before purchasing a ticket. Which design is safest?"
+    choices:
+      - "A. Decompose the task into steps and require explicit approval before purchase"
+      - "B. Purchase immediately and ask questions later"
+      - "C. Give the agent unrestricted payment access"
+      - "D. Skip availability checks"
+    answerIndex: 0
+    explanation: "Planning separates research from the consequential purchase action, while an explicit approval gate keeps the user in control."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+    author: "CertSherpa contributors"
+  - id: "oai-lc-004"
+    difficulty: "easy"
+    tags: ["langchain", "tools"]
+    question: "In LangChain, what is the main role of a tool provided to an agent?"
+    choices:
+      - "A. Expose a callable capability with a defined purpose and input"
+      - "B. Store neural-network weights"
+      - "C. Replace the tokenizer"
+      - "D. Grant access to every external service"
+    answerIndex: 0
+    explanation: "A LangChain tool wraps an operation an agent can choose to call and describes the operation and its input contract."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://python.langchain.com/docs/concepts/tools/"
+    author: "CertSherpa contributors"
+  - id: "oai-lc-005"
+    difficulty: "medium"
+    tags: ["langchain", "tool-validation"]
+    question: "An agent repeatedly sends an invalid date to a booking tool. What is the best improvement?"
+    choices:
+      - "A. Define a typed input schema and validate the date before execution"
+      - "B. Remove the tool description"
+      - "C. Guess the date silently"
+      - "D. Expose the database connection string"
+    answerIndex: 0
+    explanation: "Typed schemas and validation constrain tool inputs and make invalid requests explicit before side effects occur."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://python.langchain.com/docs/concepts/tools/"
+    author: "CertSherpa contributors"
+  - id: "oai-sdk-006"
+    difficulty: "easy"
+    tags: ["openai-agents-sdk", "agent"]
+    question: "In the OpenAI Agents SDK, what is an Agent primarily configured with?"
+    choices:
+      - "A. Instructions, a model, and optional tools or runtime behavior"
+      - "B. Only a database username"
+      - "C. A CSS theme"
+      - "D. A static answer list"
+    answerIndex: 0
+    explanation: "An Agent is an LLM configured with instructions and optional tools, handoffs, guardrails, and structured outputs."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://openai.github.io/openai-agents-python/agents/"
+    author: "CertSherpa contributors"
+  - id: "oai-sdk-007"
+    difficulty: "medium"
+    tags: ["openai-agents-sdk", "handoffs"]
+    question: "A triage agent should pass a billing question to a specialist agent. Which SDK concept is designed for this delegation?"
+    choices:
+      - "A. Handoff"
+      - "B. Tokenizer override"
+      - "C. Image preprocessing"
+      - "D. Vector quantization"
+    answerIndex: 0
+    explanation: "A handoff transfers control from one agent to a specialist that is better suited to handle a particular request."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://openai.github.io/openai-agents-python/handoffs/"
+    author: "CertSherpa contributors"
+  - id: "oai-mcp-008"
+    difficulty: "easy"
+    tags: ["mcp", "protocol"]
+    question: "Which description best captures Model Context Protocol (MCP)?"
+    choices:
+      - "A. An open protocol standardizing how AI applications connect to external tools and context"
+      - "B. A vector database engine"
+      - "C. A model-training optimizer"
+      - "D. A replacement for TLS"
+    answerIndex: 0
+    explanation: "MCP standardizes connections between AI applications and external servers that expose capabilities such as tools, resources, and prompts."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://modelcontextprotocol.io/specification/2025-11-25"
+    author: "CertSherpa contributors"
+  - id: "oai-mcp-009"
+    difficulty: "medium"
+    tags: ["mcp", "tools", "resources"]
+    question: "An MCP server exposes a read-only document for an assistant to use as context. Which capability is the best fit?"
+    choices:
+      - "A. Resource"
+      - "B. Tool execution"
+      - "C. Handoff"
+      - "D. Model fine-tuning"
+    answerIndex: 0
+    explanation: "MCP resources expose data or context for a client to read; tools represent callable operations that perform actions."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://modelcontextprotocol.io/specification/2025-11-25"
+    author: "CertSherpa contributors"
+  - id: "oai-mcp-010"
+    difficulty: "hard"
+    tags: ["mcp", "security", "authorization"]
+    question: "A third-party MCP server offers a tool that can transfer money. What is the safest integration approach?"
+    choices:
+      - "A. Review the capability, apply scoped authorization, require confirmation, and audit transfers"
+      - "B. Trust every tool because it uses MCP"
+      - "C. Grant unrestricted account access"
+      - "D. Disable logging"
+    answerIndex: 0
+    explanation: "MCP standardizes communication, not trust. Sensitive actions still need least privilege, user confirmation, and auditable execution."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://modelcontextprotocol.io/specification/2025-11-25"
+    author: "CertSherpa contributors"
+  - id: "oai-oci-011"
+    difficulty: "easy"
+    tags: ["oci-generative-ai", "foundation-models"]
+    question: "A team wants managed foundation-model capabilities on Oracle Cloud Infrastructure. Which service area is most relevant?"
+    choices:
+      - "A. OCI Generative AI"
+      - "B. OCI DNS"
+      - "C. OCI FastConnect"
+      - "D. Object Storage lifecycle rules only"
+    answerIndex: 0
+    explanation: "OCI Generative AI provides managed foundation-model capabilities and building blocks for generative AI applications."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://docs.oracle.com/en-us/iaas/Content/generative-ai/"
+    author: "CertSherpa contributors"
+  - id: "oai-oci-012"
+    difficulty: "medium"
+    tags: ["oci-agentic-ai", "rag", "knowledge-base"]
+    question: "An OCI agent must answer questions using a private knowledge corpus. Which capability is the best match?"
+    choices:
+      - "A. A RAG tool connected to an authorized knowledge base"
+      - "B. Unrestricted public web search"
+      - "C. A DNS load balancer"
+      - "D. A block-volume backup policy"
+    answerIndex: 0
+    explanation: "A retrieval-augmented generation tool retrieves relevant content from an authorized knowledge base and supplies it as context for the agent."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://docs.oracle.com/en-us/iaas/Content/generative-ai-agents/knowledge-bases.htm"
+    author: "CertSherpa contributors"
+  - id: "oai-db-013"
+    difficulty: "easy"
+    tags: ["oracle-ai-database", "vector-search", "embeddings"]
+    question: "What is stored in a vector column to support semantic similarity search over text?"
+    choices:
+      - "A. Numeric embedding vectors representing semantic features"
+      - "B. Raw passwords"
+      - "C. DNS hostnames only"
+      - "D. Video files"
+    answerIndex: 0
+    explanation: "Embeddings are numeric vector representations of content. Vector search compares these representations to retrieve semantically similar items."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/"
+    author: "CertSherpa contributors"
+  - id: "oai-db-014"
+    difficulty: "medium"
+    tags: ["oracle-ai-database", "rag", "chunking"]
+    question: "A long handbook is indexed as one giant text record and retrieval results are imprecise. What is a sensible improvement?"
+    choices:
+      - "A. Split the text into meaningful chunks, preserve metadata, and index chunk embeddings"
+      - "B. Index only the filename"
+      - "C. Increase the database connection pool only"
+      - "D. Put the full handbook into every prompt"
+    answerIndex: 0
+    explanation: "Chunking creates focused retrieval units, while metadata can help filter and attribute results returned to the RAG workflow."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/"
+    author: "CertSherpa contributors"
+  - id: "oai-db-015"
+    difficulty: "hard"
+    tags: ["oracle-ai-database", "security", "least-privilege"]
+    question: "An agent accesses an Oracle database through an MCP server. Which configuration best limits unintended data access?"
+    choices:
+      - "A. Use a dedicated least-privilege identity, restrict exposed tools, and audit requests"
+      - "B. Connect as SYSDBA for every user"
+      - "C. Allow unrestricted SQL against every schema"
+      - "D. Store credentials in the system prompt"
+    answerIndex: 0
+    explanation: "A least-privilege identity, constrained tool surface, and audit controls reduce the impact of prompt or tool misuse."
+    refs:
+      - "https://learn.oracle.com/ols/learning-path/become-an-oracle-agentic-ai-foundations-associate/146553/163239"
+      - "https://docs.oracle.com/en/database/oracle/oracle-database/23/vecse/"
+    author: "CertSherpa contributors"

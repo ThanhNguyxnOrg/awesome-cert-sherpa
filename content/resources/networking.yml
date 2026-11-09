@@ -620,3 +620,14 @@ resources:
     language: [en]
     notes: "Popular Python library for SSH connections to network devices. Supports Cisco, Juniper, Arista, and many more."
     last_verified: "2026-02-14"
+
+  - title: "CertQuiz – Free CompTIA Network+ N10-009 Practice Test"
+    type: practice-tool
+    url: https://www.getcertquiz.com/
+    vendor: CertQuiz
+    certs: [Network+]
+    tags: [community, free, practice-test, explanations, n10-009]
+    difficulty: intermediate
+    language: [en]
+    notes: "Community-written 50-question Network+ N10-009 practice test with explanations and timed mode; question bank is mapped to published exam domains. Independent resource, not CompTIA content."
+    last_verified: "2026-11-09"

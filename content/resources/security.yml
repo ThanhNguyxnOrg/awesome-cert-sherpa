@@ -780,3 +780,14 @@ resources:
     language: [en]
     notes: "Practical incident response guidance covering preparation, detection, containment, eradication, and recovery."
     last_verified: "2026-02-14"
+
+  - title: "CertQuiz – Free CompTIA Security+ SY0-701 Practice Test"
+    type: practice-tool
+    url: https://www.getcertquiz.com/
+    vendor: CertQuiz
+    certs: [Security+]
+    tags: [community, free, practice-test, explanations, sy0-701]
+    difficulty: intermediate
+    language: [en]
+    notes: "Community-written 50-question Security+ SY0-701 practice test with explanations and timed mode; question bank is mapped to published exam domains. Independent resource, not CompTIA content."
+    last_verified: "2026-11-09"
