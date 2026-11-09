@@ -9,8 +9,8 @@
 [![Deploy to GitHub Pages](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/deploy.yml/badge.svg)](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/deploy.yml)
 [![Validate Question Bank](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/validate-bank.yml/badge.svg)](https://github.com/ThanhNguyxnOrg/awesome-cert-sherpa/actions/workflows/validate-bank.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Questions](https://img.shields.io/badge/Questions-1%2C590%2B-0e5a8a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
-[![Certifications](https://img.shields.io/badge/Certifications-14-2b6e5a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
+[![Questions](https://img.shields.io/badge/Questions-1%2C635%2B-0e5a8a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
+[![Certifications](https://img.shields.io/badge/Certifications-16-2b6e5a)](https://thanhnguyxnorg.github.io/awesome-cert-sherpa/practice)
 [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor%20Covenant-e07a2f)](CODE_OF_CONDUCT.md)
 
 CertSherpa is the field journal for climbing IT certifications — a hand-curated awesome list paired with a practice engine that never ships exam dumps. Every question is original, scenario-based, and mapped to published exam objectives.
@@ -19,8 +19,8 @@ CertSherpa is the field journal for climbing IT certifications — a hand-curate
 
 ## ✨ Highlights
 
-- **1,590+ original practice questions** across 14 certifications
-- **440+ curated resources** across 7 categories
+- **1,635+ original practice questions** across 16 certifications
+- **460+ curated resources** across 7 categories
 - **Strict anti-dump policy** — no leaked or NDA-violating material, ever
 - **Vendor-neutral coverage** — AWS, Azure, GCP, CompTIA, Cisco, Kubernetes, Linux, HashiCorp, ISC2, PMI
 - **Topographic field-journal UI** — paper, ink, and altimeter chips instead of generic SaaS gradients
@@ -33,10 +33,12 @@ CertSherpa is the field journal for climbing IT certifications — a hand-curate
 | Cloud | AWS SAA · AWS SAP · AZ-900 · AZ-104 · GCP ACE | 590 |
 | Security | CompTIA Security+ (SY0-701) · CISSP | 220 |
 | Networking | CCNA · Network+ | 230 |
-| DevOps | CKA · Terraform Associate | 250 |
+| DevOps | CKA · Terraform Associate (004) | 265 |
 | Linux | LPIC-1 | 100 |
-| Data & AI | AWS MLS-C01 | 100 |
+| Data & AI | AWS AI Practitioner (AIF-C01) · Oracle Agentic AI Foundations · AWS MLS-C01 (legacy) | 130 |
 | PM & ITSM | PMP | 100 |
+
+> **Retired exam bank:** AWS Certified Machine Learning – Specialty (MLS-C01) ended on March 31, 2026. Its 100 original questions remain as historical study material; it is not a current certification path.
 
 ## ⚡ Quickstart
 
@@ -99,7 +101,7 @@ All tokens live in [`website/src/css/tokens.css`](website/src/css/tokens.css) as
 | Phase | Status | Description |
 |---|---|---|
 | 1 — Scaffold | ✅ | Docusaurus portal, Pages config, category structure |
-| 2 — Content | ✅ | 1,590+ practice questions, 440+ curated resources |
+| 2 — Content | ✅ | 1,635+ practice questions, 460+ curated resources |
 | 3 — Community | ✅ | Issue/PR templates, Discussions, contribution workflow |
 | 4 — Practice Engine | ✅ | Picker → Quiz → Summit log with localStorage stats |
 | 5 — Visual rebuild | ✅ | Topographic Expedition design system |
