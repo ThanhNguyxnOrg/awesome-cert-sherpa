@@ -405,3 +405,23 @@ sources:
     url: https://github.com/
     category: platform
     notes: "Hosts curated awesome-lists, study guides, and practice labs referenced throughout."
+
+  - name: Oracle University
+    url: https://education.oracle.com/
+    category: vendor
+    notes: "Official Oracle training and certification portal; the Agentic AI Foundations learning path includes a practice exam and free certification exam."
+
+  - name: NVIDIA Learning & Certification
+    url: https://www.nvidia.com/en-us/learn/certification/
+    category: vendor
+    notes: "Official NVIDIA certification catalog, exam preparation pages, study guides, and blueprints."
+
+  - name: CloudCertPrep
+    url: https://github.com/nastaso/cloudcertprep
+    category: community
+    notes: "Independent MIT-licensed AWS Cloud Practitioner and AI Practitioner practice platform with original question banks and timed mocks; not affiliated with AWS."
+
+  - name: CertQuiz
+    url: https://www.getcertquiz.com/
+    category: community
+    notes: "Independent free CompTIA Security+ and Network+ practice tests with explanations, timed mode, and domain-level review."
