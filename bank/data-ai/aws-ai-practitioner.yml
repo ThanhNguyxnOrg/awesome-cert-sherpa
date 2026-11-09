@@ -1,0 +1,182 @@
+meta:
+  category: "data-ai"
+  cert: "AWS-AIF"
+  vendor: "AWS"
+  version: 1
+  description: "Original practice questions for AWS Certified AI Practitioner (AIF-C01), aligned to the current published exam guide."
+questions:
+  - id: "aif-found-001"
+    difficulty: "easy"
+    tags: ["supervised-learning", "regression"]
+    question: "A retailer has labeled monthly sales and wants to predict next month's revenue for each store. Which approach best fits?"
+    choices:
+      - "A. Supervised regression"
+      - "B. Unsupervised clustering"
+      - "C. Speech synthesis"
+      - "D. Keyword search"
+    answerIndex: 0
+    explanation: "Revenue is a continuous numeric target, so supervised regression is an appropriate starting point."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+    author: "CertSherpa contributors"
+  - id: "aif-found-002"
+    difficulty: "easy"
+    tags: ["unsupervised-learning", "clustering"]
+    question: "A streaming service wants to group viewers by similar watch behavior but has no predefined audience labels. Which technique is most direct?"
+    choices:
+      - "A. Regression"
+      - "B. Clustering"
+      - "C. Binary classification"
+      - "D. Translation"
+    answerIndex: 1
+    explanation: "Clustering discovers groups in unlabeled data based on similarity; it does not require a predefined target label."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+    author: "CertSherpa contributors"
+  - id: "aif-gen-003"
+    difficulty: "easy"
+    tags: ["transformers", "attention"]
+    question: "Which transformer mechanism lets a token use information from other positions in the input sequence?"
+    choices:
+      - "A. Attention"
+      - "B. DNS routing"
+      - "C. Database normalization"
+      - "D. Image quantization"
+    answerIndex: 0
+    explanation: "Attention computes relationships between tokens and is a central mechanism in transformer-based language models."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+    author: "CertSherpa contributors"
+  - id: "aif-gen-004"
+    difficulty: "medium"
+    tags: ["context-window", "tokens"]
+    question: "A long conversation request fails because it exceeds a model's context limit. What should the application team inspect?"
+    choices:
+      - "A. The combined input tokens and reserved output tokens"
+      - "B. The number of database indexes"
+      - "C. The DNS TTL"
+      - "D. The file extension of the prompt"
+    answerIndex: 0
+    explanation: "The context window limits the tokens processed in one request, including the supplied conversation and space reserved for output."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+    author: "CertSherpa contributors"
+  - id: "aif-gen-005"
+    difficulty: "medium"
+    tags: ["rag", "grounding", "hallucinations"]
+    question: "A support assistant invents a return policy when its approved policy source contains no answer. What response design is safest?"
+    choices:
+      - "A. Ground answers in approved sources and abstain when evidence is missing"
+      - "B. Ask the model to guess a likely policy"
+      - "C. Raise temperature to improve accuracy"
+      - "D. Remove source references"
+    answerIndex: 0
+    explanation: "Retrieval-grounded answers and an explicit abstention behavior reduce unsupported claims when the source material has no answer."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+    author: "CertSherpa contributors"
+  - id: "aif-app-006"
+    difficulty: "easy"
+    tags: ["amazon-bedrock", "foundation-models"]
+    question: "A developer wants to experiment with multiple foundation models through a managed AWS service and a consistent API. Which service is designed for this?"
+    choices:
+      - "A. Amazon Bedrock"
+      - "B. Amazon Route 53"
+      - "C. AWS Direct Connect"
+      - "D. Amazon EBS"
+    answerIndex: 0
+    explanation: "Amazon Bedrock provides managed access to foundation models and capabilities for building generative AI applications."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html"
+    author: "CertSherpa contributors"
+  - id: "aif-app-007"
+    difficulty: "medium"
+    tags: ["knowledge-bases", "rag"]
+    question: "A company has internal policy PDFs and wants a managed retrieval workflow for a Bedrock application. Which capability is most relevant?"
+    choices:
+      - "A. Amazon Bedrock Knowledge Bases"
+      - "B. CloudFront invalidations"
+      - "C. EC2 placement groups"
+      - "D. AWS Artifact reports"
+    answerIndex: 0
+    explanation: "Bedrock Knowledge Bases connect data sources to a retrieval workflow and provide relevant context to a model."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html"
+    author: "CertSherpa contributors"
+  - id: "aif-app-008"
+    difficulty: "medium"
+    tags: ["agents", "tool-use", "function-calling"]
+    question: "An assistant must check live inventory in an order system before answering. What capability should the design provide?"
+    choices:
+      - "A. A controlled tool or function call to the inventory API"
+      - "B. A longer static prompt with yesterday's inventory"
+      - "C. A higher temperature"
+      - "D. An image classifier"
+    answerIndex: 0
+    explanation: "A controlled tool call retrieves current inventory from the system of record; a static prompt cannot reliably provide live stock information."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html"
+    author: "CertSherpa contributors"
+  - id: "aif-resp-009"
+    difficulty: "medium"
+    tags: ["responsible-ai", "bias"]
+    question: "A hiring model performs worse for one demographic group. What should the team do before choosing a mitigation?"
+    choices:
+      - "A. Measure outcomes across groups and investigate training-data representativeness"
+      - "B. Hide the scores from reviewers"
+      - "C. Remove validation data"
+      - "D. Increase model size without testing"
+    answerIndex: 0
+    explanation: "The team should measure disparate performance and investigate possible data or system bias before selecting an appropriate mitigation."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+    author: "CertSherpa contributors"
+  - id: "aif-resp-010"
+    difficulty: "hard"
+    tags: ["responsible-ai", "human-oversight"]
+    question: "A model drafts decisions that could deny someone access to an essential service. Which deployment control is most appropriate?"
+    choices:
+      - "A. Require qualified human review before finalizing consequential decisions"
+      - "B. Publish every prediction automatically"
+      - "C. Disable audit records"
+      - "D. Optimize only for maximum automation"
+    answerIndex: 0
+    explanation: "Human oversight is an important safeguard for high-impact decisions where an incorrect prediction can materially affect a person."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+    author: "CertSherpa contributors"
+  - id: "aif-sec-011"
+    difficulty: "easy"
+    tags: ["iam", "least-privilege"]
+    question: "A Bedrock application only needs to invoke one approved model. What is the best IAM design?"
+    choices:
+      - "A. Grant the application role only the required invocation permissions"
+      - "B. Attach AdministratorAccess to every developer"
+      - "C. Use the root account in the application"
+      - "D. Commit a permanent access key to source control"
+    answerIndex: 0
+    explanation: "Least privilege limits the application role to the actions and resources it needs, reducing the impact of credential misuse."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html"
+    author: "CertSherpa contributors"
+  - id: "aif-sec-012"
+    difficulty: "medium"
+    tags: ["privacy", "data-minimization"]
+    question: "A prompt pipeline contains customer identifiers that are not needed to complete the task. What should happen before the request is sent?"
+    choices:
+      - "A. Minimize or redact unnecessary sensitive data and follow approved data-handling rules"
+      - "B. Include every customer record for more context"
+      - "C. Put identifiers in the system prompt permanently"
+      - "D. Disable access controls for debugging"
+    answerIndex: 0
+    explanation: "Data minimization and redaction reduce exposure of personal or confidential information before it reaches a model service."
+    refs:
+      - "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01.html"
+      - "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html"
+    author: "CertSherpa contributors"
