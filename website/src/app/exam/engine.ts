@@ -13,6 +13,31 @@ export const HISTORY_CAP = 20;
 
 export type ExamMode = "practice" | "timed" | "drill";
 
+export type AttemptQuestion<T> = T & {
+  displayChoices: { sourceIndex: number; text: string }[];
+};
+
+function shuffled<T>(items: readonly T[], random: () => number): T[] {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+export function prepareAttempt<T extends { choices: string[] }>(
+  pool: readonly T[], count: number, random = Math.random,
+): AttemptQuestion<T>[] {
+  return shuffled(pool, random).slice(0, count).map(question => ({
+    ...question,
+    displayChoices: shuffled(question.choices.map((choice, sourceIndex) => {
+      const prefix = `${String.fromCharCode(65 + sourceIndex)}. `;
+      return { sourceIndex, text: choice.startsWith(prefix) ? choice.slice(prefix.length) : choice };
+    }), random),
+  }));
+}
+
 export interface HistoryEntry {
   score: number;
   at: string;

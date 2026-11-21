@@ -9,9 +9,11 @@ import {
   SECONDS_PER_QUESTION,
   formatCountdown,
   isPass,
+  prepareAttempt,
   recordAttempt,
   scoreByDomain,
   useCountdown,
+  type AttemptQuestion,
   type AttemptStats,
   type ExamMode,
 } from "../exam/engine";
@@ -37,7 +39,6 @@ const MODES: { id: ExamMode; label: string; hint: string }[] = [
   { id: "drill", label: "Domain drill", hint: "By tag" },
 ];
 
-function shuffle<T>(a: T[]): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 function readStats(id: string): AttemptStats | null { try { const r = localStorage.getItem(`certsherpa_${id}`); return r ? JSON.parse(r) : null; } catch { return null; } }
 function writeStats(id: string, s: AttemptStats) { try { localStorage.setItem(`certsherpa_${id}`, JSON.stringify(s)); } catch {} }
 
@@ -51,7 +52,7 @@ export function PracticePage() {
   const [pool, setPool] = useState<Question[]>([]);
   const [poolLoading, setPoolLoading] = useState(false);
   const [activeSet, setActiveSet] = useState<QuestionSet | null>(null);
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<AttemptQuestion<Question>[]>([]);
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const [marks, setMarks] = useState<Record<string, Mark>>({});
   const [search, setSearch] = useState("");
@@ -116,7 +117,7 @@ export function PracticePage() {
       }
       const source = mode === "drill" && drillTag ? data.questions.filter(q => q.tags.includes(drillTag)) : data.questions;
       setActiveSet(data);
-      setQuestions(shuffle(source).slice(0, Math.min(n, source.length)));
+      setQuestions(prepareAttempt(source, n));
       setAnswers({}); setMarks({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
       setPaused(false); setAutoSubmitted(false); setRunId(r => r + 1);
       setAnnouncement(""); announcedRef.current = { five: false, one: false };
@@ -180,7 +181,7 @@ export function PracticePage() {
     const source = mode === "drill" && drillTag ? activeSet.questions.filter(q => q.tags.includes(drillTag)) : activeSet.questions;
     // pool may be empty on direct restart; fall back to current questions reshuffled
     const base = source.length > 0 ? source : questions;
-    setQuestions(shuffle(base).slice(0, questions.length));
+    setQuestions(prepareAttempt(base, questions.length));
     setAnswers({}); setMarks({}); setCurrentIdx(0); setSelected(null); setSubmitted(false);
     setPaused(false); setAutoSubmitted(false); setRunId(r => r + 1);
     setAnnouncement(""); announcedRef.current = { five: false, one: false };
@@ -384,15 +385,15 @@ export function PracticePage() {
                 </div>
               ) : (
                 <ul className="mt-7 grid gap-3 list-none p-0">
-                  {q.choices.map((c, i) => {
-                    const isSel = selected === i;
-                    const isRight = submitted && i === q.answerIndex;
-                    const isWrong = submitted && isSel && i !== q.answerIndex;
+                  {q.displayChoices.map(({ sourceIndex, text }, position) => {
+                    const isSel = selected === sourceIndex;
+                    const isRight = submitted && sourceIndex === q.answerIndex;
+                    const isWrong = submitted && isSel && sourceIndex !== q.answerIndex;
                     return (
-                      <li key={i}>
-                        <button onClick={() => !submitted && setSelected(i)} disabled={submitted} className={`flex w-full items-center gap-4 rounded-md border bg-[var(--card)] px-4 py-3.5 text-left transition-all duration-200 ${isRight ? "!border-[var(--accent)] bg-[var(--accent)]/10" : isWrong ? "!border-[var(--destructive)] bg-[var(--destructive)]/10" : isSel ? "border-[var(--primary)]" : "border-[var(--ink)]/15 hover:-translate-y-[1px]"}`}>
-                          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border font-mono-cs" style={{ fontSize: 12, fontWeight: 600, borderColor: isSel ? "var(--primary)" : "rgba(15,27,45,0.18)", background: isSel ? "var(--primary)" : "transparent", color: isSel ? "var(--primary-foreground)" : "var(--ink)" }}>{String.fromCharCode(65 + i)}</span>
-                          <span style={{ fontSize: 15 }}>{c}</span>
+                      <li key={sourceIndex}>
+                        <button onClick={() => !submitted && setSelected(sourceIndex)} disabled={submitted} className={`flex w-full items-center gap-4 rounded-md border bg-[var(--card)] px-4 py-3.5 text-left transition-all duration-200 ${isRight ? "!border-[var(--accent)] bg-[var(--accent)]/10" : isWrong ? "!border-[var(--destructive)] bg-[var(--destructive)]/10" : isSel ? "border-[var(--primary)]" : "border-[var(--ink)]/15 hover:-translate-y-[1px]"}`}>
+                          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border font-mono-cs" style={{ fontSize: 12, fontWeight: 600, borderColor: isSel ? "var(--primary)" : "rgba(15,27,45,0.18)", background: isSel ? "var(--primary)" : "transparent", color: isSel ? "var(--primary-foreground)" : "var(--ink)" }}>{submitted ? String.fromCharCode(65 + sourceIndex) : position + 1}</span>
+                          <span style={{ fontSize: 15 }}>{text}</span>
                           {isRight && <Check size={18} className="ml-auto text-[var(--accent)]" />}
                           {isWrong && <X size={18} className="ml-auto text-[var(--destructive)]" />}
                         </button>
@@ -422,6 +423,7 @@ export function PracticePage() {
                   <span className="font-mono-cs" style={{ fontSize: 11, letterSpacing: "0.1em", color: "var(--muted-foreground)" }}>FIELD NOTE · EXPLANATION</span>
                   <h4 className="font-display mt-1" style={{ fontSize: 22, fontWeight: 600, fontStyle: "italic" }}>{isCorrect ? "On route." : "Off route."}</h4>
                   <p className="mt-3" style={{ fontSize: 14.5, lineHeight: 1.65 }}>{q.explanation}</p>
+                  <p className="mt-2 text-sm text-[var(--muted-foreground)]">Letters in the explanation match the labels on the locked choices above.</p>
                 </motion.aside>
               )}
             </AnimatePresence>
